@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.4824120603015075" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="188.0" prefWidth="200.0">
+         <children>
+            <Text fx:id="player1" layoutX="85.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="127.21875" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="15.0" />
+            <Text fx:id="budget1" layoutX="14.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="104.1923828125" AnchorPane.leftAnchor="14.0" />
+            <ImageView fx:id="tramCard1" fitHeight="64.0" fitWidth="97.0" layoutX="14.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="75.0" />
+            <ImageView fx:id="theDiamond1" fitHeight="64.0" fitWidth="97.0" layoutX="111.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="75.0" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="297.0" prefWidth="298.0">
+         <children>
+            <Text fx:id="player2" layoutX="85.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="116.0" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="15.0" />
+            <Text fx:id="budget2" layoutX="16.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="104.1923828125" AnchorPane.leftAnchor="14.0" />
+            <ImageView fx:id="tramCard2" fitHeight="64.0" fitWidth="97.0" layoutX="20.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="79.0" />
+            <ImageView fx:id="theDiamond2" fitHeight="64.0" fitWidth="97.0" layoutX="117.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="90.0" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>

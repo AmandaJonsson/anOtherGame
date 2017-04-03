@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="148.0" prefWidth="595.0">
+               <children>
+                  <Text fill="#4b5966" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Lost Diamond" textAlignment="CENTER" wrappingWidth="600.0" AnchorPane.leftAnchor="0.0">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#4b5966" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gothenburg Edition" textAlignment="CENTER" wrappingWidth="600.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="204.0" prefWidth="600.0">
+               <children>
+                  <TextField layoutX="43.0" layoutY="14.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Spelare 1" AnchorPane.leftAnchor="50.0" />
+                  <TextField layoutX="225.0" layoutY="14.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Spelare 2" />
+                  <TextField layoutX="411.0" layoutY="14.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Spelare 3" AnchorPane.rightAnchor="50.0" />
+                  <TextField layoutX="30.0" layoutY="45.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Spelare 4" AnchorPane.leftAnchor="50.0" />
+                  <TextField layoutX="225.0" layoutY="45.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Spelare 5" />
+                  <TextField layoutX="411.0" layoutY="45.0" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" promptText="Spelare 6" AnchorPane.rightAnchor="50.0" />
+                  <Button alignment="CENTER" layoutX="200.0" layoutY="99.0" maxWidth="200.0" minWidth="200.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #9DBACC;" text="Starta spel" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="48.0" prefWidth="600.0">
+               <children>
+                  <Button alignment="CENTER" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-color: #9DBACC;" text="Regler" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" layoutX="81.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-color: #9DBACC;" text="Avsluta" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

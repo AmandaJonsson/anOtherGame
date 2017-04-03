@@ -21,6 +21,7 @@ public class Player {
         return this.position;
     }
 
+
     public void setPosition(String newPosition){ //onödig när vi har den här i PlayerController?
         this.position = newPosition;
 

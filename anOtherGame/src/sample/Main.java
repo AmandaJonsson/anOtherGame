@@ -12,9 +12,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("startPane.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("start.fxml"));
         primaryStage.setTitle("The lost diamond");
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root, 1000, 574));
         primaryStage.show();
     }
     

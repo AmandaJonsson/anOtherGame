@@ -12,7 +12,7 @@ public class Main extends Application {
 
 
         Parent root = FXMLLoader.load(getClass().getResource("/Design/start.fxml"));
-        primaryStage.setTitle("The lost diamond");
+        primaryStage.setTitle("The Lost Kitten");
         primaryStage.setScene(new Scene(root, 1000, 574));
         primaryStage.show();
     }

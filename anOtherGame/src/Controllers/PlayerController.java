@@ -1,5 +1,7 @@
-package sample;
+package Controllers;
 
+
+import Objects.Player;
 
 public class PlayerController {
 

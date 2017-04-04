@@ -1,17 +1,17 @@
 
 #pane{
-    -fx-background-image: url("./images/background.png");
+    -fx-background-image: url("../../Images/background.png");
     -fx-background-repeat: stretch;
     -fx-background-position: center center;
 }
 
 #title{
-    -fx-image: url("./images/titel.png");
+    -fx-image: url("../../Images/titel.png");
     -fx-alignment: baseline-center;
 }
 
 #catimage{
-    -fx-image: url("./images/catpic.png");
+    -fx-image: url("../../Images/catpic.png");
     -fx-alignment: baseline-center;
 }
 

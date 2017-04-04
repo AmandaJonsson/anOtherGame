@@ -1,5 +1,4 @@
-package sample;
-
+import Objects.Dice;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +11,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("start.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Design/start.fxml"));
         primaryStage.setTitle("The lost diamond");
         primaryStage.setScene(new Scene(root, 1000, 574));
         primaryStage.show();

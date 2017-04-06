@@ -17,6 +17,7 @@ public class Spaces extends Step {
 
     public Spaces(String name, int x, int y) {
         super(x,y);
+        this.setId("spaces");
         this.setFill(Paint.valueOf("000"));
         this.setRadius(10);
         //this.setLayoutX(x);
@@ -25,10 +26,21 @@ public class Spaces extends Step {
         this.setTranslateY(-getRadius());
         this.name = name;
         this.adjacentSpaces = new ArrayList<Edge>();
-        this.setOnMouseEntered(new EventHandler<MouseEvent>() {
+        this.setOnMouseEntered(new EventHandler<MouseEvent>
+                () {
+
             @Override
-            public void handle(MouseEvent event) {
-                setFill(Paint.valueOf("RED"));
+            public void handle(MouseEvent t) {
+                setStyle("-fx-fill:RED;");
+            }
+        });
+
+        this.setOnMouseExited(new EventHandler<MouseEvent>
+                () {
+
+            @Override
+            public void handle(MouseEvent t) {
+                setStyle("-fx-fill:#000;");
             }
         });
         this.setOnMouseClicked(new EventHandler<MouseEvent>() {

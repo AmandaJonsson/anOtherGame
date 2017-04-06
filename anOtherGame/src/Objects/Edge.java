@@ -18,10 +18,10 @@ public class Edge {
         this.from=from;
         this.to=to;
         path = new ArrayList<Step>();
-        calculatePath();
+        System.out.println(calculatePath(from.getX(),from.getY()));
     }
 
-    private void calculatePath() {
+    /*private void calculatePath() {
         //if (from.getX()>to.getX()){
             for (int i = -1; i < from.getX()-to.getX(); i++){
                 path.add(new Path(from.getX()-i,0));
@@ -92,6 +92,42 @@ public class Edge {
                 }
         }
 
+    }*/
+    private boolean calculatePath(int x, int y) {
+        //base case
+        if (x == to.getX() && y== to.getY()){
+            return true;
+        }
+        // adds steps for the bicycle path
+        if ((x%10 ==0 && x!=from.getX() && x!=to.getX()) || (y%10 == 0&& y!=from.getY() && y!=to.getY())){
+            path.add(new Spaces("NONAME", x, y));
+        }
+        else path.add(new Path(x,y));
+        if (x < to.getX()){
+            if (y<to.getY()){
+                return calculatePath(x+1,y+1);
+            }
+            if (y>to.getY()){
+                return calculatePath(x+1,y-1);
+            }
+        }
+        else if (x > to.getX()){
+            if (y<to.getY()){
+                return calculatePath(x-1,y+1);
+            }
+            if (y>to.getY()){
+                return calculatePath(x+1,y-1);
+            }
+        }
+        else if (x==to.getX()){
+            if (y<to.getY()){
+                return calculatePath(x,y+1);
+            }
+            if (y>to.getY()){
+                return calculatePath(x,y-1);
+            }
+        }
+        return false;
     }
 
     public ArrayList<Step> getPath() {

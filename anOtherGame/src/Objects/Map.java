@@ -28,6 +28,9 @@ public class Map extends GridPane {
                 "-fx-background-repeat: no-repeat;");
 
         //this.setStyle("-fx-background-color: aqua");
+        this.setPrefSize(900,900);
+        this.setMinSize(this.getPrefWidth(),this.getPrefHeight());
+        this.setMaxSize(this.getPrefWidth(),this.getPrefHeight());
         createGrid();
         addSpaces();
 
@@ -53,13 +56,21 @@ public class Map extends GridPane {
         Stations nordstan = new Stations("Nordstan", 55,30);
         Stations chalmers = new Stations("Chalmers", 59,70);
         Stations jarntorget = new Stations("Järntorget", 39,50);
+        Stations olskroken = new Stations("Olskroken", 95,10);
         nordstan.addAdjacentSpace(chalmers);
         nordstan.addAdjacentSpace(jarntorget);
+        chalmers.addAdjacentSpace(olskroken);
         //group = new Group();
         this.add(nordstan, nordstan.getX(), nordstan.getY());
         this.add(chalmers, chalmers.getX(), chalmers.getY());
         this.add(jarntorget, jarntorget.getX(), jarntorget.getY());
+        this.add(olskroken, olskroken.getX(), olskroken.getY());
         for (Edge edge : nordstan.getAdjacentSpaces()) {
+            for (Step step : edge.getPath()){
+                this.add(step, step.getX(), step.getY());
+            }
+        }
+        for (Edge edge : chalmers.getAdjacentSpaces()) {
             for (Step step : edge.getPath()){
                 this.add(step, step.getX(), step.getY());
             }
@@ -84,9 +95,7 @@ public class Map extends GridPane {
             rowConst.setValignment(CENTER);
             this.getRowConstraints().add(rowConst);
         }
-        this.setPrefSize(900,900);
-        this.setMinSize(this.getPrefWidth(),this.getPrefHeight());
-        this.setMaxSize(this.getPrefWidth(),this.getPrefHeight());
+
     }
 
     public void setNewSize(double newsize, double oldSize) {

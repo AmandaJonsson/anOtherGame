@@ -31,3 +31,7 @@
     -fx-pref-width: 100px;
 
 }
+
+#space{
+    -fx-fill: aqua;
+}

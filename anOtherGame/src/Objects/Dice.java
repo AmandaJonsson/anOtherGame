@@ -6,14 +6,16 @@ import java.util.Random;
 public class Dice {
 
     public int die;
+    Random randomNumber = new Random();
 
-    public Dice(){
-        roll();
+   public Dice(){
+       
     }
 
-    public void roll(){
-        Random randomNumber = new Random();
+
+    public int roll(){
         die = randomNumber.nextInt(6)+1;
         System.out.println(die);
+        return die;
     }
 }

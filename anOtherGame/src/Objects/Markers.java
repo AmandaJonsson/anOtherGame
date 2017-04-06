@@ -1,5 +1,9 @@
 package Objects;
 
 
-public class Markers {
+public interface Markers {
+
+
+
+
 }

@@ -1,3 +1,5 @@
+import Controllers.MapController;
+import Design.MapView;
 import Objects.Dice;
 import Objects.Map;
 import Objects.Markers;
@@ -21,7 +23,10 @@ public class Main extends Application {
         StackPane pane = new StackPane();
         Scene scene = new Scene(pane,1000,1000);
         primaryStage.setScene(scene);
-        pane.getChildren().add(new Map());
+        Map map = new Map();
+        MapView mapView = new MapView();
+        MapController controller = new MapController(map, mapView);
+        pane.getChildren().add(mapView);
 
         primaryStage.show();
     }

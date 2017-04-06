@@ -11,8 +11,7 @@ public class Dice {
    public Dice(){
        
     }
-
-
+    
     public int roll(){
         die = randomNumber.nextInt(6)+1;
         System.out.println(die);

@@ -6,6 +6,7 @@ public class Player {
     private String position;
     private boolean hasTramCard = false;
     private int budget = 5000;      //StartBudget is 5000 kr right?
+    private boolean hasCat = false;
 
     public Player(String position, boolean hasTramCard, int budget){
         this.position = position;
@@ -15,6 +16,10 @@ public class Player {
 
     public int getBudget(){
         return this.budget;
+    }
+
+    public int updateBudget(){
+        return 0;                       ////ska skrivas
     }
 
     public String getPosition(){
@@ -33,6 +38,10 @@ public class Player {
 
     public void usedTramCard(){         //ska också ligga i PlayerController?
         hasTramCard = false;
+    }
+
+    public void hasCat(){
+        hasCat = true;
     }
 
 

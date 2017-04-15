@@ -22,8 +22,8 @@ public class Spaces extends Step {
         this.setRadius(10);
         //this.setLayoutX(x);
         //this.setLayoutY(y);
-        this.setTranslateX(-getRadius());
-        this.setTranslateY(-getRadius());
+        //this.setTranslateX(-getRadius());
+        //this.setTranslateY(-getRadius());
         this.name = name;
         this.adjacentSpaces = new ArrayList<Edge>();
         this.setOnMouseEntered(new EventHandler<MouseEvent>
@@ -46,7 +46,17 @@ public class Spaces extends Step {
         this.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                System.out.println(name);
+
+                for(Edge edge : adjacentSpaces) {
+                    for (Step step : edge.getPath()) {
+                        if (step instanceof Spaces) {
+                            System.out.println(((Spaces)step).getName());
+                        }
+
+                    }
+
+                }
+
             }
         });
     }
@@ -63,5 +73,9 @@ public class Spaces extends Step {
 
     public ArrayList<Edge> getAdjacentSpaces() {
         return adjacentSpaces;
+    }
+
+    public String getName() {
+        return name;
     }
 }

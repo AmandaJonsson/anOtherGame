@@ -26,6 +26,7 @@ public class MapController {
                 list.addAll(edge.getPath());
             }
         }
+
         for (Step step : list) {
             view.addSpaces(step);
         }

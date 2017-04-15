@@ -18,10 +18,10 @@ public class Map{
    ArrayList<Spaces> spaces;
     public Map() {
         spaces = new ArrayList<Spaces>();
-        addSpaces();
+        createSpaces();
     }
 
-    private void addSpaces() {
+    private void createSpaces() {
         Stations nordstan = new Stations("Nordstan", 55,30);
         Stations chalmers = new Stations("Chalmers", 59,70);
         Stations jarntorget = new Stations("Järntorget", 39,50);

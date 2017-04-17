@@ -1,8 +1,7 @@
 package Objects;
 
-import org.testng.annotations.Test;
-
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class DiceTest {
 

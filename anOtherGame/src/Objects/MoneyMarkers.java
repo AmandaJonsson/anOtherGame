@@ -1,33 +1,58 @@
 package Objects;
 
+import java.util.Random;
+
 /**
  * Created by amandajonsson on 2017-04-06.
  */
-public class MoneyMarkers implements Markers {
+public class MoneyMarkers extends Markers{
 
-    int n;
+    private Markers marker;
+    private int valueOfMarker;
+    private Player player;
+    private String [] descriptionText = {"Du har fått CSN","Du vann på lotto", "Du fick skatteåtebäring", "Du har fått pengar av mormor"};
 
 
-    public MoneyMarkers(){
-
+    public enum Markers{
+        TOPAZ, EMERALD, RUBY, BLANK
     }
 
-    public int topaz (){
-
-        return 0;
-
-
+    public MoneyMarkers(Markers marker) {
+        this.marker = marker;
+        System.out.println("Skapar en Moneymarker");
     }
 
-    public int emerald (){
+    @Override
+    public void Markervalue() {
+        switch(marker){
+            case TOPAZ:
+                valueOfMarker=3000;
+                String desc = (descriptionText[new Random().nextInt(descriptionText.length)]);
+                System.out.println(desc + " " +  valueOfMarker + " " + "kr");
+                //player.updateBudget(valueOfMarker);
+                break;
 
-        return 0;
+            case EMERALD:
+                valueOfMarker=4000;
+                desc = (descriptionText[new Random().nextInt(descriptionText.length)]);
+                System.out.println(desc + " " + valueOfMarker + " " + "kr");
+
+                //player.updateBudget(valueOfMarker);
+                break;
+            case RUBY:
+                valueOfMarker = 5000;
+                desc = (descriptionText[new Random().nextInt(descriptionText.length)]);
+                System.out.println(desc + " " + valueOfMarker+ " " + "kr");
+
+                //player.updateBudget(valueOfMarker);
+                break;
+            case BLANK:
+                valueOfMarker = 0;
+                desc = "";
+                System.out.println(desc + " " + valueOfMarker+ " " + "kr");
+
+        }
+
     }
-
-    public int ruby (){
-
-        return 0;
-    }
-
 
 }

@@ -1,5 +1,7 @@
 import Objects.Dice;
 import Objects.Map;
+import Objects.Markers;
+import Objects.MoneyMarkers;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,6 +30,9 @@ public class Main extends Application {
         launch(args);
 
         Dice rollTheDice = new Dice();
+
+        MoneyMarkers m = new MoneyMarkers(MoneyMarkers.Markers.BLANK);
+        m.Markervalue();
 
     }
 }

@@ -10,7 +10,7 @@ public class Path extends Step{
 
 
     public Path(int x, int y) {
-        super(x,y);
+        super("blabla", x,y);
         this.setFill(Paint.valueOf("RED"));
         this.setRadius(2);
 

@@ -19,16 +19,17 @@ public class MapController {
     }
 
     public void addSpaces(){
-        ArrayList<Step> list = new ArrayList<Step>();
-        list.addAll(model.getSpaces());
-        for (Spaces space : model.getSpaces()){
-            for (Edge edge : space.getAdjacentSpaces()) {
-                list.addAll(edge.getPath());
+        model.createSpaces();
+            ArrayList<Step> list = new ArrayList<Step>();
+            list.addAll(model.getSpaces());
+            for (Spaces space : model.getSpaces()) {
+                if (space.getEdge() != null) {
+                    list.addAll(space.getEdge().getPath());
+                }
             }
-        }
 
-        for (Step step : list) {
-            view.addSpaces(step);
-        }
+            for (Step step : list) {
+                view.addSpaces(step);
+            }
     }
 }

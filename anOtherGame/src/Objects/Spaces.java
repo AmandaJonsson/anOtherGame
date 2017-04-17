@@ -1,6 +1,7 @@
 package Objects;
 
 
+import Controllers.MapController;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
@@ -12,20 +13,16 @@ import java.util.ArrayList;
 
 public class Spaces extends Step {
     private String name;
-    private ArrayList<Edge> adjacentSpaces;
+    private ArrayList<Spaces> adjacentSpaces;
+    private Edge edge;
 
 
     public Spaces(String name, int x, int y) {
-        super(x,y);
+        super(name, x,y);
         this.setId("spaces");
         this.setFill(Paint.valueOf("000"));
         this.setRadius(10);
-        //this.setLayoutX(x);
-        //this.setLayoutY(y);
-        //this.setTranslateX(-getRadius());
-        //this.setTranslateY(-getRadius());
-        this.name = name;
-        this.adjacentSpaces = new ArrayList<Edge>();
+        this.adjacentSpaces = new ArrayList<Spaces>();
         this.setOnMouseEntered(new EventHandler<MouseEvent>
                 () {
 
@@ -47,13 +44,8 @@ public class Spaces extends Step {
             @Override
             public void handle(MouseEvent event) {
 
-                for(Edge edge : adjacentSpaces) {
-                    for (Step step : edge.getPath()) {
-                        if (step instanceof Spaces) {
-                            System.out.println(((Spaces)step).getName());
-                        }
-
-                    }
+                for(Spaces space : adjacentSpaces) {
+                            System.out.println(space.getName());
 
                 }
 
@@ -62,20 +54,27 @@ public class Spaces extends Step {
     }
 
 
-    public void addAdjacentSpace(Spaces space){
-        adjacentSpaces.add(new Edge(this, space));
+    public void addAdjacentStation(Spaces space){
+        edge = new Edge(this, space);
+        adjacentSpaces.add(space);
         //createEdge(space);
     }
+
+    public void addAdjacentSpace(Spaces space) {
+        adjacentSpaces.add(space);
+    }
+
 
     private void createEdge(Spaces space) {
         Edge edge = new Edge(this, space);
     }
 
-    public ArrayList<Edge> getAdjacentSpaces() {
+    public ArrayList<Spaces> getAdjacentSpaces() {
         return adjacentSpaces;
     }
 
-    public String getName() {
-        return name;
+
+    public Edge getEdge() {
+        return edge;
     }
 }

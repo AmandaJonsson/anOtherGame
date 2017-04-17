@@ -12,10 +12,12 @@ import java.awt.*;
 public class Step extends Circle{
     private int x;
     private int y;
+    private String name;
 
-    public Step(int x, int y) {
+    public Step(String name, int x, int y) {
         this.x=x;
         this.y=y;
+        this.name = name;
     }
 
     public int getY(){
@@ -23,6 +25,9 @@ public class Step extends Circle{
     }
     public int getX(){
         return x;
+    }
+    public String getName() {
+        return name;
     }
 
 }

@@ -1,13 +1,10 @@
 package Objects;
 
 
-import Controllers.MapController;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.LineTo;
 
 import java.util.ArrayList;
 
@@ -45,7 +42,8 @@ public class Spaces extends Step {
             public void handle(MouseEvent event) {
 
                 for(Spaces space : adjacentSpaces) {
-                            System.out.println(space.getName());
+                    System.out.println(space.getName());
+                            space.setFill(Paint.valueOf("green"));
 
                 }
 
@@ -55,18 +53,12 @@ public class Spaces extends Step {
 
 
     public void addAdjacentStation(Spaces space){
-        edge = new Edge(this, space);
-        adjacentSpaces.add(space);
+
         //createEdge(space);
     }
 
     public void addAdjacentSpace(Spaces space) {
         adjacentSpaces.add(space);
-    }
-
-
-    private void createEdge(Spaces space) {
-        Edge edge = new Edge(this, space);
     }
 
     public ArrayList<Spaces> getAdjacentSpaces() {
@@ -76,5 +68,10 @@ public class Spaces extends Step {
 
     public Edge getEdge() {
         return edge;
+    }
+
+    public void addPath(Map map, Stations station) {
+        edge = new Edge(map, this, station);
+        adjacentSpaces.add(station);
     }
 }

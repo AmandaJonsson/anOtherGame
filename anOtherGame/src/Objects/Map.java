@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import static javafx.geometry.VPos.CENTER;
 
 public class Map{
-   ArrayList<Spaces> spaces;
+
+
+    ArrayList<Spaces> spaces;
 
     public Map() {
         spaces = new ArrayList<Spaces>();
@@ -28,10 +30,10 @@ public class Map{
         Stations jarntorget = new Stations("Järntorget", 39,50);
         Stations olskroken = new Stations("Olskroken", 95,10);
         Stations somewhere = new Stations("Somewhere", 95,80);
-        nordstan.addAdjacentStation(chalmers);
-        nordstan.addAdjacentStation(jarntorget);
-        chalmers.addAdjacentStation(olskroken);
-        olskroken.addAdjacentStation(somewhere);
+        nordstan.addPath(this, chalmers);
+        chalmers.addPath(this, olskroken);
+        olskroken.addPath(this, somewhere);
+        nordstan.addPath(this, jarntorget);
         spaces.add(nordstan);
         spaces.add(chalmers);
         spaces.add(jarntorget);
@@ -40,6 +42,9 @@ public class Map{
         return true;
     }
 
+    public void addSpaces(Spaces space) {
+        spaces.add(space);
+    }
 
     public ArrayList<Spaces> getSpaces() {
         return spaces;

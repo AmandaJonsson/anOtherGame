@@ -1,7 +1,5 @@
 package Objects;
 
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Shape;
 import sun.jvm.hotspot.memory.Space;
 
 import java.util.ArrayList;
@@ -15,15 +13,15 @@ public class Edge {
     private Spaces to;
     private ArrayList<Step> path;
 
-    public Edge(Spaces from, Spaces to) {
+    public Edge(Map map, Spaces from, Spaces to) {
         this.from=from;
         this.to=to;
         path = new ArrayList<Step>();
         to.addAdjacentSpace(from);
-        System.out.println(calculatePath(from, from.getX(),from.getY()));
+        System.out.println(calculatePath(map, from, from.getX(),from.getY()));
     }
 
-    private boolean calculatePath(Spaces prev, int x, int y) {
+    private boolean calculatePath(Map map, Spaces prev, int x, int y) {
         //base case
         if (x == to.getX() && y== to.getY()){
             if(!to.getAdjacentSpaces().contains(prev)) {
@@ -39,34 +37,44 @@ public class Edge {
         // adds steps for the bicycle path
         if (((from.getX() - x)%10 ==0 && x!=from.getX() && x!=to.getX()) || ((from.getY()-y)%10 == 0&& y!=from.getY() && y!=to.getY())){
             Spaces space = new Spaces("NONAME", x, y);
+            boolean exists = false;
+            for(Spaces spacee : map.getSpaces()){
+                if (spacee.getX()==x && spacee.getY()==y){
+                    System.out.println("jahaja");
+                    space = spacee;
+                    exists = true;
+                }
+            }
             space.addAdjacentSpace(prev);
             prev.addAdjacentSpace(space);
-            path.add(space);
+            if (!exists) {
+                map.addSpaces(space);
+            }
             prev = space;
         }
         else path.add(new Path(x,y));
         if (x < to.getX()){
             if (y<to.getY()){
-                return calculatePath(prev, x+2,y+2);
+                return calculatePath(map, prev, x+2,y+2);
             }
             if (y>to.getY()){
-                return calculatePath(prev, x+2,y-2);
+                return calculatePath(map, prev, x+2,y-2);
             }
         }
         else if (x > to.getX()){
             if (y<to.getY()){
-                return calculatePath(prev, x-2,y+2);
+                return calculatePath(map, prev, x-2,y+2);
             }
             if (y>to.getY()){
-                return calculatePath(prev, x+2,y-2);
+                return calculatePath(map, prev, x+2,y-2);
             }
         }
         else if (x==to.getX()){
             if (y<to.getY()){
-                return calculatePath(prev, x,y+2);
+                return calculatePath(map, prev, x,y+2);
             }
             if (y>to.getY()){
-                return calculatePath(prev, x,y-2);
+                return calculatePath(map, prev, x,y-2);
             }
         }
         return false;

@@ -88,7 +88,12 @@ public class Spaces extends Step {
     }
 
     public void addPath(Map map, Stations station) {
-        edge = new Edge(map, this, station);
+        if(edge != null ){
+            edge.addEdge(new Edge(map, this, station));
+        }
+        else {
+            edge = new Edge(map, this, station);
+        }
         adjacentSpaces.add(station);
     }
 }

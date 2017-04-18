@@ -33,7 +33,6 @@ public class Edge {
             return true;
         }
 
-
         // adds steps for the bicycle path
         if (((from.getX() - x)%10 ==0 && x!=from.getX() && x!=to.getX()) || ((from.getY()-y)%10 == 0&& y!=from.getY() && y!=to.getY())){
             Spaces space = new Spaces("NONAME", x, y);
@@ -55,26 +54,26 @@ public class Edge {
         else path.add(new Path(x,y));
         if (x < to.getX()){
             if (y<to.getY()){
-                return calculatePath(map, prev, x+2,y+2);
+                return calculatePath(map, prev, x+1,y+1);
             }
             if (y>to.getY()){
-                return calculatePath(map, prev, x+2,y-2);
+                return calculatePath(map, prev, x+1,y-1);
             }
         }
-        else if (x > to.getX()){
+         if (x > to.getX()){
             if (y<to.getY()){
-                return calculatePath(map, prev, x-2,y+2);
+                return calculatePath(map, prev, x-1,y+1);
             }
             if (y>to.getY()){
-                return calculatePath(map, prev, x+2,y-2);
+                return calculatePath(map, prev, x+1,y-1);
             }
         }
-        else if (x==to.getX()){
+         if (x==to.getX()){
             if (y<to.getY()){
-                return calculatePath(map, prev, x,y+2);
+                return calculatePath(map, prev, x,y+1);
             }
             if (y>to.getY()){
-                return calculatePath(map, prev, x,y-2);
+                return calculatePath(map, prev, x,y-1);
             }
         }
         return false;
@@ -82,5 +81,9 @@ public class Edge {
 
     public ArrayList<Step> getPath() {
         return path;
+    }
+
+    public void addEdge(Edge edge) {
+        path.addAll(edge.getPath());
     }
 }

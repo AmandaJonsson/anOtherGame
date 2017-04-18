@@ -25,20 +25,47 @@ public class Map{
     }
 
     public boolean createSpaces() {
+        Stations lundby  = new Stations("Lundby", 7, 14);
+        Stations ramberget  = new Stations("Ramberget", 30, 26);
+        Stations chLindholmen  = new Stations("Chalmers Lindholmen", 30, 40);
+        Stations masthuggskykan  = new Stations("Masthuggskykan", 31, 57);
+        Stations lindholmen  = new Stations("Lindholmen", 34, 41);
+        Stations slottsberget  = new Stations("Slottsberget", 23, 45);
+        Stations slottskogen  = new Stations("Slottskogen", 37, 75);
+        Stations slottskogsvallen  = new Stations("Slottskogsvallen", 33, 90);
+        Stations eriksberg  = new Stations("Eriksberg", 11, 50);
+        Stations hjbrantings= new Stations("Hjalmar Brantingsplatsen", 47, 15);
+        Stations frihamnen= new Stations("Frihamnen", 53, 16);
+
+
+ /*
         Stations nordstan = new Stations("Nordstan", 55,30);
         Stations chalmers = new Stations("Chalmers", 59,70);
         Stations jarntorget = new Stations("Järntorget", 39,50);
         Stations olskroken = new Stations("Olskroken", 95,10);
         Stations somewhere = new Stations("Somewhere", 95,80);
-        nordstan.addPath(this, chalmers);
         chalmers.addPath(this, olskroken);
         olskroken.addPath(this, somewhere);
         nordstan.addPath(this, jarntorget);
+        nordstan.addPath(this, chalmers);
         spaces.add(nordstan);
         spaces.add(chalmers);
         spaces.add(jarntorget);
         spaces.add(olskroken);
         spaces.add(somewhere);
+*/
+
+        spaces.add(lundby);
+        spaces.add(ramberget);
+        spaces.add(chLindholmen);
+        spaces.add(masthuggskykan);
+        spaces.add(lindholmen);
+        spaces.add(slottsberget);
+        spaces.add(slottskogen);
+        spaces.add(slottskogsvallen);
+        spaces.add(eriksberg);
+        spaces.add(hjbrantings);
+        spaces.add(frihamnen);
         return true;
     }
 

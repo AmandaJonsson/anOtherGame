@@ -7,9 +7,13 @@ import Objects.Step;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.HPos;
+import javafx.scene.control.*;
+import javafx.scene.control.Label;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
+
+import java.awt.*;
 
 import static javafx.geometry.VPos.CENTER;
 
@@ -20,7 +24,7 @@ public class MapView extends GridPane {
 
     private String map;
     public MapView(){
-        map = this.getClass().getResource("../images/map.png").toExternalForm();
+        map = this.getClass().getResource("../images/karta.png").toExternalForm();
         this.setStyle("-fx-background-image: url('"+map+"'); " +
                 "-fx-background-position: center center;" +
                 "-fx-background-repeat: stretch; " +
@@ -61,12 +65,23 @@ public class MapView extends GridPane {
         final int numCols = 100 ;
         final int numRows = 100 ;
         for (int i = 0; i < numCols; i++) {
+           /* Label label = new Label();
+            label.setText(Integer.toString(i));
+            label.setMinWidth(20);
+            //label.setPrefHeight(10);
+            this.add(label, i, i);
+            //this.add(i, i, 1);*/
             ColumnConstraints colConst = new ColumnConstraints();
             colConst.setPercentWidth(100.0 / numCols);
             colConst.setHalignment(HPos.CENTER);
             this.getColumnConstraints().add(colConst);
         }
         for (int i = 0; i < numRows; i++) {
+           /* Label label = new Label();
+            label.setText(Integer.toString(i));
+            label.setMinWidth(20);
+            //label.setPrefHeight(10);
+            this.add(label, 0, i);*/
             RowConstraints rowConst = new RowConstraints();
             rowConst.setPercentHeight(100.0 / numRows);
             rowConst.setValignment(CENTER);

@@ -3,14 +3,14 @@ package Objects;
 
 
 public class Station extends Spaces{
-    Markers marker;
+    Marker marker;
 
-    public Station(String name, int x, int y, Markers marker) {
+    public Station(String name, int x, int y, Marker marker) {
         super(name, x, y);
         this.marker = marker;
     }
 
-    public Markers getMarker(){
+    public Marker getMarker(){
         return marker;
     }
 

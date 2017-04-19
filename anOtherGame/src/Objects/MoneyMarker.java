@@ -3,7 +3,7 @@ package Objects;
 import java.util.Random;
 
 
-public class MoneyMarkers extends Markers {
+public class MoneyMarker extends Marker {
     int n;
     private TypeOfMarkers marker;
     private int valueOfMarker;
@@ -15,7 +15,7 @@ public class MoneyMarkers extends Markers {
         TOPAZ, EMERALD, RUBY, BLANK
     }
 
-    public MoneyMarkers(TypeOfMarkers marker) {
+    public MoneyMarker(TypeOfMarkers marker) {
         this.marker = marker;
         System.out.println("Skapar en Moneymarker");
     }
@@ -52,5 +52,5 @@ public class MoneyMarkers extends Markers {
         }
 
     }
-    
+
 }

@@ -5,7 +5,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -32,9 +31,9 @@ public class Main extends Application {
 
         Dice rollTheDice = new Dice();
 
-        MoneyMarkers m = new MoneyMarkers(MoneyMarkers.TypeOfMarkers.BLANK);
+        MoneyMarker m = new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK);
         m.Markervalue();
-        NotMoneyMarkers n = new NotMoneyMarkers(NotMoneyMarkers.NoMoneyMarkers.CAT);
+        NotMoneyMarker n = new NotMoneyMarker(NotMoneyMarker.NoMoneyMarkers.CAT);
         n.Markervalue();
 
     }

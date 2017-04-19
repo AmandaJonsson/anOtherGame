@@ -1,10 +1,10 @@
 package Objects;
 
-public abstract class Markers {
+public abstract class Marker {
     boolean isTurned;
-    private Markers marker;
+    private Marker marker;
 
-    public Markers(Markers marker) {
+    public Marker(Marker marker) {
         this.marker = marker;
     }
 
@@ -23,7 +23,7 @@ public abstract class Markers {
         isTurned = true;
     }
 
-    public Markers() {
+    public Marker() {
     }
 
     public abstract void Markervalue();

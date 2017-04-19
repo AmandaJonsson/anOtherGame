@@ -3,7 +3,7 @@ package Objects;
 /**
  * Created by amandajonsson on 2017-04-18.
  */
-public class NotMoneyMarkers extends Markers {
+public class NotMoneyMarker extends Marker {
 
     private NoMoneyMarkers marker;
     Player player = new Player(null, false, 0);
@@ -16,7 +16,7 @@ public class NotMoneyMarkers extends Markers {
         CAT, TRAMCARD, PICKPOCKET
     }
 
-    public NotMoneyMarkers(NoMoneyMarkers marker) {
+    public NotMoneyMarker(NoMoneyMarkers marker) {
         this.marker = marker;
         System.out.println("skapar en ny notmoneymarker");
     }

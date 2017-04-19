@@ -4,6 +4,7 @@ package Objects;
 
 public class Station extends Spaces{
     Marker marker;
+    
 
     public Station(String name, int x, int y, Marker marker) {
         super(name, x, y);

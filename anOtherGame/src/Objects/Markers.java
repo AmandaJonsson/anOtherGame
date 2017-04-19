@@ -7,13 +7,10 @@ public abstract class Markers {
     public Markers(Markers marker) {
 
         this.marker = marker;
-
     }
 
     public Markers() {
-
     }
-
 
     public abstract void Markervalue();
 

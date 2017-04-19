@@ -7,17 +7,17 @@ import java.util.Random;
  */
 public class MoneyMarkers extends Markers{
 
-    private Markers marker;
+    private TypeOfMarkers marker;
     private int valueOfMarker;
     private Player player;
     private String [] descriptionText = {"Du har fått CSN","Du vann på lotto", "Du fick skatteåtebäring", "Du har fått pengar av mormor"};
 
 
-    public enum Markers{
+    public enum TypeOfMarkers{
         TOPAZ, EMERALD, RUBY, BLANK
     }
 
-    public MoneyMarkers(Markers marker) {
+    public MoneyMarkers(TypeOfMarkers marker) {
         this.marker = marker;
         System.out.println("Skapar en Moneymarker");
     }
@@ -28,7 +28,7 @@ public class MoneyMarkers extends Markers{
             case TOPAZ:
                 valueOfMarker=3000;
                 String desc = (descriptionText[new Random().nextInt(descriptionText.length)]);
-                System.out.println(desc + " " +  valueOfMarker + " " + "kr");
+                System.out.println(desc + " " + valueOfMarker + " " + "kr");
                 //player.updateBudget(valueOfMarker);
                 break;
 

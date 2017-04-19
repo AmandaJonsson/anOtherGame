@@ -15,10 +15,14 @@ public class Station extends Spaces{
     }
 
     public boolean hasMarker(){
-        if(getMarker().getStatus()==false){ //if getStatus() is false, then isTurned is false, then there still is a marker on the station
+        if(getMarker().isMarkerTurned()==false){
             return true;
         }else
             return false;
+    }
+
+    public void setMarker(){
+        getMarker().setMarkerToTurned();
     }
 
 

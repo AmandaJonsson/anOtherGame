@@ -3,7 +3,7 @@ package Objects;
 /**
  * Created by amandajonsson on 2017-04-06.
  */
-public class MoneyMarkers implements Markers {
+public class MoneyMarkers extends Markers {
 
     int n;
 
@@ -28,6 +28,7 @@ public class MoneyMarkers implements Markers {
 
         return 0;
     }
+
 
 
 }

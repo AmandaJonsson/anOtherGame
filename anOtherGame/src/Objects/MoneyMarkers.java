@@ -5,7 +5,13 @@ import java.util.Random;
 /**
  * Created by amandajonsson on 2017-04-06.
  */
+<<<<<<< HEAD
 public class MoneyMarkers extends Markers{
+=======
+public class MoneyMarkers extends Markers {
+
+    int n;
+>>>>>>> featureStation
 
     private TypeOfMarkers marker;
     private int valueOfMarker;
@@ -55,4 +61,14 @@ public class MoneyMarkers extends Markers{
 
     }
 
+<<<<<<< HEAD
+=======
+    public int ruby (){
+
+        return 0;
+    }
+
+
+
+>>>>>>> featureStation
 }

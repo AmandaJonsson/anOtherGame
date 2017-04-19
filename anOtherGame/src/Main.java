@@ -1,9 +1,6 @@
 import Controllers.MapController;
 import Design.MapView;
-import Objects.Dice;
-import Objects.Map;
-import Objects.Markers;
-import Objects.MoneyMarkers;
+import Objects.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,8 +32,10 @@ public class Main extends Application {
 
         Dice rollTheDice = new Dice();
 
-        MoneyMarkers m = new MoneyMarkers(MoneyMarkers.Markers.BLANK);
+        MoneyMarkers m = new MoneyMarkers(MoneyMarkers.TypeOfMarkers.BLANK);
         m.Markervalue();
+        NotMoneyMarkers n = new NotMoneyMarkers(NotMoneyMarkers.NoMoneyMarkers.CAT);
+        n.Markervalue();
 
     }
 }

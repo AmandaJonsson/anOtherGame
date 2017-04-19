@@ -3,7 +3,9 @@ package Objects;
 
 public interface Markers {
 
-    public boolean getStatus();
+    boolean getStatus();
+    //method that says if marker is turned or not! Must be implemented by all subclasses
+    //Marker perhaps should be an abstract class?
 
 
 }

@@ -31,10 +31,32 @@ public class Main extends Application {
 
         Dice rollTheDice = new Dice();
 
-        MoneyMarker m = new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK);
+        MoneyMarker [] topaz = new MoneyMarker[15];
+        MoneyMarker [] emerald = new MoneyMarker[15];
+        MoneyMarker [] ruby = new MoneyMarker[15];
+        MoneyMarker [] blank = new MoneyMarker[15];
+
+        for (int i=0; i<topaz.length;i++){
+            topaz[i]=new MoneyMarker(MoneyMarker.TypeOfMarkers.TOPAZ);
+            emerald[i]=new MoneyMarker(MoneyMarker.TypeOfMarkers.EMERALD);
+            ruby[i]=new MoneyMarker(MoneyMarker.TypeOfMarkers.RUBY);
+            blank[i]=new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK);
+        }
+
+        MoneyMarker m = new MoneyMarker(MoneyMarker.TypeOfMarkers.TOPAZ);
+        MoneyMarker m1= new MoneyMarker(MoneyMarker.TypeOfMarkers.EMERALD);
+        MoneyMarker m2 = new MoneyMarker(MoneyMarker.TypeOfMarkers.RUBY);
+        MoneyMarker m3= new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK);
+
         m.Markervalue();
+        m1.Markervalue();
+        m2.Markervalue();
+        m3.Markervalue();
+
         NotMoneyMarker n = new NotMoneyMarker(NotMoneyMarker.NoMoneyMarkers.CAT);
+        NotMoneyMarker n1 = new NotMoneyMarker(NotMoneyMarker.NoMoneyMarkers.PICKPOCKET);
         n.Markervalue();
+        n1.Markervalue();
 
     }
 }

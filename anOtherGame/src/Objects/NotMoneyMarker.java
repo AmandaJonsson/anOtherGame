@@ -11,6 +11,7 @@ public class NotMoneyMarker extends Marker {
     private String foundTheTramCard = "Du hittade ett västtrafikkort";
     private String robedByAPickPocket= "Du har blivit rånad av en ficktjuv, han tog alla dina pengar";
     private  int pickpocket=0;
+    private int countCat=1;
 
     public enum NoMoneyMarkers {
         CAT, TRAMCARD, PICKPOCKET
@@ -18,14 +19,19 @@ public class NotMoneyMarker extends Marker {
 
     public NotMoneyMarker(NoMoneyMarkers marker) {
         this.marker = marker;
-        System.out.println("skapar en ny notmoneymarker");
+        if (marker == NoMoneyMarkers.CAT){
+            System.out.println("CAT");
+        }
+        if (marker == NoMoneyMarkers.PICKPOCKET){
+            System.out.println("PICKPOCKET");
+        }
     }
 
     @Override
     public void Markervalue() {
         switch (marker) {
             case CAT:
-                player.hasCat();
+                countCat=0;
                 System.out.println(foundTheCat);
                 break;
             case TRAMCARD:

@@ -35,7 +35,7 @@ public class Edge {
 
         // adds steps for the bicycle path
         if (((from.getX() - x)%10 ==0 && x!=from.getX() && x!=to.getX()) || ((from.getY()-y)%10 == 0&& y!=from.getY() && y!=to.getY())){
-            Spaces space = new Spaces("NONAME", x, y);
+            Spaces space = new Spaces(x, y);
             boolean exists = false;
             for(Spaces spacee : map.getSpaces()){
                 if (spacee.getX()==x && spacee.getY()==y){

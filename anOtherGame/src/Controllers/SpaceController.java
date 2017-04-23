@@ -2,6 +2,8 @@ package Controllers;
 
 import Design.SpaceView;
 import Objects.Spaces;
+import Objects.Station;
+import Objects.Stations;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
@@ -15,7 +17,7 @@ public class SpaceController {
 
     public SpaceController(Spaces space) {
         this.space = space;
-        this.view = new SpaceView(this, "red");
+        this.view = new SpaceView(this, "black");
         setMouseEvent();
     }
 
@@ -42,9 +44,10 @@ public class SpaceController {
             public void handle(MouseEvent event) {
 
                 for(Spaces space : space.getAdjacentSpaces()) {
-                    System.out.println(space.getName());
-                    view.setFill(Paint.valueOf("green"));
-
+                    if (space instanceof Stations) {
+                        System.out.println(((Stations)space).getName());
+                    }
+                    space.getController().getView().setStyle("-fx-fill:GREEN;");
                 }
 
             }
@@ -53,5 +56,13 @@ public class SpaceController {
 
     public SpaceView getView() {
         return view;
+    }
+
+    public void setColor(String color) {
+        view.setColor(color);
+    }
+
+    public void setRadius(int radius) {
+        view.setRadius(radius);
     }
 }

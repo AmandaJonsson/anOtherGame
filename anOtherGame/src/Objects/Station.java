@@ -7,7 +7,7 @@ public class Station extends Spaces{
     
 
     public Station(String name, int x, int y, Marker marker) {
-        super(name, x, y);
+        super(x, y);
         this.marker = marker;
     }
 

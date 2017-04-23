@@ -11,20 +11,27 @@ import java.util.ArrayList;
 
 public class Spaces{
     private int y;
-    private String name;
     private ArrayList<Spaces> adjacentSpaces;
     private Edge edge;
     private SpaceController controller;
     private int x;
 
 
-    public Spaces(String name, int x, int y) {
+    public Spaces(int x, int y) {
         this.x= x;
         this.y = y;
-        this.name = name;
         this.adjacentSpaces = new ArrayList<Spaces>();
         controller = new SpaceController(this);
 
+    }
+
+    public Spaces(String color, int radius, int x, int y) {
+        this.x= x;
+        this.y = y;
+        this.adjacentSpaces = new ArrayList<Spaces>();
+        controller = new SpaceController(this);
+        controller.setColor(color);
+        controller.setRadius(radius);
     }
 
     public void addAdjacentSpace(Spaces space) {
@@ -54,10 +61,6 @@ public class Spaces{
         return this.controller;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public int getX() {
         return x;
     }
@@ -65,4 +68,5 @@ public class Spaces{
     public int getY() {
         return y;
     }
+
 }

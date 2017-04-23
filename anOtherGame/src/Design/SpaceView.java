@@ -26,4 +26,9 @@ public class SpaceView extends Circle {
     public String getColor() {
         return color;
     }
+
+    public void setColor(String color) {
+        this.color = color;
+        this.setFill(Paint.valueOf(color));
+    }
 }

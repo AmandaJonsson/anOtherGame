@@ -36,9 +36,27 @@ public class Map{
         Stations eriksberg  = new Stations("Eriksberg", 11, 50);
         Stations hjbrantings= new Stations("Hjalmar Brantingsplatsen", 47, 15);
         Stations frihamnen= new Stations("Frihamnen", 53, 16);
+        Stations ringon= new Stations("Ringön", 66, 11);
+        Stations operan= new Stations("Operan",55 ,32 );
+        Stations nordstan= new Stations("Nordstan", 61, 36);
+        Stations stenpiren= new Stations("Stenpiren",50 ,41 );
+        Stations central= new Stations("Centralstationen", 68, 34);
+        Stations domkyrkan= new Stations("Domkyrkan", 58, 43);
+        Stations jarntorget= new Stations("Järntorget", 45, 51);
+        Stations ullevi= new Stations("Ullevi (någon av dem)",78 , 40);
+        Stations chalmers= new Stations("Chalmers", 69, 71);
+        Stations liseberg= new Stations("Liseberg", 83, 59);
+        Stations olofshojd= new Stations("Olofshöjd", 85, 71 );
+        Stations redbergsplatsen= new Stations("Redbergsplatsen", 95, 22);
+        Stations emilsborg= new Stations("Emilsborg", 76, 82);
+        Stations guldheden= new Stations("Guldheden", 65, 84 );
+        Stations linne= new Stations("Linnéplatsen", 45, 68);
+        Stations botaniska= new Stations("Botaniska trädgården", 44, 81);
+        Stations sahlgrenska= new Stations("Sahlgrenska sjukhuset", 54, 82);
+        Stations ostindiegatan= new Stations("Ostindiegatan", 11, 73);
+        Stations klippan= new Stations("Klippan", 8, 64);
 
-
- /*
+        /*
         Stations nordstan = new Stations("Nordstan", 55,30);
         Stations chalmers = new Stations("Chalmers", 59,70);
         Stations jarntorget = new Stations("Järntorget", 39,50);

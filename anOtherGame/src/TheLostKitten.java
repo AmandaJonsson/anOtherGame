@@ -1,8 +1,11 @@
+import Objects.*;
+
 import java.util.LinkedList;
 
 public class TheLostKitten {
 
     private LinkedList players = new LinkedList();
+
 
     public TheLostKitten(){
         Objects.Map map = new Objects.Map();
@@ -14,5 +17,13 @@ public class TheLostKitten {
 
     }
 
+    public boolean canGoByBoat(Spaces position){
+        if(position.equals(BoatStation.class)){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 
 }

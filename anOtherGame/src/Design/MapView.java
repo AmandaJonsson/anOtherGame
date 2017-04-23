@@ -16,7 +16,7 @@ public class MapView extends GridPane {
 
     private String map;
     public MapView(){
-        map = this.getClass().getResource("../images/karta.png").toExternalForm();
+        map = this.getClass().getResource("../images/mapNoPlupps.png").toExternalForm();
         this.setStyle("-fx-background-image: url('"+map+"'); " +
                 "-fx-background-position: center center;" +
                 "-fx-background-repeat: stretch; " +

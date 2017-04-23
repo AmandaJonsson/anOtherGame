@@ -45,7 +45,7 @@ public class SpaceController {
 
                 for(Spaces space : space.getAdjacentSpaces()) {
                     if (space instanceof Stations) {
-                        System.out.println(((Stations)space).getName());
+                        //System.out.println(((Stations)space).getName());
                     }
                     space.getController().getView().setStyle("-fx-fill:GREEN;");
                 }

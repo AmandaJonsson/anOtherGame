@@ -87,7 +87,39 @@ public class Map{
         return true;
         */
 
-chalmers.addPath(this,redbergsplatsen);
+//chalmers.addPath(this,redbergsplatsen);
+        hjbrantings.addPath(this,lundby);
+        hjbrantings.addPath(this,ramberget);
+        frihamnen.addPath(this,chLindholmen);
+        eriksberg.addPath(this,lundby);
+        frihamnen.addPath(this,nordstan);
+        nordstan.addPath(this,stenpiren);
+        nordstan.addPath(this,central);
+        central.addPath(this,ullevi);
+
+        nordstan.addPath(this,domkyrkan);
+        domkyrkan.addPath(this,jarntorget);
+        jarntorget.addPath(this,masthuggskykan);
+        eriksberg.addPath(this,lundby);
+        masthuggskykan.addPath(this,ostindiegatan);
+        ostindiegatan.addPath(this,klippan);
+        jarntorget.addPath(this,linne);
+        linne.addPath(this,botaniska);
+
+        botaniska.addPath(this,slottskogsvallen);
+        slottskogsvallen.addPath(this,ostindiegatan);
+        botaniska.addPath(this,sahlgrenska);
+        sahlgrenska.addPath(this,chalmers);
+        chalmers.addPath(this,guldheden);
+        chalmers.addPath(this,emilsborg);
+        chalmers.addPath(this,liseberg);
+        liseberg.addPath(this,ullevi);
+
+        liseberg.addPath(this,olofshojd);
+        olofshojd.addPath(this,emilsborg);
+        frihamnen.addPath(this,ringon);
+        central.addPath(this,redbergsplatsen);
+        liseberg.addPath(this,redbergsplatsen);
 return true;
     }
 

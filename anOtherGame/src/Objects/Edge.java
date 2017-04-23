@@ -18,7 +18,7 @@ public class Edge {
         this.to=to;
         path = new ArrayList<Path>();
         to.addAdjacentSpace(from);
-        System.out.println(calculatePath(map, from, from.getX(),from.getY()));
+        System.out.println(((Stations)to).getName() + " " + ((Stations)from).getName() + " " + calculatePath(map, from, from.getX(),from.getY()));
     }
 
     private boolean calculatePath(Map map, Spaces prev, int x, int y) {
@@ -53,6 +53,9 @@ public class Edge {
         }
         else path.add(new Path(x,y));
         if (x < to.getX()){
+            if (y==to.getY()){
+                return calculatePath(map,prev,x+1, y);
+            }
             if (y<to.getY()){
                 return calculatePath(map, prev, x+1,y+1);
             }
@@ -61,11 +64,14 @@ public class Edge {
             }
         }
          if (x > to.getX()){
+             if (y==to.getY()){
+                 return calculatePath(map,prev,x-1, y);
+             }
             if (y<to.getY()){
                 return calculatePath(map, prev, x-1,y+1);
             }
             if (y>to.getY()){
-                return calculatePath(map, prev, x+1,y-1);
+                return calculatePath(map, prev, x-1,y-1);
             }
         }
          if (x==to.getX()){

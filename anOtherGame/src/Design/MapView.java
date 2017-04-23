@@ -1,19 +1,11 @@
 package Design;
 
-import Objects.Edge;
-import Objects.Spaces;
-import Objects.Stations;
-import Objects.Step;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.HPos;
-import javafx.scene.control.*;
-import javafx.scene.control.Label;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
-
-import java.awt.*;
 
 import static javafx.geometry.VPos.CENTER;
 
@@ -53,11 +45,6 @@ public class MapView extends GridPane {
                 setNewSize(newSceneHeight.doubleValue(), oldSceneHeight.doubleValue());
             }
         });
-    }
-
-    public void addSpaces(Step step) {
-        this.add(step, step.getX(), step.getY());
-
     }
 
     private void createGrid() {

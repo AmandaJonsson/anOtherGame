@@ -11,12 +11,12 @@ public class Edge {
 
     private Spaces from;
     private Spaces to;
-    private ArrayList<Step> path;
+    private ArrayList<Path> path;
 
     public Edge(Map map, Spaces from, Spaces to) {
         this.from=from;
         this.to=to;
-        path = new ArrayList<Step>();
+        path = new ArrayList<Path>();
         to.addAdjacentSpace(from);
         System.out.println(calculatePath(map, from, from.getX(),from.getY()));
     }
@@ -79,7 +79,7 @@ public class Edge {
         return false;
     }
 
-    public ArrayList<Step> getPath() {
+    public ArrayList<Path> getPath() {
         return path;
     }
 

@@ -2,7 +2,10 @@ package Controllers;
 
 import Design.MapView;
 import Objects.*;
+import javafx.scene.shape.Circle;
+import sun.jvm.hotspot.memory.Space;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -20,16 +23,17 @@ public class MapController {
 
     public void addSpaces(){
         model.createSpaces();
-            ArrayList<Step> list = new ArrayList<Step>();
-            list.addAll(model.getSpaces());
+            ArrayList<Circle> list = new ArrayList<Circle>();
             for (Spaces space : model.getSpaces()) {
+                System.out.println(space.getController().getView());
+                System.out.println(space.getX() + " " + space.getY());
+                view.add(space.getController().getView(), space.getX(), space.getY());
                 if (space.getEdge() != null) {
-                    list.addAll(space.getEdge().getPath());
+                    for (Path path : space.getEdge().getPath()){
+                        System.out.println(path.getX() + " " + path.getY());
+                        view.add(path, path.getX(), path.getY());
+                    }
                 }
-            }
-
-            for (Step step : list) {
-                view.addSpaces(step);
             }
     }
 }

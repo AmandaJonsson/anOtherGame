@@ -1,6 +1,7 @@
 package Objects;
 
 
+import Controllers.SpaceController;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -8,70 +9,22 @@ import javafx.scene.paint.Paint;
 
 import java.util.ArrayList;
 
-public class Spaces extends Step {
+public class Spaces{
+    private int y;
     private String name;
     private ArrayList<Spaces> adjacentSpaces;
     private Edge edge;
-    private String color;
+    private SpaceController controller;
+    private int x;
 
 
     public Spaces(String name, int x, int y) {
-        super(name, x,y);
-        this.color = "black";
-        this.setId("spaces");
-        this.setFill(Paint.valueOf("000"));
-        this.setRadius(10);
+        this.x= x;
+        this.y = y;
+        this.name = name;
         this.adjacentSpaces = new ArrayList<Spaces>();
-        setMouseEvent();
-    }
-    public Spaces(String color, String name, int x, int y) {
-        super(name, x,y);
-        this.color = color;
-        this.setId("spaces");
-        this.setFill(Paint.valueOf(color));
-        this.setRadius(10);
-        this.adjacentSpaces = new ArrayList<Spaces>();
-        setMouseEvent();
-    }
+        controller = new SpaceController(this);
 
-    private void setMouseEvent() {
-        this.setOnMouseEntered(new EventHandler<MouseEvent>
-                () {
-
-            @Override
-            public void handle(MouseEvent t) {
-                setStyle("-fx-fill:RED;");
-            }
-        });
-
-        this.setOnMouseExited(new EventHandler<MouseEvent>
-                () {
-
-            @Override
-            public void handle(MouseEvent t) {
-                setStyle("-fx-fill:" + color + ";");
-            }
-        });
-        this.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-
-                for(Spaces space : adjacentSpaces) {
-                    System.out.println(space.getName());
-                    space.setFill(Paint.valueOf("green"));
-
-                }
-
-            }
-    });
-    }
-
-
-
-
-    public void addAdjacentStation(Spaces space){
-
-        //createEdge(space);
     }
 
     public void addAdjacentSpace(Spaces space) {
@@ -95,5 +48,21 @@ public class Spaces extends Step {
             edge = new Edge(map, this, station);
         }
         adjacentSpaces.add(station);
+    }
+
+    public SpaceController getController() {
+        return this.controller;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }

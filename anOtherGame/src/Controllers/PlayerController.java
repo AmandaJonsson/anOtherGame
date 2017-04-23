@@ -1,6 +1,7 @@
 package Controllers;
 
 import Objects.MoneyMarker;
+import Objects.NotMoneyMarker;
 import Objects.Player;
 import Objects.Spaces;
 
@@ -21,15 +22,23 @@ public class PlayerController {
 
     }
 
-    public int updateBudget(int value) {
+    public void updateBudget(int value) {
 
         //marker  ==  this.position.getMarker()?
-        if (marker.equals(MoneyMarker.TypeOfMarkers.BLANK)){
-            return player.budget;
-        } else {
-            return player.budget + value;
+        if(marker.getClass().equals(MoneyMarker.class)){
+            increaseBudget(value);
+        } else if(marker.equals(NotMoneyMarker.NoMoneyMarkers.PICKPOCKET)){
+            decreaseBudget(value);
         }
 
+    }
+
+    public int decreaseBudget(int value){
+        return player.budget - value;
+    }
+
+    public int increaseBudget(int value){
+        return player.budget + value;
     }
 
     public int payTicket(int ticket){

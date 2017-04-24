@@ -25,104 +25,108 @@ public class Map{
     }
 
     public boolean createSpaces() {
-        Stations lundby  = new Stations(this, "Lundby", 7, 14);
-        Stations ramberget  = new Stations(this, "Ramberget", 30, 26);
-        Stations chLindholmen  = new Stations(this, "Chalmers Lindholmen", 30, 40);
-        Stations masthuggskykan  = new Stations(this, "Masthuggskykan", 31, 57);
-        Stations lindholmen  = new Stations(this, "Lindholmen", 34, 41);
-        Stations slottsberget  = new Stations(this, "Slottsberget", 23, 45);
-        Stations slottskogen  = new Stations(this, "Slottskogen", 37, 75);
-        Stations slottskogsvallen  = new Stations(this, "Slottskogsvallen", 33, 90);
-        Stations eriksberg  = new Stations(this, "Eriksberg", 10, 49);
-        Stations hjbrantings= new Stations(this, "Hjalmar Brantingsplatsen", 47, 15);
-        Stations frihamnen= new Stations(this, "Frihamnen", 53, 15);
-        Stations ringon= new Stations(this, "Ringön", 66, 11);
-        Stations operan= new Stations(this, "Operan",55 ,32 );
-        Stations nordstan= new Stations(this, "Nordstan", 61, 36);
-        Stations stenpiren= new Stations(this, "Stenpiren",50 ,41 );
-        Stations central= new Stations(this, "Centralstationen", 68, 34);
-        Stations domkyrkan= new Stations(this, "Domkyrkan", 58, 43);
-        Stations jarntorget= new Stations(this, "Järntorget", 45, 51);
-        Stations ullevi= new Stations(this, "Ullevi (någon av dem)",78 , 41);
-        Stations chalmers= new Stations(this, "Chalmers", 69, 71);
-        Stations liseberg= new Stations(this, "Liseberg", 83, 59);
-        Stations olofshojd= new Stations(this, "Olofshöjd", 85, 74 );
-        Stations redbergsplatsen= new Stations(this, "Redbergsplatsen", 95, 22);
-        Stations emilsborg= new Stations(this, "Emilsborg", 76, 82);
-        Stations guldheden= new Stations(this, "Guldheden", 65, 84 );
-        Stations linne= new Stations(this, "Linnéplatsen", 45, 68);
-        Stations botaniska= new Stations(this, "Botaniska trädgården", 44, 81);
-        Stations sahlgrenska= new Stations(this, "Sahlgrenska sjukhuset", 54, 82);
-        Stations ostindiegatan= new Stations(this, "Ostindiegatan", 11, 73);
-        Stations klippan= new Stations(this, "Klippan", 7, 64);
-        Stations vasaplatsen= new Stations(this, "Vasaplatsen", 63, 56);
+        Station lundby  = new Station(this, "Lundby", 7, 14);
+        Station ramberget  = new Station(this, "Ramberget", 30, 26);
+        Station chLindholmen  = new Station(this, "Chalmers Lindholmen", 30, 40);
+        Station masthuggskykan  = new Station(this, "Masthuggskykan", 31, 57);
+        Station lindholmen  = new Station(this, "Lindholmen", 34, 41);
+        Station slottsberget  = new Station(this, "Slottsberget", 23, 45);
+        Station slottskogen  = new Station(this, "Slottskogen", 37, 75);
+        Station slottskogsvallen  = new Station(this, "Slottskogsvallen", 33, 90);
+        Station eriksberg  = new Station(this, "Eriksberg", 10, 49);
+        Station hjbrantings= new Station(this, "Hjalmar Brantingsplatsen", 47, 15);
+        Station frihamnen= new Station(this, "Frihamnen", 53, 15);
+        Station ringon= new Station(this, "Ringön", 66, 11);
+        Station operan= new Station(this, "Operan",55 ,32 );
+        Station nordstan= new Station(this, "Nordstan", 61, 36);
+        Station stenpiren= new Station(this, "Stenpiren",50 ,41 );
+        Station central= new Station(this, "Centralstationen", 68, 34);
+        Station domkyrkan= new Station(this, "Domkyrkan", 58, 43);
+        Station jarntorget= new Station(this, "Järntorget", 45, 51);
+        Station ullevi= new Station(this, "Ullevi (någon av dem)",78 , 41);
+        Station chalmers= new Station(this, "Chalmers", 69, 71);
+        Station liseberg= new Station(this, "Liseberg", 83, 59);
+        Station olofshojd= new Station(this, "Olofshöjd", 85, 74 );
+        Station redbergsplatsen= new Station(this, "Redbergsplatsen", 95, 22);
+        Station emilsborg= new Station(this, "Emilsborg", 76, 82);
+        Station guldheden= new Station(this, "Guldheden", 65, 84 );
+        Station linne= new Station(this, "Linnéplatsen", 45, 68);
+        Station botaniska= new Station(this, "Botaniska trädgården", 44, 81);
+        Station sahlgrenska= new Station(this, "Sahlgrenska sjukhuset", 54, 82);
+        Station ostindiegatan= new Station(this, "Ostindiegatan", 11, 73);
+        Station klippan= new Station(this, "Klippan", 7, 64);
+        Station vasaplatsen= new Station(this, "Vasaplatsen", 63, 56);
 
-        /*
-        Stations nordstan = new Stations(this, "Nordstan", 55,30);
-        Stations chalmers = new Stations(this, "Chalmers", 59,70);
-        Stations jarntorget = new Stations(this, "Järntorget", 39,50);
-        Stations olskroken = new Stations(this, "Olskroken", 95,10);
-        Stations somewhere = new Stations(this, "Somewhere", 95,80);
-        chalmers.addPath(this, olskroken);
-        olskroken.addPath(this, somewhere);
-        nordstan.addPath(this, jarntorget);
-        nordstan.addPath(this, chalmers);
-        spaces.add(nordstan);
-        spaces.add(chalmers);
-        spaces.add(jarntorget);
-        spaces.add(olskroken);
-        spaces.add(somewhere);
-*/
-/*
-        spaces.add(lundby);
-        spaces.add(ramberget);
-        spaces.add(chLindholmen);
-        spaces.add(masthuggskykan);
-        spaces.add(lindholmen);
-        spaces.add(slottsberget);
-        spaces.add(slottskogen);
-        spaces.add(slottskogsvallen);
-        spaces.add(eriksberg);
-        spaces.add(hjbrantings);
-        spaces.add(frihamnen);
-        return true;
-        */
+        //Bicycle paths.
+        slottskogen.getController().addPath(this,linne);
+        slottskogen.getController().addPath(this,botaniska);
+        slottskogen.getController().addPath(this,masthuggskykan);
+        slottskogen.getController().addPath(this,slottskogsvallen);
 
-//chalmers.addPath(this,redbergsplatsen);
-        hjbrantings.addPath(this,lundby);
-        hjbrantings.addPath(this,ramberget);
-        frihamnen.addPath(this,chLindholmen);
-        eriksberg.addPath(this,lundby);
-        frihamnen.addPath(this,nordstan);
-        nordstan.addPath(this,stenpiren);
-        nordstan.addPath(this,central);
-        central.addPath(this,ullevi);
+        chLindholmen.getController().addPath(this,lindholmen);
+        chLindholmen.getController().addPath(this,slottsberget);
 
-        nordstan.addPath(this,domkyrkan);
-        domkyrkan.addPath(this,jarntorget);
-        jarntorget.addPath(this,masthuggskykan);
-        eriksberg.addPath(this,lundby);
-        masthuggskykan.addPath(this,ostindiegatan);
-        ostindiegatan.addPath(this,klippan);
-        jarntorget.addPath(this,linne);
-        linne.addPath(this,botaniska);
+        operan.getController().addPath(this,stenpiren);
+        operan.getController().addPath(this,nordstan);
 
-        botaniska.addPath(this,slottskogsvallen);
-        slottskogsvallen.addPath(this,ostindiegatan);
-        botaniska.addPath(this,sahlgrenska);
-        sahlgrenska.addPath(this,chalmers);
-        chalmers.addPath(this,guldheden);
-        chalmers.addPath(this,emilsborg);
-        chalmers.addPath(this,liseberg);
-        liseberg.addPath(this,ullevi);
+        emilsborg.getController().addPath(this,guldheden);
+        emilsborg.getController().addPath(this,olofshojd);
 
-        liseberg.addPath(this,olofshojd);
-        olofshojd.addPath(this,emilsborg);
-        frihamnen.addPath(this,ringon);
-        central.addPath(this,redbergsplatsen);
-        liseberg.addPath(this,redbergsplatsen);
-        vasaplatsen.addPath(this,domkyrkan);
-        vasaplatsen.addPath(this,chalmers);
+        vasaplatsen.getController().addPath(this,linne);
+        vasaplatsen.getController().addPath(this,ullevi);
+
+        hjbrantings.getController().addPath(this,frihamnen);
+
+        ramberget.getController().addPath(this,chLindholmen);
+        ramberget.getController().addPath(this,lundby);
+
+        nordstan.getController().addPath(this,central);
+        nordstan.getController().addPath(this,domkyrkan);
+        nordstan.getController().addPath(this,stenpiren);
+
+        //Boat paths.
+        lindholmen.setBoatStation(true);
+        klippan.setBoatStation(true);
+        operan.setBoatStation(true);
+        slottsberget.setBoatStation(true);
+        eriksberg.setBoatStation(true);
+        stenpiren.setBoatStation(true);
+        lindholmen.getController().addBoatPath(this, stenpiren);
+        klippan.getController().addBoatPath(this, eriksberg);
+        slottsberget.getController().addBoatPath(this, klippan);
+        operan.getController().addBoatPath(this, eriksberg);
+
+        //Tram paths.
+        hjbrantings.getController().addTramPath(this,lundby);
+        hjbrantings.getController().addTramPath(this,ramberget);
+        frihamnen.getController().addTramPath(this,chLindholmen);
+        eriksberg.getController().addTramPath(this,lundby);
+        frihamnen.getController().addTramPath(this,nordstan);
+        central.getController().addTramPath(this,ullevi);
+
+        domkyrkan.getController().addTramPath(this,jarntorget);
+        jarntorget.getController().addTramPath(this,masthuggskykan);
+        eriksberg.getController().addTramPath(this,lundby);
+        masthuggskykan.getController().addTramPath(this,ostindiegatan);
+        ostindiegatan.getController().addTramPath(this,klippan);
+        jarntorget.getController().addTramPath(this,linne);
+        linne.getController().addTramPath(this,botaniska);
+
+        botaniska.getController().addTramPath(this,slottskogsvallen);
+        slottskogsvallen.getController().addTramPath(this,ostindiegatan);
+        botaniska.getController().addTramPath(this,sahlgrenska);
+        sahlgrenska.getController().addTramPath(this,chalmers);
+        chalmers.getController().addTramPath(this,guldheden);
+        chalmers.getController().addTramPath(this,emilsborg);
+        chalmers.getController().addTramPath(this,liseberg);
+        liseberg.getController().addTramPath(this,ullevi);
+
+        liseberg.getController().addTramPath(this,olofshojd);
+        frihamnen.getController().addTramPath(this,ringon);
+        central.getController().addTramPath(this,redbergsplatsen);
+        liseberg.getController().addTramPath(this,redbergsplatsen);
+        vasaplatsen.getController().addTramPath(this,domkyrkan);
+        vasaplatsen.getController().addTramPath(this,chalmers);
 return true;
     }
 

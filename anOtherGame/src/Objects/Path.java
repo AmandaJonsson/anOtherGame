@@ -10,10 +10,10 @@ public class Path extends Circle{
     private int x;
     private int y;
 
-    public Path(int x, int y) {
+    public Path(String color, int x, int y) {
         this.x=x;
         this.y=y;
-        this.setFill(Paint.valueOf("RED"));
+        this.setFill(Paint.valueOf(color));
         this.setRadius(2);
 
         this.centerYProperty();

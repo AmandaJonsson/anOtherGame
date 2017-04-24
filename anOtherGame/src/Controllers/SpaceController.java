@@ -1,9 +1,7 @@
 package Controllers;
 
 import Design.SpaceView;
-import Objects.Spaces;
-import Objects.Station;
-import Objects.Stations;
+import Objects.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
@@ -44,7 +42,7 @@ public class SpaceController {
             public void handle(MouseEvent event) {
 
                 for(Spaces space : space.getAdjacentSpaces()) {
-                    if (space instanceof Stations) {
+                    if (space instanceof Station) {
                         //System.out.println(((Stations)space).getName());
                     }
                     space.getController().getView().setStyle("-fx-fill:GREEN;");
@@ -64,5 +62,32 @@ public class SpaceController {
 
     public void setRadius(int radius) {
         view.setRadius(radius);
+    }
+    public void addPath(Map map, Station station) {
+        if(space.getEdge() != null ){
+            space.getEdge().addEdge(new Edge(map, space, station, "BLACK"));
+        }
+        else {
+            space.setEdge(new Edge(map, space, station, "BLACK"));
+        }
+        space.addAdjacentSpace(station);
+    }
+    public void addTramPath(Map map, Station station) {
+        if(space.getEdge() != null ){
+            space.getEdge().addEdge(new Edge(map, space, station, "RED"));
+        }
+        else {
+            space.setEdge(new Edge(map, space, station, "RED"));
+        }
+        space.addAdjacentSpace(station);
+    }
+    public void addBoatPath(Map map, Station station) {
+        if(space.getEdge() != null ){
+            space.getEdge().addEdge(new Edge(map, space, station, "BLUE"));
+        }
+        else {
+            space.setEdge(new Edge(map, space, station, "BLUE"));
+        }
+        space.addAdjacentSpace(station);
     }
 }

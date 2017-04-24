@@ -47,16 +47,6 @@ public class Spaces{
         return edge;
     }
 
-    public void addPath(Map map, Stations station) {
-        if(edge != null ){
-            edge.addEdge(new Edge(map, this, station));
-        }
-        else {
-            edge = new Edge(map, this, station);
-        }
-        adjacentSpaces.add(station);
-    }
-
     public SpaceController getController() {
         return this.controller;
     }
@@ -69,4 +59,7 @@ public class Spaces{
         return y;
     }
 
+    public void setEdge(Edge edge) {
+        this.edge = edge;
+    }
 }

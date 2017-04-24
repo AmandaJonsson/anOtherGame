@@ -13,15 +13,15 @@ public class Edge {
     private Spaces to;
     private ArrayList<Path> path;
 
-    public Edge(Map map, Spaces from, Spaces to) {
+    public Edge(Map map, Spaces from, Spaces to, String color) {
         this.from=from;
         this.to=to;
         path = new ArrayList<Path>();
         to.addAdjacentSpace(from);
-        System.out.println(((Stations)to).getName() + " " + ((Stations)from).getName() + " " + calculatePath(map, from, from.getX(),from.getY()));
+        System.out.println(((Station)to).getName() + " " + ((Station)from).getName() + " " + calculatePath(map, from, from.getX(),from.getY(), color ));
     }
 
-    private boolean calculatePath(Map map, Spaces prev, int x, int y) {
+    private boolean calculatePath(Map map, Spaces prev, int x, int y, String color) {
         //base case
         if (x == to.getX() && y== to.getY()){
             if(!to.getAdjacentSpaces().contains(prev)) {
@@ -48,40 +48,40 @@ public class Edge {
             prev.addAdjacentSpace(space);
             if (!exists) {
                 map.addSpaces(space);
-            }else path.add(new Path(x,y));
+            }else path.add(new Path(color, x,y));
             prev = space;
         }
         if (!(from.getX()-x < 1 && from.getX()-x >-1 && from.getY()-y <1 && from.getY()-y >-1) && !(to.getX()-x < 1 && to.getX()-x >-1 && to.getY()-y <1 && to.getY()-y >-1)) {
-            path.add(new Path(x, y));
+            path.add(new Path(color, x, y));
         }
         if (x < to.getX()){
             if (y==to.getY()){
-                return calculatePath(map,prev,x+1, y);
+                return calculatePath(map,prev,x+1, y, color);
             }
             if (y<to.getY()){
-                return calculatePath(map, prev, x+1,y+1);
+                return calculatePath(map, prev, x+1,y+1, color);
             }
             if (y>to.getY()){
-                return calculatePath(map, prev, x+1,y-1);
+                return calculatePath(map, prev, x+1,y-1, color);
             }
         }
          if (x > to.getX()){
              if (y==to.getY()){
-                 return calculatePath(map,prev,x-1, y);
+                 return calculatePath(map,prev,x-1, y, color);
              }
             if (y<to.getY()){
-                return calculatePath(map, prev, x-1,y+1);
+                return calculatePath(map, prev, x-1,y+1, color);
             }
             if (y>to.getY()){
-                return calculatePath(map, prev, x-1,y-1);
+                return calculatePath(map, prev, x-1,y-1, color);
             }
         }
          if (x==to.getX()){
             if (y<to.getY()){
-                return calculatePath(map, prev, x,y+1);
+                return calculatePath(map, prev, x,y+1, color);
             }
             if (y>to.getY()){
-                return calculatePath(map, prev, x,y-1);
+                return calculatePath(map, prev, x,y-1, color);
             }
         }
         return false;

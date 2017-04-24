@@ -4,12 +4,14 @@ package Objects;
 public class Station extends Spaces{
     private Marker marker;
     private String name;
-    
+    private boolean isBoatStation;
 
-    public Station(int x, int y, String name, Marker marker) {
-        super(x, y);
-        this.name = name;
-        this.marker = marker;
+
+    public Station(Map map, String name, int x, int y) {
+        super("blue", 10, x, y);
+        this.name =  name;
+        map.addSpaces(this);
+        isBoatStation = false;
     }
 
     public Marker getMarker(){
@@ -38,4 +40,9 @@ public class Station extends Spaces{
     public void setMarker(){
         getMarker().setMarkerToTurned();
     }
+
+    public void setBoatStation(boolean boatStation) {
+        isBoatStation = boatStation;
+    }
+
 }

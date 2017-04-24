@@ -55,6 +55,7 @@ public class Map{
         Stations sahlgrenska= new Stations(this, "Sahlgrenska sjukhuset", 54, 82);
         Stations ostindiegatan= new Stations(this, "Ostindiegatan", 11, 73);
         Stations klippan= new Stations(this, "Klippan", 7, 64);
+        Stations vasaplatsen= new Stations(this, "Vasaplatsen", 63, 56);
 
         /*
         Stations nordstan = new Stations(this, "Nordstan", 55,30);
@@ -120,6 +121,8 @@ public class Map{
         frihamnen.addPath(this,ringon);
         central.addPath(this,redbergsplatsen);
         liseberg.addPath(this,redbergsplatsen);
+        vasaplatsen.addPath(this,domkyrkan);
+        vasaplatsen.addPath(this,chalmers);
 return true;
     }
 

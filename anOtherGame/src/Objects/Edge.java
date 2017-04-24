@@ -34,11 +34,11 @@ public class Edge {
         }
 
         // adds steps for the bicycle path
-        if (((from.getX() - x)%10 ==0 && x!=from.getX() && x!=to.getX()) || ((from.getY()-y)%10 == 0&& y!=from.getY() && y!=to.getY())){
+        if (((from.getX() - x)%7 ==0 && x!=from.getX() && x!=to.getX()) || ((from.getY()-y)%7 == 0&& y!=from.getY() && y!=to.getY())){
             Spaces space = new Spaces(x, y);
             boolean exists = false;
             for(Spaces spacee : map.getSpaces()){
-                if (spacee.getX()==x && spacee.getY()==y){
+                if (spacee.getX()-x < 5 && spacee.getX()-x >-5 && spacee.getY()-y < 5 && spacee.getY()-y >-5){
                     System.out.println("jahaja");
                     space = spacee;
                     exists = true;
@@ -48,10 +48,12 @@ public class Edge {
             prev.addAdjacentSpace(space);
             if (!exists) {
                 map.addSpaces(space);
-            }
+            }else path.add(new Path(x,y));
             prev = space;
         }
-        else path.add(new Path(x,y));
+        if (!(from.getX()-x < 1 && from.getX()-x >-1 && from.getY()-y <1 && from.getY()-y >-1) && !(to.getX()-x < 1 && to.getX()-x >-1 && to.getY()-y <1 && to.getY()-y >-1)) {
+            path.add(new Path(x, y));
+        }
         if (x < to.getX()){
             if (y==to.getY()){
                 return calculatePath(map,prev,x+1, y);

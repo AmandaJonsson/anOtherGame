@@ -84,6 +84,15 @@ public class Map{
         nordstan.getController().addPath(this,domkyrkan);
         nordstan.getController().addPath(this,stenpiren);
 
+        klippan.getController().addPath(this,ostindiegatan);
+
+        chalmers.getController().addPath(this,guldheden);
+        chalmers.getController().addPath(this,emilsborg);
+        chalmers.getController().addPath(this,sahlgrenska);
+        guldheden.getController().addPath(this,sahlgrenska);
+        botaniska.getController().addPath(this,sahlgrenska);
+        botaniska.getController().addPath(this,slottskogsvallen);
+
         //Boat paths.
         lindholmen.setBoatStation(true);
         klippan.setBoatStation(true);
@@ -108,16 +117,10 @@ public class Map{
         jarntorget.getController().addTramPath(this,masthuggskykan);
         eriksberg.getController().addTramPath(this,lundby);
         masthuggskykan.getController().addTramPath(this,ostindiegatan);
-        ostindiegatan.getController().addTramPath(this,klippan);
         jarntorget.getController().addTramPath(this,linne);
         linne.getController().addTramPath(this,botaniska);
 
-        botaniska.getController().addTramPath(this,slottskogsvallen);
         slottskogsvallen.getController().addTramPath(this,ostindiegatan);
-        botaniska.getController().addTramPath(this,sahlgrenska);
-        sahlgrenska.getController().addTramPath(this,chalmers);
-        chalmers.getController().addTramPath(this,guldheden);
-        chalmers.getController().addTramPath(this,emilsborg);
         chalmers.getController().addTramPath(this,liseberg);
         liseberg.getController().addTramPath(this,ullevi);
 

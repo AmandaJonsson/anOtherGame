@@ -1,7 +1,7 @@
 package Controllers;
 
 import Objects.MoneyMarker;
-import Objects.NotMoneyMarker;
+import Objects.OtherMarkers;
 import Objects.Player;
 import Objects.Spaces;
 
@@ -27,7 +27,7 @@ public class PlayerController {
         //marker  ==  this.position.getMarker()?
         if(marker.getClass().equals(MoneyMarker.class)){
             increaseBudget(value);
-        } else if(marker.equals(NotMoneyMarker.NoMoneyMarkers.PICKPOCKET)){
+        } else if(marker.equals(OtherMarkers.NoMoneyMarkers.PICKPOCKET)){
             decreaseBudget(value);
         }
 

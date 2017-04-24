@@ -1,20 +1,25 @@
 package Objects;
 
+import Controllers.PlayerController;
+
 import java.util.Random;
 
 
 public class MoneyMarker extends Marker {
-    int n;
+
     private TypeOfMarkers marker;
     private int valueOfMarker;
-    private Player player;
+    private PlayerController player;
+    private Station station;
     private String [] descriptionText = {"Du har fått CSN","Du vann på lotto", "Du fick skatteåterbäring", "Du har fått pengar av mormor"};
+    private String Guldheden = "Grattis! Du hittade en topas på Guldeheden, vilket ger dig 6000 kr";
+    private String FirstPlayerToEmildborg = "Du hann först till Emildborg, du får 5000 kr";
 
 
-    private int countTopaz;
-    private int countEmerald;
-    private int countRuby;
-    private int countBlanc;
+    private int countTopaz=15;
+    private int countEmerald=15;
+    private int countRuby=15;
+    private int countBlank=15;
 
 
     public enum TypeOfMarkers{
@@ -22,6 +27,7 @@ public class MoneyMarker extends Marker {
     }
 
     public MoneyMarker(TypeOfMarkers marker) {
+       // this.station = station;
         this.marker = marker;
         if(marker == TypeOfMarkers.TOPAZ){
             System.out.println("TOPAZ");
@@ -45,7 +51,7 @@ public class MoneyMarker extends Marker {
                 countTopaz--;
                 String desc = (descriptionText[new Random().nextInt(descriptionText.length)]);
                 System.out.println(desc + " " + valueOfMarker + " " + "kr");
-                //player.updateBudget(valueOfMarker);
+                player.updateBudget(valueOfMarker);
                 break;
 
             case EMERALD:
@@ -53,20 +59,36 @@ public class MoneyMarker extends Marker {
                 countEmerald--;
                 desc = (descriptionText[new Random().nextInt(descriptionText.length)]);
                 System.out.println(desc + " " + valueOfMarker + " " + "kr");
-                //player.updateBudget(valueOfMarker);
+                player.updateBudget(valueOfMarker);
                 break;
             case RUBY:
                 valueOfMarker = 5000;
                 countRuby--;
                 desc = (descriptionText[new Random().nextInt(descriptionText.length)]);
                 System.out.println(desc + " " + valueOfMarker+ " " + "kr");
-                //player.updateBudget(valueOfMarker);
+                player.updateBudget(valueOfMarker);
                 break;
             case BLANK:
                 valueOfMarker = 0;
-                countBlanc--;
+                countBlank--;
                 desc = "";
                 System.out.println(desc + " " + valueOfMarker+ " " + "kr");
+        }
+    }
+
+    public void specialMarkers(Marker marker, Station station){
+
+        if (station.getName()=="Guldheden" && marker.equals(TypeOfMarkers.TOPAZ)){
+            valueOfMarker = 6000;
+            String desc = Guldheden;
+            player.updateBudget(valueOfMarker);
+            System.out.println(desc);
+        }
+
+        if (station.getName()=="Emilsborg" && marker.isMarkerTurned()==false){
+            valueOfMarker = 5000;
+            player.updateBudget(valueOfMarker);
+            String desc = FirstPlayerToEmildborg;
 
         }
 

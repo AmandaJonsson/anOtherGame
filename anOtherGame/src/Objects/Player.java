@@ -18,6 +18,8 @@ public class Player {
         this.hasCat = hasCat;
     }
 
+
+
     public int getBudget(){
         return this.budget;
     }

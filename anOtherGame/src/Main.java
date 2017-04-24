@@ -53,8 +53,8 @@ public class Main extends Application {
         m2.Markervalue();
         m3.Markervalue();
 
-        NotMoneyMarker n = new NotMoneyMarker(NotMoneyMarker.NoMoneyMarkers.CAT);
-        NotMoneyMarker n1 = new NotMoneyMarker(NotMoneyMarker.NoMoneyMarkers.PICKPOCKET);
+        OtherMarkers n = new OtherMarkers(OtherMarkers.NoMoneyMarkers.CAT);
+        OtherMarkers n1 = new OtherMarkers(OtherMarkers.NoMoneyMarkers.PICKPOCKET);
         n.Markervalue();
         n1.Markervalue();
 

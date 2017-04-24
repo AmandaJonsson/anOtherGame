@@ -112,24 +112,25 @@ public class Map{
         eriksberg.getController().addTramPath(this,lundby);
         frihamnen.getController().addTramPath(this,nordstan);
         central.getController().addTramPath(this,ullevi);
-
         domkyrkan.getController().addTramPath(this,jarntorget);
         jarntorget.getController().addTramPath(this,masthuggskykan);
         eriksberg.getController().addTramPath(this,lundby);
         masthuggskykan.getController().addTramPath(this,ostindiegatan);
         jarntorget.getController().addTramPath(this,linne);
         linne.getController().addTramPath(this,botaniska);
-
         slottskogsvallen.getController().addTramPath(this,ostindiegatan);
         chalmers.getController().addTramPath(this,liseberg);
         liseberg.getController().addTramPath(this,ullevi);
-
         liseberg.getController().addTramPath(this,olofshojd);
         frihamnen.getController().addTramPath(this,ringon);
         central.getController().addTramPath(this,redbergsplatsen);
         liseberg.getController().addTramPath(this,redbergsplatsen);
         vasaplatsen.getController().addTramPath(this,domkyrkan);
         vasaplatsen.getController().addTramPath(this,chalmers);
+
+        //Start space.
+        redbergsplatsen.getController().setStart();
+        lundby.getController().setStart();
 return true;
     }
 

@@ -3,7 +3,9 @@ package Controllers;
 import Design.SpaceView;
 import Objects.*;
 import javafx.event.EventHandler;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 
 /**
@@ -25,7 +27,12 @@ public class SpaceController {
 
             @Override
             public void handle(MouseEvent t) {
-                view.setStyle("-fx-fill:RED;");
+                if(space instanceof Station){
+                    if (!((Station) space).isStart()) {
+                        view.setStyle("-fx-fill:RED;");
+                    }else view.setRadius(60);
+                }
+                else view.setStyle("-fx-fill:RED;");
             }
         });
 
@@ -34,7 +41,12 @@ public class SpaceController {
 
             @Override
             public void handle(MouseEvent t) {
-                view.setStyle("-fx-fill:" + view.getColor() + ";");
+                if(space instanceof Station){
+                    if (!((Station) space).isStart()) {
+                        view.setStyle("-fx-fill:" + view.getColor() + ";");
+                    }else view.setRadius(50);
+                }
+                else view.setStyle("-fx-fill:" + view.getColor() + ";");
             }
         });
         view.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -42,10 +54,13 @@ public class SpaceController {
             public void handle(MouseEvent event) {
 
                 for(Spaces space : space.getAdjacentSpaces()) {
-                    if (space instanceof Station) {
-                        //System.out.println(((Stations)space).getName());
-                    }
-                    space.getController().getView().setStyle("-fx-fill:GREEN;");
+                        if(space instanceof Station){
+                            if (!((Station) space).isStart()) {
+                                space.getController().getView().setStyle("-fx-fill:GREEN;");
+                            }else view.setStyle("-fx-border-color:GREEN;" +
+                                                "-fx-border-radius: 5px");
+                        }
+                    else space.getController().getView().setStyle("-fx-fill:GREEN;");
                 }
 
             }
@@ -89,5 +104,20 @@ public class SpaceController {
             space.setEdge(new Edge(map, space, station, "BLUE"));
         }
         space.addAdjacentSpace(station);
+    }
+
+    public void setStart() {
+        if (space instanceof Station) {
+            ((Station) space).setStart(true);
+            view.setRadius(50);
+            if(((Station) space).getName().equals("Redbergsplatsen")) {
+                Image img = new Image("/images/redbergsplatsen-01.png");
+                view.setFill(new ImagePattern(img));
+            }
+            else if(((Station) space).getName().equals("Lundby")) {
+                Image img = new Image("/images/lundby-01.png");
+                view.setFill(new ImagePattern(img));
+            }
+        }
     }
 }

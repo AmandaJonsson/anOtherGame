@@ -6,6 +6,12 @@ public class Station extends Spaces{
     private String name;
     private boolean isBoatStation;
 
+    public boolean isStart() {
+        return isStart;
+    }
+
+    private boolean isStart;
+
 
     public Station(Map map, String name, int x, int y) {
         super("blue", 10, x, y);
@@ -45,4 +51,7 @@ public class Station extends Spaces{
         isBoatStation = boatStation;
     }
 
+    public void setStart(boolean start) {
+        isStart = start;
+    }
 }

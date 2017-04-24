@@ -25,8 +25,8 @@ public class MapView extends GridPane {
 
         //this.setStyle("-fx-background-color: aqua");
         this.setPrefSize(900,900);
-        this.setMinSize(this.getPrefWidth(),this.getPrefHeight());
-        this.setMaxSize(this.getPrefWidth(),this.getPrefHeight());
+        this.setMinSize(400,400);
+        this.setMaxSize(900,900);
         createGrid();
 
         //group.layoutYProperty().bind(this.layoutYProperty());

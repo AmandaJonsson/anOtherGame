@@ -15,7 +15,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/Design/start.fxml"));
         primaryStage.setTitle("The Lost Kitten");
         StackPane pane = new StackPane();
-        Scene scene = new Scene(pane,1000,1000);
+        Scene scene = new Scene(pane);
         primaryStage.setScene(scene);
         Map map = new Map();
         MapView mapView = new MapView();

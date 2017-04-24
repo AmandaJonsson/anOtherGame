@@ -1,31 +1,38 @@
 package Objects;
 
 public abstract class Marker {
-    boolean isTurned;
+    boolean isTurned = false;
     private Marker marker;
+
+    public Marker(){}
 
     public Marker(Marker marker) {
         this.marker = marker;
     }
 
-
-    //Method to get status of a marker, turned or not turned
-    //Method will return false if marker is turned
+    /*
+    Method that checks if a Marker is turned.
+    Returns true if marker is turned.
+     */
     public boolean isMarkerTurned() {
         if(isTurned == true)
-            return false;
-        else
             return true;
+        else
+            return false;
     }
 
-    //Method to set status of marker, when marker is turned the variable 'isTurned' is set to true
+    /*
+    Method that sets the status of a Marker to turned.
+    This shall happen when player flipped the marker.
+     */
     public void setMarkerToTurned() {
         isTurned = true;
     }
 
-    public Marker() {
-    }
-
+    /*
+    Method that returns the "action" the Marker.
+    Must be implemented by all classes extending Marker.
+     */
     public abstract void Markervalue();
 
 }

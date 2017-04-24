@@ -1,6 +1,7 @@
 package Objects;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static junit.framework.TestCase.assertTrue;
 
 public class DiceTest {
 

@@ -1,4 +1,5 @@
 import Controllers.MapController;
+import Controllers.PlayerController;
 import Design.MapView;
 import Objects.*;
 import javafx.application.Application;
@@ -48,7 +49,7 @@ public class Main extends Application {
         MoneyMarker m2 = new MoneyMarker(MoneyMarker.TypeOfMarkers.RUBY);
         MoneyMarker m3= new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK);
 
-        m.Markervalue();
+        int i=m.Markervalue();
         m1.Markervalue();
         m2.Markervalue();
         m3.Markervalue();
@@ -57,6 +58,11 @@ public class Main extends Application {
         OtherMarkers n1 = new OtherMarkers(OtherMarkers.NoMoneyMarkers.PICKPOCKET);
         n.Markervalue();
         n1.Markervalue();
+
+
+        Player player1 = new Player("Amanda", new Spaces(7,14), false, false, 5000 );
+        player1.getBudget();
+
 
     }
 }

@@ -45,9 +45,9 @@ public class MoneyMarker extends Marker {
 
     @Override
     public void Markervalue() {
-        switch(marker){
+        switch (marker) {
             case TOPAZ:
-                valueOfMarker=3000;
+                valueOfMarker = 3000;
                 countTopaz--;
                 String desc = (descriptionText[new Random().nextInt(descriptionText.length)]);
                 System.out.println(desc + " " + valueOfMarker + " " + "kr");
@@ -55,24 +55,26 @@ public class MoneyMarker extends Marker {
                 break;
 
             case EMERALD:
-                valueOfMarker=4000;
+                valueOfMarker = 4000;
                 countEmerald--;
                 desc = (descriptionText[new Random().nextInt(descriptionText.length)]);
                 System.out.println(desc + " " + valueOfMarker + " " + "kr");
-                player.updateBudget(valueOfMarker);
+                //player.updateBudget(valueOfMarker);
                 break;
+
             case RUBY:
                 valueOfMarker = 5000;
                 countRuby--;
                 desc = (descriptionText[new Random().nextInt(descriptionText.length)]);
-                System.out.println(desc + " " + valueOfMarker+ " " + "kr");
-                player.updateBudget(valueOfMarker);
+                System.out.println(desc + " " + valueOfMarker + " " + "kr");
+                //player.updateBudget(valueOfMarker);
                 break;
             case BLANK:
                 valueOfMarker = 0;
                 countBlank--;
                 desc = "";
-                System.out.println(desc + " " + valueOfMarker+ " " + "kr");
+                System.out.println(desc + " " + valueOfMarker + " " + "kr");
+                break;
         }
     }
 
@@ -81,13 +83,13 @@ public class MoneyMarker extends Marker {
         if (station.getName()=="Guldheden" && marker.equals(TypeOfMarkers.TOPAZ)){
             valueOfMarker = 6000;
             String desc = Guldheden;
-            player.updateBudget(valueOfMarker);
+            //player.updateBudget(valueOfMarker);
             System.out.println(desc);
         }
 
         if (station.getName()=="Emilsborg" && marker.isMarkerTurned()==false){
             valueOfMarker = 5000;
-            player.updateBudget(valueOfMarker);
+            //player.updateBudget(valueOfMarker);
             String desc = FirstPlayerToEmilsborg;
 
         }

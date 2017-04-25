@@ -5,6 +5,7 @@ public class Station extends Spaces{
     private Marker marker;
     private String name;
     private boolean isBoatStation;
+    private boolean isTramStation;
 
     public boolean isStart() {
         return isStart;
@@ -51,6 +52,17 @@ public class Station extends Spaces{
         isBoatStation = boatStation;
     }
 
+    public boolean getIsBoatStation(){
+        return isBoatStation;
+    }
+
+    public void setTramStation(boolean tramStation){
+        isTramStation = tramStation;
+    }
+
+    public boolean getIsTramStation(){
+        return isTramStation;
+    }
     public void setStart(boolean start) {
         isStart = start;
     }

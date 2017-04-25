@@ -1,4 +1,6 @@
-import Objects.*;
+import Objects.Station;
+import Objects.Player;
+import Objects.Spaces;
 
 import java.util.LinkedList;
 
@@ -22,20 +24,22 @@ public class TheLostKitten {
     }
 
     public boolean canGoByBoat(Spaces position){
-        if(position.getClass().equals(BoatStation.class)){
-            return true;
+        if(position instanceof Station) {
+            return ((Station) position).getIsBoatStation();
         }else{
             return false;
         }
+
 
     }
 
     public boolean canGoByTram(Spaces position){
-        if(position.getClass().equals(TramStation.class)){
-            return true;
+        if(position instanceof Station) {
+            return ((Station) position).getIsTramStation();
         }else{
             return false;
         }
     }
+
 
 }

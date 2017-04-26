@@ -3,14 +3,9 @@ package Objects;
 
 public class Station extends Spaces{
     private Marker marker;
-    private String name;
+    private final String name;
     private boolean isBoatStation;
     private boolean isTramStation;
-
-    public boolean isStart() {
-        return isStart;
-    }
-
     private boolean isStart;
 
 
@@ -18,6 +13,13 @@ public class Station extends Spaces{
         super("blue", 10, x, y);
         this.name =  name;
         map.addSpaces(this);
+        isBoatStation = false;
+    }
+
+    public Station(int x, int y, String name, Marker marker) {
+        super(x, y);
+        this.name =  name;
+        this.marker = marker;
         isBoatStation = false;
     }
 
@@ -34,7 +36,7 @@ public class Station extends Spaces{
     If method returns true than marker has not been turned and can still be turned!
      */
     public boolean hasMarker(){
-        if(getMarker().isMarkerTurned()==false){
+        if(!getMarker().isMarkerTurned()){
             return true;
         }else
             return false;
@@ -65,5 +67,9 @@ public class Station extends Spaces{
     }
     public void setStart(boolean start) {
         isStart = start;
+    }
+
+    public boolean isStart() {
+        return isStart;
     }
 }

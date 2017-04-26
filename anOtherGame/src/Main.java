@@ -32,7 +32,7 @@ public class Main extends Application {
 
         Dice rollTheDice = new Dice();
 
-        MoneyMarker [] topaz = new MoneyMarker[15];
+        /*MoneyMarker [] topaz = new MoneyMarker[15];
         MoneyMarker [] emerald = new MoneyMarker[15];
         MoneyMarker [] ruby = new MoneyMarker[15];
         MoneyMarker [] blank = new MoneyMarker[15];
@@ -62,7 +62,7 @@ public class Main extends Application {
 
         Player player1 = new Player("Amanda", new Spaces(7,14), false, false, 5000 );
         player1.getBudget();
-
+*/
 
     }
 }

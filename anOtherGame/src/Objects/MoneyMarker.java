@@ -2,6 +2,9 @@ package Objects;
 
 import Controllers.PlayerController;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 
@@ -25,6 +28,20 @@ public class MoneyMarker extends Marker {
     public enum TypeOfMarkers{
         TOPAZ, EMERALD, RUBY, BLANK
     }
+
+    TypeOfMarkers type = TypeOfMarkers.TOPAZ;
+
+    List<TypeOfMarkers> listOfMarker = new ArrayList<TypeOfMarkers>();
+
+
+    public List<TypeOfMarkers> getListOfMarker() {
+        return listOfMarker;
+    }
+
+    public void setListOfMarker(List<TypeOfMarkers> listOfMarker) {
+        this.listOfMarker = listOfMarker;
+    }
+
 
     public MoneyMarker(TypeOfMarkers marker) {
        // this.station = station;
@@ -51,7 +68,7 @@ public class MoneyMarker extends Marker {
                 countTopaz--;
                 String desc = (descriptionText[new Random().nextInt(descriptionText.length)]);
                 System.out.println(desc + " " + valueOfMarker + " " + "kr");
-                player.updateBudget(valueOfMarker);
+                //player.updateBudget(valueOfMarker);
                 break;
 
             case EMERALD:

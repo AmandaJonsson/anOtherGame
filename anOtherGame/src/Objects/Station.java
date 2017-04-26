@@ -42,12 +42,16 @@ public class Station extends Spaces{
             return false;
     }
 
-    /*
+    /* -- this should be named turnMarker. not set marker.
     Method that changes the status of a marker from not flipped to flipped.
     Will happen when player has flipped the marker on that Station.
      */
     public void setMarker(){
-        getMarker().setMarkerToTurned();
+        marker.setMarkerToTurned();
+    }
+
+    public void setMarker(Marker marker) {
+        this.marker = marker;
     }
 
     public void setBoatStation(boolean boatStation) {

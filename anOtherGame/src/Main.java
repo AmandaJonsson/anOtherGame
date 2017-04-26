@@ -49,7 +49,7 @@ public class Main extends Application {
         MoneyMarker m2 = new MoneyMarker(MoneyMarker.TypeOfMarkers.RUBY);
         MoneyMarker m3= new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK);
 
-        int i=m.Markervalue();
+        m.Markervalue();
         m1.Markervalue();
         m2.Markervalue();
         m3.Markervalue();

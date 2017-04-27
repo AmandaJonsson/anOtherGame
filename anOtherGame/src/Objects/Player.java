@@ -9,6 +9,9 @@ public class Player {
     public int budget;      //StartBudget is 5000 kr right?
     public boolean hasCat = false;
 
+    //fejk marker tills vi skrivit en funktion som heter getMarker
+    private MoneyMarker marker = new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK);
+
 
     public Player(String name, Spaces position, boolean hasTramCard, boolean hasCat, int budget){
         this.name = name;
@@ -41,6 +44,34 @@ public class Player {
         hasCat = true;
     }
 
+
+    public void updatePosition(Spaces newPosition){
+        position = newPosition;
+
+    }
+
+    public void updateBudget(int value) {
+
+        //marker  ==  this.position.getMarker()?
+        if(marker.getClass().equals(MoneyMarker.class)){
+            increaseBudget(value);
+        } else if(marker.equals(OtherMarkers.NoMoneyMarkers.PICKPOCKET)){
+            decreaseBudget(value);
+        }
+
+    }
+
+    public int decreaseBudget(int value){
+        return budget - value;
+    }
+
+    public int increaseBudget(int value){
+        return budget + value;
+    }
+
+    public int payTicket(int ticket){
+        return budget - ticket;
+    }
 
 
 

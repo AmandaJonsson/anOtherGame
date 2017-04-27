@@ -12,7 +12,7 @@ public class MoneyMarker extends Marker {
 
     private TypeOfMarkers marker;
     private int valueOfMarker;
-    private PlayerController player;
+    private Player player;
     private Station station;
     private String [] descriptionText = {"Du har fått CSN","Du vann på lotto", "Du fick skatteåterbäring", "Du har fått pengar av mormor"};
     private String Guldheden = "Grattis! Du hittade en topas på Guldeheden, vilket ger dig 6000 kr";

@@ -1,0 +1,13 @@
+{-fx-font-family: "Comic Sans MS";}
+
+#nextTurn{
+    -fx-background-color: rgb(108, 101, 255);
+    -fx-background-radius: 0%;
+    -fx-pref-height: 123px;
+    -fx-pref-width: 250px;
+
+}
+
+#turnText{
+    -fx-font-size: 20px;
+}

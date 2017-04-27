@@ -171,7 +171,7 @@ public class Map {
 
     public void addMarkers(double noTopaz, double noEmerald, double nOfRubys, double nOfBlanks, List<Station> stations) {
 
-        ArrayList<Marker> listOfMarkers = new ArrayList<Marker>();
+        ArrayList<Marker> listOfMarkers = new ArrayList<>();
 
         for (int i = 0; i < noTopaz; i++)
             listOfMarkers.add(new MoneyMarker(MoneyMarker.TypeOfMarkers.TOPAZ));
@@ -188,13 +188,20 @@ public class Map {
             */
     }
 
-    public void shuffle(ArrayList<Marker> list) {
+    public static void shuffle(ArrayList<Marker> list) {
         int sizeOfList = list.size();
         Random random = new Random();
         random.nextInt();
         for (int i = 0; i < sizeOfList; i++) {
             int shuffle = i + random.nextInt(sizeOfList - i);
+            swapList(list, i, shuffle);
         }
+    }
+    public static void swapList (ArrayList<Marker> list, int i, int shuffle){
+        Marker supporter = list.get(i);
+        list.set(i, list.get(shuffle));
+        list.set(shuffle, supporter);
+
     }
 }
 

@@ -10,7 +10,10 @@ import java.awt.event.ActionEvent;
 
 public class TheLostKittenController {
 
-    TheLostKitten lostKitten = new TheLostKitten();
+    //Behöver ändras beroende på hur många textfält som fylls i
+    int numberOfPlayers = 0;
+    TheLostKitten lostKitten = new TheLostKitten(numberOfPlayers);
+
 
     @FXML private TextField playerTextField1;
     @FXML private TextField playerTextField2;
@@ -24,12 +27,12 @@ public class TheLostKittenController {
     @FXML private Button startGameButton;
 
 
-    Player player1 = new Player(playerTextField1.getText(), null, false, false, 5000);
-    Player player2 = new Player(playerTextField2.getText(), null, false, false, 5000);
-    Player player3 = new Player(playerTextField3.getText(), null, false, false, 5000);
-    Player player4 = new Player(playerTextField4.getText(), null, false, false, 5000);
-    Player player5 = new Player(playerTextField5.getText(), null, false, false, 5000);
-    Player player6 = new Player(playerTextField6.getText(), null, false, false, 5000);
+    Player player1 = new Player(playerTextField1.getText(), null, false, false, 5000, false);
+    Player player2 = new Player(playerTextField2.getText(), null, false, false, 5000, false);
+    Player player3 = new Player(playerTextField3.getText(), null, false, false, 5000, false);
+    Player player4 = new Player(playerTextField4.getText(), null, false, false, 5000, false);
+    Player player5 = new Player(playerTextField5.getText(), null, false, false, 5000, false);
+    Player player6 = new Player(playerTextField6.getText(), null, false, false, 5000, false);
 
 
     //Starta skärmen

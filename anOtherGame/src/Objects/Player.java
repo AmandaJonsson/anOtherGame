@@ -8,17 +8,19 @@ public class Player {
     public boolean hasTramCard = false;
     public int budget;      //StartBudget is 5000 kr right?
     public boolean hasCat = false;
+    public boolean skipATurn = false;
 
     //fejk marker tills vi skrivit en funktion som heter getMarker
     private MoneyMarker marker = new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK);
 
 
-    public Player(String name, Spaces position, boolean hasTramCard, boolean hasCat, int budget){
+    public Player(String name, Spaces position, boolean hasTramCard, boolean hasCat, int budget, boolean skipATurn){
         this.name = name;
         this.position = position;
         this.hasTramCard = hasTramCard;
         this.budget = budget;
         this.hasCat = hasCat;
+        this.skipATurn = skipATurn;
     }
 
 

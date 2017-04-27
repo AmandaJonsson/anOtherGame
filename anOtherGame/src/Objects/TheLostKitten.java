@@ -1,36 +1,43 @@
 package Objects;
 
-import javafx.fxml.FXML;
-
-import java.awt.event.ActionEvent;
-import java.util.LinkedList;
-
-
 public class TheLostKitten{
 
-    private LinkedList<Player> PlayerList = new LinkedList<>();
+    private Player[] playerList;
+    private int currentTurn = 0;
 
-    public TheLostKitten() {
+
+    public TheLostKitten(int numberOfPlayers) {
 
         Objects.Map map = new Objects.Map();
-
         Objects.Dice dice = new Objects.Dice();
 
+        playerList = new Player[numberOfPlayers];
+
     }
+
+
 
     public void addPlayer(Player player){
-        PlayerList.add(player);
+
+        for(int i = 0;i < playerList.length;i++){
+            player = playerList[i];
+        }
+
     }
 
+    public void nextTurn(Player player){
+
+        if(player.skipATurn){
+            player.skipATurn = false;
+            return;
+
+        }else if(++currentTurn >= playerList.length){
+            currentTurn = 0;
+
+        }
 
 
-
-
-
-
-
-
-
+    }
 
 
 }

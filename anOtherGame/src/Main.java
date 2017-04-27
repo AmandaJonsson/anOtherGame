@@ -3,11 +3,14 @@ import Controllers.PlayerController;
 import Design.MapView;
 import Objects.*;
 import javafx.application.Application;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
 
 public class Main extends Application {
 
@@ -22,8 +25,10 @@ public class Main extends Application {
         MapView mapView = new MapView();
         MapController controller = new MapController(map, mapView);
         pane.getChildren().add(mapView);
+        pane.getChildren().add(root);
 
         primaryStage.show();
+
     }
     
 

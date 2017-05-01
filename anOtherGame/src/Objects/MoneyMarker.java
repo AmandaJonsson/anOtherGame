@@ -46,7 +46,7 @@ public class MoneyMarker extends Marker {
     public MoneyMarker(TypeOfMarkers marker) {
        // this.station = station;
         this.marker = marker;
-        if(marker == TypeOfMarkers.TOPAZ){
+        /*if(marker == TypeOfMarkers.TOPAZ){
             System.out.println("TOPAZ");
         }
         if(marker == TypeOfMarkers.EMERALD){
@@ -58,7 +58,12 @@ public class MoneyMarker extends Marker {
         if(marker == TypeOfMarkers.BLANK){
             System.out.println("BLANK");
         }
+        */
     }
+    public TypeOfMarkers getMarkerType(){
+        return marker;
+    }
+
 
     @Override
     public void Markervalue() {

@@ -21,6 +21,7 @@ public abstract class Marker {
             return false;
     }
 
+
     /*
     Method that sets the status of a Marker to turned.
     This shall happen when player flipped the marker.

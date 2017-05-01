@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
+import sun.jvm.hotspot.memory.Space;
 
 /**
  * Created by Allex on 2017-04-23.
@@ -34,6 +35,7 @@ public class SpaceController {
                 }
                 else view.setStyle("-fx-fill:RED;");
             }
+
         });
 
         view.setOnMouseExited(new EventHandler<MouseEvent>
@@ -41,31 +43,42 @@ public class SpaceController {
 
             @Override
             public void handle(MouseEvent t) {
-                if(space instanceof Station){
+                if (space instanceof Station) {
                     if (!((Station) space).isStart()) {
                         view.setStyle("-fx-fill:" + view.getColor() + ";");
-                    }else view.setRadius(50);
-                }
-                else view.setStyle("-fx-fill:" + view.getColor() + ";");
+                    } else view.setRadius(50);
+                } else view.setStyle("-fx-fill:" + view.getColor() + ";");
             }
         });
         view.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-            //hämtqa spacen ni klickade på
+                //hämtqa spacen ni klickade på
                 //loopen bör använda dess lista adjecentspaces.
-                for(Spaces space : space.getAdjacentSpaces()) {
-                        if(space instanceof Station){
-                            if (!((Station) space).isStart()) {
-                                space.getController().getView().setStyle("-fx-fill:GREEN;");
-                            }else view.setStyle("-fx-border-color:GREEN;" +
-                                                "-fx-border-radius: 5px");
-                        }
-                    else space.getController().getView().setStyle("-fx-fill:GREEN;");
+                for (Spaces space : space.getAdjacentSpaces()) {
+                    if (space instanceof Station) {
+                        if (!((Station) space).isStart()) {
+                            space.getController().getView().setStyle("-fx-fill:GREEN;");
+                        } else view.setStyle("-fx-border-color:GREEN;" +
+                                "-fx-border-radius: 5px");
+                    } else space.getController().getView().setStyle("-fx-fill:GREEN;");
+                }
+
+            }
+
+        });
+
+       /* view.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if(space instanceof Station){
+                    System.out.println("Station");
+
                 }
 
             }
         });
+        */
     }
 
     public SpaceView getView() {

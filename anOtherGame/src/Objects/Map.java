@@ -11,10 +11,8 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Shape;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
+import java.lang.reflect.Array;
+import java.util.*;
 
 import static javafx.geometry.VPos.CENTER;
 
@@ -30,7 +28,6 @@ public class Map {
     public boolean createSpaces() {
         ArrayList<Station> stations = new ArrayList<Station>();
         Station lundby = new Station(this, "Lundby", 7, 14);
-        stations.add(lundby);
         Station ramberget = new Station(this, "Ramberget", 30, 26);
         stations.add(ramberget);
         Station chLindholmen = new Station(this, "Chalmers Lindholmen", 30, 40);
@@ -74,7 +71,6 @@ public class Map {
         Station olofshojd = new Station(this, "Olofshöjd", 85, 74);
         stations.add(olofshojd);
         Station redbergsplatsen = new Station(this, "Redbergsplatsen", 95, 22);
-        stations.add(redbergsplatsen);
         Station emilsborg = new Station(this, "Emilsborg", 76, 82);
         stations.add(emilsborg);
         Station guldheden = new Station(this, "Guldheden", 65, 84);
@@ -171,7 +167,7 @@ public class Map {
 
     public void addMarkers(double noTopaz, double noEmerald, double nOfRubys, double nOfBlanks, List<Station> stations) {
 
-        ArrayList<Marker> listOfMarkers = new ArrayList<>();
+        ArrayList<Marker> listOfMarkers = new ArrayList<>(stations.size());
 
         for (int i = 0; i < noTopaz; i++)
             listOfMarkers.add(new MoneyMarker(MoneyMarker.TypeOfMarkers.TOPAZ));
@@ -182,10 +178,26 @@ public class Map {
         for (int i = 0; i < nOfBlanks; i++)
             listOfMarkers.add(new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK));
 
+        listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.CAT));
+        listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.PICKPOCKET));
+        listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.TRAMCARD));
+
         shuffle(listOfMarkers);
-        /*for(int i = 0 ; i < stations.size(); i++)
+
+        for ( Marker mark : listOfMarkers){
+            if(mark instanceof MoneyMarker){
+                MoneyMarker mMark= (MoneyMarker) mark;
+                System.out.println(mMark.getMarkerType());
+            }
+            else{
+                OtherMarkers oMark = (OtherMarkers) mark;
+                System.out.println(oMark.getMarkerType());
+            }
+        }
+        
+        for(int i = 0 ; i < stations.size(); i++) {
             stations.get(i).setMarker(listOfMarkers.get(i));
-            */
+        }
     }
 
     public static void shuffle(ArrayList<Marker> list) {
@@ -197,6 +209,7 @@ public class Map {
             swapList(list, i, shuffle);
         }
     }
+
     public static void swapList (ArrayList<Marker> list, int i, int shuffle){
         Marker supporter = list.get(i);
         list.set(i, list.get(shuffle));

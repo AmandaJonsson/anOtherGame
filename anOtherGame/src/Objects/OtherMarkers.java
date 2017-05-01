@@ -17,6 +17,10 @@ public class OtherMarkers extends Marker {
         CAT, TRAMCARD, PICKPOCKET
     }
 
+    public NoMoneyMarkers getMarkerType(){
+        return marker;
+    }
+
     public OtherMarkers(NoMoneyMarkers marker) {
         this.marker = marker;
         if (marker == NoMoneyMarkers.CAT){

@@ -38,22 +38,5 @@ public class Main extends Application {
         Dice rollTheDice = new Dice();
 
 
-/*
-        MoneyMarker m = new MoneyMarker(MoneyMarker.TypeOfMarkers.TOPAZ);
-        MoneyMarker m1= new MoneyMarker(MoneyMarker.TypeOfMarkers.EMERALD);
-        MoneyMarker m2 = new MoneyMarker(MoneyMarker.TypeOfMarkers.RUBY);
-        MoneyMarker m3= new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK);
-
-        m.Markervalue();
-        m1.Markervalue();
-        m2.Markervalue();
-        m3.Markervalue();
-
-        OtherMarkers n = new OtherMarkers(OtherMarkers.NoMoneyMarkers.CAT);
-        OtherMarkers n1 = new OtherMarkers(OtherMarkers.NoMoneyMarkers.PICKPOCKET);
-        n.Markervalue();
-        n1.Markervalue();
-*/
-
     }
 }

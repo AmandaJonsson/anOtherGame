@@ -15,6 +15,7 @@ import sun.jvm.hotspot.memory.Space;
 public class SpaceController {
     private Spaces space;
     private SpaceView view;
+    private Marker marker;
 
     public SpaceController(Spaces space) {
         this.space = space;
@@ -63,22 +64,28 @@ public class SpaceController {
                                 "-fx-border-radius: 5px");
                     } else space.getController().getView().setStyle("-fx-fill:GREEN;");
                 }
-
             }
-
         });
 
-       /* view.setOnMouseClicked(new EventHandler<MouseEvent>() {
+       view.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 if(space instanceof Station){
-                    System.out.println("Station");
+                    if(!((Station) space).hasMarker()) {
+                        System.out.println("Has no marker");
+                    } else {
+                        Station s = (Station) space;
+                        if(s.getMarker() instanceof MoneyMarker){
+                            System.out.println(((MoneyMarker) s.getMarker()).getMarkerType());
+                        } else{
+                            System.out.println(((OtherMarkers) s.getMarker()).getMarkerType());
+                        }
+                    }
 
                 }
-
             }
         });
-        */
+
     }
 
     public SpaceView getView() {

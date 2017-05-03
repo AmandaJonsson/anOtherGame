@@ -1,0 +1,37 @@
+
+#pane{
+    -fx-background-image: url("../../Resources/background.png");
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+}
+
+#title{
+    -fx-image: url("../../Resources/titel.png");
+    -fx-alignment: baseline-center;
+}
+
+#catimage{
+    -fx-image: url("../../Resources/catpic.png");
+    -fx-alignment: baseline-center;
+}
+
+
+#startbutton{
+    -fx-background-color: rgba(171,0,46,0.5);
+    -fx-background-radius: 0%;
+    -fx-pref-height: 40px;
+    -fx-pref-width: 200px;
+
+}
+
+#rulesbutton{
+    -fx-background-color: rgba(171,0,46,0.5);
+    -fx-background-radius: 0%;
+    -fx-pref-height: 30px;
+    -fx-pref-width: 100px;
+
+}
+
+#space{
+    -fx-fill: aqua;
+}

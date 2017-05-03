@@ -1,5 +1,5 @@
-import Objects.Spaces;
-import Objects.Station;
+import Model.Spaces;
+import Model.Station;
 
 public class Tools {
 

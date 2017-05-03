@@ -1,5 +1,5 @@
 
-import Objects.*;
+import Model.*;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -25,7 +25,7 @@ public class Main extends Application {
 
     private Pane loadMainPane() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        Pane mainPane = (Pane) loader.load(getClass().getResource("/Design/start.fxml"));
+        Pane mainPane = (Pane) loader.load(getClass().getResource("/View/start.fxml"));
         return mainPane;
     }
 
@@ -37,7 +37,7 @@ public class Main extends Application {
 
     private Pane loadGamePane() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        Pane theLostPane = (Pane) loader.load(getClass().getResource("/Design/TheLostPane.fxml"));
+        Pane theLostPane = (Pane) loader.load(getClass().getResource("/View/TheLostPane.fxml"));
         return theLostPane;
     }
 

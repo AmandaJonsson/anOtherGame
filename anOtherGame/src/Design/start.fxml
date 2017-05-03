@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
@@ -9,7 +15,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1000.0" stylesheets="@CSSs/styles.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1000.0" stylesheets="@CSSs/styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainController">
    <top>
       <ImageView id="title" fitHeight="300.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -18,7 +24,7 @@
       </ImageView>
    </top>
    <bottom>
-      <Button id="rulesbutton" fx:id="rulesButton" mnemonicParsing="false" text="Regler" BorderPane.alignment="TOP_LEFT">
+      <Button id="rulesbutton" fx:id="rulesButton" mnemonicParsing="false" onAction="#handleRulesGameButton" text="Regler" BorderPane.alignment="TOP_LEFT">
          <BorderPane.margin>
             <Insets bottom="20.0" left="20.0" />
          </BorderPane.margin>
@@ -39,7 +45,7 @@
             <TextField fx:id="playerTextField4" layoutX="14.0" layoutY="49.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="Spelare 4" />
             <TextField fx:id="playerTextField5" alignment="CENTER" layoutX="217.0" layoutY="49.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="Spelare 5" />
             <TextField fx:id="playerTextField6" alignment="CENTER" layoutX="433.0" layoutY="49.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="Spelare 6" />
-            <Button id="startbutton" fx:id="startGameButton" defaultButton="true" layoutX="201.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Starta">
+            <Button id="startbutton" fx:id="startGameButton" defaultButton="true" layoutX="201.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleStartGameButton" text="Starta">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>

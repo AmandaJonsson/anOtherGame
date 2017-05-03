@@ -8,7 +8,7 @@ public class Dice {
     public int die;
     Random randomNumber = new Random();
 
-   public Dice(){
+    public Dice(){
        
     }
     

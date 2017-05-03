@@ -27,12 +27,12 @@ public class TheLostKittenController {
     @FXML private Button startGameButton;
 
 
-    Player player1 = new Player(playerTextField1.getText(), null, false, false, 5000, false);
-    Player player2 = new Player(playerTextField2.getText(), null, false, false, 5000, false);
-    Player player3 = new Player(playerTextField3.getText(), null, false, false, 5000, false);
-    Player player4 = new Player(playerTextField4.getText(), null, false, false, 5000, false);
-    Player player5 = new Player(playerTextField5.getText(), null, false, false, 5000, false);
-    Player player6 = new Player(playerTextField6.getText(), null, false, false, 5000, false);
+    Player player1 = new Player(playerTextField1.getText(), null, 5000);
+    Player player2 = new Player(playerTextField2.getText(), null, 5000);
+    Player player3 = new Player(playerTextField3.getText(), null, 5000);
+    Player player4 = new Player(playerTextField4.getText(), null, 5000);
+    Player player5 = new Player(playerTextField5.getText(), null, 5000);
+    Player player6 = new Player(playerTextField6.getText(), null, 5000);
 
 
     //Starta skärmen
@@ -40,8 +40,7 @@ public class TheLostKittenController {
     @FXML
     private void pressedStartButtonAction (ActionEvent event){
         // Button was clicked, do something...
-
-        System.out.println("Spelare 1 namn: " + player1.name + "Spelare 1 budget: " + player1.budget);
+        System.out.println("Spelare 1 namn: " + player1.getName() + "Spelare 1 budget: " + player1.getBalance());
     }
 
 

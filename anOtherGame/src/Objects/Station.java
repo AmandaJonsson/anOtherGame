@@ -42,11 +42,11 @@ public class Station extends Spaces{
             return false;
     }
 
-    /* -- this should be named turnMarker. not set marker.
+    /*
     Method that changes the status of a marker from not flipped to flipped.
     Will happen when player has flipped the marker on that Station.
      */
-    public void setMarker(){
+    public void turnMarker(){
         marker.setMarkerToTurned();
     }
 
@@ -69,6 +69,7 @@ public class Station extends Spaces{
     public boolean getIsTramStation(){
         return isTramStation;
     }
+
     public void setStart(boolean start) {
         isStart = start;
     }

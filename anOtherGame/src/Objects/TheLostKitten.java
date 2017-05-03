@@ -27,8 +27,8 @@ public class TheLostKitten{
 
     public void nextTurn(Player player){
 
-        if(player.skipATurn){
-            player.skipATurn = false;
+        if(player.getSkipATurn()){
+            player.doneSkippingTurn(); //-> was 'player.skipTurn = false', used a setter instead!
             return;
 
         }else if(++currentTurn >= playerList.length){

@@ -6,7 +6,7 @@ package Objects;
 public class OtherMarkers extends Marker {
 
     private NoMoneyMarkers marker;
-    Player player = new Player(null, null, false, false, 0, false);
+    Player player = new Player(null, null, 0);
     private String foundTheCat = "Du hittade kattungen, bra jobbat!";
     private String foundTheTramCard = "Du hittade ett västtrafikkort";
     private String robedByAPickPocket= "Du har blivit rånad av en ficktjuv, han tog alla dina pengar";

@@ -88,7 +88,7 @@ public class Player {
         if(marker.getClass().equals(MoneyMarker.class)){
             increaseBalance(value);
         } else if(marker.equals(OtherMarkers.NoMoneyMarkers.PICKPOCKET)){
-            decreaseBalance(value);
+            robbedByPickpocket();
         }
 
     }

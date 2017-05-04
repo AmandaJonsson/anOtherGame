@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -33,6 +34,9 @@ public class MainController {
     @FXML
     private TextField playerTextField1, playerTextField2,
             playerTextField3, playerTextField4, playerTextField5, playerTextField6;
+
+    @FXML
+    private Label nameLabel2;
 
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
         Stage stage = (Stage) startGameButton.getScene().getWindow();
@@ -64,38 +68,31 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
 
-        String player1name = playerTextField1.getText();
-        String player2name = playerTextField2.getText();
-        String player3name = playerTextField3.getText();
-        String player4name = playerTextField4.getText();
-        String player5name = playerTextField5.getText();
-        String player6name = playerTextField6.getText();
-
 
         ArrayList<String> players = new ArrayList<String>();
 
-        if(!player1name.isEmpty()){
-            players.add(player1name);
+        if(!playerTextField1.getText().isEmpty()){
+            players.add(playerTextField1.getText());
         }
 
-        if(!player2name.isEmpty()){
-            players.add(player2name);
+        if(!playerTextField2.getText().isEmpty()){
+            players.add(playerTextField2.getText());
         }
 
-        if(!player3name.isEmpty()){
-            players.add(player3name);
+        if(!playerTextField3.getText().isEmpty()){
+            players.add(playerTextField3.getText());
         }
 
-        if(!player4name.isEmpty()){
-            players.add(player4name);
+        if(!playerTextField4.getText().isEmpty()){
+            players.add(playerTextField4.getText());
         }
 
-        if(!player5name.isEmpty()){
-            players.add(player5name);
+        if(!playerTextField5.getText().isEmpty()){
+            players.add(playerTextField5.getText());
         }
 
-        if(!player6name.isEmpty()){
-            players.add(player6name);
+        if(!playerTextField6.getText().isEmpty()){
+            players.add(playerTextField6.getText());
         }
 
         TheLostKitten newGame = new TheLostKitten(players);

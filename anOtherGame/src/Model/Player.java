@@ -3,9 +3,9 @@ package Model;
 
 public class Player {
 
-    private Spaces position;
-    private String name;
-    private int balance;
+    Spaces position;
+    String name;
+    int balance;
     private boolean hasTramCard = false;
     private boolean hasCat = false;
     private boolean skipATurn = false;

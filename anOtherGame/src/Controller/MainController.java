@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.TheLostKitten;
 import View.MapView;
 import Model.Map;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by majanyberg on 2017-05-03.
@@ -61,6 +63,42 @@ public class MainController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+        String player1name = playerTextField1.getText();
+        String player2name = playerTextField2.getText();
+        String player3name = playerTextField3.getText();
+        String player4name = playerTextField4.getText();
+        String player5name = playerTextField5.getText();
+        String player6name = playerTextField6.getText();
+
+
+        ArrayList<String> players = new ArrayList<String>();
+
+        if(!player1name.isEmpty()){
+            players.add(player1name);
+        }
+
+        if(!player2name.isEmpty()){
+            players.add(player2name);
+        }
+
+        if(!player3name.isEmpty()){
+            players.add(player3name);
+        }
+
+        if(!player4name.isEmpty()){
+            players.add(player4name);
+        }
+
+        if(!player5name.isEmpty()){
+            players.add(player5name);
+        }
+
+        if(!player6name.isEmpty()){
+            players.add(player6name);
+        }
+
+        TheLostKitten newGame = new TheLostKitten(players);
 
     }
 

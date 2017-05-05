@@ -14,6 +14,8 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import java.awt.*;
 import java.io.IOException;
 
 
@@ -55,6 +57,22 @@ public class theLostController {
         
         Dice dice = new Dice();
         dice.roll();
+
+    }
+
+    @FXML protected void handleTurnMarkerButton(ActionEvent event) throws IOException{
+        System.out.println("Turn Marker");
+        //Click the Dice Button
+
+        Dice dice = new Dice();
+        int diceRoll = dice.roll();
+
+        if (diceRoll == 4 || diceRoll == 5 || diceRoll == 6) {
+            System.out.println("Du får vända markern");
+            // turnMarker();
+
+        }
+
 
     }
 

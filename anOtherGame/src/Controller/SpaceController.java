@@ -27,10 +27,12 @@ public class SpaceController {
 
             @Override
             public void handle(MouseEvent t) {
-                if(space instanceof Station){
+                if(space instanceof Station) {
                     if (!((Station) space).isStart()) {
                         view.setStyle("-fx-fill:RED;");
-                    }else view.setRadius(60);
+                    } else {
+                        view.setRadius(60);
+                    }
                 }
                 else view.setStyle("-fx-fill:RED;");
             }
@@ -52,8 +54,6 @@ public class SpaceController {
         view.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //hämtqa spacen ni klickade på
-                //loopen bör använda dess lista adjecentspaces.
                 for (Spaces space : space.getAdjacentSpaces()) {
                     if (space instanceof Station) {
                         if (!((Station) space).isStart()) {
@@ -70,6 +70,7 @@ public class SpaceController {
             public void handle(MouseEvent event) {
                 if(space instanceof Station){
                     if(!((Station) space).hasMarker()) {
+                        space.getController().getView().setStyle("-fx-fill:BLACK;");
                         System.out.println("Has no marker");
                     } else {
                         Station s = (Station) space;

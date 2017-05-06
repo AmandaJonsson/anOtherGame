@@ -1,19 +1,15 @@
 package Controller;
 
 import Model.Dice;
-import Model.Station;
 import View.MapView;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.IOException;
@@ -28,8 +24,11 @@ public class theLostController {
 
     @FXML
     private Button diceButton = new Button();
-    DropShadow shadow = new DropShadow();
 
+    @FXML
+    private Button payButton = new Button();
+
+    @FXML private Label alternativeText;
 
     @FXML
     public void addMap(MapView map){
@@ -38,44 +37,57 @@ public class theLostController {
 
     @FXML protected void handleDiceButton(ActionEvent event) throws IOException {
 
-        diceButton.addEventHandler(MouseEvent.MOUSE_ENTERED,
-                new EventHandler<MouseEvent>() {
+       DropShadow shadow = new DropShadow();
+        shadow.setOffsetY(3.0);
+        shadow.setOffsetX(3.0);
+
+        diceButton.setOnMouseExited(new EventHandler<MouseEvent>
+                () {
+
+            @Override
+            public void handle(MouseEvent event) {
+                diceButton.setEffect(shadow);
+            }
+        });
+
+        diceButton.setOnMouseExited(new EventHandler<MouseEvent>
+                () {
                     @Override
                     public void handle(MouseEvent event) {
-                        diceButton.setEffect(shadow);
-
-                    }
-                });
-
-        diceButton.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent e) {
                         diceButton.setEffect(null);
+
                     }
                 });
+
+
         
         Dice dice = new Dice();
-        dice.roll();
+        int diceRoll=dice.roll();
+
+        if (diceRoll == 4 || diceRoll == 5 || diceRoll == 6) {
+            alternativeText.setText("Du slog en" + " " + diceRoll + " " + "du får vända markern");
+            // turnMarker();
+        } else{
+            alternativeText.setText("Tyvärr du slog en" + " " + diceRoll + " " + "du får inte vända markern");
+        }
 
     }
 
     @FXML protected void handleTurnMarkerButton(ActionEvent event) throws IOException{
         System.out.println("Turn Marker");
+
+        alternativeText.setText("Välj att antingen betala 1000 kr eller slå tärningen och \n " +
+                "få 4,5 eller 6 för att vända markern.\n Tryck på 'Betala' eller 'Slå tärning'");
         //Click the Dice Button
-
-        Dice dice = new Dice();
-        int diceRoll = dice.roll();
-
-        if (diceRoll == 4 || diceRoll == 5 || diceRoll == 6) {
-            System.out.println("Du får vända markern");
-            // turnMarker();
-
-        }
 
 
     }
 
+    @FXML protected void handlePayButton(ActionEvent event) throws IOException{
+        System.out.println("pay");
+
+
+    }
 }
 
 

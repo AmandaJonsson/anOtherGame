@@ -3,9 +3,11 @@ package Controller;
 import View.SpaceView;
 import Model.*;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
+
 
 /**
  * Created by Allex on 2017-04-23.
@@ -51,6 +53,8 @@ public class SpaceController {
                 } else view.setStyle("-fx-fill:" + view.getColor() + ";");
             }
         });
+
+
         view.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {

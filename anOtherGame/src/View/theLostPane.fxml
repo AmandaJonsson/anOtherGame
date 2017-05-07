@@ -13,14 +13,14 @@
    <bottom>
       <AnchorPane prefHeight="123.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" stylesheets="@CSSs/Button.css" text="Button" AnchorPane.leftAnchor="30.0" />
-            <Button layoutX="30.0" layoutY="50.0" mnemonicParsing="false" stylesheets="@CSSs/Button.css" text="Button" AnchorPane.leftAnchor="30.0" />
-            <Button layoutX="14.0" layoutY="87.0" mnemonicParsing="false" stylesheets="@CSSs/Button.css" text="Button" AnchorPane.leftAnchor="30.0" />
-            <Button layoutX="661.0" layoutY="14.0" mnemonicParsing="false" stylesheets="@CSSs/Button.css" text="Button" AnchorPane.rightAnchor="280.0" />
-            <Button layoutX="661.0" layoutY="50.0" mnemonicParsing="false" stylesheets="@CSSs/Button.css" text="Button" AnchorPane.rightAnchor="280.0" />
+            <Button fx:id="bicycleButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBicycleButton" stylesheets="@CSSs/Button.css" text="Cykla" AnchorPane.leftAnchor="30.0" />
+            <Button fx:id="boatButton" layoutX="30.0" layoutY="50.0" mnemonicParsing="false" stylesheets="@CSSs/Button.css" text="Åk båt" AnchorPane.leftAnchor="30.0" />
+            <Button fx:id="tramButton" layoutX="14.0" layoutY="87.0" mnemonicParsing="false" stylesheets="@CSSs/Button.css" text="Åk spårvagn" AnchorPane.leftAnchor="30.0" />
+            <Button fx:id="turnMarkerButton" layoutX="661.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleTurnMarkerButton" stylesheets="@CSSs/Button.css" text="Vänd Marker" AnchorPane.rightAnchor="280.0" />
+            <Button layoutX="661.0" layoutY="50.0" mnemonicParsing="false" stylesheets="@CSSs/Button.css" text="Betala" AnchorPane.rightAnchor="280.0" />
             <Button layoutX="661.0" layoutY="87.0" mnemonicParsing="false" onAction="#handleDiceButton" stylesheets="@CSSs/Button.css" text="Slå tärning" AnchorPane.rightAnchor="280.0" />
             <Label id="turnText" alignment="CENTER" contentDisplay="CENTER" layoutX="337.0" layoutY="19.0" stylesheets="@CSSs/YoloBox.css" text="Din tur NAMN!" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="440.0" />
-            <Label id="hintText" alignment="CENTER" contentDisplay="CENTER" layoutX="343.0" layoutY="55.0" prefHeight="57.0" prefWidth="520.0" stylesheets="@CSSs/YoloBox.css" text="Gör ditt drag. Åk spårvag. Åk båt. Cykla." AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="440.0" />
+            <Label id="hintText" fx:id="alternativeText" alignment="CENTER" contentDisplay="CENTER" layoutX="343.0" layoutY="55.0" prefHeight="57.0" prefWidth="520.0" stylesheets="@CSSs/YoloBox.css" text="Gör ditt drag. Åk spårvag. Åk båt. Cykla." AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="440.0" />
             <Button id="nextTurn" layoutX="839.0" layoutY="42.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="123.0" prefWidth="250.0" stylesheets="@CSSs/YoloBox.css" text="Nästa spelare!" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>

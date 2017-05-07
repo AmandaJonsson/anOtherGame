@@ -5,11 +5,13 @@ import View.MapView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.*;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 
 import java.awt.*;
 import java.io.IOException;
@@ -19,6 +21,7 @@ import java.io.IOException;
  * Created by Allex on 2017-04-27.
  */
 public class theLostController {
+
     @FXML
     private Pane mapPlace;
 
@@ -26,9 +29,24 @@ public class theLostController {
     private Button diceButton = new Button();
 
     @FXML
+    private Button turnMarkerButton = new Button();
+
+    @FXML
+    private Button bicycleButton = new Button();
+
+    @FXML
+    private Button boatButton = new Button();
+
+    @FXML
+    private Button tramButton = new Button();
+
+    @FXML
     private Button payButton = new Button();
 
     @FXML private Label alternativeText;
+
+    private DropShadow shadow = new DropShadow();
+
 
     @FXML
     public void addMap(MapView map){
@@ -37,30 +55,20 @@ public class theLostController {
 
     @FXML protected void handleDiceButton(ActionEvent event) throws IOException {
 
-       DropShadow shadow = new DropShadow();
-        shadow.setOffsetY(3.0);
-        shadow.setOffsetX(3.0);
+            diceButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent e) {
+                    System.out.println("button");
+                }
+            });
 
-        diceButton.setOnMouseExited(new EventHandler<MouseEvent>
-                () {
+            diceButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent e) {
+                    diceButton.setEffect(null);
+                }
+            });
 
-            @Override
-            public void handle(MouseEvent event) {
-                diceButton.setEffect(shadow);
-            }
-        });
-
-        diceButton.setOnMouseExited(new EventHandler<MouseEvent>
-                () {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        diceButton.setEffect(null);
-
-                    }
-                });
-
-
-        
         Dice dice = new Dice();
         int diceRoll=dice.roll();
 
@@ -74,13 +82,16 @@ public class theLostController {
     }
 
     @FXML protected void handleTurnMarkerButton(ActionEvent event) throws IOException{
-        System.out.println("Turn Marker");
 
         alternativeText.setText("Välj att antingen betala 1000 kr eller slå tärningen och \n " +
                 "få 4,5 eller 6 för att vända markern.\n Tryck på 'Betala' eller 'Slå tärning'");
-        //Click the Dice Button
 
+        if (event.getSource()==turnMarkerButton){
+            bicycleButton.setDisable(true);
+            boatButton.setDisable(true);
+            tramButton.setDisable(true);
 
+        }
     }
 
     @FXML protected void handlePayButton(ActionEvent event) throws IOException{
@@ -88,6 +99,14 @@ public class theLostController {
 
 
     }
+
+    @FXML protected void handleBicycleButton(ActionEvent event) throws IOException{
+        System.out.println("Cykla");
+
+
+    }
+
+
 }
 
 

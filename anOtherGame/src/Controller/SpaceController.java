@@ -80,6 +80,7 @@ public class SpaceController {
                         Station s = (Station) space;
                         if(s.getMarker() instanceof MoneyMarker){
                             System.out.println(((MoneyMarker) s.getMarker()).getMarkerType());
+
                         } else{
                             System.out.println(((OtherMarkers) s.getMarker()).getMarkerType());
                         }

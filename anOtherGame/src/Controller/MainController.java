@@ -42,18 +42,23 @@ public class MainController {
         Stage stage = (Stage) startGameButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("/View/TheLostPane.fxml"));
-        VBox playerPlace = (VBox)root.lookup("#playerPlace");
+  //      VBox playerPlace = (VBox)root.lookup("#playerPlace");
 
         Map map = new Map();
         MapView mapView = new MapView();
         MapController controller = new MapController(map, mapView);
         Pane mapPlace = (AnchorPane)root.lookup("#mapPlace");
 
-        playerPlace.getChildren().add(FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml")));
-        playerPlace.getChildren().add(FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml")));
-        playerPlace.getChildren().add(FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml")));
-        playerPlace.getChildren().add(FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml")));
-        playerPlace.getChildren().add(FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml")));
+        VBox playerVBox = (VBox)root.lookup("#playerPlace");;
+
+        AnchorPane.setTopAnchor(playerVBox, 10.0); // obviously provide your own constraints
+
+        AnchorPane playerPane1 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
+        AnchorPane playerPane2 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
+        AnchorPane playerPane3 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
+        AnchorPane playerPane4 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
+        AnchorPane playerPane5 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
+        AnchorPane playerPane6 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
 
 
         AnchorPane.setTopAnchor(mapView, 0.0);
@@ -73,26 +78,32 @@ public class MainController {
 
         if(!playerTextField1.getText().isEmpty()){
             players.add(playerTextField1.getText());
+            playerVBox.getChildren().add(playerPane1);
         }
 
         if(!playerTextField2.getText().isEmpty()){
             players.add(playerTextField2.getText());
+            playerVBox.getChildren().add(playerPane2);
         }
 
         if(!playerTextField3.getText().isEmpty()){
             players.add(playerTextField3.getText());
+            playerVBox.getChildren().add(playerPane3);
         }
 
         if(!playerTextField4.getText().isEmpty()){
             players.add(playerTextField4.getText());
+            playerVBox.getChildren().add(playerPane4);
         }
 
         if(!playerTextField5.getText().isEmpty()){
             players.add(playerTextField5.getText());
+            playerVBox.getChildren().add(playerPane5);
         }
 
         if(!playerTextField6.getText().isEmpty()){
             players.add(playerTextField6.getText());
+            playerVBox.getChildren().add(playerPane6);
         }
 
         TheLostKitten newGame = new TheLostKitten(players);

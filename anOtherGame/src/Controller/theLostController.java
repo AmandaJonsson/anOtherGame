@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Dice;
 import Model.Marker;
+import Model.Player;
 import Model.Station;
 import View.MapView;
 import javafx.event.ActionEvent;
@@ -208,7 +209,6 @@ public class theLostController {
             boatButton.setDisable(true);
             tramButton.setDisable(true);
         }
-
     }
 
     @FXML protected void handlePayButton(ActionEvent event) throws IOException{
@@ -221,6 +221,16 @@ public class theLostController {
 
     }
 
+    @FXML protected void handleBoatButton(ActionEvent event) throws IOException{
+        System.out.println("Åk båt");
+
+    }
+
+    @FXML protected void handleTramButton(ActionEvent event) throws IOException{
+        System.out.println("Åk spårvagn");
+
+    }
+
     @FXML protected void handleNextPlayerButton(ActionEvent event) throws IOException{
         alternativeText.setText(" ");
         turnMarkerButton.setDisable(false);
@@ -229,7 +239,6 @@ public class theLostController {
         bicycleButton.setDisable(false);
         boatButton.setDisable(false);
         tramButton.setDisable(false);
-
 
     }
 

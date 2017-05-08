@@ -52,7 +52,7 @@ public class theLostController {
     @FXML private Label alternativeText;
 
     private DropShadow shadow = new DropShadow();
-    
+
     @FXML
     public void addMap(MapView map){
         mapPlace.getChildren().add(map);

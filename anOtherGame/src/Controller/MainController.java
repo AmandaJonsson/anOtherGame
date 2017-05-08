@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 
@@ -90,6 +91,8 @@ public class MainController {
             playerLabel1.setLayoutX(115);
             playerLabel1.setLayoutY(20);
             playerLabel1.setText(playerTextField1.getText());
+            playerLabel1.setFont(new Font("Comic sans", 15));
+
         }
 
         if(!playerTextField2.getText().isEmpty()){
@@ -99,6 +102,8 @@ public class MainController {
             playerLabel2.setLayoutX(115);
             playerLabel2.setLayoutY(20);
             playerLabel2.setText(playerTextField2.getText());
+            playerLabel2.setFont(new Font("Comic sans", 15));
+
         }
 
         if(!playerTextField3.getText().isEmpty()){
@@ -108,6 +113,8 @@ public class MainController {
             playerLabel3.setLayoutX(115);
             playerLabel3.setLayoutY(20);
             playerLabel3.setText(playerTextField3.getText());
+            playerLabel3.setFont(new Font("Comic sans", 15));
+
         }
 
         if(!playerTextField4.getText().isEmpty()){
@@ -117,6 +124,8 @@ public class MainController {
             playerLabel4.setLayoutX(115);
             playerLabel4.setLayoutY(20);
             playerLabel4.setText(playerTextField4.getText());
+            playerLabel4.setFont(new Font("Comic sans", 15));
+
         }
 
         if(!playerTextField5.getText().isEmpty()){
@@ -126,6 +135,8 @@ public class MainController {
             playerLabel5.setLayoutX(115);
             playerLabel5.setLayoutY(20);
             playerLabel5.setText(playerTextField5.getText());
+            playerLabel5.setFont(new Font("Comic sans", 15));
+
         }
 
         if(!playerTextField6.getText().isEmpty()){
@@ -135,9 +146,12 @@ public class MainController {
             playerLabel6.setLayoutX(115);
             playerLabel6.setLayoutY(20);
             playerLabel6.setText(playerTextField6.getText());
+            playerLabel6.setFont(new Font("Comic sans", 15));
+
         }
 
         TheLostKitten newGame = new TheLostKitten(players);
+//        theLostController newController = new theLostController(newGame);
 
     }
 

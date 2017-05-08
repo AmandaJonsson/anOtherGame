@@ -6,6 +6,7 @@ import Model.Map;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -35,7 +36,7 @@ public class MainController {
     private TextField playerTextField1, playerTextField2,
             playerTextField3, playerTextField4, playerTextField5, playerTextField6;
 
-    TheLostKitten newGame;
+
 
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
         Stage stage = (Stage) startGameButton.getScene().getWindow();
@@ -51,6 +52,7 @@ public class MainController {
 
         AnchorPane.setTopAnchor(playerVBox, 10.0); // obviously provide your own constraints
 
+        //Creating all the player panes
         AnchorPane playerPane1 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
         AnchorPane playerPane2 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
         AnchorPane playerPane3 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
@@ -58,6 +60,13 @@ public class MainController {
         AnchorPane playerPane5 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
         AnchorPane playerPane6 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
 
+        //Creating name labels for the players
+        Label playerLabel1 = new Label();
+        Label playerLabel2 = new Label();
+        Label playerLabel3 = new Label();
+        Label playerLabel4 = new Label();
+        Label playerLabel5 = new Label();
+        Label playerLabel6 = new Label();
 
         AnchorPane.setTopAnchor(mapView, 0.0);
         AnchorPane.setLeftAnchor(mapView, 0.0);
@@ -77,39 +86,59 @@ public class MainController {
         if(!playerTextField1.getText().isEmpty()){
             players.add(playerTextField1.getText());
             playerVBox.getChildren().add(playerPane1);
+            playerPane1.getChildren().addAll(playerLabel1);
+            playerLabel1.setLayoutX(115);
+            playerLabel1.setLayoutY(20);
+            playerLabel1.setText(playerTextField1.getText());
         }
 
         if(!playerTextField2.getText().isEmpty()){
             players.add(playerTextField2.getText());
             playerVBox.getChildren().add(playerPane2);
+            playerPane2.getChildren().addAll(playerLabel2);
+            playerLabel2.setLayoutX(115);
+            playerLabel2.setLayoutY(20);
+            playerLabel2.setText(playerTextField2.getText());
         }
 
         if(!playerTextField3.getText().isEmpty()){
             players.add(playerTextField3.getText());
             playerVBox.getChildren().add(playerPane3);
+            playerPane3.getChildren().addAll(playerLabel3);
+            playerLabel3.setLayoutX(115);
+            playerLabel3.setLayoutY(20);
+            playerLabel3.setText(playerTextField3.getText());
         }
 
         if(!playerTextField4.getText().isEmpty()){
             players.add(playerTextField4.getText());
             playerVBox.getChildren().add(playerPane4);
+            playerPane4.getChildren().addAll(playerLabel4);
+            playerLabel4.setLayoutX(115);
+            playerLabel4.setLayoutY(20);
+            playerLabel4.setText(playerTextField4.getText());
         }
 
         if(!playerTextField5.getText().isEmpty()){
             players.add(playerTextField5.getText());
             playerVBox.getChildren().add(playerPane5);
+            playerPane5.getChildren().addAll(playerLabel5);
+            playerLabel5.setLayoutX(115);
+            playerLabel5.setLayoutY(20);
+            playerLabel5.setText(playerTextField5.getText());
         }
 
         if(!playerTextField6.getText().isEmpty()){
             players.add(playerTextField6.getText());
             playerVBox.getChildren().add(playerPane6);
+            playerPane6.getChildren().addAll(playerLabel6);
+            playerLabel6.setLayoutX(115);
+            playerLabel6.setLayoutY(20);
+            playerLabel6.setText(playerTextField6.getText());
         }
 
-        newGame = new TheLostKitten(players);
+        TheLostKitten newGame = new TheLostKitten(players);
 
-    }
-
-    public TheLostKitten newGame(){
-        return newGame;
     }
 
 

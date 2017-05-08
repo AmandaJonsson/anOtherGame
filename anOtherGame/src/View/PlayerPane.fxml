@@ -22,6 +22,5 @@
          <image>
             <Image url="@../Resources/vasttrafik.png" />
          </image></ImageView>
-      <Label id="nameText" fx:id="nameLabel2" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="65.0" text="namn" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
    </children>
 </AnchorPane>

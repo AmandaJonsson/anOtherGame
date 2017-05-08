@@ -60,6 +60,8 @@ public class Spaces implements ISpace{
     }
 
     public boolean compareSpaces(ISpace space){
+        if(space == null)
+            return false;
         return ((this.getX()==space.getX()) && (this.getY()==space.getY()));
     }
 

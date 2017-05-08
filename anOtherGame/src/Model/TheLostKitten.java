@@ -2,6 +2,7 @@ package Model;
 
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class TheLostKitten{
 
@@ -39,21 +40,33 @@ public class TheLostKitten{
 
     }
 
-    public Player nextTurn(int i){
+    public int changeTurn(int i){
 
         if(i+1>=playerList.length){
-            return playerList[0];
+            playerList[i].isTurn = false;
+            playerList[0].isTurn = true;
+            return 0;
 
         }else if(playerList[i+1].getSkipATurn()){
             playerList[i+1].doneSkippingTurn(); //-> was 'player.skipTurn = false', used a setter instead!
-            return nextTurn(i+1);
+            return changeTurn(i+1);
 
         }else {
-            return playerList[i+1];
+            playerList[i].isTurn = false;
+            playerList[i+1].isTurn = true;
+            return i+1;
 
         }
 
 
+    }
+
+    public int isFirstTurn(){
+        Random randomPlayer = new Random();
+        int playerNumber = randomPlayer.nextInt(playerList.length-1)+1;
+        playerList[playerNumber].isTurn = true;
+
+        return randomPlayer.nextInt(playerList.length-1)+1;
     }
 
 
@@ -61,6 +74,7 @@ public class TheLostKitten{
     public Player[] getPlayers(){
         return playerList;
     }
+
 
 
 }

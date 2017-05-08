@@ -1,9 +1,6 @@
 package Controller;
 
-import Model.Dice;
-import Model.Marker;
-import Model.Player;
-import Model.Station;
+import Model.*;
 import View.MapView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -24,6 +21,31 @@ import java.io.IOException;
  * Created by Allex on 2017-04-27.
  */
 public class theLostController {
+
+    private Player[] playerList;
+    private Spaces position;
+    private Player player;
+
+
+    public theLostController(){
+
+    }
+
+
+    public theLostController(TheLostKitten newGame) {
+
+        this.playerList = newGame.getPlayers();
+
+        for(int i = 0; i<playerList.length; i++){
+            if(playerList[i].playerHasTurn() == true){
+                this.player = playerList[i];
+            }
+        }
+
+        this.position = player.getPosition();
+
+
+    }
 
     @FXML
     private Pane mapPlace;
@@ -52,6 +74,11 @@ public class theLostController {
     @FXML private Label alternativeText;
 
     private DropShadow shadow = new DropShadow();
+
+
+
+
+
 
     @FXML
     public void addMap(MapView map){

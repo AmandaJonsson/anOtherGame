@@ -9,7 +9,7 @@ public class Player {
     private boolean hasTramCard = false;
     private boolean hasCat = false;
     private boolean skipATurn = false;
-    protected boolean isTurn = false;
+    boolean isTurn = false;
 
 
     //fejk marker tills vi skrivit en funktion som heter getMarker
@@ -21,6 +21,10 @@ public class Player {
         this.position = position;
         this.balance = balance;
 
+    }
+
+    public boolean playerHasTurn(){
+        return isTurn;
     }
 
     public int getBalance(){

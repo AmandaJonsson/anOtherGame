@@ -40,7 +40,7 @@ public class MainController {
 
 
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
-        ActionEvent thisEvent = event;
+     //  ActionEvent thisEvent = event;
         Stage stage = (Stage) startGameButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("/View/TheLostPane.fxml"));
@@ -79,8 +79,6 @@ public class MainController {
         mapPlace.getChildren().add(mapView);
 
         ArrayList<String> players = new ArrayList<String>();
-
-
 
 
             if (!playerTextField1.getText().isEmpty()) {
@@ -186,6 +184,7 @@ public class MainController {
 
 
         TheLostKitten newGame = new TheLostKitten(players);
+        System.out.println("HEJHEJ");
 //        theLostController newController = new theLostController(newGame);
 
     }

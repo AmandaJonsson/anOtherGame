@@ -40,6 +40,7 @@ public class MainController {
 
 
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
+        ActionEvent thisEvent = event;
         Stage stage = (Stage) startGameButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("/View/TheLostPane.fxml"));
@@ -77,78 +78,112 @@ public class MainController {
 
         mapPlace.getChildren().add(mapView);
 
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        
-
         ArrayList<String> players = new ArrayList<String>();
 
-        if(!playerTextField1.getText().isEmpty()){
-            players.add(playerTextField1.getText());
-            playerVBox.getChildren().add(playerPane1);
-            playerPane1.getChildren().addAll(playerLabel1);
-            playerLabel1.setLayoutX(115);
-            playerLabel1.setLayoutY(20);
-            playerLabel1.setText(playerTextField1.getText());
-            playerLabel1.setFont(new Font("Comic sans", 15));
+
+
+
+            if (!playerTextField1.getText().isEmpty()) {
+                players.add(playerTextField1.getText());
+                playerVBox.getChildren().add(playerPane1);
+                playerPane1.getChildren().addAll(playerLabel1);
+                playerLabel1.setLayoutX(115);
+                playerLabel1.setLayoutY(20);
+                playerLabel1.setText(playerTextField1.getText());
+                playerLabel1.setFont(new Font("Comic sans", 15));
+
+            }
+
+            if (!playerTextField2.getText().isEmpty()) {
+                players.add(playerTextField2.getText());
+                playerVBox.getChildren().add(playerPane2);
+                playerPane2.getChildren().addAll(playerLabel2);
+                playerLabel2.setLayoutX(115);
+                playerLabel2.setLayoutY(20);
+                playerLabel2.setText(playerTextField2.getText());
+                playerLabel2.setFont(new Font("Comic sans", 15));
+
+            }
+
+            if (!playerTextField3.getText().isEmpty()) {
+                players.add(playerTextField3.getText());
+                playerVBox.getChildren().add(playerPane3);
+                playerPane3.getChildren().addAll(playerLabel3);
+                playerLabel3.setLayoutX(115);
+                playerLabel3.setLayoutY(20);
+                playerLabel3.setText(playerTextField3.getText());
+                playerLabel3.setFont(new Font("Comic sans", 15));
+
+            }
+
+            if (!playerTextField4.getText().isEmpty()) {
+                players.add(playerTextField4.getText());
+                playerVBox.getChildren().add(playerPane4);
+                playerPane4.getChildren().addAll(playerLabel4);
+                playerLabel4.setLayoutX(115);
+                playerLabel4.setLayoutY(20);
+                playerLabel4.setText(playerTextField4.getText());
+                playerLabel4.setFont(new Font("Comic sans", 15));
+
+            }
+
+            if (!playerTextField5.getText().isEmpty()) {
+                players.add(playerTextField5.getText());
+                playerVBox.getChildren().add(playerPane5);
+                playerPane5.getChildren().addAll(playerLabel5);
+                playerLabel5.setLayoutX(115);
+                playerLabel5.setLayoutY(20);
+                playerLabel5.setText(playerTextField5.getText());
+                playerLabel5.setFont(new Font("Comic sans", 15));
+
+            }
+
+            if (!playerTextField6.getText().isEmpty()) {
+                players.add(playerTextField6.getText());
+                playerVBox.getChildren().add(playerPane6);
+                playerPane6.getChildren().addAll(playerLabel6);
+                playerLabel6.setLayoutX(115);
+                playerLabel6.setLayoutY(20);
+                playerLabel6.setText(playerTextField6.getText());
+                playerLabel6.setFont(new Font("Comic sans", 15));
+
+            }
+
+        boolean hasSameName = false;
+
+
+        for (int i = 0; i < players.size(); i++){
+            for(int j = i+1; j < players.size(); j++){
+                System.out.println("*****111111******");
+                System.out.println(players.get(i));
+                System.out.println(players.get(j));
+                System.out.println("*****222222******");
+                hasSameName = players.get(i).equals(players.get(j));
+                if(hasSameName) {
+                    System.out.println("Alla spelare måste ha olika namn!");
+                    players.clear();
+                    playerTextField1.clear();
+                    playerTextField2.clear();
+                    playerTextField3.clear();
+                    playerTextField4.clear();
+                    playerTextField5.clear();
+                    playerTextField6.clear();
+                    System.out.println(players);
+
+                }
+
+
+            }
+
 
         }
 
-        if(!playerTextField2.getText().isEmpty()){
-            players.add(playerTextField2.getText());
-            playerVBox.getChildren().add(playerPane2);
-            playerPane2.getChildren().addAll(playerLabel2);
-            playerLabel2.setLayoutX(115);
-            playerLabel2.setLayoutY(20);
-            playerLabel2.setText(playerTextField2.getText());
-            playerLabel2.setFont(new Font("Comic sans", 15));
-
+        if(hasSameName == false){
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
 
-        if(!playerTextField3.getText().isEmpty()){
-            players.add(playerTextField3.getText());
-            playerVBox.getChildren().add(playerPane3);
-            playerPane3.getChildren().addAll(playerLabel3);
-            playerLabel3.setLayoutX(115);
-            playerLabel3.setLayoutY(20);
-            playerLabel3.setText(playerTextField3.getText());
-            playerLabel3.setFont(new Font("Comic sans", 15));
-
-        }
-
-        if(!playerTextField4.getText().isEmpty()){
-            players.add(playerTextField4.getText());
-            playerVBox.getChildren().add(playerPane4);
-            playerPane4.getChildren().addAll(playerLabel4);
-            playerLabel4.setLayoutX(115);
-            playerLabel4.setLayoutY(20);
-            playerLabel4.setText(playerTextField4.getText());
-            playerLabel4.setFont(new Font("Comic sans", 15));
-
-        }
-
-        if(!playerTextField5.getText().isEmpty()){
-            players.add(playerTextField5.getText());
-            playerVBox.getChildren().add(playerPane5);
-            playerPane5.getChildren().addAll(playerLabel5);
-            playerLabel5.setLayoutX(115);
-            playerLabel5.setLayoutY(20);
-            playerLabel5.setText(playerTextField5.getText());
-            playerLabel5.setFont(new Font("Comic sans", 15));
-
-        }
-
-        if(!playerTextField6.getText().isEmpty()){
-            players.add(playerTextField6.getText());
-            playerVBox.getChildren().add(playerPane6);
-            playerPane6.getChildren().addAll(playerLabel6);
-            playerLabel6.setLayoutX(115);
-            playerLabel6.setLayoutY(20);
-            playerLabel6.setText(playerTextField6.getText());
-            playerLabel6.setFont(new Font("Comic sans", 15));
-
-        }
 
         TheLostKitten newGame = new TheLostKitten(players);
 //        theLostController newController = new theLostController(newGame);

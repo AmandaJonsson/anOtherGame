@@ -13,7 +13,7 @@ public class MoneyMarker extends Marker {
     private Station station;
     private String [] descriptionText = {"Du har fått CSN","Du vann på lotto", "Du fick skatteåterbäring", "Du har fått pengar av mormor"};
     private String Guldheden = "Grattis! Du hittade en topas på Guldeheden, vilket ger dig 6000 kr";
-    private String FirstPlayerToEmilsborg = "Du hann först till Emildborg, du får 5000 kr";
+    private String FirstPlayerToEmilsborg = "Du hann först till Emilsborg, du får 5000 kr";
 
 
     private int countTopaz=15;

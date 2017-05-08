@@ -57,21 +57,108 @@ public class theLostController {
         mapPlace.getChildren().add(map);
     }
 
+    @FXML
+    public void setMouseEffect(){
+        diceButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                diceButton.setEffect(shadow);
+            }
+        });
+
+        diceButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                diceButton.setEffect(null);
+            }
+        });
+
+        turnMarkerButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                turnMarkerButton.setEffect(shadow);
+            }
+        });
+
+        turnMarkerButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                turnMarkerButton.setEffect(null);
+            }
+        });
+
+        payButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                payButton.setEffect(shadow);
+            }
+        });
+
+        payButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                payButton.setEffect(null);
+            }
+        });
+
+        bicycleButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                bicycleButton.setEffect(shadow);
+            }
+        });
+
+        bicycleButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                bicycleButton.setEffect(null);
+            }
+        });
+
+        boatButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                boatButton.setEffect(shadow);
+            }
+        });
+
+        boatButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                boatButton.setEffect(null);
+            }
+        });
+        tramButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                tramButton.setEffect(shadow);
+            }
+        });
+
+        tramButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                tramButton.setEffect(null);
+            }
+        });
+
+        nextPlayerButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                nextPlayerButton.setEffect(shadow);
+            }
+        });
+
+        nextPlayerButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                nextPlayerButton.setEffect(null);
+            }
+        });
+
+    }
+
     @FXML protected int handleDiceButton(ActionEvent event) throws IOException {
-
-            diceButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent e) {
-                    diceButton.setEffect(shadow);
-                }
-            });
-
-            diceButton.setOnMouseExited(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent e) {
-                    diceButton.setEffect(null);
-                }
-            });
 
         Dice dice = new Dice();
         int diceRoll=dice.roll();
@@ -113,20 +200,6 @@ public class theLostController {
     }
 
     @FXML protected void handleTurnMarkerButton(ActionEvent event) throws IOException{
-
-        turnMarkerButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent e) {
-                turnMarkerButton.setEffect(shadow);
-            }
-        });
-
-        turnMarkerButton.setOnMouseExited(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent e) {
-                turnMarkerButton.setEffect(null);
-            }
-        });
 
         if (event.getSource()==turnMarkerButton){
             alternativeText.setText("Välj att antingen betala 1000 kr eller slå tärningen och \n " +

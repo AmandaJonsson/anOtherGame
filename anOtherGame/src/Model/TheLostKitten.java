@@ -53,5 +53,9 @@ public class TheLostKitten{
 
     }
 
+    public Player[] getPlayers(){
+        return playerList;
+    }
+
 
 }

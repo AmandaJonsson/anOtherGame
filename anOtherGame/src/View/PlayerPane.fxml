@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:controller="Controller.MainController" maxHeight="1.7976931348623157E308" minHeight="100.0" minWidth="0.0" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #fd9dff;" stylesheets="@CSSs/PlayerPane.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1.7976931348623157E308" minHeight="100.0" minWidth="0.0" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #fd9dff;" stylesheets="@CSSs/PlayerPane.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
    <children>
       <Text fx:id="budget2" layoutX="16.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PENGAR KR" wrappingWidth="104.1923828125" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="20.0" />
       <ImageView id="hasCat" fx:id="tramCard2" fitHeight="40.0" fitWidth="50.0" layoutX="20.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0">
@@ -22,6 +22,6 @@
          <image>
             <Image url="@../Resources/vasttrafik.png" />
          </image></ImageView>
-      <Label id="nameText" fx:id="nameLabel2" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="65.0" text="NAMN" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
+      <Label id="nameText" fx:id="nameLabel2" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="65.0" text="namn" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
    </children>
 </AnchorPane>

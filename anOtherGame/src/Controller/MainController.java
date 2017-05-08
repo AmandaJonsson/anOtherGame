@@ -35,14 +35,12 @@ public class MainController {
     private TextField playerTextField1, playerTextField2,
             playerTextField3, playerTextField4, playerTextField5, playerTextField6;
 
-    @FXML
-    private Label nameLabel2;
+    TheLostKitten newGame;
 
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
         Stage stage = (Stage) startGameButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("/View/TheLostPane.fxml"));
-  //      VBox playerPlace = (VBox)root.lookup("#playerPlace");
 
         Map map = new Map();
         MapView mapView = new MapView();
@@ -72,7 +70,7 @@ public class MainController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
+        
 
         ArrayList<String> players = new ArrayList<String>();
 
@@ -106,42 +104,13 @@ public class MainController {
             playerVBox.getChildren().add(playerPane6);
         }
 
-        TheLostKitten newGame = new TheLostKitten(players);
+        newGame = new TheLostKitten(players);
 
     }
 
-    /*Parent root = FXMLLoader.load(getClass().getResource("/View/theLostPane.fxml"));
-        primaryStage.setTitle("The Lost Kitten");
-        AnchorPane.setTopAnchor(root, 0.0);
-        AnchorPane.setLeftAnchor(root, 0.0);
-        AnchorPane.setRightAnchor(root, 0.0);
-        AnchorPane.setBottomAnchor(root, 0.0);
-        AnchorPane pane = new AnchorPane();
-        Scene scene = new Scene(pane);
-        primaryStage.setScene(scene);
-        Map map = new Map();
-        MapView mapView = new MapView();
-        MapController controller = new MapController(map, mapView);
-        Pane mapPlace = (AnchorPane)root.lookup("#mapPlace");
-        VBox playerPlace = (VBox)root.lookup("#playerPlace");
-        playerPlace.getChildren().add(FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml")));
-        playerPlace.getChildren().add(FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml")));
-        playerPlace.getChildren().add(FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml")));
-        playerPlace.getChildren().add(FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml")));
-        playerPlace.getChildren().add(FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml")));
-        //mapPlace.getChildren().add(mapView);
-        //pane.getChildren().add(mapView);
-        pane.getChildren().add(root);
-        AnchorPane.setTopAnchor(mapView, 0.0);
-        AnchorPane.setLeftAnchor(mapView, 0.0);
-        AnchorPane.setRightAnchor(mapView, 0.0);
-        AnchorPane.setBottomAnchor(mapView, 0.0);
-        mapPlace.getChildren().add(mapView);
-        primaryStage.show();*/
-
-
-
-
+    public TheLostKitten newGame(){
+        return newGame;
+    }
 
 
     @FXML protected void handleRulesGameButton(ActionEvent event) throws IOException {

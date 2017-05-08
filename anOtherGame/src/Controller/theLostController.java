@@ -73,6 +73,8 @@ public class theLostController {
 
     @FXML private Label alternativeText;
 
+    @FXML private Label playersTurnLabel;
+
     private DropShadow shadow = new DropShadow();
 
 
@@ -87,6 +89,7 @@ public class theLostController {
 
     @FXML
     public void setMouseEffect(){
+
         diceButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent e) {
@@ -213,6 +216,7 @@ public class theLostController {
         if(diceRoll==4 || diceRoll == 5 || diceRoll == 6){
             alternativeText.setText("Du slog en" + " " + diceRoll + " " + "du får vända markern");
 
+
         } else{
             alternativeText.setText("Tyvärr du slog en" + " " + diceRoll + " " + "du får inte vända markern");
             turnMarkerButton.setDisable(true);
@@ -260,6 +264,8 @@ public class theLostController {
 
     @FXML protected void handleNextPlayerButton(ActionEvent event) throws IOException{
         alternativeText.setText(" ");
+
+        //playersTurnLabel.setText("Din tur" + player.getName());
         turnMarkerButton.setDisable(false);
         payButton.setDisable(false);
         diceButton.setDisable(false);

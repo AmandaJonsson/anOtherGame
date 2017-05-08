@@ -7,6 +7,7 @@ public class Station extends Spaces{
     private boolean isBoatStation;
     private boolean isTramStation;
     private boolean isStart;
+    private Station station;
 
 
     public Station(Map map, String name, int x, int y) {
@@ -76,5 +77,9 @@ public class Station extends Spaces{
 
     public boolean isStart() {
         return isStart;
+    }
+
+    public Station getStation(){
+        return station;
     }
 }

@@ -25,6 +25,7 @@ public class theLostController {
     private Player[] playerList;
     private Spaces position;
     private Player player;
+    private MainController con;
 
 
     public theLostController(){
@@ -43,9 +44,8 @@ public class theLostController {
         }
 
         this.position = player.getPosition();
-
-
     }
+
 
     @FXML
     private Pane mapPlace;
@@ -76,10 +76,6 @@ public class theLostController {
     @FXML private Label playersTurnLabel;
 
     private DropShadow shadow = new DropShadow();
-
-
-
-
 
 
     @FXML

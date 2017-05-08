@@ -19,14 +19,30 @@ public class TheLostKitten{
         playerList = new Player[nameOfPlayers.size()];
 
         for(int i = 0; i < playerList.length; i++){
-            Player player = new Player(nameOfPlayers.get(i), null, 5000);
+            Player player = new Player(nameOfPlayers.get(i), getRandomStartPosition(), 5000);
             addPlayer(player);
             System.out.println("Spelare: " + playerList[i].getName() + " Position: " +
                     playerList[i].getPosition() + " Budget: " + playerList[i].getBalance());
         }
 
+    }
+
+    public Spaces getRandomStartPosition(){
+
+        Spaces start1 = new Spaces(95, 22);
+        Spaces start2 = new Spaces(7, 14);
+        ArrayList<Spaces> startpositions = new ArrayList<Spaces>();
+        startpositions.add(start1);
+        startpositions.add(start2);
+        for (int i =0; i<startpositions.size();i++){
+            System.out.println(startpositions.get(i));
+
+        }
+        Random r = new Random();
+        int startPos = r.nextInt(2)+1;
 
 
+        return startpositions.get(startPos);
     }
 
 

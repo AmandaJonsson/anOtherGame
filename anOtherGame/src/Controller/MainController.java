@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Player;
 import Model.TheLostKitten;
 import View.MapView;
 import Model.Map;
@@ -184,8 +185,7 @@ public class MainController {
 
 
         TheLostKitten newGame = new TheLostKitten(players);
-        System.out.println("HEJHEJ");
-//        theLostController newController = new theLostController(newGame);
+        //theLostController newController = new theLostController(newGame);
 
     }
 

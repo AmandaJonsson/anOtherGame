@@ -2,6 +2,7 @@ package Model;
 
 
 import Controller.SpaceController;
+import sun.jvm.hotspot.memory.Space;
 
 import java.util.ArrayList;
 
@@ -11,6 +12,7 @@ public class Spaces implements ISpace{
     private Edge edge;
     private SpaceController controller;
     private int x;
+    private Spaces space;
 
 
     public Spaces(int x, int y) {
@@ -63,6 +65,10 @@ public class Spaces implements ISpace{
         if(space == null)
             return false;
         return ((this.getX()==space.getX()) && (this.getY()==space.getY()));
+    }
+
+    public Spaces getSpace(){
+        return space;
     }
 
 }

@@ -5,7 +5,7 @@ import Controller.SpaceController;
 
 import java.util.ArrayList;
 
-public class Spaces{
+public class Spaces implements ISpace{
     private int y;
     private ArrayList<Spaces> adjacentSpaces;
     private Edge edge;
@@ -58,4 +58,9 @@ public class Spaces{
     public void setEdge(Edge edge) {
         this.edge = edge;
     }
+
+    public boolean compareSpaces(ISpace space){
+        return ((this.getX()==space.getX()) && (this.getY()==space.getY()));
+    }
+
 }

@@ -62,7 +62,7 @@ public class theLostController {
             diceButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent e) {
-                    System.out.println("button");
+                    diceButton.setEffect(shadow);
                 }
             });
 
@@ -114,6 +114,20 @@ public class theLostController {
 
     @FXML protected void handleTurnMarkerButton(ActionEvent event) throws IOException{
 
+        turnMarkerButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                turnMarkerButton.setEffect(shadow);
+            }
+        });
+
+        turnMarkerButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                turnMarkerButton.setEffect(null);
+            }
+        });
+
         if (event.getSource()==turnMarkerButton){
             alternativeText.setText("Välj att antingen betala 1000 kr eller slå tärningen och \n " +
                     "få 4,5 eller 6 för att vända markern.\n Tryck på 'Betala' eller 'Slå tärning'");
@@ -135,7 +149,14 @@ public class theLostController {
     }
 
     @FXML protected void handleNextPlayerButton(ActionEvent event) throws IOException{
-        System.out.println("nästa spelare");
+        alternativeText.setText(" ");
+        turnMarkerButton.setDisable(false);
+        payButton.setDisable(false);
+        diceButton.setDisable(false);
+        bicycleButton.setDisable(false);
+        boatButton.setDisable(false);
+        tramButton.setDisable(false);
+
 
     }
 

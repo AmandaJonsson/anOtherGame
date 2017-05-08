@@ -9,6 +9,8 @@ public class Player {
     private boolean hasTramCard = false;
     private boolean hasCat = false;
     private boolean skipATurn = false;
+    protected boolean isTurn = false;
+
 
     //fejk marker tills vi skrivit en funktion som heter getMarker
     private MoneyMarker marker = new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK);
@@ -18,9 +20,7 @@ public class Player {
         this.name = name;
         this.position = position;
         this.balance = balance;
-        //this.hasTramCard = hasTramCard;   -> should be false at start?
-        //this.hasCat = hasCat;             -> should be false at start?
-        //this.skipATurn = skipATurn;       -> should be false at start?
+
     }
 
     public int getBalance(){

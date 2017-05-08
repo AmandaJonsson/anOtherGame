@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class TheLostKitten{
 
     private Player[] playerList;
-    private int currentTurn = 0;
+ //   private int currentTurn = 0;
 
 
     public TheLostKitten(ArrayList<String> nameOfPlayers) {
@@ -39,19 +39,24 @@ public class TheLostKitten{
 
     }
 
-    public void nextTurn(Player player){
+    public Player nextTurn(int i){
 
-        if(player.getSkipATurn()){
-            player.doneSkippingTurn(); //-> was 'player.skipTurn = false', used a setter instead!
-            return;
+        if(i+1>=playerList.length){
+            return playerList[0];
 
-        }else if(++currentTurn >= playerList.length){
-            currentTurn = 0;
+        }else if(playerList[i+1].getSkipATurn()){
+            playerList[i+1].doneSkippingTurn(); //-> was 'player.skipTurn = false', used a setter instead!
+            return nextTurn(i+1);
+
+        }else {
+            return playerList[i+1];
 
         }
 
 
     }
+
+
 
     public Player[] getPlayers(){
         return playerList;

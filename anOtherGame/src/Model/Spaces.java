@@ -67,11 +67,11 @@ public class Spaces implements ISpace{
             return false;
         return ((this.getX()==space.getX()) && (this.getY()==space.getY()));
     }
-
+/*
     @Override
     public String toString(){
 
         return getX() + "," + getY();
     }
-
+*/
 }

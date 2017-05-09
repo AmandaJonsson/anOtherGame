@@ -82,4 +82,10 @@ public class Station extends Spaces{
     public Station getStation(){
         return station;
     }
+
+    @Override
+    public String toString(){
+
+        return getName() + "";
+    }
 }

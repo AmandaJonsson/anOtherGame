@@ -12,10 +12,11 @@ public class Spaces implements ISpace{
     private Edge edge;
     private SpaceController controller;
     private int x;
-    private Spaces space;
+    //private Spaces space;
 
 
     public Spaces(int x, int y) {
+        //this.space= space;
         this.x= x;
         this.y = y;
         this.adjacentSpaces = new ArrayList<Spaces>();
@@ -67,8 +68,10 @@ public class Spaces implements ISpace{
         return ((this.getX()==space.getX()) && (this.getY()==space.getY()));
     }
 
-    public Spaces getSpace(){
-        return space;
+    @Override
+    public String toString(){
+
+        return getX() + "," + getY();
     }
 
 }

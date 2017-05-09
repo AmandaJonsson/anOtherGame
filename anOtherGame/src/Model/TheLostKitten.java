@@ -34,16 +34,17 @@ public class TheLostKitten{
         ArrayList<Spaces> startpositions = new ArrayList<Spaces>();
         startpositions.add(start1);
         startpositions.add(start2);
+
         for (int i =0; i<startpositions.size();i++){
-            System.out.println(startpositions.get(i));
-
+            System.out.println(startpositions.get(i).toString());
         }
+
         Random r = new Random();
-        int startPos = r.nextInt(2)+1;
-
-
+        int startPos = r.nextInt(2);
         return startpositions.get(startPos);
     }
+
+
 
 
     public void addPlayer(Player player){

@@ -27,20 +27,7 @@ public class Tools {
 
     }
 
-    public ArrayList<ISpace> findPath(int numberOfDice, ISpace positionOfPlayer){
-        ArrayList<ISpace> listOfVisitedSpaces = new ArrayList<ISpace>();
-        ArrayList<ISpace> potentialSpaces;
 
-        if(numberOfDice == 1) {
-            potentialSpaces = positionOfPlayer.getAdjacentSpaces();
-            return potentialSpaces;
-        }
-
-        if(numberOfDice == 2){
-            listOfVisitedSpaces.add(positionOfPlayer);
-            return null;
-        }
-        return null;
-    }
+    
 
 }

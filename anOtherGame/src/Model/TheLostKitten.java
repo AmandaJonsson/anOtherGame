@@ -25,6 +25,7 @@ public class TheLostKitten{
                     playerList[i].getPosition() + " Budget: " + playerList[i].getBalance());
         }
 
+
     }
 
     public Spaces getRandomStartPosition(){

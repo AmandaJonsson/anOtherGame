@@ -41,21 +41,8 @@ public class MoneyMarker extends Marker {
 
 
     public MoneyMarker(TypeOfMarkers marker) {
-       // this.station = station;
         this.marker = marker;
-        /*if(marker == TypeOfMarkers.TOPAZ){
-            System.out.println("TOPAZ");
-        }
-        if(marker == TypeOfMarkers.EMERALD){
-            System.out.println("EMERALD");
-        }
-        if(marker == TypeOfMarkers.RUBY){
-            System.out.println("RUBY");
-        }
-        if(marker == TypeOfMarkers.BLANK){
-            System.out.println("BLANK");
-        }
-        */
+
     }
     public TypeOfMarkers getMarkerType(){
         return marker;

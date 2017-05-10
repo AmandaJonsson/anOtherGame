@@ -12,11 +12,9 @@ public class Spaces implements ISpace{
     private Edge edge;
     private SpaceController controller;
     private int x;
-    //private Spaces space;
 
 
     public Spaces(int x, int y) {
-        //this.space= space;
         this.x= x;
         this.y = y;
         this.adjacentSpaces = new ArrayList<ISpace>();

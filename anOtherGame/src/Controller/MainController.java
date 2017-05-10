@@ -20,6 +20,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -49,7 +50,6 @@ public class MainController {
     Label budgetLabel5 = new Label("BUDGET 5");
     Label budgetLabel6 = new Label("BUDGET 6");
 
-
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
      //  ActionEvent thisEvent = event;
         Stage stage = (Stage) startGameButton.getScene().getWindow();
@@ -72,6 +72,14 @@ public class MainController {
         AnchorPane playerPane4 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
         AnchorPane playerPane5 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
         AnchorPane playerPane6 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
+
+        //Sets the background color on player pane
+        playerPane1.setStyle(" -fx-background-color: thistle;");
+        playerPane2.setStyle(" -fx-background-color: seashell;");
+        playerPane3.setStyle(" -fx-background-color: aquamarine;");
+        playerPane4.setStyle(" -fx-background-color: cadetblue;");
+        playerPane5.setStyle(" -fx-background-color: yellowgreen;");
+        playerPane6.setStyle(" -fx-background-color: silver;");
 
         //Creating name labels for the players
         Label playerLabel1 = new Label();
@@ -105,7 +113,8 @@ public class MainController {
                 playerLabel1.setLayoutX(115);
                 playerLabel1.setLayoutY(20);
                 playerLabel1.setText(playerTextField1.getText());
-                playerLabel1.setFont(new Font("Comic sans", 15));
+                playerLabel1.setFont(new Font("Comic sans", 18));
+
 
                 //adds budget label to pane
                 playerPane1.getChildren().addAll(budgetLabel1);
@@ -125,7 +134,7 @@ public class MainController {
                 playerLabel2.setLayoutX(115);
                 playerLabel2.setLayoutY(20);
                 playerLabel2.setText(playerTextField2.getText());
-                playerLabel2.setFont(new Font("Comic sans", 15));
+                playerLabel2.setFont(new Font("Comic sans", 18));
 
                 //adds budget label to pane
                 playerPane2.getChildren().addAll(budgetLabel2);
@@ -145,7 +154,7 @@ public class MainController {
                 playerLabel3.setLayoutX(115);
                 playerLabel3.setLayoutY(20);
                 playerLabel3.setText(playerTextField3.getText());
-                playerLabel3.setFont(new Font("Comic sans", 15));
+                playerLabel3.setFont(new Font("Comic sans", 18));
 
                 //adds budget label to pane
                 playerPane3.getChildren().addAll(budgetLabel3);
@@ -165,7 +174,7 @@ public class MainController {
                 playerLabel4.setLayoutX(115);
                 playerLabel4.setLayoutY(20);
                 playerLabel4.setText(playerTextField4.getText());
-                playerLabel4.setFont(new Font("Comic sans", 15));
+                playerLabel4.setFont(new Font("Comic sans", 18));
 
                 //adds budget label to pane
                 playerPane4.getChildren().addAll(budgetLabel4);
@@ -184,7 +193,7 @@ public class MainController {
                 playerLabel5.setLayoutX(115);
                 playerLabel5.setLayoutY(20);
                 playerLabel5.setText(playerTextField5.getText());
-                playerLabel5.setFont(new Font("Comic sans", 15));
+                playerLabel5.setFont(new Font("Comic sans", 18));
 
                 //adds budget label to pane
                 playerPane5.getChildren().addAll(budgetLabel5);
@@ -204,7 +213,7 @@ public class MainController {
                 playerLabel6.setLayoutX(115);
                 playerLabel6.setLayoutY(20);
                 playerLabel6.setText(playerTextField6.getText());
-                playerLabel6.setFont(new Font("Comic sans", 15));
+                playerLabel6.setFont(new Font("Comic sans", 18));
 
                 //adds budget label to pane
                 playerPane6.getChildren().addAll(budgetLabel6);
@@ -217,15 +226,14 @@ public class MainController {
 
         boolean hasSameName = false;
 
-
         for (int i = 0; i < players.size(); i++){
-            for(int j = i+1; j < players.size(); j++){
+            for(int j = i+1; j < players.size(); j++) {
                 System.out.println("*****111111******");
                 System.out.println(players.get(i));
                 System.out.println(players.get(j));
                 System.out.println("*****222222******");
                 hasSameName = players.get(i).equals(players.get(j));
-                if(hasSameName) {
+                if (hasSameName) {
                     System.out.println("Alla spelare måste ha olika namn!");
                     players.clear();
                     playerTextField1.clear();
@@ -235,13 +243,8 @@ public class MainController {
                     playerTextField5.clear();
                     playerTextField6.clear();
                     System.out.println(players);
-
                 }
-
-
             }
-
-
         }
 
         newGame = new TheLostKitten(players);
@@ -258,6 +261,7 @@ public class MainController {
 
 
 
+
     }
 
 
@@ -271,8 +275,6 @@ public class MainController {
         stage.show();
 
     }
-
-
 
     @FXML protected void handleBackToStartButton(ActionEvent event) throws IOException {
         Stage stage = (Stage) backToStartButton.getScene().getWindow();

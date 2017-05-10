@@ -77,6 +77,8 @@ public class theLostController {
 
     private DropShadow shadow = new DropShadow();
 
+    Dice dice = new Dice();
+
 
     @FXML
     public void addMap(MapView map){
@@ -244,6 +246,7 @@ public class theLostController {
     }
 
     @FXML protected void handleBicycleButton(ActionEvent event) throws IOException{
+        dice.roll();
         System.out.println("Cykla");
 
     }

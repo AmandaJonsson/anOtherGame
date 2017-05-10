@@ -1,6 +1,6 @@
 package Model;
 
-public abstract class Marker {
+public abstract class Marker implements IMarker{
     boolean isTurned = false;
     private Marker marker;
 

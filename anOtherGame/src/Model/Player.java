@@ -1,7 +1,7 @@
 package Model;
 
 
-public class Player {
+public class Player implements IPlayer{
 
     Spaces position;
     String name;

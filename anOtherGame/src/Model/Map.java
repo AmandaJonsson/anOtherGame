@@ -3,7 +3,7 @@ package Model;
 
 import java.util.*;
 
-public class Map {
+public class Map implements IMap{
 
 
     ArrayList<Spaces> spaces;

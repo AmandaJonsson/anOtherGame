@@ -1,7 +1,7 @@
 package Model;
 
 
-public class Station extends Spaces{
+public class Station extends Spaces implements IStation{
     private Marker marker;
     private final String name;
     private boolean isBoatStation;

@@ -58,7 +58,7 @@ public class SpaceController {
         view.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                for (Spaces space : space.getAdjacentSpaces()) {
+                for (ISpace space : space.getAdjacentSpaces()) {
                     if (space instanceof Station) {
                         if (!((Station) space).isStart()) {
                             space.getController().getView().setStyle("-fx-fill:GREEN;");

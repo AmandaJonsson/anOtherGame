@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Spaces implements ISpace{
     private int y;
-    private ArrayList<Spaces> adjacentSpaces;
+    private ArrayList<ISpace> adjacentSpaces;
     private Edge edge;
     private SpaceController controller;
     private int x;
@@ -19,25 +19,24 @@ public class Spaces implements ISpace{
         //this.space= space;
         this.x= x;
         this.y = y;
-        this.adjacentSpaces = new ArrayList<Spaces>();
+        this.adjacentSpaces = new ArrayList<ISpace>();
         controller = new SpaceController(this);
-
     }
 
     public Spaces(String color, int radius, int x, int y) {
         this.x= x;
         this.y = y;
-        this.adjacentSpaces = new ArrayList<Spaces>();
+        this.adjacentSpaces = new ArrayList<ISpace>();
         controller = new SpaceController(this);
         controller.setColor(color);
         controller.setRadius(radius);
     }
 
-    public void addAdjacentSpace(Spaces space) {
+    public void addAdjacentSpace(ISpace space) {
         adjacentSpaces.add(space);
     }
 
-    public ArrayList<Spaces> getAdjacentSpaces() {
+    public ArrayList<ISpace> getAdjacentSpaces() {
         return adjacentSpaces;
     }
 

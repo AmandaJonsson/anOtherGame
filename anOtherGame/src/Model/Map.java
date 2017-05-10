@@ -6,10 +6,10 @@ import java.util.*;
 public class Map {
 
 
-    ArrayList<Spaces> spaces;
+    ArrayList<ISpace> spaces;
 
     public Map() {
-        spaces = new ArrayList<Spaces>();
+        spaces = new ArrayList<ISpace>();
     }
 
     public boolean createSpaces() {
@@ -144,11 +144,11 @@ public class Map {
         return true;
     }
 
-    public void addSpaces(Spaces space) {
+    public void addSpaces(ISpace space) {
         spaces.add(space);
     }
 
-    public ArrayList<Spaces> getSpaces() {
+    public ArrayList<ISpace> getSpaces() {
         return spaces;
     }
 

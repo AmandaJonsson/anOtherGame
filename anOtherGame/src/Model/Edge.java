@@ -7,11 +7,11 @@ import java.util.ArrayList;
  */
 public class Edge {
 
-    private Spaces from;
-    private Spaces to;
+    private ISpace from;
+    private ISpace to;
     private ArrayList<Path> path;
 
-    public Edge(Map map, Spaces from, Spaces to, String color) {
+    public Edge(Map map, ISpace from, ISpace to, String color) {
         this.from=from;
         this.to=to;
         path = new ArrayList<Path>();
@@ -19,7 +19,7 @@ public class Edge {
         System.out.println(((Station)to).getName() + " " + ((Station)from).getName() + " " + calculatePath(map, from, from.getX(),from.getY(), color ));
     }
 
-    private boolean calculatePath(Map map, Spaces prev, int x, int y, String color) {
+    private boolean calculatePath(Map map, ISpace prev, int x, int y, String color) {
         //base case
         if (x == to.getX() && y== to.getY()){
             if(!to.getAdjacentSpaces().contains(prev)) {
@@ -33,9 +33,9 @@ public class Edge {
 
         // adds steps for the bicycle path
         if (((from.getX() - x)%7 ==0 && x!=from.getX() && x!=to.getX()) || ((from.getY()-y)%7 == 0&& y!=from.getY() && y!=to.getY())){
-            Spaces space = new Spaces(x, y);
+            ISpace space = new Spaces(x, y);
             boolean exists = false;
-            for(Spaces spacee : map.getSpaces()){
+            for(ISpace spacee : map.getSpaces()){
                 if (spacee.getX()-x < 5 && spacee.getX()-x >-5 && spacee.getY()-y < 5 && spacee.getY()-y >-5){
                     System.out.println("jahaja");
                     space = spacee;

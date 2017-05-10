@@ -13,11 +13,11 @@ import javafx.scene.paint.ImagePattern;
  * Created by Allex on 2017-04-23.
  */
 public class SpaceController {
-    private Spaces space;
+    private ISpace space;
     private SpaceView view;
     private Marker marker;
 
-    public SpaceController(Spaces space) {
+    public SpaceController(ISpace space) {
         this.space = space;
         this.view = new SpaceView(this, "black");
         setMouseEvent();

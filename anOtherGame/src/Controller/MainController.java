@@ -246,8 +246,8 @@ public class MainController {
 
         newGame = new TheLostKitten(players);
 
-//        theLostController newController = new theLostController(newGame);
-        //newController.setPlayersTurnLabel(playerTextField1.getText());
+        theLostController newController = new theLostController(newGame);
+        //newController.setPlayersTurnLabel();
 
 
 
@@ -256,11 +256,9 @@ public class MainController {
             stage.setScene(scene);
             stage.show();
         }
-
-
-
-
     }
+
+
 
 
     @FXML protected void handleRulesGameButton(ActionEvent event) throws IOException {

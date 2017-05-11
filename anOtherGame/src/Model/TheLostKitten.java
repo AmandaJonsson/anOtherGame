@@ -15,8 +15,6 @@ public class TheLostKitten{
     public TheLostKitten(ArrayList<String> nameOfPlayers) {
 
 
-
-
         playerList = new Player[nameOfPlayers.size()];
 
         for(int i = 0; i < playerList.length; i++){

@@ -2,6 +2,8 @@ package Controller;
 
 import Model.*;
 import View.MapView;
+import View.SpaceView;
+import com.sun.tools.internal.ws.processor.model.Model;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,6 +17,10 @@ import javafx.scene.layout.*;
 
 import java.awt.*;
 import java.io.IOException;
+import Model.Player;
+import Model.TheLostKitten;
+import View.MapView;
+import Model.Map;
 
 
 /**
@@ -26,27 +32,8 @@ public class theLostController {
     private Spaces position;
     private Player player;
     private MainController con;
-
-
-    public theLostController(){
-
-    }
-
-
-    public theLostController(TheLostKitten newGame) {
-
-        this.playerList = newGame.getPlayers();
-
-        for(int i = 0; i<playerList.length; i++){
-            if(playerList[i].playerHasTurn() == true){
-                this.player = playerList[i];
-            }
-
-        }
-
-//        this.position = player.getPosition();
-    }
-
+    private Player model;
+    private SpaceView view;
 
     @FXML
     private Pane mapPlace;
@@ -83,6 +70,28 @@ public class theLostController {
 
     Dice dice = new Dice();
 
+    public theLostController(){
+
+
+    }
+    public String getPlayerName(){
+        return model.getName();
+    }
+
+
+    public theLostController(TheLostKitten newGame) {
+
+        this.playerList = newGame.getPlayers();
+
+        for(int i = 0; i<playerList.length; i++){
+            if(playerList[i].playerHasTurn() == true){
+                this.player = playerList[i];
+            }
+
+        }
+
+//        this.position = player.getPosition();
+    }
 
     @FXML
     public void addMap(MapView map){
@@ -193,7 +202,6 @@ public class theLostController {
 
     @FXML protected int handleDiceButton(ActionEvent event) throws IOException {
 
-        Dice dice = new Dice();
         int diceRoll=dice.roll();
 
         if(diceRoll==1){
@@ -277,9 +285,11 @@ public class theLostController {
 
     }
 
-    public void setPlayersTurnLabel(String setPlayer){
-        playersTurnLabel.setText(setPlayer);
+    public void setPlayersTurnLabel(String text){
+        playersTurnLabel.setText(text);
+        System.out.println(text);
     }
+
 
 }
 

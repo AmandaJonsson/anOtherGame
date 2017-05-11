@@ -89,9 +89,6 @@ public class MainController {
         Label playerLabel5 = new Label();
         Label playerLabel6 = new Label();
 
-
-
-
         AnchorPane.setTopAnchor(mapView, 0.0);
         AnchorPane.setLeftAnchor(mapView, 0.0);
         AnchorPane.setRightAnchor(mapView, 0.0);
@@ -250,6 +247,7 @@ public class MainController {
         newGame = new TheLostKitten(players);
 
 //        theLostController newController = new theLostController(newGame);
+        //newController.setPlayersTurnLabel(playerTextField1.getText());
 
 
 

@@ -41,9 +41,10 @@ public class theLostController {
             if(playerList[i].playerHasTurn() == true){
                 this.player = playerList[i];
             }
+
         }
 
-        this.position = player.getPosition();
+//        this.position = player.getPosition();
     }
 
 
@@ -74,6 +75,9 @@ public class theLostController {
     @FXML private Label alternativeText;
 
     @FXML private Label playersTurnLabel;
+
+    private String turnMakerButton = "Välj att antingen betala 1000 kr eller slå tärningen och \n " +
+            "få 4,5 eller 6 för att vända markern.\n Tryck på 'Betala' eller 'Slå tärning'";
 
     private DropShadow shadow = new DropShadow();
 
@@ -232,8 +236,7 @@ public class theLostController {
     @FXML protected void handleTurnMarkerButton(ActionEvent event) throws IOException{
 
         if (event.getSource()==turnMarkerButton){
-            alternativeText.setText("Välj att antingen betala 1000 kr eller slå tärningen och \n " +
-                    "få 4,5 eller 6 för att vända markern.\n Tryck på 'Betala' eller 'Slå tärning'");
+            alternativeText.setText(turnMakerButton);
             bicycleButton.setDisable(true);
             boatButton.setDisable(true);
             tramButton.setDisable(true);
@@ -272,6 +275,10 @@ public class theLostController {
         boatButton.setDisable(false);
         tramButton.setDisable(false);
 
+    }
+
+    public void setPlayersTurnLabel(String setPlayer){
+        playersTurnLabel.setText(setPlayer);
     }
 
 }

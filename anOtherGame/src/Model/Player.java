@@ -11,11 +11,6 @@ public class Player implements IPlayer{
     private boolean skipATurn = false;
     boolean isTurn = false;
 
-
-    //fejk marker tills vi skrivit en funktion som heter getMarker
-    private MoneyMarker marker = new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK);
-
-
     public Player(String name, Spaces position, int balance){
         this.name = name;
         this.position = position;
@@ -87,13 +82,26 @@ public class Player implements IPlayer{
         skipATurn = false;
     }
 
+
     public void updateBudget(int value) {
-        //marker  ==  this.position.getMarker()?
-        if(marker.getClass().equals(MoneyMarker.class)){
-            increaseBalance(value);
-        } else if(marker.equals(OtherMarkers.NoMoneyMarkers.PICKPOCKET)){
-            robbedByPickpocket();
+
+        //if the position is a station
+        if(this.position instanceof Station){
+
+            //if the station has a marker
+            if(((Station) this.position).hasMarker()){
+
+                //if the marker is a MoneyMarker
+                if (((Station) this.position).getMarker().getClass().equals(MoneyMarker.class)) {
+                    increaseBalance(value);
+                
+                //if the marker is a PickPocket
+                }else if(((Station) this.position).getMarker().equals(OtherMarkers.NoMoneyMarkers.PICKPOCKET)){
+                    robbedByPickpocket();
+                }
+            }
         }
+
 
     }
 

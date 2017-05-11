@@ -31,7 +31,7 @@ public class FindPath {
     }
 
 
-    public static List<ISpace> mergeLists(List<ISpace> list1, List<ISpace> list2) {
+    private static List<ISpace> mergeLists(List<ISpace> list1, List<ISpace> list2) {
         List<ISpace> newList = new ArrayList<ISpace>();
         newList.addAll(list1);
         newList.addAll(list2);

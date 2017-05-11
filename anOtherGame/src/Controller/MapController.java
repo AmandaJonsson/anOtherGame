@@ -22,7 +22,7 @@ public class MapController {
     public void addSpaces(){
         model.createSpaces();
             ArrayList<Circle> list = new ArrayList<Circle>();
-            for (Spaces space : model.getSpaces()) {
+            for (ISpace space : model.getSpaces()) {
                 //System.out.println(space.getController().getView());
                 //System.out.println(space.getX() + " " + space.getY());
                 view.add(space.getController().getView(), space.getX(), space.getY());

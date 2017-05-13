@@ -1,4 +1,4 @@
-package Model;
+/*package Model;
 
 import Mocks.MockMap;
 import org.junit.Test;
@@ -16,5 +16,5 @@ public class FindPathTest {
         System.out.println();
         FindPath.printListOfSpaces(FindPath.findPotentialSpaces(2,map.getSpaces().get(2)));
     }
-}
+}*/
 

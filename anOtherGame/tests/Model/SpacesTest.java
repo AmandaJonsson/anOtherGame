@@ -1,4 +1,4 @@
-package Model;
+/*package Model;
 
 import org.junit.Test;
 
@@ -17,4 +17,4 @@ public class SpacesTest {
         ISpace space4 = new Spaces(1,1);
         assertFalse(space3.compareSpaces(space4));
     }
-}
+}*/

@@ -19,7 +19,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.effect.DropShadow;
-import sun.plugin.javascript.navig.Anchor;
 
 
 import java.io.IOException;
@@ -44,7 +43,7 @@ public class MainController {
 
     private DropShadow shadow = new DropShadow();
 
-    theLostController thelost;
+    TheLostController thelost;
 
     boolean hasSameName;
     boolean moreThanOnePlayer;
@@ -67,7 +66,7 @@ public class MainController {
     Label playerLabel6 = new Label();
 
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
-        thelost=new theLostController();
+        thelost=new TheLostController();
 
         Stage stage = (Stage) startGameButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
@@ -192,7 +191,7 @@ public class MainController {
 
 
         newGame = new TheLostKitten(players);
-        theLostController newController = new theLostController(newGame);
+        TheLostController newController = new TheLostController(newGame);
         //newController.setPlayersTurnLabel();
 
         checkSameName();

@@ -27,7 +27,7 @@ public class TheLostKitten{
 
     }
 
-    public Spaces getRandomStartPosition(){
+    public Space getRandomStartPosition(){
 
         Station start1 = new Station(95, 22, "Redbergsplatsen", null);
         Station start2 = new Station(7, 14, "Lundby", null);

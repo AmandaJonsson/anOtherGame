@@ -1,4 +1,4 @@
-package Model;
+package Model.Intefaces;
 
 
 public interface IMarker {

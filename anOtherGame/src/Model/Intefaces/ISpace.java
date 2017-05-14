@@ -1,4 +1,4 @@
-package Model;
+package Model.Intefaces;
 
 
 import java.util.ArrayList;

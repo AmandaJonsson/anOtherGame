@@ -1,18 +1,21 @@
 package Model;
 
+import Model.Intefaces.IMap;
+import Model.Intefaces.ISpace;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Map implements IMap{
+public class Map implements IMap {
     ArrayList<ISpace> spaces;
 
     public Map() {
         spaces = new ArrayList<ISpace>();
-        createSpaces();
+        createStations();
     }
 
-    public boolean createSpaces() {
+    public boolean createStations() {
         ArrayList<Station> stations = new ArrayList<Station>();
         Station lundby = new Station(this, "Lundby", 7, 14);
         Station ramberget = new Station(this, "Ramberget", 30, 26);
@@ -286,7 +289,7 @@ public class Map implements IMap{
 
         // adds steps for the bicycle path
         if (((from.getX() - x)%7 ==0 && x!=from.getX() && x!=to.getX()) || ((from.getY()-y)%7 == 0&& y!=from.getY() && y!=to.getY())){
-            ISpace space = new Spaces(x, y);
+            ISpace space = new Space(x, y);
             boolean exists = false;
             for(ISpace spacee : this.getSpaces()){
                 if (spacee.getX()-x < 5 && spacee.getX()-x >-5 && spacee.getY()-y < 5 && spacee.getY()-y >-5){

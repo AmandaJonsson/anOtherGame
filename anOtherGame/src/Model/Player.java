@@ -1,9 +1,11 @@
 package Model;
 
 
-public class Player implements IPlayer{
+import Model.Intefaces.IPlayer;
 
-    Spaces position;
+public class Player implements IPlayer {
+
+    Space position;
     String name;
     int balance;
     private boolean hasTramCard = false;
@@ -11,7 +13,7 @@ public class Player implements IPlayer{
     private boolean skipATurn = false;
     boolean isTurn = false;
 
-    public Player(String name, Spaces position, int balance){
+    public Player(String name, Space position, int balance){
         this.name = name;
         this.position = position;
         this.balance = balance;
@@ -26,7 +28,7 @@ public class Player implements IPlayer{
         return balance;
     }
 
-    public Spaces getPosition(){
+    public Space getPosition(){
         return position;
     }
 
@@ -34,7 +36,7 @@ public class Player implements IPlayer{
         return name;
     }
 
-    public void updatePosition(Spaces newPosition){
+    public void updatePosition(Space newPosition){
         position = newPosition;
     }
 

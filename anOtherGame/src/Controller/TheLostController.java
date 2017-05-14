@@ -3,33 +3,27 @@ package Controller;
 import Model.*;
 import View.MapView;
 import View.SpaceView;
-import com.sun.tools.internal.ws.processor.model.Model;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.*;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
-import java.awt.*;
 import java.io.IOException;
 import Model.Player;
 import Model.TheLostKitten;
-import View.MapView;
-import Model.Map;
 
 
 /**
  * Created by Allex on 2017-04-27.
  */
-public class theLostController {
+public class TheLostController {
 
     private Player[] playerList;
-    private Spaces position;
+    private Space position;
     private Player player;
     private MainController con;
     private Player model;
@@ -70,12 +64,12 @@ public class theLostController {
 
     Dice dice = new Dice();
 
-    public theLostController(){
+    public TheLostController(){
 
 
     }
 
-    public theLostController(TheLostKitten newGame) {
+    public TheLostController(TheLostKitten newGame) {
 
         this.playerList = newGame.getPlayers();
 

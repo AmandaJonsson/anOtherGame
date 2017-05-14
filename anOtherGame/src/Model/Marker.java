@@ -1,6 +1,8 @@
 package Model;
 
-public abstract class Marker implements IMarker{
+import Model.Intefaces.IMarker;
+
+public abstract class Marker implements IMarker {
     boolean isTurned = false;
     private Marker marker;
 

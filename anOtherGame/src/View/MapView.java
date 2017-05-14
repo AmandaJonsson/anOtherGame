@@ -1,8 +1,7 @@
 package View;
 
-import Model.ISpace;
+import Model.Intefaces.ISpace;
 import Model.Map;
-import Model.Path;
 import Model.Station;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -42,7 +41,7 @@ public class MapView extends GridPane {
 
         //group.layoutYProperty().bind(this.layoutYProperty());
         //group.getChildren().add();
-        //new Spaces("Nordstan", 100,100);
+        //new Space("Nordstan", 100,100);
 
         //group.setTranslateY();
 

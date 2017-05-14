@@ -1,6 +1,8 @@
 package Mocks;
 
 import Model.*;
+import Model.Intefaces.IMap;
+import Model.Intefaces.ISpace;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,16 +14,16 @@ public class MockMap implements IMap {
 
     public MockMap() {
         spaces = new ArrayList<ISpace>();
-        ISpace space1 = new Spaces(3,1);
-        ISpace space2 = new Spaces(3,2);
-        ISpace space3 = new Spaces(3,3);
+        ISpace space1 = new Space(3,1);
+        ISpace space2 = new Space(3,2);
+        ISpace space3 = new Space(3,3);
         ISpace space4 = new Station(3,4, "Vasaplatsen",null);
-        //ISpace space4 = new Spaces(3,4); 
-        ISpace space5 = new Spaces(2,5);
-        ISpace space6 = new Spaces(1,6);
-        ISpace space7 = new Spaces(4,5);
-        ISpace space8 = new Spaces(5,6);
-        ISpace space9 = new Spaces(4,7);
+        //ISpace space4 = new Space(3,4); 
+        ISpace space5 = new Space(2,5);
+        ISpace space6 = new Space(1,6);
+        ISpace space7 = new Space(4,5);
+        ISpace space8 = new Space(5,6);
+        ISpace space9 = new Space(4,7);
 
 
         space1.addAdjacentSpace(space2);

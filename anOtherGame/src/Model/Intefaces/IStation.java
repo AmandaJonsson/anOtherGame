@@ -1,5 +1,7 @@
-package Model;
+package Model.Intefaces;
 
+
+import Model.Marker;
 
 public interface IStation {
 

@@ -1,4 +1,4 @@
-package Model;
+package View;
 
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;

@@ -1,5 +1,7 @@
 package Model;
 
+import Model.Intefaces.ISpace;
+
 import java.util.ArrayList;
 import java.util.List;
 

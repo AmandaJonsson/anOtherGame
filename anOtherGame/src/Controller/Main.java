@@ -1,6 +1,5 @@
+package Controller;
 
-import Controller.Controller;
-import Controller.MainController;
 import Model.*;
 import javafx.application.Application;
 

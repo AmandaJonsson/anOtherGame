@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class MarkerTest {
 
-    Spaces space;
+    Space space;
 
     @Test
     public void testMarkerValue() {

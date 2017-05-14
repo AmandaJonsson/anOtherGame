@@ -1,7 +1,9 @@
 package Model;
 
 
-public class Station extends Spaces implements IStation{
+import Model.Intefaces.IStation;
+
+public class Station extends Space implements IStation {
     private Marker marker;
     private final String name;
     private boolean isBoatStation;
@@ -9,15 +11,14 @@ public class Station extends Spaces implements IStation{
     private boolean isStart;
 
 
-    public Station(Map map, String name, int x, int y) {
+    public Station(String name, int x, int y) {
         super(x, y);
         this.name =  name;
-        map.addSpaces(this);
         isBoatStation = false;
         isTramStation = false;
     }
 
-    public Station(int x, int y, String name, Marker marker) {
+    public Station(String name, int x, int y, Marker marker) {
         super(x, y);
         this.name =  name;
         this.marker = marker;

@@ -1,6 +1,6 @@
 package View;
 
-import Model.ISpace;
+import Model.Intefaces.ISpace;
 import Model.Station;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;

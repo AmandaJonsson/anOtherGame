@@ -2,15 +2,17 @@ package Model;
 
 
 
+import Model.Intefaces.ISpace;
+
 import java.util.ArrayList;
 
-public class Spaces implements ISpace{
+public class Space implements ISpace {
     private int y;
     private ArrayList<ISpace> adjacentSpaces;
     private int x;
 
 
-    public Spaces(int x, int y) {
+    public Space(int x, int y) {
         this.x= x;
         this.y = y;
         this.adjacentSpaces = new ArrayList<ISpace>();

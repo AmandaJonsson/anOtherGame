@@ -3,7 +3,6 @@ package View;
 import Model.ISpace;
 import Model.Map;
 import Model.Path;
-import Model.Spaces;
 import Model.Station;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -13,10 +12,8 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static javafx.geometry.VPos.CENTER;
 

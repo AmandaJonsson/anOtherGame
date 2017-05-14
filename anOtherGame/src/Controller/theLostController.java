@@ -74,10 +74,6 @@ public class theLostController {
 
 
     }
-    public String getPlayerName(){
-        return model.getName();
-    }
-
 
     public theLostController(TheLostKitten newGame) {
 
@@ -87,10 +83,7 @@ public class theLostController {
             if(playerList[i].playerHasTurn() == true){
                 this.player = playerList[i];
             }
-
         }
-
-//        this.position = player.getPosition();
     }
 
     @FXML

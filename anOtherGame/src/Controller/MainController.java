@@ -1,6 +1,5 @@
 package Controller;
 
-
 import Model.TheLostKitten;
 import View.MapView;
 import Model.Map;
@@ -45,7 +44,7 @@ public class MainController {
 
     private DropShadow shadow = new DropShadow();
 
-    theLostController thelost=new theLostController();
+    theLostController thelost;
 
     boolean hasSameName;
     boolean moreThanOnePlayer;
@@ -68,11 +67,12 @@ public class MainController {
     Label playerLabel6 = new Label();
 
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
+        thelost=new theLostController();
+
         Stage stage = (Stage) startGameButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setController(thelost);
         Parent root = loader.load(getClass().getResource("/View/TheLostPane.fxml"));
-        thelost.setPlayersTurnLabel(playerTextField1.getText());
 
 
         Map map = new Map();
@@ -191,9 +191,6 @@ public class MainController {
          }
 
 
-
-        //thelost.setPlayersTurnLabel(player1);
-
         newGame = new TheLostKitten(players);
         theLostController newController = new theLostController(newGame);
         //newController.setPlayersTurnLabel();
@@ -204,16 +201,18 @@ public class MainController {
             System.out.println("Minst två personer måste spela spelet!");
         }
 
-
-
-
         if(hasSameName == true){
             System.out.println("Spelarna måste heta olika saker!");
         }
 
+        setBalance();
 
 
-        
+        thelost.setPlayersTurnLabel(playerTextField1.getText());
+
+        System.out.println(thelost);
+        System.out.println(thelost.playersTurnLabel.getText());
+
         //Sets the next view, if we get to play (enough players, different names)
         if(!hasSameName && players.size()>1){
             Scene scene = new Scene(root);

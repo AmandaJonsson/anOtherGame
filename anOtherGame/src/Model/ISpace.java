@@ -1,8 +1,6 @@
 package Model;
 
 
-import Controller.SpaceController;
-
 import java.util.ArrayList;
 
 public interface ISpace {

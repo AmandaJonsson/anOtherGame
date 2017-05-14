@@ -1,10 +1,13 @@
-import Model.ISpace;
-import Model.Spaces;
-import Model.Station;
+import Controller.MapController;
+import Model.*;
 
 import java.util.ArrayList;
 
 public class Tools {
+
+
+    public Tools() {
+    }
 
     public boolean canGoByBoat(ISpace position){
         if(position instanceof Station) {
@@ -26,6 +29,8 @@ public class Tools {
     public void nextTurn(){
 
     }
+
+
 
 
     

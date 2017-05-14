@@ -1,15 +1,15 @@
 package Model;
 
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Map implements IMap{
-
-
     ArrayList<ISpace> spaces;
 
     public Map() {
         spaces = new ArrayList<ISpace>();
+        createSpaces();
     }
 
     public boolean createSpaces() {
@@ -76,7 +76,7 @@ public class Map implements IMap{
         stations.add(vasaplatsen);
 
         //Bicycle paths.
-        slottskogen.getController().addPath(this, linne);
+      /*  slottskogen.getController().addPath(this, linne);
         slottskogen.getController().addPath(this, botaniska);
         slottskogen.getController().addPath(this, masthuggskykan);
         slottskogen.getController().addPath(this, slottskogsvallen);
@@ -112,12 +112,12 @@ public class Map implements IMap{
         lindholmen.getController().addBoatPath(this, stenpiren);
         klippan.getController().addBoatPath(this, eriksberg);
         slottsberget.getController().addBoatPath(this, klippan);
-        operan.getController().addBoatPath(this, eriksberg);
+        operan.getController().addBoatPath(this, eriksberg);*/
 
         //Tram paths.
-        hjbrantings.getController().addTramPath(this, lundby);
-        hjbrantings.getController().addTramPath(this, ramberget);
-        frihamnen.getController().addTramPath(this, chLindholmen);
+        //hjbrantings.getController().addTramPath(this, lundby);
+        //hjbrantings.getController().addTramPath(this, ramberget);
+        /*frihamnen.getController().addTramPath(this, chLindholmen);
         eriksberg.getController().addTramPath(this, lundby);
         frihamnen.getController().addTramPath(this, nordstan);
         central.getController().addTramPath(this, ullevi);
@@ -135,7 +135,29 @@ public class Map implements IMap{
         central.getController().addTramPath(this, redbergsplatsen);
         liseberg.getController().addTramPath(this, redbergsplatsen);
         vasaplatsen.getController().addTramPath(this, domkyrkan);
-        vasaplatsen.getController().addTramPath(this, chalmers);
+        vasaplatsen.getController().addTramPath(this, chalmers);*/
+
+        createSpaces(hjbrantings, lundby, null, 0, 0);
+        createSpaces(hjbrantings, ramberget, null, 0, 0);
+        createSpaces(frihamnen, chLindholmen, null, 0, 0);
+        createSpaces(eriksberg, lundby, null, 0, 0);
+        createSpaces(frihamnen, nordstan, null, 0, 0);
+        createSpaces(central, ullevi, null, 0, 0);
+        createSpaces(domkyrkan, jarntorget, null, 0, 0);
+        createSpaces(masthuggskykan, jarntorget, null, 0, 0);
+        createSpaces(eriksberg, lundby, null, 0, 0);
+        createSpaces(masthuggskykan, ostindiegatan, null, 0, 0);
+        createSpaces(jarntorget, linne, null, 0, 0);
+        createSpaces(botaniska, linne, null, 0, 0);
+        createSpaces(slottskogsvallen, ostindiegatan, null, 0, 0);
+        createSpaces(liseberg, chalmers, null, 0, 0);
+        createSpaces(liseberg, ullevi, null, 0, 0);
+        createSpaces(liseberg, olofshojd, null, 0, 0);
+        createSpaces(liseberg, redbergsplatsen, null, 0, 0);
+        createSpaces(central, redbergsplatsen, null, 0, 0);
+        createSpaces(frihamnen, ringon, null, 0, 0);
+        createSpaces(vasaplatsen, domkyrkan, null, 0, 0);
+        createSpaces(vasaplatsen, chalmers, null, 0, 0);
 
         //Start space.
         redbergsplatsen.getController().setStart();
@@ -202,6 +224,80 @@ public class Map implements IMap{
         list.set(i, list.get(shuffle));
         list.set(shuffle, supporter);
 
+    }
+
+    private boolean createSpaces(Station from, Station to, ISpace prev, int x, int y) {
+        //init
+        if(prev == null){
+            prev = from;
+            from.addAdjacentSpace(to);
+        }
+        if(x == 0){
+            x = from.getX();
+        }
+        if(y == 0){
+            y = from.getY();
+        }
+        //base case
+        if (x == to.getX() && y== to.getY()){
+            if(!to.getAdjacentSpaces().contains(prev)) {
+                to.addAdjacentSpace(prev);
+            }
+            if(!prev.getAdjacentSpaces().contains(to)) {
+                prev.addAdjacentSpace(to);
+            }
+            return true;
+        }
+
+        // adds steps for the bicycle path
+        if (((from.getX() - x)%7 ==0 && x!=from.getX() && x!=to.getX()) || ((from.getY()-y)%7 == 0&& y!=from.getY() && y!=to.getY())){
+            ISpace space = new Spaces(x, y);
+            boolean exists = false;
+            for(ISpace spacee : this.getSpaces()){
+                if (spacee.getX()-x < 5 && spacee.getX()-x >-5 && spacee.getY()-y < 5 && spacee.getY()-y >-5){
+                    System.out.println("jahaja");
+                    space = spacee;
+                    exists = true;
+                }
+            }
+            space.addAdjacentSpace(prev);
+            prev.addAdjacentSpace(space);
+            if (!exists) {
+                this.addSpaces(space);
+            }
+            prev = space;
+        }
+        if (x < to.getX()){
+            if (y==to.getY()){
+                return createSpaces(from, to, prev,x+1, y);
+            }
+            if (y<to.getY()){
+                return createSpaces(from, to, prev, x+1,y+1);
+            }
+            if (y>to.getY()){
+                return createSpaces(from, to, prev, x+1,y-1);
+            }
+        }
+        if (x > to.getX()){
+            if (y==to.getY()){
+                return createSpaces(from, to,prev,x-1, y);
+            }
+            if (y<to.getY()){
+                return createSpaces(from, to, prev, x-1,y+1);
+            }
+            if (y>to.getY()){
+                return createSpaces(from, to, prev, x-1,y-1);
+            }
+        }
+        if (x==to.getX()){
+            if (y<to.getY()){
+                return createSpaces(from, to, prev, x,y+1);
+            }
+            if (y>to.getY()){
+                return createSpaces(from, to, prev, x,y-1);
+            }
+        }
+        return false;
     }
 }
 

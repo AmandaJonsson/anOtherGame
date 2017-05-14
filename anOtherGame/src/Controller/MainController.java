@@ -76,7 +76,7 @@ public class MainController {
 
 
         Map map = new Map();
-        MapView mapView = new MapView();
+        MapView mapView = new MapView(map);
         MapController controller = new MapController(map, mapView);
         Pane mapPlace = (AnchorPane)root.lookup("#mapPlace");
 

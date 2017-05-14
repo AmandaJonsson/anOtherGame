@@ -9,11 +9,9 @@ import javafx.scene.shape.Circle;
  */
 public class SpaceView extends Circle {
     private String color;
-    private SpaceController controller;
 
-    public SpaceView(SpaceController controller, String color) {
+    public SpaceView(String color) {
         this.color = color;
-        this.controller=controller;
         this.setId("spaces");
         this.setFill(Paint.valueOf(color));
         this.setRadius(5);

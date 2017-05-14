@@ -19,7 +19,7 @@ public class SpaceController {
 
     public SpaceController(ISpace space) {
         this.space = space;
-        this.view = new SpaceView(this, "black");
+        this.view = new SpaceView("black");
         setMouseEvent();
     }
 

@@ -47,8 +47,8 @@ public class MainController {
 
     theLostController thelost=new theLostController();
 
-    boolean hasSameName = false;
-    boolean moreThanOnePlayer = false;
+    boolean hasSameName;
+    boolean moreThanOnePlayer;
     ArrayList<String> players = new ArrayList<String>();
 
     //Creating textfields for the players budgets
@@ -199,22 +199,27 @@ public class MainController {
         //newController.setPlayersTurnLabel();
 
         checkSameName();
+        setBalance();
+        if(moreThanOnePlayer == false){
+            System.out.println("Minst två personer måste spela spelet!");
+        }
+
+
+
 
         if(hasSameName == true){
             System.out.println("Spelarna måste heta olika saker!");
         }
 
-        if(moreThanOnePlayer == false){
-            System.out.println("Minst två personer måste spela spelet!");
-        }
 
-        setBalance();
+
         
         //Sets the next view, if we get to play (enough players, different names)
-        if(!hasSameName && moreThanOnePlayer){
+        if(!hasSameName && players.size()>1){
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+
         }
 
     }

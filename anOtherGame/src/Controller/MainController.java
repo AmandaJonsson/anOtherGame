@@ -52,8 +52,11 @@ public class MainController {
 
     theLostController thelost=new theLostController();
 
-    //Creating textfields for the players budgets
+    boolean hasSameName = false;
+    boolean moreThanOnePlayer = false;
+    ArrayList<String> players = new ArrayList<String>();
 
+    //Creating textfields for the players budgets
     Label budgetLabel1 = new Label("BUDGET 1");
     Label budgetLabel2 = new Label("BUDGET 2");
     Label budgetLabel3 = new Label("BUDGET 3");
@@ -67,9 +70,7 @@ public class MainController {
         FXMLLoader loader = new FXMLLoader();
         loader.setController(thelost);
         Parent root = loader.load(getClass().getResource("/View/TheLostPane.fxml"));
-
         thelost.setPlayersTurnLabel(playerTextField1.getText());
-
 
 
         Map map = new Map();
@@ -113,132 +114,142 @@ public class MainController {
 
         mapPlace.getChildren().add(mapView);
 
-        ArrayList<String> players = new ArrayList<String>();
+
+        if (!playerTextField1.getText().isEmpty()) {
+            players.add(playerTextField1.getText());
+            playerVBox.getChildren().add(playerPane1);
+            //adds name label to pane
+            playerPane1.getChildren().addAll(playerLabel1);
+            playerLabel1.setLayoutX(115);
+            playerLabel1.setLayoutY(20);
+            playerLabel1.setText(playerTextField1.getText());
+            playerLabel1.setFont(new Font("Comic sans", 18));
+
+            //adds budget label to pane
+            playerPane1.getChildren().addAll(budgetLabel1);
+            budgetLabel1.setLayoutX(10);
+            budgetLabel1.setLayoutY(40);
+            budgetLabel1.setFont(new Font("Comic sans", 10));
 
 
+        }
 
-            if (!playerTextField1.getText().isEmpty()) {
-                players.add(playerTextField1.getText());
-                playerVBox.getChildren().add(playerPane1);
+        if (!playerTextField2.getText().isEmpty()) {
+            players.add(playerTextField2.getText());
+            playerVBox.getChildren().add(playerPane2);
 
-                //adds name label to pane
-                playerPane1.getChildren().addAll(playerLabel1);
-                playerLabel1.setLayoutX(115);
-                playerLabel1.setLayoutY(20);
-                playerLabel1.setText(playerTextField1.getText());
-                playerLabel1.setFont(new Font("Comic sans", 18));
+            //adds name label to pane
+            playerPane2.getChildren().addAll(playerLabel2);
+            playerLabel2.setLayoutX(115);
+            playerLabel2.setLayoutY(20);
+            playerLabel2.setText(playerTextField2.getText());
+            playerLabel2.setFont(new Font("Comic sans", 18));
 
-
-                //adds budget label to pane
-                playerPane1.getChildren().addAll(budgetLabel1);
-                budgetLabel1.setLayoutX(10);
-                budgetLabel1.setLayoutY(40);
-                budgetLabel1.setFont(new Font("Comic sans", 10));
-
-
-            }
-
-            if (!playerTextField2.getText().isEmpty()) {
-                players.add(playerTextField2.getText());
-                playerVBox.getChildren().add(playerPane2);
-
-                //adds name label to pane
-                playerPane2.getChildren().addAll(playerLabel2);
-                playerLabel2.setLayoutX(115);
-                playerLabel2.setLayoutY(20);
-                playerLabel2.setText(playerTextField2.getText());
-                playerLabel2.setFont(new Font("Comic sans", 18));
-
-                //adds budget label to pane
-                playerPane2.getChildren().addAll(budgetLabel2);
-                budgetLabel2.setLayoutX(10);
-                budgetLabel2.setLayoutY(40);
-                budgetLabel2.setFont(new Font("Comic sans", 10));
+            //adds budget label to pane
+            playerPane2.getChildren().addAll(budgetLabel2);
+            budgetLabel2.setLayoutX(10);
+            budgetLabel2.setLayoutY(40);
+            budgetLabel2.setFont(new Font("Comic sans", 10));
 
 
-            }
+        }
 
-            if (!playerTextField3.getText().isEmpty()) {
-                players.add(playerTextField3.getText());
-                playerVBox.getChildren().add(playerPane3);
+        if (!playerTextField3.getText().isEmpty()) {
+            players.add(playerTextField3.getText());
+            playerVBox.getChildren().add(playerPane3);
 
-                //adds name label to pane
-                playerPane3.getChildren().addAll(playerLabel3);
-                playerLabel3.setLayoutX(115);
-                playerLabel3.setLayoutY(20);
-                playerLabel3.setText(playerTextField3.getText());
-                playerLabel3.setFont(new Font("Comic sans", 18));
+            //adds name label to pane
+            playerPane3.getChildren().addAll(playerLabel3);
+            playerLabel3.setLayoutX(115);
+            playerLabel3.setLayoutY(20);
+            playerLabel3.setText(playerTextField3.getText());
+            playerLabel3.setFont(new Font("Comic sans", 18));
 
-                //adds budget label to pane
-                playerPane3.getChildren().addAll(budgetLabel3);
-                budgetLabel3.setLayoutX(10);
-                budgetLabel3.setLayoutY(40);
-                budgetLabel3.setFont(new Font("Comic sans", 10));
+            //adds budget label to pane
+            playerPane3.getChildren().addAll(budgetLabel3);
+            budgetLabel3.setLayoutX(10);
+            budgetLabel3.setLayoutY(40);
+            budgetLabel3.setFont(new Font("Comic sans", 10));
 
+        }
 
-            }
+        if (!playerTextField4.getText().isEmpty()) {
+            players.add(playerTextField4.getText());
+            playerVBox.getChildren().add(playerPane4);
 
-            if (!playerTextField4.getText().isEmpty()) {
-                players.add(playerTextField4.getText());
-                playerVBox.getChildren().add(playerPane4);
+            //adds name label to pane
+            playerPane4.getChildren().addAll(playerLabel4);
+            playerLabel4.setLayoutX(115);
+            playerLabel4.setLayoutY(20);
+            playerLabel4.setText(playerTextField4.getText());
+            playerLabel4.setFont(new Font("Comic sans", 18));
 
-                //adds name label to pane
-                playerPane4.getChildren().addAll(playerLabel4);
-                playerLabel4.setLayoutX(115);
-                playerLabel4.setLayoutY(20);
-                playerLabel4.setText(playerTextField4.getText());
-                playerLabel4.setFont(new Font("Comic sans", 18));
+            //adds budget label to pane
+            playerPane4.getChildren().addAll(budgetLabel4);
+            budgetLabel4.setLayoutX(10);
+            budgetLabel4.setLayoutY(40);
+            budgetLabel4.setFont(new Font("Comic sans", 10));
+         }
 
-                //adds budget label to pane
-                playerPane4.getChildren().addAll(budgetLabel4);
-                budgetLabel4.setLayoutX(10);
-                budgetLabel4.setLayoutY(40);
-                budgetLabel4.setFont(new Font("Comic sans", 10));
+        if (!playerTextField5.getText().isEmpty()) {
+            players.add(playerTextField5.getText());
+            playerVBox.getChildren().add(playerPane5);
 
-            }
+            //adds name label to pane
+            playerPane5.getChildren().addAll(playerLabel5);
+            playerLabel5.setLayoutX(115);
+            playerLabel5.setLayoutY(20);
+            playerLabel5.setText(playerTextField5.getText());
+            playerLabel5.setFont(new Font("Comic sans", 18));
 
-            if (!playerTextField5.getText().isEmpty()) {
-                players.add(playerTextField5.getText());
-                playerVBox.getChildren().add(playerPane5);
-
-                //adds name label to pane
-                playerPane5.getChildren().addAll(playerLabel5);
-                playerLabel5.setLayoutX(115);
-                playerLabel5.setLayoutY(20);
-                playerLabel5.setText(playerTextField5.getText());
-                playerLabel5.setFont(new Font("Comic sans", 18));
-
-                //adds budget label to pane
-                playerPane5.getChildren().addAll(budgetLabel5);
-                budgetLabel5.setLayoutX(10);
-                budgetLabel5.setLayoutY(40);
-                budgetLabel5.setFont(new Font("Comic sans", 10));
+            //adds budget label to pane
+            playerPane5.getChildren().addAll(budgetLabel5);
+            budgetLabel5.setLayoutX(10);
+            budgetLabel5.setLayoutY(40);
+            budgetLabel5.setFont(new Font("Comic sans", 10));
 
 
-            }
+        }
 
-            if (!playerTextField6.getText().isEmpty()) {
-                players.add(playerTextField6.getText());
-                playerVBox.getChildren().add(playerPane6);
+        if (!playerTextField6.getText().isEmpty()) {
+            players.add(playerTextField6.getText());
+            playerVBox.getChildren().add(playerPane6);
 
-                //adds name label to pane
-                playerPane6.getChildren().addAll(playerLabel6);
-                playerLabel6.setLayoutX(115);
-                playerLabel6.setLayoutY(20);
-                playerLabel6.setText(playerTextField6.getText());
-                playerLabel6.setFont(new Font("Comic sans", 18));
+            //adds name label to pane
+            playerPane6.getChildren().addAll(playerLabel6);
+            playerLabel6.setLayoutX(115);
+            playerLabel6.setLayoutY(20);
+            playerLabel6.setText(playerTextField6.getText());
+            playerLabel6.setFont(new Font("Comic sans", 18));
 
-                //adds budget label to pane
-                playerPane6.getChildren().addAll(budgetLabel6);
-                budgetLabel6.setLayoutX(10);
-                budgetLabel6.setLayoutY(40);
-                budgetLabel6.setFont(new Font("Comic sans", 10));
+            //adds budget label to pane
+            playerPane6.getChildren().addAll(budgetLabel6);
+            budgetLabel6.setLayoutX(10);
+            budgetLabel6.setLayoutY(40);
+            budgetLabel6.setFont(new Font("Comic sans", 10));
+
+         }
+
+        checkSameName();
+
+        //thelost.setPlayersTurnLabel(player1);
+
+        newGame = new TheLostKitten(players);
+        theLostController newController = new theLostController(newGame);
+        //newController.setPlayersTurnLabel();
+        setBalance();
 
 
-            }
+        //Sets the next view, if we get to play (enough players, different names)
+        if(!hasSameName && moreThanOnePlayer){
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
 
-        boolean hasSameName = false;
+    }
 
+    public void checkSameName(){
         for (int i = 0; i < players.size(); i++){
             for(int j = i+1; j < players.size(); j++) {
                 System.out.println("*****111111******");
@@ -246,51 +257,45 @@ public class MainController {
                 System.out.println(players.get(j));
                 System.out.println("*****222222******");
                 hasSameName = players.get(i).equals(players.get(j));
-                if (hasSameName) {
-                    System.out.println("Alla spelare måste ha olika namn!");
+                if(hasSameName){
                     players.clear();
                     playerTextField1.clear();
                     playerTextField2.clear();
                     playerTextField3.clear();
                     playerTextField4.clear();
                     playerTextField5.clear();
-                    playerTextField6.clear();
-                    System.out.println(players);
+                    System.out.println(hasSameName);
                 }
+
             }
         }
-        String player1 = playerTextField1.getText();
-        System.out.println(player1);
-        System.out.println(thelost);
-        System.out.println(thelost.playersTurnLabel);
+    }
 
-        //thelost.setPlayersTurnLabel(player1);
-
-        newGame = new TheLostKitten(players);
-
-        theLostController newController = new theLostController(newGame);
-        //newController.setPlayersTurnLabel();
-
-
+    public void setBalance(){
+        // SETS THE BALANCES
         if(newGame.getPlayers().length == 1){
             budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
+            moreThanOnePlayer = false;
         }
 
         if(newGame.getPlayers().length == 2){
             budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
             budgetLabel2.setText(String.valueOf("Pengar: " + newGame.getPlayers()[1].getBalance() + " kr"));
+            moreThanOnePlayer = true;
         }
 
         if(newGame.getPlayers().length == 3){
             budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
             budgetLabel2.setText(String.valueOf("Pengar: " + newGame.getPlayers()[1].getBalance() + " kr"));
             budgetLabel3.setText(String.valueOf("Pengar: " + newGame.getPlayers()[2].getBalance() + " kr"));
+            moreThanOnePlayer = true;
         }
         if(newGame.getPlayers().length == 4){
             budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
             budgetLabel2.setText(String.valueOf("Pengar: " + newGame.getPlayers()[1].getBalance() + " kr"));
             budgetLabel3.setText(String.valueOf("Pengar: " + newGame.getPlayers()[2].getBalance() + " kr"));
             budgetLabel4.setText(String.valueOf("Pengar: " + newGame.getPlayers()[3].getBalance() + " kr"));
+            moreThanOnePlayer = true;
         }
         if(newGame.getPlayers().length == 5){
             budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
@@ -298,6 +303,7 @@ public class MainController {
             budgetLabel3.setText(String.valueOf("Pengar: " + newGame.getPlayers()[2].getBalance() + " kr"));
             budgetLabel4.setText(String.valueOf("Pengar: " + newGame.getPlayers()[3].getBalance() + " kr"));
             budgetLabel5.setText(String.valueOf("Pengar: " + newGame.getPlayers()[4].getBalance() + " kr"));
+            moreThanOnePlayer = true;
         }
 
         if(newGame.getPlayers().length == 6){
@@ -307,20 +313,9 @@ public class MainController {
             budgetLabel4.setText(String.valueOf("Pengar: " + newGame.getPlayers()[3].getBalance() + " kr"));
             budgetLabel5.setText(String.valueOf("Pengar: " + newGame.getPlayers()[4].getBalance() + " kr"));
             budgetLabel6.setText(String.valueOf("Pengar: " + newGame.getPlayers()[5].getBalance() + " kr"));
+            moreThanOnePlayer = true;
         }
-
-
-        if(hasSameName == false){
-
-
-            Scene scene = new Scene(root);
-
-            stage.setScene(scene);
-            stage.show();
-        }
-
     }
-
     
     @FXML protected void handleRulesGameButton(ActionEvent event) throws IOException {
         Stage stage = (Stage) rulesButton.getScene().getWindow();

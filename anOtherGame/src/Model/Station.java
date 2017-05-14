@@ -11,14 +11,14 @@ public class Station extends Space implements IStation {
     private boolean isStart;
 
 
-    public Station(String name, int x, int y) {
+    public Station( String name, int x, int y) {
         super(x, y);
         this.name =  name;
         isBoatStation = false;
         isTramStation = false;
     }
 
-    public Station(String name, int x, int y, Marker marker) {
+    public Station( int x, int y,String name, Marker marker) {
         super(x, y);
         this.name =  name;
         this.marker = marker;

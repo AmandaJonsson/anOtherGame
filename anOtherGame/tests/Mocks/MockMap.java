@@ -1,4 +1,4 @@
-package Mocks;
+/*package Mocks;
 
 import Model.*;
 import Model.Intefaces.IMap;
@@ -88,4 +88,4 @@ public class MockMap implements IMap {
         list.set(shuffle, supporter);
 
     }
-}
+}*/

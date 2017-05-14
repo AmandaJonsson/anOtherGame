@@ -24,7 +24,7 @@
       </ImageView>
    </top>
    <bottom>
-      <Button id="rulesbutton" fx:id="rulesButton" mnemonicParsing="false" onAction="#handleRulesGameButton" text="Regler" BorderPane.alignment="TOP_LEFT">
+      <Button id="rulesbutton" fx:id="rulesButton" mnemonicParsing="false" onAction="#handleRulesGameButton" onMouseEntered="#setMouseEffect" onMouseExited="#setMouseEffect" text="Regler" BorderPane.alignment="TOP_LEFT">
          <BorderPane.margin>
             <Insets bottom="20.0" left="20.0" />
          </BorderPane.margin>
@@ -45,7 +45,7 @@
             <TextField fx:id="playerTextField4" layoutX="14.0" layoutY="49.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="Spelare 4" />
             <TextField fx:id="playerTextField5" alignment="CENTER" layoutX="217.0" layoutY="49.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="Spelare 5" />
             <TextField fx:id="playerTextField6" alignment="CENTER" layoutX="433.0" layoutY="49.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="Spelare 6" />
-            <Button id="startbutton" fx:id="startGameButton" defaultButton="true" layoutX="201.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleStartGameButton" text="Starta">
+            <Button id="startbutton" fx:id="startGameButton" defaultButton="true" layoutX="201.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleStartGameButton" onMouseEntered="#setMouseEffect" onMouseExited="#setMouseEffect" text="Starta">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>

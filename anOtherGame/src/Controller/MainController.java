@@ -6,6 +6,7 @@ import Model.TheLostKitten;
 import View.MapView;
 import Model.Map;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,11 +14,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.*;
 
 
 import java.awt.*;
@@ -40,6 +47,8 @@ public class MainController {
             playerTextField3, playerTextField4, playerTextField5, playerTextField6;
 
     TheLostKitten newGame;
+
+    private DropShadow shadow = new DropShadow();
 
     theLostController thelost=new theLostController();
 
@@ -264,40 +273,40 @@ public class MainController {
 
 
         if(newGame.getPlayers().length == 1){
-            budgetLabel1.setText(String.valueOf(newGame.getPlayers()[0].getBalance()));
+            budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
         }
 
         if(newGame.getPlayers().length == 2){
-            budgetLabel1.setText(String.valueOf(newGame.getPlayers()[0].getBalance()));
-            budgetLabel2.setText(String.valueOf(newGame.getPlayers()[1].getBalance()));
+            budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
+            budgetLabel2.setText(String.valueOf("Pengar: " + newGame.getPlayers()[1].getBalance() + " kr"));
         }
 
         if(newGame.getPlayers().length == 3){
-            budgetLabel1.setText(String.valueOf(newGame.getPlayers()[0].getBalance()));
-            budgetLabel2.setText(String.valueOf(newGame.getPlayers()[1].getBalance()));
-            budgetLabel3.setText(String.valueOf(newGame.getPlayers()[2].getBalance()));
+            budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
+            budgetLabel2.setText(String.valueOf("Pengar: " + newGame.getPlayers()[1].getBalance() + " kr"));
+            budgetLabel3.setText(String.valueOf("Pengar: " + newGame.getPlayers()[2].getBalance() + " kr"));
         }
         if(newGame.getPlayers().length == 4){
-            budgetLabel1.setText(String.valueOf(newGame.getPlayers()[0].getBalance()));
-            budgetLabel2.setText(String.valueOf(newGame.getPlayers()[1].getBalance()));
-            budgetLabel3.setText(String.valueOf(newGame.getPlayers()[2].getBalance()));
-            budgetLabel4.setText(String.valueOf(newGame.getPlayers()[3].getBalance()));
+            budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
+            budgetLabel2.setText(String.valueOf("Pengar: " + newGame.getPlayers()[1].getBalance() + " kr"));
+            budgetLabel3.setText(String.valueOf("Pengar: " + newGame.getPlayers()[2].getBalance() + " kr"));
+            budgetLabel4.setText(String.valueOf("Pengar: " + newGame.getPlayers()[3].getBalance() + " kr"));
         }
         if(newGame.getPlayers().length == 5){
-            budgetLabel1.setText(String.valueOf(newGame.getPlayers()[0].getBalance()));
-            budgetLabel2.setText(String.valueOf(newGame.getPlayers()[1].getBalance()));
-            budgetLabel3.setText(String.valueOf(newGame.getPlayers()[2].getBalance()));
-            budgetLabel4.setText(String.valueOf(newGame.getPlayers()[3].getBalance()));
-            budgetLabel5.setText(String.valueOf(newGame.getPlayers()[4].getBalance()));
+            budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
+            budgetLabel2.setText(String.valueOf("Pengar: " + newGame.getPlayers()[1].getBalance() + " kr"));
+            budgetLabel3.setText(String.valueOf("Pengar: " + newGame.getPlayers()[2].getBalance() + " kr"));
+            budgetLabel4.setText(String.valueOf("Pengar: " + newGame.getPlayers()[3].getBalance() + " kr"));
+            budgetLabel5.setText(String.valueOf("Pengar: " + newGame.getPlayers()[4].getBalance() + " kr"));
         }
 
         if(newGame.getPlayers().length == 6){
-            budgetLabel1.setText(String.valueOf(newGame.getPlayers()[0].getBalance()));
-            budgetLabel2.setText(String.valueOf(newGame.getPlayers()[1].getBalance()));
-            budgetLabel3.setText(String.valueOf(newGame.getPlayers()[2].getBalance()));
-            budgetLabel4.setText(String.valueOf(newGame.getPlayers()[3].getBalance()));
-            budgetLabel5.setText(String.valueOf(newGame.getPlayers()[4].getBalance()));
-            budgetLabel6.setText(String.valueOf(newGame.getPlayers()[5].getBalance()));
+            budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
+            budgetLabel2.setText(String.valueOf("Pengar: " + newGame.getPlayers()[1].getBalance() + " kr"));
+            budgetLabel3.setText(String.valueOf("Pengar: " + newGame.getPlayers()[2].getBalance() + " kr"));
+            budgetLabel4.setText(String.valueOf("Pengar: " + newGame.getPlayers()[3].getBalance() + " kr"));
+            budgetLabel5.setText(String.valueOf("Pengar: " + newGame.getPlayers()[4].getBalance() + " kr"));
+            budgetLabel6.setText(String.valueOf("Pengar: " + newGame.getPlayers()[5].getBalance() + " kr"));
         }
 
 
@@ -333,6 +342,40 @@ public class MainController {
         stage.show();
 
     }
+
+
+    @FXML
+    public void setMouseEffect() {
+        startGameButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                startGameButton.setEffect(shadow);
+            }
+        });
+
+        startGameButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                startGameButton.setEffect(null);
+            }
+        });
+
+        rulesButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                rulesButton.setEffect(shadow);
+            }
+        });
+
+        rulesButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                rulesButton.setEffect(null);
+            }
+        });
+    }
+
+
 
 
 

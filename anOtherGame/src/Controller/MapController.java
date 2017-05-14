@@ -18,5 +18,4 @@ public class MapController {
         this.view = view;
     }
 
-
 }

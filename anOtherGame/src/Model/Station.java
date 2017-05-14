@@ -7,14 +7,14 @@ public class Station extends Spaces implements IStation{
     private boolean isBoatStation;
     private boolean isTramStation;
     private boolean isStart;
-    private Station station;
 
 
     public Station(Map map, String name, int x, int y) {
-        super("blue", 10, x, y);
+        super(x, y);
         this.name =  name;
         map.addSpaces(this);
         isBoatStation = false;
+        isTramStation = false;
     }
 
     public Station(int x, int y, String name, Marker marker) {
@@ -22,6 +22,7 @@ public class Station extends Spaces implements IStation{
         this.name =  name;
         this.marker = marker;
         isBoatStation = false;
+        isTramStation = false;
     }
 
     public Marker getMarker(){
@@ -77,10 +78,6 @@ public class Station extends Spaces implements IStation{
 
     public boolean isStart() {
         return isStart;
-    }
-
-    public Station getStation(){
-        return station;
     }
 
     @Override

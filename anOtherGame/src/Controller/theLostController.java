@@ -61,7 +61,7 @@ public class theLostController {
 
     @FXML private Label alternativeText;
 
-    @FXML private Label playersTurnLabel;
+    @FXML public Label playersTurnLabel = new Label();
 
     private String turnMakerButton = "Välj att antingen betala 1000 kr eller slå tärningen och \n " +
             "få 4,5 eller 6 för att vända markern.\n Tryck på 'Betala' eller 'Slå tärning'";
@@ -286,8 +286,9 @@ public class theLostController {
     }
 
     public void setPlayersTurnLabel(String text){
-        playersTurnLabel.setText(text);
         System.out.println(text);
+
+        playersTurnLabel.setText("Din tur" + " " + text);
     }
 
 

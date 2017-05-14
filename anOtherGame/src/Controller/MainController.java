@@ -41,6 +41,8 @@ public class MainController {
 
     TheLostKitten newGame;
 
+    theLostController thelost=new theLostController();
+
     //Creating textfields for the players budgets
 
     Label budgetLabel1 = new Label("BUDGET 1");
@@ -54,7 +56,12 @@ public class MainController {
      //  ActionEvent thisEvent = event;
         Stage stage = (Stage) startGameButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
+        loader.setController(thelost);
         Parent root = loader.load(getClass().getResource("/View/TheLostPane.fxml"));
+
+        thelost.setPlayersTurnLabel(playerTextField1.getText());
+
+
 
         Map map = new Map();
         MapView mapView = new MapView();
@@ -243,6 +250,12 @@ public class MainController {
                 }
             }
         }
+        String player1 = playerTextField1.getText();
+        System.out.println(player1);
+        System.out.println(thelost);
+        System.out.println(thelost.playersTurnLabel);
+
+        //thelost.setPlayersTurnLabel(player1);
 
         newGame = new TheLostKitten(players);
 
@@ -252,10 +265,14 @@ public class MainController {
 
 
         if(hasSameName == false){
+
+
             Scene scene = new Scene(root);
+
             stage.setScene(scene);
             stage.show();
         }
+
     }
 
 

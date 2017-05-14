@@ -8,9 +8,11 @@ import Model.Station;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.HPos;
+import javafx.scene.image.Image;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
@@ -105,8 +107,23 @@ public class MapView extends GridPane {
         for (ISpace space : mapp.getSpaces()) {
             //System.out.println(space.getController().getView());
             //System.out.println(space.getX() + " " + space.getY());
-            this.add(space.getController().getView(), space.getX(), space.getY());
+            SpaceView view = new SpaceView(space,"Black");
             if (space instanceof Station){
+                if (((Station) space).getIsBoatStation()) {
+                    view.setColor("Blue");
+                }else if (((Station) space).getIsTramStation()) {
+                    view.setColor("Red");
+                }
+                view.setRadius(10);
+                if (((Station)space).getName().equals("Redbergsplatsen")){
+                    view.setRadius(50);
+                    Image img = new Image("/Resources/redbergsplatsen-01.png");
+                    view.setFill(new ImagePattern(img));
+                }else if (((Station)space).getName().equals("Lundby")){
+                    view.setRadius(50);
+                    Image img = new Image("/Resources/lundby-01.png");
+                    view.setFill(new ImagePattern(img));
+                }
                 System.out.println("LOLOLOLOLOLOL");
                 for (ISpace to : space.getAdjacentSpaces()){
                     if (!(list.contains(Integer.toString(space.getX()) + Integer.toString(space.getX()) + Integer.toString(to.getX()) + Integer.toString(to.getY())) || list.contains(Integer.toString(to.getX()) + Integer.toString(to.getX()) + Integer.toString(space.getX()) + Integer.toString(space.getY())))) {
@@ -118,6 +135,7 @@ public class MapView extends GridPane {
                     }
                 }
             }
+            this.add(view, space.getX(), space.getY());
         }
     }
     private boolean calculatePath(Station from, Station to, int x, int y) {

@@ -18,7 +18,6 @@ public interface IStation {
 
     void setStart(boolean start);
     boolean isStart();
-    Station getStation();
     String toString();
 
 }

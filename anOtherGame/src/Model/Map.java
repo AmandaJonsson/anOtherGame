@@ -194,8 +194,8 @@ public class Map implements IMap{
         createSpaces(chalmers,vasaplatsen, null, 0, 0);
 
         //Start space.
-        redbergsplatsen.getController().setStart();
-        lundby.getController().setStart();
+        redbergsplatsen.setStart(true);
+        lundby.setStart(true);
         addMarkers(8, 6, 4, 8, stations); //important sum of spaces = totNOfMarkers
         return true;
     }

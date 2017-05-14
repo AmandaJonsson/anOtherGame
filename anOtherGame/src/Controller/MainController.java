@@ -263,6 +263,43 @@ public class MainController {
         //newController.setPlayersTurnLabel();
 
 
+        if(newGame.getPlayers().length == 1){
+            budgetLabel1.setText(String.valueOf(newGame.getPlayers()[0].getBalance()));
+        }
+
+        if(newGame.getPlayers().length == 2){
+            budgetLabel1.setText(String.valueOf(newGame.getPlayers()[0].getBalance()));
+            budgetLabel2.setText(String.valueOf(newGame.getPlayers()[1].getBalance()));
+        }
+
+        if(newGame.getPlayers().length == 3){
+            budgetLabel1.setText(String.valueOf(newGame.getPlayers()[0].getBalance()));
+            budgetLabel2.setText(String.valueOf(newGame.getPlayers()[1].getBalance()));
+            budgetLabel3.setText(String.valueOf(newGame.getPlayers()[2].getBalance()));
+        }
+        if(newGame.getPlayers().length == 4){
+            budgetLabel1.setText(String.valueOf(newGame.getPlayers()[0].getBalance()));
+            budgetLabel2.setText(String.valueOf(newGame.getPlayers()[1].getBalance()));
+            budgetLabel3.setText(String.valueOf(newGame.getPlayers()[2].getBalance()));
+            budgetLabel4.setText(String.valueOf(newGame.getPlayers()[3].getBalance()));
+        }
+        if(newGame.getPlayers().length == 5){
+            budgetLabel1.setText(String.valueOf(newGame.getPlayers()[0].getBalance()));
+            budgetLabel2.setText(String.valueOf(newGame.getPlayers()[1].getBalance()));
+            budgetLabel3.setText(String.valueOf(newGame.getPlayers()[2].getBalance()));
+            budgetLabel4.setText(String.valueOf(newGame.getPlayers()[3].getBalance()));
+            budgetLabel5.setText(String.valueOf(newGame.getPlayers()[4].getBalance()));
+        }
+
+        if(newGame.getPlayers().length == 6){
+            budgetLabel1.setText(String.valueOf(newGame.getPlayers()[0].getBalance()));
+            budgetLabel2.setText(String.valueOf(newGame.getPlayers()[1].getBalance()));
+            budgetLabel3.setText(String.valueOf(newGame.getPlayers()[2].getBalance()));
+            budgetLabel4.setText(String.valueOf(newGame.getPlayers()[3].getBalance()));
+            budgetLabel5.setText(String.valueOf(newGame.getPlayers()[4].getBalance()));
+            budgetLabel6.setText(String.valueOf(newGame.getPlayers()[5].getBalance()));
+        }
+
 
         if(hasSameName == false){
 
@@ -275,9 +312,7 @@ public class MainController {
 
     }
 
-
-
-
+    
     @FXML protected void handleRulesGameButton(ActionEvent event) throws IOException {
         Stage stage = (Stage) rulesButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();

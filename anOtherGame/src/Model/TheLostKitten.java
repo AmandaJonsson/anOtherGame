@@ -12,16 +12,11 @@ public class TheLostKitten{
     Model.Map map = new Model.Map();
     Model.Dice dice = new Model.Dice();
 
-    public TheLostKitten(ArrayList<String> nameOfPlayers) {
+    public TheLostKitten(ArrayList<Player> nameOfPlayers) {
 
+        for(Player player : nameOfPlayers){
+            player.setPosition(getRandomStartPosition());
 
-        playerList = new Player[nameOfPlayers.size()];
-
-        for(int i = 0; i < playerList.length; i++){
-            Player player = new Player(nameOfPlayers.get(i), getRandomStartPosition(), 5000);
-            addPlayer(player);
-            System.out.println("Spelare: " + playerList[i].getName() + " Position: " +
-                    playerList[i].getPosition() + " Budget: " + playerList[i].getBalance());
         }
 
 
@@ -40,17 +35,6 @@ public class TheLostKitten{
     }
 
 
-
-
-    public void addPlayer(Player player){
-
-        for(int i = 0;i < playerList.length;i++){
-            playerList[i] = player;
-
-        }
-
-
-    }
 
     public int changeTurn(int i){
 

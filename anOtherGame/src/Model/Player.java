@@ -20,6 +20,11 @@ public class Player implements IPlayer {
 
     }
 
+    public Player(String name, int balance){
+        this.name = name;
+        this.balance = balance;
+    }
+
     public boolean playerHasTurn(){
         return isTurn;
     }
@@ -30,6 +35,10 @@ public class Player implements IPlayer {
 
     public Space getPosition(){
         return position;
+    }
+
+    public void setPosition(Space position){
+        this.position = position;
     }
 
     public String getName(){

@@ -11,15 +11,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" minHeight="100.0" minWidth="0.0" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #fd9dff;" stylesheets="@CSSs/PlayerPane.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+<AnchorPane maxHeight="1.7976931348623157E308" minHeight="100.0" minWidth="0.0" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #fd9dff;" stylesheets="@CSSs/PlayerPane.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView id="hasCat" fx:id="tramCard2" fitHeight="40.0" fitWidth="50.0" layoutX="20.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0">
+      <ImageView fx:id="tramCard" fitHeight="40.0" fitWidth="50.0" layoutX="20.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0">
          <image>
             <Image url="@../Resources/cat.png" />
          </image></ImageView>
-      <ImageView id="hasCard" fx:id="theDiamond2" fitHeight="40.0" fitWidth="100.0" layoutX="101.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="100.0">
+      <ImageView fx:id="theDiamond" fitHeight="40.0" fitWidth="100.0" layoutX="101.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="100.0">
          <image>
             <Image url="@../Resources/vasttrafik.png" />
          </image></ImageView>
+      <Label fx:id="nameLabel" layoutX="108.0" layoutY="29.0" text="Namn" />
+      <Label fx:id="budgetLabel" layoutX="21.0" layoutY="81.0" text="Budget" />
    </children>
 </AnchorPane>

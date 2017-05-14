@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Player;
 import Model.TheLostKitten;
 import View.MapView;
 import Model.Map;
@@ -47,23 +48,6 @@ public class MainController {
 
     boolean hasSameName;
     boolean moreThanOnePlayer;
-    ArrayList<String> players = new ArrayList<String>();
-
-    //Creating textfields for the players budgets
-    Label budgetLabel1 = new Label("BUDGET 1");
-    Label budgetLabel2 = new Label("BUDGET 2");
-    Label budgetLabel3 = new Label("BUDGET 3");
-    Label budgetLabel4 = new Label("BUDGET 4");
-    Label budgetLabel5 = new Label("BUDGET 5");
-    Label budgetLabel6 = new Label("BUDGET 6");
-
-    //Creating name labels for the players
-    Label playerLabel1 = new Label();
-    Label playerLabel2 = new Label();
-    Label playerLabel3 = new Label();
-    Label playerLabel4 = new Label();
-    Label playerLabel5 = new Label();
-    Label playerLabel6 = new Label();
 
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
         thelost=new TheLostController();
@@ -83,22 +67,6 @@ public class MainController {
 
         AnchorPane.setTopAnchor(playerVBox, 10.0); // obviously provide your own constraints
 
-        //Creating all the player panes
-        AnchorPane playerPane1 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
-        AnchorPane playerPane2 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
-        AnchorPane playerPane3 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
-        AnchorPane playerPane4 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
-        AnchorPane playerPane5 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
-        AnchorPane playerPane6 =FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
-
-        //Sets the background color on player pane
-        playerPane1.setStyle(" -fx-background-color: thistle;");
-        playerPane2.setStyle(" -fx-background-color: seashell;");
-        playerPane3.setStyle(" -fx-background-color: aquamarine;");
-        playerPane4.setStyle(" -fx-background-color: cadetblue;");
-        playerPane5.setStyle(" -fx-background-color: yellowgreen;");
-        playerPane6.setStyle(" -fx-background-color: silver;");
-
         AnchorPane.setTopAnchor(mapView, 0.0);
         AnchorPane.setLeftAnchor(mapView, 0.0);
         AnchorPane.setRightAnchor(mapView, 0.0);
@@ -107,95 +75,70 @@ public class MainController {
 
         mapPlace.getChildren().add(mapView);
 
+        ArrayList<Player> players = new ArrayList<>();
 
         if (!playerTextField1.getText().isEmpty()) {
-            players.add(playerTextField1.getText());
-            playerVBox.getChildren().add(playerPane1);
-
-            //adds name label to pane
-            addNameLabeltoPane(playerPane1, playerLabel1);
-            setLabelText(playerLabel1, playerTextField1.getText());
-
-            //adds budget label to pane
-            addBudgetLabelToPane(playerPane1, budgetLabel1);
-
-
+            Player player1  = new Player(playerTextField1.getText(), 5000);
+            PlayerPaneController playerCon1 = new PlayerPaneController(player1);
+            players.add(player1);
+            playerCon1.getView().setStyle(" -fx-background-color: thistle;");
+            playerVBox.getChildren().add(playerCon1.getView());
         }
 
         if (!playerTextField2.getText().isEmpty()) {
-            players.add(playerTextField2.getText());
-            playerVBox.getChildren().add(playerPane2);
-
-            //adds name label to pane
-            addNameLabeltoPane(playerPane2, playerLabel2);
-            setLabelText(playerLabel2, playerTextField2.getText());
-
-            //adds budget label to pane
-            addBudgetLabelToPane(playerPane2, budgetLabel2);
-
-
+            Player player2  = new Player(playerTextField2.getText(), 5000);
+            PlayerPaneController playerCon2 = new PlayerPaneController(player2);
+            players.add(player2);
+            playerCon2.getView().setStyle(" -fx-background-color: seashell;");
+            playerVBox.getChildren().add(playerCon2.getView());
         }
 
         if (!playerTextField3.getText().isEmpty()) {
-            players.add(playerTextField3.getText());
-            playerVBox.getChildren().add(playerPane3);
-
-            //adds name label to pane
-            addNameLabeltoPane(playerPane3, playerLabel3);
-            setLabelText(playerLabel3, playerTextField3.getText());
-
-            //adds budget label to pane
-            addBudgetLabelToPane(playerPane3, budgetLabel3);
-
+            Player player3  = new Player(playerTextField3.getText(), 5000);
+            PlayerPaneController playerCon3 = new PlayerPaneController(player3);
+            players.add(player3);
+            playerCon3.getView().setStyle(" -fx-background-color: aquamarine;");
+            playerVBox.getChildren().add(playerCon3.getView());
         }
 
         if (!playerTextField4.getText().isEmpty()) {
-            players.add(playerTextField4.getText());
-            playerVBox.getChildren().add(playerPane4);
-
-            //adds name label to pane
-            addNameLabeltoPane(playerPane4, playerLabel4);
-            setLabelText(playerLabel4, playerTextField4.getText());
-
-            //adds budget label to pane
-            addBudgetLabelToPane(playerPane4, budgetLabel4);
-
+            Player player4  = new Player(playerTextField4.getText(), 5000);
+            PlayerPaneController playerCon4 = new PlayerPaneController(player4);
+            players.add(player4);
+            playerCon4.getView().setStyle(" -fx-background-color: cadetblue;");
+            playerVBox.getChildren().add(playerCon4.getView());
          }
 
         if (!playerTextField5.getText().isEmpty()) {
-            players.add(playerTextField5.getText());
-            playerVBox.getChildren().add(playerPane5);
-
-            //adds name label to pane
-            addNameLabeltoPane(playerPane5, playerLabel5);
-            setLabelText(playerLabel5, playerTextField5.getText());
-
-            //adds budget label to pane
-            addBudgetLabelToPane(playerPane5, budgetLabel5);
-
-
+            Player player5  = new Player(playerTextField5.getText(), 5000);
+            PlayerPaneController playerCon5 = new PlayerPaneController(player5);
+            players.add(player5);
+            playerCon5.getView().setStyle(" -fx-background-color: yellowgreen;");
+            playerVBox.getChildren().add(playerCon5.getView());
         }
 
         if (!playerTextField6.getText().isEmpty()) {
-            players.add(playerTextField6.getText());
-            playerVBox.getChildren().add(playerPane6);
-
-            //adds name label to pane
-            addNameLabeltoPane(playerPane6, playerLabel6);
-            setLabelText(playerLabel6, playerTextField6.getText());
-
-            //adds budget label to pane
-            addBudgetLabelToPane(playerPane6, budgetLabel6);
-
+            Player player6  = new Player(playerTextField6.getText(), 5000);
+            PlayerPaneController playerCon6 = new PlayerPaneController(player6);
+            players.add(player6);
+            playerCon6.getView().setStyle(" -fx-background-color: silver;");
+            playerVBox.getChildren().add(playerCon6.getView());
          }
 
 
+
+
         newGame = new TheLostKitten(players);
-        TheLostController newController = new TheLostController(newGame);
+
+
+
+    //    TheLostController newController = new TheLostController(newGame);
+
+      //  PlayerPaneController pController = new PlayerPaneController(newGame);
         //newController.setPlayersTurnLabel();
 
-        checkSameName();
-        setBalance();
+     //   checkSameName();
+  //      setBalance();
         if(moreThanOnePlayer == false){
             System.out.println("Minst två personer måste spela spelet!");
         }
@@ -204,7 +147,6 @@ public class MainController {
             System.out.println("Spelarna måste heta olika saker!");
         }
 
-        setBalance();
 
 
         thelost.setPlayersTurnLabel(playerTextField1.getText());
@@ -222,26 +164,9 @@ public class MainController {
 
     }
 
-    private void setLabelText(Label label, String text) {
-        label.setText(text);
-    }
 
-    public void addBudgetLabelToPane(AnchorPane pane, Label label){
-        pane.getChildren().addAll(label);
-        label.setLayoutX(10);
-        label.setLayoutY(40);
-        label.setFont(new Font("Comic sans", 10));
 
-    }
-
-    public void addNameLabeltoPane(AnchorPane pane, Label label){
-        pane.getChildren().addAll(label);
-        label.setLayoutX(115);
-        label.setLayoutY(20);
-        label.setFont(new Font("Comic sans", 18));
-    }
-
-    public void checkSameName(){
+  /*  public void checkSameName(){
         for (int i = 0; i < players.size(); i++){
             for(int j = i+1; j < players.size(); j++) {
                 System.out.println("*****111111******");
@@ -261,54 +186,8 @@ public class MainController {
 
             }
         }
-    }
+    }*/
 
-    public void setBalance(){
-        // SETS THE BALANCES
-        if(newGame.getPlayers().length == 1){
-            budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
-            moreThanOnePlayer = false;
-        }
-
-        if(newGame.getPlayers().length == 2){
-            budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
-            budgetLabel2.setText(String.valueOf("Pengar: " + newGame.getPlayers()[1].getBalance() + " kr"));
-            moreThanOnePlayer = true;
-        }
-
-        if(newGame.getPlayers().length == 3){
-            budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
-            budgetLabel2.setText(String.valueOf("Pengar: " + newGame.getPlayers()[1].getBalance() + " kr"));
-            budgetLabel3.setText(String.valueOf("Pengar: " + newGame.getPlayers()[2].getBalance() + " kr"));
-            moreThanOnePlayer = true;
-        }
-        if(newGame.getPlayers().length == 4){
-            budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
-            budgetLabel2.setText(String.valueOf("Pengar: " + newGame.getPlayers()[1].getBalance() + " kr"));
-            budgetLabel3.setText(String.valueOf("Pengar: " + newGame.getPlayers()[2].getBalance() + " kr"));
-            budgetLabel4.setText(String.valueOf("Pengar: " + newGame.getPlayers()[3].getBalance() + " kr"));
-            moreThanOnePlayer = true;
-        }
-        if(newGame.getPlayers().length == 5){
-            budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
-            budgetLabel2.setText(String.valueOf("Pengar: " + newGame.getPlayers()[1].getBalance() + " kr"));
-            budgetLabel3.setText(String.valueOf("Pengar: " + newGame.getPlayers()[2].getBalance() + " kr"));
-            budgetLabel4.setText(String.valueOf("Pengar: " + newGame.getPlayers()[3].getBalance() + " kr"));
-            budgetLabel5.setText(String.valueOf("Pengar: " + newGame.getPlayers()[4].getBalance() + " kr"));
-            moreThanOnePlayer = true;
-        }
-
-        if(newGame.getPlayers().length == 6){
-            budgetLabel1.setText(String.valueOf("Pengar: " + newGame.getPlayers()[0].getBalance() + " kr"));
-            budgetLabel2.setText(String.valueOf("Pengar: " + newGame.getPlayers()[1].getBalance() + " kr"));
-            budgetLabel3.setText(String.valueOf("Pengar: " + newGame.getPlayers()[2].getBalance() + " kr"));
-            budgetLabel4.setText(String.valueOf("Pengar: " + newGame.getPlayers()[3].getBalance() + " kr"));
-            budgetLabel5.setText(String.valueOf("Pengar: " + newGame.getPlayers()[4].getBalance() + " kr"));
-            budgetLabel6.setText(String.valueOf("Pengar: " + newGame.getPlayers()[5].getBalance() + " kr"));
-            moreThanOnePlayer = true;
-        }
-    }
-    
     @FXML protected void handleRulesGameButton(ActionEvent event) throws IOException {
         Stage stage = (Stage) rulesButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();

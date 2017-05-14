@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class Spaces implements ISpace{
     private int y;
     private ArrayList<ISpace> adjacentSpaces;
-    private Edge edge;
     private int x;
 
 
@@ -25,21 +24,12 @@ public class Spaces implements ISpace{
         return adjacentSpaces;
     }
 
-
-    public Edge getEdge() {
-        return edge;
-    }
-
     public int getX() {
         return x;
     }
 
     public int getY() {
         return y;
-    }
-
-    public void setEdge(Edge edge) {
-        this.edge = edge;
     }
 
     public boolean compareSpaces(ISpace space){

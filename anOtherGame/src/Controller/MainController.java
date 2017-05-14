@@ -40,6 +40,8 @@ public class MainController {
     private TextField playerTextField1, playerTextField2,
             playerTextField3, playerTextField4, playerTextField5, playerTextField6;
 
+    ArrayList<Player> players = new ArrayList<>();
+
     TheLostKitten newGame;
 
     private DropShadow shadow = new DropShadow();
@@ -75,7 +77,7 @@ public class MainController {
 
         mapPlace.getChildren().add(mapView);
 
-        ArrayList<Player> players = new ArrayList<>();
+
 
         if (!playerTextField1.getText().isEmpty()) {
             Player player1  = new Player(playerTextField1.getText(), 5000);
@@ -127,18 +129,13 @@ public class MainController {
 
 
 
-
         newGame = new TheLostKitten(players);
 
-
-
-    //    TheLostController newController = new TheLostController(newGame);
-
-      //  PlayerPaneController pController = new PlayerPaneController(newGame);
+    //    TheLostController newController = new TheLostController(newGame);;
         //newController.setPlayersTurnLabel();
 
-     //   checkSameName();
-  //      setBalance();
+        checkSameName();
+
         if(moreThanOnePlayer == false){
             System.out.println("Minst två personer måste spela spelet!");
         }
@@ -166,27 +163,28 @@ public class MainController {
 
 
 
-  /*  public void checkSameName(){
+    public void checkSameName(){
         for (int i = 0; i < players.size(); i++){
             for(int j = i+1; j < players.size(); j++) {
                 System.out.println("*****111111******");
                 System.out.println(players.get(i));
                 System.out.println(players.get(j));
                 System.out.println("*****222222******");
-                hasSameName = players.get(i).equals(players.get(j));
+                hasSameName = players.get(i).getName().equals(players.get(j).getName());
                 if(hasSameName){
                     players.clear();
-                    playerTextField1.clear();
+           /*         playerTextField1.clear();
                     playerTextField2.clear();
                     playerTextField3.clear();
                     playerTextField4.clear();
                     playerTextField5.clear();
+                    playerTextField6.clear();*/
                     System.out.println(hasSameName);
                 }
 
             }
         }
-    }*/
+    }
 
     @FXML protected void handleRulesGameButton(ActionEvent event) throws IOException {
         Stage stage = (Stage) rulesButton.getScene().getWindow();

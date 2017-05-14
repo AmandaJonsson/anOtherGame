@@ -74,9 +74,9 @@ public class Map implements IMap{
         stations.add(klippan);
         Station vasaplatsen = new Station(this, "Vasaplatsen", 63, 56);
         stations.add(vasaplatsen);
-
+/*
         //Bicycle paths.
-      /*  slottskogen.getController().addPath(this, linne);
+        slottskogen.getController().addPath(this, linne);
         slottskogen.getController().addPath(this, botaniska);
         slottskogen.getController().addPath(this, masthuggskykan);
         slottskogen.getController().addPath(this, slottskogsvallen);
@@ -101,7 +101,19 @@ public class Map implements IMap{
         guldheden.getController().addPath(this, sahlgrenska);
         botaniska.getController().addPath(this, sahlgrenska);
         botaniska.getController().addPath(this, slottskogsvallen);
+        */
+        createSpaces(slottskogen, linne, null, 0, 0);
+        createSpaces(slottskogen, botaniska, null, 0, 0);
+        createSpaces(masthuggskykan,slottskogen,  null, 0, 0);
+        createSpaces(slottskogen, slottskogsvallen, null, 0, 0);
+        createSpaces(chLindholmen, lindholmen, null, 0, 0);
+        createSpaces(chLindholmen, slottsberget, null, 0, 0);
+        createSpaces(operan, stenpiren, null, 0, 0);
+        createSpaces(operan, nordstan, null, 0, 0);
+        createSpaces(emilsborg, guldheden, null, 0, 0);
+        createSpaces(emilsborg, olofshojd, null, 0, 0);
 
+/*
         //Boat paths.
         lindholmen.setBoatStation(true);
         klippan.setBoatStation(true);
@@ -137,10 +149,32 @@ public class Map implements IMap{
         vasaplatsen.getController().addTramPath(this, domkyrkan);
         vasaplatsen.getController().addTramPath(this, chalmers);*/
 
-        createSpaces(hjbrantings, lundby, null, 0, 0);
+        hjbrantings.setTramStation(true);
+        frihamnen.setTramStation(true);
+        eriksberg.setTramStation(true);
+        central.setTramStation(true);
+        domkyrkan.setTramStation(true);
+        masthuggskykan.setTramStation(true);
+        eriksberg.setTramStation(true);
+        jarntorget.setTramStation(true);
+        botaniska.setTramStation(true);
+        slottskogsvallen.setTramStation(true);
+        liseberg.setTramStation(true);
+        botaniska.setTramStation(true);
+        vasaplatsen.setTramStation(true);
+        chalmers.setTramStation(true);
+        ringon.setTramStation(true);
+        redbergsplatsen.setTramStation(true);
+        olofshojd.setTramStation(true);
+        ostindiegatan.setTramStation(true);
+        linne.setTramStation(true);
+        ramberget.setTramStation(true);
+        lundby.setTramStation(true);
+        ullevi.setTramStation(true);
+        createSpaces(lundby,hjbrantings,  null, 0, 0);
         createSpaces(hjbrantings, ramberget, null, 0, 0);
         createSpaces(frihamnen, chLindholmen, null, 0, 0);
-        createSpaces(eriksberg, lundby, null, 0, 0);
+        createSpaces(lundby, eriksberg, null, 0, 0);
         createSpaces(frihamnen, nordstan, null, 0, 0);
         createSpaces(central, ullevi, null, 0, 0);
         createSpaces(domkyrkan, jarntorget, null, 0, 0);
@@ -150,14 +184,14 @@ public class Map implements IMap{
         createSpaces(jarntorget, linne, null, 0, 0);
         createSpaces(botaniska, linne, null, 0, 0);
         createSpaces(slottskogsvallen, ostindiegatan, null, 0, 0);
-        createSpaces(liseberg, chalmers, null, 0, 0);
+        createSpaces(chalmers,liseberg, null, 0, 0);
         createSpaces(liseberg, ullevi, null, 0, 0);
         createSpaces(liseberg, olofshojd, null, 0, 0);
         createSpaces(liseberg, redbergsplatsen, null, 0, 0);
         createSpaces(central, redbergsplatsen, null, 0, 0);
         createSpaces(frihamnen, ringon, null, 0, 0);
         createSpaces(vasaplatsen, domkyrkan, null, 0, 0);
-        createSpaces(vasaplatsen, chalmers, null, 0, 0);
+        createSpaces(chalmers,vasaplatsen, null, 0, 0);
 
         //Start space.
         redbergsplatsen.getController().setStart();
@@ -231,6 +265,7 @@ public class Map implements IMap{
         if(prev == null){
             prev = from;
             from.addAdjacentSpace(to);
+            to.addAdjacentSpace(from);
         }
         if(x == 0){
             x = from.getX();

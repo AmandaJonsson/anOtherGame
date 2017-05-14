@@ -103,33 +103,6 @@ public class SpaceController {
     public void setRadius(int radius) {
         view.setRadius(radius);
     }
-    public void addPath(Map map, Station station) {
-        if(space.getEdge() != null ){
-            space.getEdge().addEdge(new Edge(map, space, station, "BLACK"));
-        }
-        else {
-            space.setEdge(new Edge(map, space, station, "BLACK"));
-        }
-        space.addAdjacentSpace(station);
-    }
-    public void addTramPath(Map map, Station station) {
-        if(space.getEdge() != null ){
-            space.getEdge().addEdge(new Edge(map, space, station, "RED"));
-        }
-        else {
-            space.setEdge(new Edge(map, space, station, "RED"));
-        }
-        space.addAdjacentSpace(station);
-    }
-    public void addBoatPath(Map map, Station station) {
-        if(space.getEdge() != null ){
-            space.getEdge().addEdge(new Edge(map, space, station, "BLUE"));
-        }
-        else {
-            space.setEdge(new Edge(map, space, station, "BLUE"));
-        }
-        space.addAdjacentSpace(station);
-    }
 
     public void setStart() {
         if (space instanceof Station) {

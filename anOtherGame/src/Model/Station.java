@@ -15,6 +15,7 @@ public class Station extends Spaces implements IStation{
         this.name =  name;
         map.addSpaces(this);
         isBoatStation = false;
+        isTramStation = false;
     }
 
     public Station(int x, int y, String name, Marker marker) {
@@ -22,6 +23,7 @@ public class Station extends Spaces implements IStation{
         this.name =  name;
         this.marker = marker;
         isBoatStation = false;
+        isTramStation = false;
     }
 
     public Marker getMarker(){

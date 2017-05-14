@@ -14,6 +14,7 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static javafx.geometry.VPos.CENTER;
 
@@ -100,7 +101,7 @@ public class MapView extends GridPane {
     }
 
     public void addSpaces() {
-        ArrayList<Circle> list = new ArrayList<Circle>();
+        ArrayList<String> list = new ArrayList<String>();
         for (ISpace space : mapp.getSpaces()) {
             //System.out.println(space.getController().getView());
             //System.out.println(space.getX() + " " + space.getY());
@@ -108,16 +109,22 @@ public class MapView extends GridPane {
             if (space instanceof Station){
                 System.out.println("LOLOLOLOLOLOL");
                 for (ISpace to : space.getAdjacentSpaces()){
-                    if (to instanceof Station){
-                        calculatePath((Station)space, (Station)to, 0,0);
-                        System.out.println("WOOOHOOOOOO");
+                    if (!(list.contains(Integer.toString(space.getX()) + Integer.toString(space.getX()) + Integer.toString(to.getX()) + Integer.toString(to.getY())) || list.contains(Integer.toString(to.getX()) + Integer.toString(to.getX()) + Integer.toString(space.getX()) + Integer.toString(space.getY())))) {
+                        if (to instanceof Station) {
+                            calculatePath((Station) space, (Station) to, 0, 0);
+                            list.add(Integer.toString(space.getX()) + Integer.toString(space.getX()) + Integer.toString(to.getX()) + Integer.toString(to.getY()));
+                            System.out.println("WOOOHOOOOOO");
+                        }
                     }
-
                 }
             }
         }
     }
     private boolean calculatePath(Station from, Station to, int x, int y) {
+        String color;
+        if (to.getIsTramStation() && from.getIsTramStation()) {
+            color = "red";
+        }else color = "black";
         //init
         if(x == 0){
             x = from.getX();
@@ -132,24 +139,10 @@ public class MapView extends GridPane {
 
         // adds steps for the bicycle path
         if (((from.getX() - x)%7 ==0 && x!=from.getX() && x!=to.getX()) || ((from.getY()-y)%7 == 0&& y!=from.getY() && y!=to.getY())){
-            ISpace space = new Spaces(x, y);
-            boolean exists = false;
-            for(ISpace spacee : mapp.getSpaces()){
-                if (spacee.getX()-x < 5 && spacee.getX()-x >-5 && spacee.getY()-y < 5 && spacee.getY()-y >-5){
-                    System.out.println("jahaja");
-                    space = spacee;
-                    exists = true;
-                }
-            }
             //space.addAdjacentSpace(prev);
             //prev.addAdjacentSpace(space);
-            if (!exists) {
-                mapp.addSpaces(space);
-            }else this.add(new Path("red", x,y), x, y);
-            //prev = space;
-        }
-        if (!(from.getX()-x < 1 && from.getX()-x >-1 && from.getY()-y <1 && from.getY()-y >-1) && !(to.getX()-x < 1 && to.getX()-x >-1 && to.getY()-y <1 && to.getY()-y >-1)) {
-            this.add(new Path("red", x,y), x, y);
+        }else if (!(from.getX()-x < 1 && from.getX()-x >-1 && from.getY()-y <1 && from.getY()-y >-1) && !(to.getX()-x < 1 && to.getX()-x >-1 && to.getY()-y <1 && to.getY()-y >-1)) {
+            this.add(new Path(color, x,y), x, y);
         }
         if (x < to.getX()){
             if (y==to.getY()){

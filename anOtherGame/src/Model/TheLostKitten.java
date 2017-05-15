@@ -1,6 +1,8 @@
 package Model;
 
 
+import Model.Intefaces.ISpace;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -18,18 +20,15 @@ public class TheLostKitten{
             player.setPosition(getRandomStartPosition());
 
         }
-
-
     }
 
-    public Space getRandomStartPosition(){
+    public ISpace getRandomStartPosition(){
 
-        //TODO: change! should not create new stations
-        Station start1 = new Station(95, 22, "Redbergsplatsen", null);
-        Station start2 = new Station(7, 14, "Lundby", null);
-        ArrayList<Station> startpositions = new ArrayList<Station>();
-        startpositions.add(start1);
-        startpositions.add(start2);
+        map.getStartPositions();
+        ArrayList<ISpace> startpositions = new ArrayList<ISpace>();
+        for (int i=0; i<map.getStartPositions().size(); i++){
+            startpositions.add(map.getStartPositions().get(i));
+        }
         Random r = new Random();
         int startPos = r.nextInt(2);
         return startpositions.get(startPos);

@@ -252,18 +252,15 @@ public class Map implements IMap {
 
     public ArrayList<ISpace> getStartPositions(){
 
-        ArrayList<Space> startPositions = new ArrayList<Space>();
+        ArrayList<ISpace> startPositions = new ArrayList<ISpace>();
         for (int i=0; i<spaces.size();i++){
             if(spaces.get(i) instanceof Station ){
-                if(((Station) spaces.get(i)).isStart()==true){
-                    ISpace start= spaces.get(i);
-                    //startPositions.add(start);
+                if(((Station) spaces.get(i)).isStart()){
+                    startPositions.add(spaces.get(i));
                 }
-
             }
         }
-
-           return null;
+        return startPositions;
     }
 
     public static void shuffle(ArrayList<Marker> list) {

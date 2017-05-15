@@ -37,7 +37,7 @@ public class Player implements IPlayer {
         return position;
     }
 
-    public void setPosition(Space position){
+    public void setPosition(ISpace position){
         this.position = position;
     }
 

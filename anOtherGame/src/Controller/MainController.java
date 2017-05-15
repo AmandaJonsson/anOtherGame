@@ -46,19 +46,20 @@ public class MainController {
 
     private DropShadow shadow = new DropShadow();
 
-    TheLostController thelost;
+    //TheLostController thelost;
 
     boolean hasSameName;
     boolean moreThanOnePlayer;
 
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
-        thelost=new TheLostController();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/TheLostPane.fxml"));
+        Parent root = loader.load();
+
+        TheLostController theLost = loader.getController();
+        theLost.setPlayersTurnLabel(playerTextField1.getText());
 
         Stage stage = (Stage) startGameButton.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setController(thelost);
-        Parent root = loader.load(getClass().getResource("/View/TheLostPane.fxml"));
-
 
         Map map = new Map();
         MapView mapView = new MapView(map);
@@ -144,12 +145,6 @@ public class MainController {
             System.out.println("Spelarna måste heta olika saker!");
         }
 
-
-
-        thelost.setPlayersTurnLabel(playerTextField1.getText());
-
-        System.out.println(thelost);
-        System.out.println(thelost.playersTurnLabel.getText());
 
         //Sets the next view, if we get to play (enough players, different names)
         if(!hasSameName && players.size()>1){

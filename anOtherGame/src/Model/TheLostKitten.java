@@ -24,6 +24,7 @@ public class TheLostKitten{
 
     public Space getRandomStartPosition(){
 
+        //TODO: change! should not create new stations
         Station start1 = new Station(95, 22, "Redbergsplatsen", null);
         Station start2 = new Station(7, 14, "Lundby", null);
         ArrayList<Station> startpositions = new ArrayList<Station>();

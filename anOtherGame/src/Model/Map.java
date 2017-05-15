@@ -9,6 +9,7 @@ import java.util.Random;
 
 public class Map implements IMap {
     ArrayList<ISpace> spaces;
+    ArrayList<Station> stations;
 
     public Map() {
         spaces = new ArrayList<ISpace>();
@@ -16,7 +17,7 @@ public class Map implements IMap {
     }
 
     public boolean createStations() {
-        ArrayList<Station> stations = new ArrayList<Station>();
+        stations= new ArrayList<Station>();
         Station lundby = new Station("Lundby", 7, 14);
         Station ramberget = new Station("Ramberget", 30, 26);
         stations.add(ramberget);
@@ -247,6 +248,22 @@ public class Map implements IMap {
         for(int i = 0 ; i < stations.size(); i++) {
             stations.get(i).setMarker(listOfMarkers.get(i));
         }
+    }
+
+    public ArrayList<ISpace> getStartPositions(){
+
+        ArrayList<Space> startPositions = new ArrayList<Space>();
+        for (int i=0; i<spaces.size();i++){
+            if(spaces.get(i) instanceof Station ){
+                if(((Station) spaces.get(i)).isStart()==true){
+                    ISpace start= spaces.get(i);
+                    //startPositions.add(start);
+                }
+
+            }
+        }
+
+           return null;
     }
 
     public static void shuffle(ArrayList<Marker> list) {

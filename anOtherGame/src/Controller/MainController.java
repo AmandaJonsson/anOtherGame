@@ -128,12 +128,8 @@ public class MainController {
             playerVBox.getChildren().add(playerCon6.getView());
          }
 
-
-
         newGame = new TheLostKitten(players);
 
-    //    TheLostController newController = new TheLostController(newGame);;
-        //newController.setPlayersTurnLabel();
 
         checkSameName();
 
@@ -153,6 +149,11 @@ public class MainController {
             stage.show();
 
         }
+
+        TheLostController newController = new TheLostController(newGame, players);
+        System.out.println(newController);
+
+
 
     }
 

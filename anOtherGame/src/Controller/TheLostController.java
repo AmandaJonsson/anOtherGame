@@ -13,6 +13,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import Model.Player;
 import Model.TheLostKitten;
 
@@ -69,16 +71,12 @@ public class TheLostController {
 
     }
 
-    public TheLostController(TheLostKitten newGame) {
+    public TheLostController(TheLostKitten newGame, ArrayList<Player> createdPlayers) {
 
-        this.playerList = newGame.getPlayers();
-
-        /*for(int i = 0; i<playerList.length; i++){
-            if(playerList[i].playerHasTurn() == true){
-                this.player = playerList[i];
-            }
+        createdPlayers.get(0);
+        for(int i = 0; i<createdPlayers.size(); i++) {
+            System.out.println(createdPlayers.get(i).getName());
         }
-        */
     }
 
     @FXML

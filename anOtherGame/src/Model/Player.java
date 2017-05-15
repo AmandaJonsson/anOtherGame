@@ -2,18 +2,18 @@ package Model;
 
 
 import Model.Intefaces.IPlayer;
+import Model.Intefaces.ISpace;
 
 public class Player implements IPlayer {
-
-    Space position;
     String name;
+    ISpace position;
     int balance;
     private boolean hasTramCard = false;
     private boolean hasCat = false;
     private boolean skipATurn = false;
     boolean isTurn = false;
 
-    public Player(String name, Space position, int balance){
+    public Player(String name, ISpace position, int balance){
         this.name = name;
         this.position = position;
         this.balance = balance;
@@ -33,7 +33,7 @@ public class Player implements IPlayer {
         return balance;
     }
 
-    public Space getPosition(){
+    public ISpace getPosition(){
         return position;
     }
 
@@ -45,7 +45,7 @@ public class Player implements IPlayer {
         return name;
     }
 
-    public void updatePosition(Space newPosition){
+    public void updatePosition(ISpace newPosition){
         position = newPosition;
     }
 

@@ -1,14 +1,12 @@
 package Model.Intefaces;
 
 
-import Model.Space;
-
 public interface IPlayer {
     boolean playerHasTurn();
     int getBalance();
-    Space getPosition();
+    ISpace getPosition();
     String getName();
-    void updatePosition(Space newPosition);
+    void updatePosition(ISpace newPosition);
     void gotTramCard();
     void usedTramCard();
     boolean hasTramCard();

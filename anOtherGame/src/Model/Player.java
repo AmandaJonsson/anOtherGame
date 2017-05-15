@@ -37,6 +37,14 @@ public class Player implements IPlayer {
         return position;
     }
 
+    public void setTurn(){
+        isTurn=true;
+    }
+
+    public void setNotTurn(){
+        isTurn=false;
+    }
+
     public void setPosition(ISpace position){
         this.position = position;
     }

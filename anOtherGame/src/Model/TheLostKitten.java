@@ -16,10 +16,13 @@ public class TheLostKitten{
 
     public TheLostKitten(ArrayList<Player> nameOfPlayers) {
 
+        nameOfPlayers.get(0).setTurn();
+
         for(Player player : nameOfPlayers){
             player.setPosition(getRandomStartPosition());
 
         }
+
     }
 
     public ISpace getRandomStartPosition(){

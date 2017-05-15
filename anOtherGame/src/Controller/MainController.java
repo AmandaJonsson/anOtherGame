@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -152,8 +153,6 @@ public class MainController {
 
         TheLostController newController = new TheLostController(newGame, players);
         System.out.println(newController);
-
-
 
     }
 

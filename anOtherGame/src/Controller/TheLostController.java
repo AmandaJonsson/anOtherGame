@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.*;
+import Model.Intefaces.ISpace;
 import View.MapView;
 import View.SpaceView;
 import javafx.event.ActionEvent;
@@ -66,17 +67,16 @@ public class TheLostController {
 
     Dice dice = new Dice();
 
-    public TheLostController(){
+    static ArrayList<Player> newCreatedPlayers;
 
+    public TheLostController() {
 
     }
 
     public TheLostController(TheLostKitten newGame, ArrayList<Player> createdPlayers) {
 
-        createdPlayers.get(0);
-        for(int i = 0; i<createdPlayers.size(); i++) {
-            System.out.println(createdPlayers.get(i).getName());
-        }
+        newCreatedPlayers = createdPlayers;
+
     }
 
     @FXML
@@ -235,7 +235,7 @@ public class TheLostController {
             boatButton.setDisable(true);
             tramButton.setDisable(true);
             turnMarkerButton.setDisable(true);
-            
+
          }
     }
 
@@ -269,9 +269,10 @@ public class TheLostController {
     }
 
     @FXML protected void handleNextPlayerButton(ActionEvent event) throws IOException{
-        alternativeText.setText(" ");
 
-        //playersTurnLabel.setText("Din tur" + player.getName());
+        String turn=updatePlayerTurn();
+        setPlayersTurnLabel(turn);
+        alternativeText.setText(" ");
         turnMarkerButton.setDisable(false);
         payButton.setDisable(false);
         diceButton.setDisable(false);
@@ -283,11 +284,22 @@ public class TheLostController {
 
     public void setPlayersTurnLabel(String text){
         System.out.println(text);
-
         playersTurnLabel.setText("Din tur" + " " + text);
     }
 
+    public String updatePlayerTurn(){
 
+        for(int i=0; i<newCreatedPlayers.size();i++){
+            if(newCreatedPlayers.get(i).playerHasTurn()){
+                newCreatedPlayers.get(i).setNotTurn();
+                newCreatedPlayers.get((i+1)%newCreatedPlayers.size()).setTurn();
+                String turn = newCreatedPlayers.get((i+1)%newCreatedPlayers.size()).getName();
+                return turn;
+            }
+        }
+        return null;
+    }
 }
+
 
 

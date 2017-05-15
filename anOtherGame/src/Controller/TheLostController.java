@@ -24,10 +24,10 @@ public class TheLostController {
 
     private Player[] playerList;
     private Space position;
-    private Player player;
     private MainController con;
-    private Player model;
-    private SpaceView view;
+
+    FindPath findPath;
+    Player player;
 
     @FXML
     private Pane mapPlace;
@@ -73,11 +73,12 @@ public class TheLostController {
 
         this.playerList = newGame.getPlayers();
 
-        for(int i = 0; i<playerList.length; i++){
+        /*for(int i = 0; i<playerList.length; i++){
             if(playerList[i].playerHasTurn() == true){
                 this.player = playerList[i];
             }
         }
+        */
     }
 
     @FXML
@@ -235,7 +236,9 @@ public class TheLostController {
             bicycleButton.setDisable(true);
             boatButton.setDisable(true);
             tramButton.setDisable(true);
-        }
+            turnMarkerButton.setDisable(true);
+            
+         }
     }
 
     @FXML protected void handlePayButton(ActionEvent event) throws IOException{
@@ -244,7 +247,15 @@ public class TheLostController {
     }
 
     @FXML protected void handleBicycleButton(ActionEvent event) throws IOException{
-        dice.roll();
+        int diceroll = dice.roll();
+//        findPath.findPotentialSpaces(diceroll, player.getPosition());
+        alternativeText.setText("Välj vilken väg du vill åka genom att trycka på den positionen");
+        bicycleButton.setDisable(true);
+        boatButton.setDisable(true);
+        tramButton.setDisable(true);
+        turnMarkerButton.setDisable(true);
+        payButton.setDisable(true);
+        diceButton.setDisable(true);
         System.out.println("Cykla");
 
     }

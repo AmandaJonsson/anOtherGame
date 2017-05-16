@@ -22,6 +22,8 @@ public class MoneyMarker extends Marker {
     private int countBlank=15;
 
 
+
+
     public enum TypeOfMarkers{
         TOPAZ, EMERALD, RUBY, BLANK
     }
@@ -48,54 +50,38 @@ public class MoneyMarker extends Marker {
         return marker;
     }
 
-
     @Override
-    public void Markervalue() {
-        switch (marker) {
-            case TOPAZ:
-                valueOfMarker = 3000;
-                countTopaz--;
-                String desc = (descriptionText[new Random().nextInt(descriptionText.length)]);
-                System.out.println(desc + " " + valueOfMarker + " " + "kr");
-                //player.updateBudget(valueOfMarker);
-                break;
+    public int getMarkerValue(Marker marker) {
+        if(marker instanceof MoneyMarker) {
+            if (((MoneyMarker) marker).getMarkerType() == TypeOfMarkers.TOPAZ) {
+                return 3000;
+            }
 
-            case EMERALD:
-                valueOfMarker = 4000;
-                countEmerald--;
-                desc = (descriptionText[new Random().nextInt(descriptionText.length)]);
-                System.out.println(desc + " " + valueOfMarker + " " + "kr");
-                //player.updateBudget(valueOfMarker);
-                break;
-
-            case RUBY:
-                valueOfMarker = 5000;
-                countRuby--;
-                desc = (descriptionText[new Random().nextInt(descriptionText.length)]);
-                System.out.println(desc + " " + valueOfMarker + " " + "kr");
-                //player.updateBudget(valueOfMarker);
-                break;
-            case BLANK:
-                valueOfMarker = 0;
-                countBlank--;
-                desc = "";
-                System.out.println(desc + " " + valueOfMarker + " " + "kr");
-                break;
+              else if(((MoneyMarker) marker).getMarkerType() == TypeOfMarkers.EMERALD){
+                   return 4000;
+               }
+                else if(((MoneyMarker) marker).getMarkerType() == TypeOfMarkers.RUBY){
+                       return 5000;
+                   }
+            else {
+                return 0;
+            }
         }
+
+        return 0;
     }
+
 
     public void specialMarkers(Marker marker, Station station){
 
         if (station.getName()=="Guldheden" && marker.equals(TypeOfMarkers.TOPAZ)){
             valueOfMarker = 6000;
             String desc = Guldheden;
-            //player.updateBudget(valueOfMarker);
             System.out.println(desc);
         }
 
         if (station.getName()=="Emilsborg" && marker.isMarkerTurned()==false){
             valueOfMarker = 5000;
-            //player.updateBudget(valueOfMarker);
             String desc = FirstPlayerToEmilsborg;
 
         }

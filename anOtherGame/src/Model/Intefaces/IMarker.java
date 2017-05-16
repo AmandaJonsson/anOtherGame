@@ -1,9 +1,11 @@
 package Model.Intefaces;
 
 
+import Model.Marker;
+
 public interface IMarker {
 
     boolean isMarkerTurned();
     void setMarkerToTurned();
-    void Markervalue();
+    int getMarkerValue(Marker marker);
 }

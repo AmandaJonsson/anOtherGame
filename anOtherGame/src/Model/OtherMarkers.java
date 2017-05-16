@@ -12,6 +12,9 @@ public class OtherMarkers extends Marker {
     private String robedByAPickPocket= "Du har blivit rånad av en ficktjuv, han tog alla dina pengar";
     private  int pickpocket=0;
     private int countCat=1;
+    private int countTramcard;
+
+
 
     public enum NoMoneyMarkers {
         CAT, TRAMCARD, PICKPOCKET
@@ -32,21 +35,22 @@ public class OtherMarkers extends Marker {
     }
 
     @Override
-    public void Markervalue() {
-        switch (marker) {
-            case CAT:
-                countCat=0;
-                System.out.println(foundTheCat);
-                break;
-            case TRAMCARD:
-                player.gotTramCard();
-                System.out.println(foundTheTramCard);
-                break;
-            case PICKPOCKET:
-                //player.updateBudget(pickpocket);
-                System.out.println(robedByAPickPocket);
-
-
+    public int getMarkerValue(Marker marker) {
+        if (marker instanceof OtherMarkers){
+            if(((OtherMarkers) marker).getMarkerType() == NoMoneyMarkers.TRAMCARD){
+                countTramcard=1;
+                return 1;
+            }
+            else if(((OtherMarkers) marker).getMarkerType() == NoMoneyMarkers.CAT){
+                countCat=1;
+                return 1;
+            }
+            else{
+                player.updateBudget(pickpocket);
+                return 0;
+            }
         }
+        return 0;
     }
+    
 }

@@ -36,6 +36,6 @@ public abstract class Marker implements IMarker {
     Method that returns the "action" the Marker.
     Must be implemented by all classes extending Marker.
      */
-    public abstract void Markervalue();
+
 
 }

@@ -46,7 +46,6 @@ public class OtherMarkers extends Marker {
                 return 1;
             }
             else{
-                player.updateBudget(pickpocket);
                 return 0;
             }
         }

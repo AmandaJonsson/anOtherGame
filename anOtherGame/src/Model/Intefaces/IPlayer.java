@@ -10,7 +10,7 @@ public interface IPlayer {
     void gotTramCard();
     void usedTramCard();
     boolean hasTramCard();
-    void hasCat();
+    boolean hasCat();
     void robbedByPickpocket();
     void increaseBalance(int value);
     void decreaseBalance(int value);

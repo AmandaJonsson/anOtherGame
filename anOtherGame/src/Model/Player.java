@@ -25,24 +25,31 @@ public class Player implements IPlayer {
         this.balance = balance;
     }
 
+    public Player(boolean hasTramCard, boolean hasCat, boolean skipATurn, boolean isTurn){
+        this.hasTramCard = hasTramCard;
+        this.hasCat = hasCat;
+        this.skipATurn = skipATurn;
+        this.isTurn = isTurn;
+    }
+
     public boolean playerHasTurn(){
-        return isTurn;
+        return this.isTurn;
     }
 
     public int getBalance(){
-        return balance;
+        return this.balance;
     }
 
     public ISpace getPosition(){
-        return position;
+        return this.position;
     }
 
     public void setTurn(){
-        isTurn=true;
+        this.isTurn=true;
     }
 
     public void setNotTurn(){
-        isTurn=false;
+        this.isTurn=false;
     }
 
     public void setPosition(ISpace position){
@@ -50,39 +57,39 @@ public class Player implements IPlayer {
     }
 
     public String getName(){
-        return name;
+        return this.name;
     }
 
     public void updatePosition(ISpace newPosition){
-        position = newPosition;
+        setPosition(newPosition);
     }
 
     public void gotTramCard(){
-        hasTramCard = true;
+        this.hasTramCard = true;
     }
 
     public void usedTramCard(){
-        hasTramCard = false;
+        this.hasTramCard = false;
     }
 
     public boolean hasTramCard(){
-        return hasTramCard;
+        return this.hasTramCard;
     }
 
-    public void hasCat(){
-        hasCat = true;
+    public boolean hasCat(){
+        return this.hasCat;
     }
 
     public void robbedByPickpocket(){
-        balance = 0;
+        this.balance = 0;
     }
 
     public void increaseBalance(int value){
-        balance = balance + value;
+        this.balance = this.balance + value;
     }
 
     public void decreaseBalance(int value){
-        balance = balance - value;
+        this.balance = this.balance - value;
     }
 
     public void payTicket(int ticket){
@@ -90,15 +97,15 @@ public class Player implements IPlayer {
     }
 
     public boolean getSkipATurn(){
-        return skipATurn;
+        return this.skipATurn;
     }
 
     public void skipTurn(){
-        skipATurn = true;
+        this.skipATurn = true;
     }
 
     public void doneSkippingTurn(){
-        skipATurn = false;
+        this.skipATurn = false;
     }
 
 

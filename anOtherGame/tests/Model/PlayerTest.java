@@ -1,6 +1,7 @@
 package Model;
 
 import Model.Intefaces.ISpace;
+import com.sun.xml.internal.xsom.XSWildcard;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,14 +14,10 @@ public class PlayerTest {
     ISpace testGet = new Space(1,1);
     ISpace testSet = new Space(2,3);
     ISpace testUpdate = new Space(3,4);
-    boolean hasCat = false;
-    boolean hasTramcard = false;
-    boolean skipATurn = false;
-    boolean isTurn = false;
 
     ISpace position = new Space(1,1);
     Player player1 = new Player("Amanda", position, 5000);
-    Player player2 = new Player(hasTramcard, hasCat, skipATurn, isTurn);
+
 
 
     // Test for get-methods -----------------------------
@@ -79,61 +76,111 @@ public class PlayerTest {
 
     @Test
     public void testGotTramCard() throws Exception {
-        player2.gotTramCard();
-        assertTrue(player2.hasTramCard() == true);
+        player1.gotTramCard();
+        assertTrue(player1.hasTramCard() == true);
     }
 
     @Test
     public void testUsedTramCard() throws Exception {
-        player2.usedTramCard();
-        assertFalse(player2.hasTramCard() == true);
+        player1.usedTramCard();
+        assertFalse(player1.hasTramCard() == true);
     }
 
     @Test
     public void testHasTramCard() throws Exception {
-        assertTrue(player2.hasTramCard() == hasTramcard);
+        //player does not have tramcard, since they got it and then used it
+        assertFalse(player1.hasTramCard());
     }
 
     @Test
     public void testHasCat() throws Exception {
-        assertTrue(player2.hasCat() == hasCat);
+        //player does not have a cat
+        assertFalse(player1.hasCat());
     }
 
     @Test
-    public void robbedByPickpocket() throws Exception {
+    public void testRobbedByPickpocket() throws Exception {
+        player1.robbedByPickpocket();
+        // player should not have 5000 kr as balance
+        assertFalse(player1.getBalance() == 5000);
+        // player should have 0 kr as balance
+        assertTrue(player1.getBalance() == 0);
     }
 
     @Test
-    public void increaseBalance() throws Exception {
+    public void testIncreaseBalance() throws Exception {
+        player1.increaseBalance(1000);
+        // player should not have 5000 kr as balance
+        assertFalse(player1.getBalance() == 0);
+        // player should have 6000 kr as balance
+        assertTrue(player1.getBalance() == 6000);
     }
 
     @Test
-    public void decreaseBalance() throws Exception {
+    public void testDecreaseBalance() throws Exception {
+        player1.decreaseBalance(1000);
+        // player should not have 5000 kr as balance
+        assertFalse(player1.getBalance() == 5000);
+        // player should have 4000 kr as balance
+        assertTrue(player1.getBalance() == 4000);
     }
 
     @Test
-    public void payTicket() throws Exception {
+    public void testPayTicket() throws Exception {
+        player1.payTicket(500);
+        assertTrue(player1.getBalance() == (5000-500));
 
     }
 
     @Test
-    public void getSkipATurn() throws Exception {
+    public void testGetSkipATurn() throws Exception {
+        assertFalse(player1.getSkipATurn());
     }
 
     @Test
-    public void skipTurn() throws Exception {
+    public void testSkipTurn() throws Exception {
+        player1.skipTurn();
+        assertTrue(player1.getSkipATurn());
     }
 
     @Test
-    public void doneSkippingTurn() throws Exception {
+    public void testDoneSkippingTurn() throws Exception {
+        player1.skipTurn();
+        player1.doneSkippingTurn();
+        assertFalse(player1.getSkipATurn());
     }
 
     @Test
-    public void updateBudget() throws Exception {
+    public void testUpdateBudget() throws Exception {
+
+        Station station1 = new Station("Chalmers",1,1);
+        player1.setPosition(station1);
+
+        // Test if the budget increases with 3000 for TOPAZ
+        MoneyMarker mMarker = new MoneyMarker(MoneyMarker.TypeOfMarkers.TOPAZ);
+        station1.setMarker(mMarker);
+        //getValue på marker?
+        player1.updateBudget();
+     //   assertTrue(player1.getBalance() == (5000 + 3000));
+
+
+        OtherMarkers oMarker = new OtherMarkers(OtherMarkers.NoMoneyMarkers.PICKPOCKET);
+        Station station2 = new Station("Chalmers",1,1);
+        player1.setPosition(station2);
+        station2.setMarker(oMarker);
+
+        // player1.updateBudget(mMarker.getValue());
+        // assertTrue(player1.getBalance() == (5000 + 3000));
+
+
     }
 
     @Test
-    public void playerHasTurn() throws Exception {
+    public void testPlayerHasTurn() throws Exception {
+        player1.setTurn();
+        assertTrue(player1.playerHasTurn());
+        player1.setNotTurn();
+        assertFalse(player1.playerHasTurn());
     }
 
 

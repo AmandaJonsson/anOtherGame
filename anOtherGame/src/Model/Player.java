@@ -25,13 +25,6 @@ public class Player implements IPlayer {
         this.balance = balance;
     }
 
-    public Player(boolean hasTramCard, boolean hasCat, boolean skipATurn, boolean isTurn){
-        this.hasTramCard = hasTramCard;
-        this.hasCat = hasCat;
-        this.skipATurn = skipATurn;
-        this.isTurn = isTurn;
-    }
-
     public boolean playerHasTurn(){
         return this.isTurn;
     }
@@ -109,7 +102,7 @@ public class Player implements IPlayer {
     }
 
 
-    public void updateBudget(int value) {
+    public void updateBudget() {
 
         //if the position is a station
         if(this.position instanceof Station){
@@ -119,7 +112,8 @@ public class Player implements IPlayer {
 
                 //if the marker is a MoneyMarker
                 if (((Station) this.position).getMarker().getClass().equals(MoneyMarker.class)) {
-                    increaseBalance(value);
+                    //marker.getValue?
+                    //  increaseBalance(((Station) this.position).getMarker());
                 
                 //if the marker is a PickPocket
                 }else if(((Station) this.position).getMarker().equals(OtherMarkers.NoMoneyMarkers.PICKPOCKET)){

@@ -18,6 +18,6 @@ public interface IPlayer {
     boolean getSkipATurn();
     void skipTurn();
     void doneSkippingTurn();
-    void updateBudget(int value);
+    void updateBudget();
 
 }

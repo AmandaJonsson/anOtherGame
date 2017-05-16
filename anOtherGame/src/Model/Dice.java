@@ -1,9 +1,10 @@
 package Model;
 
+import Model.Intefaces.IDice;
 
 import java.util.Random;
 
-public class Dice {
+public class Dice implements IDice{
 
     public int die;
     Random randomNumber = new Random();

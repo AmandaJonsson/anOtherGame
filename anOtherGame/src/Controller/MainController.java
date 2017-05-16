@@ -133,10 +133,7 @@ public class MainController {
 
 
         checkSameName();
-
-        if(moreThanOnePlayer == false){
-            System.out.println("Minst två personer måste spela spelet!");
-        }
+        
 
         if(hasSameName == true){
             System.out.println("Spelarna måste heta olika saker!");

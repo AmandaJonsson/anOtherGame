@@ -2,10 +2,9 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 
-public class MoneyMarker extends Marker {
+public class MoneyMarker extends Marker{
 
     private TypeOfMarkers marker;
     private int valueOfMarker;

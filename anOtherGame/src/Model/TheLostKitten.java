@@ -2,11 +2,12 @@ package Model;
 
 
 import Model.Intefaces.ISpace;
+import Model.Intefaces.ITheLostKitten;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class TheLostKitten{
+public class TheLostKitten implements ITheLostKitten{
 
     private Player[] playerList;
  //   private int currentTurn = 0;

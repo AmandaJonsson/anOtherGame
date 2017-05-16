@@ -151,29 +151,32 @@ public class PlayerTest {
     }
 
     @Test
-    public void testUpdateBudget() throws Exception {
+    public void testUpdateBudget1() throws Exception {
 
         Station station1 = new Station("Chalmers",1,1);
         player1.setPosition(station1);
 
         // Test if the budget increases with 3000 for TOPAZ
-        MoneyMarker mMarker = new MoneyMarker(MoneyMarker.TypeOfMarkers.TOPAZ);
-        station1.setMarker(mMarker);
-        //getValue på marker?
+        MoneyMarker mMarkerTopaz = new MoneyMarker(MoneyMarker.TypeOfMarkers.TOPAZ);
+        station1.setMarker(mMarkerTopaz);
         player1.updateBudget();
-     //   assertTrue(player1.getBalance() == (5000 + 3000));
-
-
-        OtherMarkers oMarker = new OtherMarkers(OtherMarkers.NoMoneyMarkers.PICKPOCKET);
-        Station station2 = new Station("Chalmers",1,1);
-        player1.setPosition(station2);
-        station2.setMarker(oMarker);
-
-        // player1.updateBudget(mMarker.getValue());
-        // assertTrue(player1.getBalance() == (5000 + 3000));
-
+        assertTrue(player1.getBalance() == (5000 + 3000));
 
     }
+
+    @Test
+    public void testUpdateBudget2() throws Exception{
+
+        Station station1 = new Station("Chalmers",1,1);
+        player1.setPosition(station1);
+
+        // Test if the budget increases with 4000 for EMERALD
+        MoneyMarker mMarkerEmerald = new MoneyMarker(MoneyMarker.TypeOfMarkers.EMERALD);
+        station1.setMarker(mMarkerEmerald);
+        player1.updateBudget();
+        assertTrue(player1.getBalance() == (5000 + 4000));
+    }
+
 
     @Test
     public void testPlayerHasTurn() throws Exception {

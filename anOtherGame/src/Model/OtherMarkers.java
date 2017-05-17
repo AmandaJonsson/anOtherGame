@@ -16,14 +16,17 @@ public class OtherMarkers extends Marker {
 
 
 
+    //the different kinds of other markers
     public enum NoMoneyMarkers {
         CAT, TRAMCARD, PICKPOCKET
     }
 
+    //get the marker type
     public NoMoneyMarkers getMarkerType(){
         return marker;
     }
 
+    //constructor
     public OtherMarkers(NoMoneyMarkers marker) {
         this.marker = marker;
         if (marker == NoMoneyMarkers.CAT){
@@ -34,6 +37,10 @@ public class OtherMarkers extends Marker {
         }
     }
 
+
+    /* A method that returns the value of the marker which is either a tramcard, the cat
+    or a pickpocket. If the marker is the cat the variable countCat sets to 1, the same with countTramCard.
+     */
     @Override
     public int getMarkerValue(Marker marker) {
         if (marker instanceof OtherMarkers){

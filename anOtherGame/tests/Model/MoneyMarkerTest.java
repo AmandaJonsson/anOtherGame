@@ -14,6 +14,8 @@ public class MoneyMarkerTest {
     MoneyMarker markR = new MoneyMarker(MoneyMarker.TypeOfMarkers.RUBY);
     MoneyMarker markB = new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK);
 
+    Station guld = new Station("Guldheden", 65,84);
+    Station emil = new Station("Emilsborg", 76, 82);
     @Test
     public void testMoneyMarkers() {
 
@@ -29,6 +31,21 @@ public class MoneyMarkerTest {
         assertTrue(markB.getMarkerType() == MoneyMarker.TypeOfMarkers.BLANK);
         assertFalse(markB.getMarkerType() == MoneyMarker.TypeOfMarkers.RUBY);
 
+    }
+
+    @Test
+    public void testSpecialMarkers(){
+
+        assertTrue(markT.specialMarkers(markT, guld) == 6000);
+        assertFalse(markT.specialMarkers(markT, guld) == 2000);
+        assertFalse(markT.specialMarkers(markT, emil) == 6000);
+        assertTrue(markT.specialMarkers(markT, emil) == 5000);
+        assertTrue(markB.specialMarkers(markB, emil) == 5000);
+
+        markT.setMarkerToTurned();
+        markB.setMarkerToTurned();
+        assertFalse(markT.specialMarkers(markT, emil) == 5000);
+        assertFalse(markB.specialMarkers(markB, emil) == 5000);
     }
 
     @Test

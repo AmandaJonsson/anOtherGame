@@ -2,10 +2,12 @@ package Model;
 
 
 import Model.Intefaces.IMap;
+import Model.Intefaces.IPlayer;
 import Model.Intefaces.ISpace;
 import Model.Intefaces.ITheLostKitten;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class TheLostKitten implements ITheLostKitten{
@@ -14,14 +16,13 @@ public class TheLostKitten implements ITheLostKitten{
     private Player[] playerList;
  //   private int currentTurn = 0;
 
-    public TheLostKitten(ArrayList<Player> nameOfPlayers) {
+    public TheLostKitten(List<IPlayer> nameOfPlayers) {
         map = new Map();
         dice = new Dice();
         nameOfPlayers.get(0).setTurn();
 
-        for(Player player : nameOfPlayers){
+        for(IPlayer player : nameOfPlayers){
             player.setPosition(getRandomStartPosition());
-
         }
 
     }

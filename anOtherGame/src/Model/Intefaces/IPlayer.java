@@ -6,7 +6,7 @@ public interface IPlayer {
     int getBalance();
     ISpace getPosition();
     String getName();
-    void updatePosition(ISpace newPosition);
+    void setPosition(ISpace newPosition);
     void gotTramCard();
     void usedTramCard();
     boolean hasTramCard();
@@ -19,5 +19,7 @@ public interface IPlayer {
     void skipTurn();
     void doneSkippingTurn();
     void updateBudget();
+    void setTurn();
+    void setNotTurn();
 
 }

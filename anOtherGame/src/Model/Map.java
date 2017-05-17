@@ -19,6 +19,7 @@ public class Map implements IMap {
     public boolean createStations() {
         stations= new ArrayList<Station>();
         Station lundby = new Station("Lundby", 7, 14);
+        stations.add(lundby); //TODO TA BORT DENNA
         Station ramberget = new Station("Ramberget", 30, 26);
         stations.add(ramberget);
         Station chLindholmen = new Station( "Chalmers Lindholmen", 30, 40);
@@ -62,6 +63,7 @@ public class Map implements IMap {
         Station olofshojd = new Station( "Olofshöjd", 85, 74);
         stations.add(olofshojd);
         Station redbergsplatsen = new Station( "Redbergsplatsen", 95, 22);
+        stations.add(redbergsplatsen); //TODO TA BORT DENNA
         Station emilsborg = new Station( "Emilsborg", 76, 82);
         stations.add(emilsborg);
         Station guldheden = new Station( "Guldheden", 65, 84);
@@ -203,7 +205,8 @@ public class Map implements IMap {
         //Start space.
         redbergsplatsen.setStart(true);
         lundby.setStart(true);
-        addMarkers(8, 6, 4, 8, stations); //important sum of spaces = totNOfMarkers
+        addMarkers(8, 6, 6, 8, stations); //important sum of spaces = totNOfMarkers
+        //TODO ÄNDRA RUBYS TILL 4 st, (inte 6, används bara för tester)
         return true;
     }
 

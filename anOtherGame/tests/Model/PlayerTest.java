@@ -45,17 +45,6 @@ public class PlayerTest {
 
     // Test for set-methods -----------------------------
 
-    @Test
-    public void testSetTurn() throws Exception {
-        player1.setTurn();
-        assertTrue(player1.isTurn == true);
-    }
-
-    @Test
-    public void testSetNotTurn() throws Exception {
-        player1.setNotTurn();
-        assertTrue(player1.isTurn == false);
-    }
 
     @Test
     public void testSetPosition() throws Exception {

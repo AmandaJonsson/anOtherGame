@@ -11,7 +11,7 @@ public class Player implements IPlayer {
     private boolean hasTramCard = false;
     private boolean hasCat = false;
     private boolean skipATurn = false;
-    boolean isTurn = false;
+    private boolean isTurn = false;
 
     public Player(String name, ISpace position, int balance){
         this.name = name;

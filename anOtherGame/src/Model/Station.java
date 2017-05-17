@@ -83,7 +83,6 @@ public class Station extends Space implements IStation {
 
     @Override
     public String toString(){
-
         return getName() + "";
     }
 }

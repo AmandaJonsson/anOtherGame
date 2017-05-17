@@ -1,10 +1,8 @@
 package Controller;
 
+import Model.*;
 import Model.Intefaces.IPlayer;
-import Model.Player;
-import Model.TheLostKitten;
 import View.MapView;
-import Model.Map;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -150,13 +148,7 @@ public class MainController {
 
         }
 
-        TheLostController newController = new TheLostController(newGame, players);
-
-        System.out.println("Antal spaces på kartan: " + newGame.getMap().getSpaces().size());
-        System.out.println("Aktiv spelare " + newGame.getActivePlayer().getName());
-
-        newGame.move();
-
+        TheLostController newController = new TheLostController(newGame);
 
     }
 

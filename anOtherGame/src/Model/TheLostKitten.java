@@ -13,15 +13,14 @@ import java.util.Random;
 public class TheLostKitten implements ITheLostKitten{
     IMap map;
     Dice dice;
-    private Player[] playerList;
-    private List<IPlayer> listOfPlayers;
+    private List<IPlayer> playerList;
     private IPlayer activePlayer;
  //   private int currentTurn = 0;
 
     public TheLostKitten(List<IPlayer> nameOfPlayers) {
         map = new Map();
         dice = new Dice();
-        listOfPlayers = nameOfPlayers;
+        playerList = nameOfPlayers;
         nameOfPlayers.get(0).setTurn();
 
         for(IPlayer player : nameOfPlayers){
@@ -31,7 +30,7 @@ public class TheLostKitten implements ITheLostKitten{
     }
 
     public List<IPlayer> getListOfPlayers(){
-        return listOfPlayers;
+        return playerList;
     }
     public IMap getMap(){
         return map;
@@ -62,33 +61,19 @@ public class TheLostKitten implements ITheLostKitten{
     }
 
 
-
-    public int changeTurn(int i){
-        if(i+1>=playerList.length){
-            playerList[i].isTurn = false;
-            playerList[0].isTurn = true;
-            return 0;
-
-        }else if(playerList[i+1].getSkipATurn()){
-            playerList[i+1].doneSkippingTurn(); //-> was 'player.skipTurn = false', used a setter instead!
-            return changeTurn(i+1);
-
+    public void getNextPlayer(){
+        int indexInListOfPlayers = getListOfPlayers().indexOf(activePlayer);
+        if(indexInListOfPlayers==playerList.size()-1) {
+            activePlayer = playerList.get(0);
         }else {
-            playerList[i].isTurn = false;
-            playerList[i+1].isTurn = true;
-            return i+1;
+            activePlayer = playerList.get(indexInListOfPlayers + 1);
         }
     }
 
-    public int isFirstTurn(){
-        Random randomPlayer = new Random();
-        int playerNumber = randomPlayer.nextInt(playerList.length-1)+1;
-        playerList[playerNumber].isTurn = true;
-        return randomPlayer.nextInt(playerList.length-1)+1;
-    }
 
 
-    public Player[] getPlayers(){
+
+    public List<IPlayer> getPlayers(){
         return playerList;
     }
 

@@ -154,8 +154,11 @@ public class MainController {
 
         System.out.println("Antal spaces på kartan: " + newGame.getMap().getSpaces().size());
         System.out.println("Aktiv spelare " + newGame.getActivePlayer().getName());
+        newGame.getNextPlayer();
+        System.out.println("Aktiv spelare nurå?:  " + newGame.getActivePlayer().getName());
+        
 
-        newGame.move();
+        //newGame.move();
 
 
     }

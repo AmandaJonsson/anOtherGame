@@ -76,7 +76,7 @@ public class TheLostController {
     }
 
     public TheLostController(TheLostKitten newGame, List<IPlayer> createdPlayers) {
-
+        newCreatedPlayers = newGame.getPlayers();
         newCreatedPlayers = createdPlayers;
 
     }

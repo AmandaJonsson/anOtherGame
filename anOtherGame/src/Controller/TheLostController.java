@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.*;
+import Model.Intefaces.IPlayer;
 import Model.Intefaces.ISpace;
 import View.MapView;
 import View.SpaceView;
@@ -15,6 +16,7 @@ import javafx.scene.layout.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import Model.Player;
 import Model.TheLostKitten;
@@ -67,13 +69,13 @@ public class TheLostController {
 
     Dice dice = new Dice();
 
-    static ArrayList<Player> newCreatedPlayers;
+    static List<IPlayer> newCreatedPlayers;
 
     public TheLostController() {
 
     }
 
-    public TheLostController(TheLostKitten newGame, ArrayList<Player> createdPlayers) {
+    public TheLostController(TheLostKitten newGame, List<IPlayer> createdPlayers) {
 
         newCreatedPlayers = createdPlayers;
 

@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Intefaces.IPlayer;
 import Model.Player;
 import Model.TheLostKitten;
 import View.MapView;
@@ -25,6 +26,7 @@ import javafx.scene.effect.DropShadow;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by majanyberg on 2017-05-03.
@@ -41,7 +43,7 @@ public class MainController {
     private TextField playerTextField1, playerTextField2,
             playerTextField3, playerTextField4, playerTextField5, playerTextField6;
 
-    ArrayList<Player> players = new ArrayList<>();
+    List<IPlayer> players = new ArrayList<>();
 
     TheLostKitten newGame;
 

@@ -92,4 +92,9 @@ public class TheLostKitten implements ITheLostKitten{
         return playerList;
     }
 
+    public void move(){
+        System.out.println("NU är det spelare " + getActivePlayer().getName());
+        
+    }
+
 }

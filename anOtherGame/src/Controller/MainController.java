@@ -151,7 +151,12 @@ public class MainController {
         }
 
         TheLostController newController = new TheLostController(newGame, players);
-        System.out.println(newController);
+
+        System.out.println("Antal spaces på kartan: " + newGame.getMap().getSpaces().size());
+        System.out.println("Aktiv spelare " + newGame.getActivePlayer().getName());
+
+        newGame.move();
+
 
     }
 

@@ -3,7 +3,7 @@ package Model.Intefaces;
 
 import Model.Marker;
 
-public interface IStation {
+public interface IStation extends ISpace {
 
     Marker getMarker();
     String getName();

@@ -1,6 +1,7 @@
 package Model;
 
 
+import Model.Intefaces.IMap;
 import Model.Intefaces.ISpace;
 import Model.Intefaces.ITheLostKitten;
 
@@ -8,15 +9,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class TheLostKitten implements ITheLostKitten{
-
+    IMap map;
+    Dice dice;
     private Player[] playerList;
  //   private int currentTurn = 0;
 
-    Model.Map map = new Model.Map();
-    Model.Dice dice = new Model.Dice();
-
     public TheLostKitten(ArrayList<Player> nameOfPlayers) {
-
+        map = new Map();
+        dice = new Dice();
         nameOfPlayers.get(0).setTurn();
 
         for(Player player : nameOfPlayers){

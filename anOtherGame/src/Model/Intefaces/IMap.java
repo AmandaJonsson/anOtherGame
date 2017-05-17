@@ -11,6 +11,6 @@ public interface IMap {
     void addSpaces(ISpace space);
     ArrayList<ISpace> getSpaces();
     void addMarkers(double noTopaz, double noEmerald, double nOfRubys, double nOfBlanks, List<Station> stations);
-
+    List<ISpace> getStartPositions();
 }
 

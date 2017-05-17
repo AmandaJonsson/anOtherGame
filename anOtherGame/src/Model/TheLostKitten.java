@@ -15,7 +15,6 @@ public class TheLostKitten implements ITheLostKitten{
     Dice dice;
     private List<IPlayer> playerList;
     private IPlayer activePlayer;
- //   private int currentTurn = 0;
 
     public TheLostKitten(List<IPlayer> nameOfPlayers) {
         map = new Map();
@@ -73,13 +72,13 @@ public class TheLostKitten implements ITheLostKitten{
 
 
 
+
     public List<IPlayer> getPlayers(){
         return playerList;
     }
 
     public void move(){
         System.out.println("NU är det spelare " + getActivePlayer().getName());
-        
     }
 
 }

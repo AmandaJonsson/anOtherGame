@@ -68,6 +68,7 @@ public class TheLostController {
     private DropShadow shadow = new DropShadow();
 
     Dice dice = new Dice();
+    private TheLostKitten lostKitten;
 
     static List<IPlayer> newCreatedPlayers;
 
@@ -75,10 +76,9 @@ public class TheLostController {
 
     }
 
-    public TheLostController(TheLostKitten newGame, List<IPlayer> createdPlayers) {
+    public TheLostController(TheLostKitten newGame) {
+        lostKitten = newGame;
         newCreatedPlayers = newGame.getPlayers();
-        newCreatedPlayers = createdPlayers;
-
     }
 
     @FXML
@@ -301,6 +301,8 @@ public class TheLostController {
         }
         return null;
     }
+
+
 }
 
 

@@ -21,7 +21,6 @@ public class PlayerPaneController {
     @FXML AnchorPane playerPane;
 
 
-
     public PlayerPaneController (Player player) throws IOException {
 
         playerPane = FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
@@ -33,15 +32,10 @@ public class PlayerPaneController {
         theDiamond.setVisible(false);
         tramCard = (ImageView)playerPane.lookup("#tramCard");
         tramCard.setVisible(false);
-
-
     }
-
-
 
     public AnchorPane getView(){
         return playerPane;
     }
-
 
 }

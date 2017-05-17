@@ -102,7 +102,7 @@ public class Player implements IPlayer {
     }
 
 
-    public void updateBudget() {
+    public int updateBudget() {
 
         //if the position is a station
         if(this.position instanceof Station){
@@ -122,6 +122,7 @@ public class Player implements IPlayer {
             }
         }
 
+        return balance;
 
     }
 

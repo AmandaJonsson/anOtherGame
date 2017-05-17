@@ -148,7 +148,7 @@ public class MainController {
 
         }
 
-        TheLostController newController = new TheLostController(newGame);
+        TheLostController newController = new TheLostController(newGame, newGame.getDice());
 
     }
 

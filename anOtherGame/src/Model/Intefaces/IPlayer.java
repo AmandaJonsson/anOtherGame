@@ -18,7 +18,7 @@ public interface IPlayer {
     boolean getSkipATurn();
     void skipTurn();
     void doneSkippingTurn();
-    void updateBudget();
+    int updateBudget();
     void setTurn();
     void setNotTurn();
 

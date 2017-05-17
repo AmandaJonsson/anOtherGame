@@ -67,8 +67,9 @@ public class TheLostController {
 
     private DropShadow shadow = new DropShadow();
 
-    Dice dice = new Dice();
-    private TheLostKitten lostKitten;
+    static Dice dice;
+
+    static TheLostKitten lostKitten;
 
     static List<IPlayer> newCreatedPlayers;
 
@@ -76,10 +77,14 @@ public class TheLostController {
 
     }
 
-    public TheLostController(TheLostKitten newGame) {
+    public TheLostController(TheLostKitten newGame, Dice lostdice) {
         lostKitten = newGame;
+        dice=lostdice;
+        System.out.println(dice);
+        //dice=newGame.getDice();
         newCreatedPlayers = newGame.getPlayers();
     }
+
 
     @FXML
     public void addMap(MapView map){
@@ -188,34 +193,38 @@ public class TheLostController {
 
     }
 
-    @FXML protected int handleDiceButton(ActionEvent event) throws IOException {
+    @FXML protected void handleDiceButton(ActionEvent event) throws IOException {
 
-        int diceRoll=dice.roll();
+        int diceRoll = dice.roll();
+        System.out.println(diceRoll);
 
-        if(diceRoll==1){
-            diceRoll=1;
+        if (diceRoll == 1) {
+            diceRoll = 1;
         }
-        if(diceRoll==2){
-            diceRoll= 2;
+        if (diceRoll == 2) {
+            diceRoll = 2;
         }
-        if(diceRoll==3){
+        if (diceRoll == 3) {
             diceRoll = 3;
         }
-        if(diceRoll==4){
+        if (diceRoll == 4) {
             diceRoll = 4;
         }
-        if(diceRoll==5){
+        if (diceRoll == 5) {
             diceRoll = 5;
         }
-        if(diceRoll==6){
+        if (diceRoll == 6) {
             diceRoll = 6;
         }
 
-        if(diceRoll==4 || diceRoll == 5 || diceRoll == 6){
+
+        if (diceRoll == 4 || diceRoll == 5 || diceRoll == 6) {
             alternativeText.setText("Du slog en" + " " + diceRoll + " " + "du får vända markern");
+            lostKitten.setNewBudget();
+            payButton.setDisable(true);
+            diceButton.setDisable(true);
 
-
-        } else{
+        } else {
             alternativeText.setText("Tyvärr du slog en" + " " + diceRoll + " " + "du får inte vända markern");
             turnMarkerButton.setDisable(true);
             payButton.setDisable(true);
@@ -224,9 +233,6 @@ public class TheLostController {
             boatButton.setDisable(true);
             tramButton.setDisable(true);
         }
-
-        return diceRoll;
-
     }
 
     @FXML protected void handleTurnMarkerButton(ActionEvent event) throws IOException{
@@ -238,7 +244,10 @@ public class TheLostController {
             tramButton.setDisable(true);
             turnMarkerButton.setDisable(true);
 
-         }
+        }
+
+
+
     }
 
     @FXML protected void handlePayButton(ActionEvent event) throws IOException{
@@ -247,7 +256,7 @@ public class TheLostController {
     }
 
     @FXML protected void handleBicycleButton(ActionEvent event) throws IOException{
-        int diceroll = dice.roll();
+        int diceroll = lostKitten.getDice().roll();
 //        findPath.findPotentialSpaces(diceroll, player.getPosition());
         alternativeText.setText("Välj vilken väg du vill åka genom att trycka på den positionen");
         bicycleButton.setDisable(true);
@@ -294,8 +303,10 @@ public class TheLostController {
         for(int i=0; i<newCreatedPlayers.size();i++){
             if(newCreatedPlayers.get(i).playerHasTurn()){
                 newCreatedPlayers.get(i).setNotTurn();
-                newCreatedPlayers.get((i+1)%newCreatedPlayers.size()).setTurn();
+                newCreatedPlayers.get((i + 1) % newCreatedPlayers.size()).setTurn();
+                IPlayer nextplayer = newCreatedPlayers.get((i + 1) % newCreatedPlayers.size());
                 String turn = newCreatedPlayers.get((i+1)%newCreatedPlayers.size()).getName();
+                lostKitten.setActivePlayer(nextplayer);
                 return turn;
             }
         }

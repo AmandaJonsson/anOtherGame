@@ -15,7 +15,6 @@ public class Dice implements IDice{
     
     public int roll(){
         die = randomNumber.nextInt(6)+1;
-        System.out.println(die);
         return die;
     }
 }

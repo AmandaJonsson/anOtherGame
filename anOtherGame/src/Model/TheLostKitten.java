@@ -47,7 +47,6 @@ public class TheLostKitten implements ITheLostKitten{
         activePlayer = player;
     }
 
-
     public ISpace getRandomStartPosition(){
         map.getStartPositions();
         ArrayList<ISpace> startpositions = new ArrayList<ISpace>();
@@ -69,9 +68,15 @@ public class TheLostKitten implements ITheLostKitten{
         }
     }
 
+    public void setNewBudget() {
+        Marker mark = ((Station) getActivePlayer().getPosition()).getMarker();
+        if (mark instanceof MoneyMarker) {
+            System.out.println(getActivePlayer().getName() + " " + getActivePlayer().getPosition() + " " + getActivePlayer().getBalance());
+            System.out.println(((MoneyMarker) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
+            System.out.println(getActivePlayer().updateBudget());
 
-
-
+        }
+    }
 
     public List<IPlayer> getPlayers(){
         return playerList;

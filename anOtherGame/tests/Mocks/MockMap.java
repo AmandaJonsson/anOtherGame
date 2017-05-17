@@ -1,4 +1,4 @@
-/*package Mocks;
+package Mocks;
 
 import Model.*;
 import Model.Intefaces.IMap;
@@ -58,6 +58,11 @@ public class MockMap implements IMap {
         return true;
     }
 
+    @Override
+    public boolean createStations() {
+        return false;
+    }
+
     public void addSpaces(ISpace space) {
         spaces.add(space);
     }
@@ -69,6 +74,11 @@ public class MockMap implements IMap {
     public void addMarkers(double noTopaz, double noEmerald, double nOfRubys, double nOfBlanks, List<Station> stations) {
 
         ArrayList<Marker> listOfMarkers = new ArrayList<>(stations.size());
+    }
+
+    @Override
+    public List<ISpace> getStartPositions() {
+        return null;
     }
 
 
@@ -88,4 +98,4 @@ public class MockMap implements IMap {
         list.set(shuffle, supporter);
 
     }
-}*/
+}

@@ -42,8 +42,11 @@ public class MainController {
             playerTextField3, playerTextField4, playerTextField5, playerTextField6;
 
     List<IPlayer> players = new ArrayList<>();
+    ArrayList<PlayerPaneController> listOfPlayerPanes = new ArrayList<>();
+
 
     TheLostKitten newGame;
+
 
     private DropShadow shadow = new DropShadow();
 
@@ -76,14 +79,13 @@ public class MainController {
         AnchorPane.setRightAnchor(mapView, 0.0);
         AnchorPane.setBottomAnchor(mapView, 0.0);
 
-
         mapPlace.getChildren().add(mapView);
-
 
 
         if (!playerTextField1.getText().isEmpty()) {
             Player player1  = new Player(playerTextField1.getText(), 5000);
             PlayerPaneController playerCon1 = new PlayerPaneController(player1);
+            listOfPlayerPanes.add(playerCon1);
             players.add(player1);
             playerCon1.getView().setStyle(" -fx-background-color: thistle;");
             playerVBox.getChildren().add(playerCon1.getView());
@@ -92,6 +94,7 @@ public class MainController {
         if (!playerTextField2.getText().isEmpty()) {
             Player player2  = new Player(playerTextField2.getText(), 5000);
             PlayerPaneController playerCon2 = new PlayerPaneController(player2);
+            listOfPlayerPanes.add(playerCon2);
             players.add(player2);
             playerCon2.getView().setStyle(" -fx-background-color: seashell;");
             playerVBox.getChildren().add(playerCon2.getView());
@@ -100,6 +103,7 @@ public class MainController {
         if (!playerTextField3.getText().isEmpty()) {
             Player player3  = new Player(playerTextField3.getText(), 5000);
             PlayerPaneController playerCon3 = new PlayerPaneController(player3);
+            listOfPlayerPanes.add(playerCon3);
             players.add(player3);
             playerCon3.getView().setStyle(" -fx-background-color: aquamarine;");
             playerVBox.getChildren().add(playerCon3.getView());
@@ -108,6 +112,7 @@ public class MainController {
         if (!playerTextField4.getText().isEmpty()) {
             Player player4  = new Player(playerTextField4.getText(), 5000);
             PlayerPaneController playerCon4 = new PlayerPaneController(player4);
+            listOfPlayerPanes.add(playerCon4);
             players.add(player4);
             playerCon4.getView().setStyle(" -fx-background-color: cadetblue;");
             playerVBox.getChildren().add(playerCon4.getView());
@@ -116,6 +121,7 @@ public class MainController {
         if (!playerTextField5.getText().isEmpty()) {
             Player player5  = new Player(playerTextField5.getText(), 5000);
             PlayerPaneController playerCon5 = new PlayerPaneController(player5);
+            listOfPlayerPanes.add(playerCon5);
             players.add(player5);
             playerCon5.getView().setStyle(" -fx-background-color: yellowgreen;");
             playerVBox.getChildren().add(playerCon5.getView());
@@ -124,13 +130,13 @@ public class MainController {
         if (!playerTextField6.getText().isEmpty()) {
             Player player6  = new Player(playerTextField6.getText(), 5000);
             PlayerPaneController playerCon6 = new PlayerPaneController(player6);
+            listOfPlayerPanes.add(playerCon6);
             players.add(player6);
             playerCon6.getView().setStyle(" -fx-background-color: silver;");
             playerVBox.getChildren().add(playerCon6.getView());
          }
 
-        newGame = new TheLostKitten(players);
-
+        newGame = new TheLostKitten(players, listOfPlayerPanes);
 
         checkSameName();
         

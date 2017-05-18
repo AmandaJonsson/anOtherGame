@@ -1,6 +1,7 @@
 package Model;
 
 
+import Controller.PlayerPaneController;
 import Model.Intefaces.IMap;
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ISpace;
@@ -16,7 +17,11 @@ public class TheLostKitten implements ITheLostKitten{
     private List<IPlayer> playerList;
     private IPlayer activePlayer;
 
-    public TheLostKitten(List<IPlayer> nameOfPlayers) {
+    static ArrayList<PlayerPaneController> listOfPlayerPanes;
+
+    public TheLostKitten(List<IPlayer> nameOfPlayers, ArrayList<PlayerPaneController> playerPaneControllers) {
+        listOfPlayerPanes=playerPaneControllers;
+
         map = new Map();
         dice = new Dice();
         playerList = nameOfPlayers;
@@ -76,6 +81,24 @@ public class TheLostKitten implements ITheLostKitten{
             System.out.println(getActivePlayer().updateBudget());
         }
     }
+
+    public void setBudgetLabel(){
+        System.out.println(listOfPlayerPanes.get(0).budgetLabel.getText());
+
+        for(int i =0; i<listOfPlayerPanes.size(); i++){
+            System.out.println(listOfPlayerPanes.get(i).nameLabel.getText());
+            if(listOfPlayerPanes.get(i).nameLabel.getText() == getActivePlayer().getName()){
+                listOfPlayerPanes.get(i).budgetLabel.setText("Pengar:" + getActivePlayer().getBalance() + " kr");
+                System.out.println(listOfPlayerPanes.get(0).budgetLabel.getText());
+
+
+            }
+        }
+
+    }
+
+
+
 
     public List<IPlayer> getPlayers(){
         return playerList;

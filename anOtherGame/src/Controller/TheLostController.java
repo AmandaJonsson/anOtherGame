@@ -212,6 +212,7 @@ public class TheLostController {
         if (diceRoll == 4 || diceRoll == 5 || diceRoll == 6) {
             alternativeText.setText("Du slog en" + " " + diceRoll + " " + "du får vända markern");
             lostKitten.setNewBudget();
+            lostKitten.setBudgetLabel();
             payButton.setDisable(true);
             diceButton.setDisable(true);
 
@@ -236,8 +237,6 @@ public class TheLostController {
             turnMarkerButton.setDisable(true);
 
         }
-
-
 
     }
 

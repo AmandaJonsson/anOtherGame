@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Intefaces.IPlayer;
 import Model.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,8 +15,8 @@ import java.util.Random;
  */
 public class PlayerPaneController {
 
-    @FXML Label nameLabel;
-    @FXML Label budgetLabel;
+    @FXML public Label nameLabel;
+    @FXML public Label budgetLabel;
     @FXML ImageView theDiamond;
     @FXML ImageView tramCard;
     @FXML AnchorPane playerPane;
@@ -38,4 +39,7 @@ public class PlayerPaneController {
         return playerPane;
     }
 
+    public void updateBudgetLabel(){
+
+    }
 }

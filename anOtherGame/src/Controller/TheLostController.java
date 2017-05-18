@@ -2,9 +2,7 @@ package Controller;
 
 import Model.*;
 import Model.Intefaces.IPlayer;
-import Model.Intefaces.ISpace;
 import View.MapView;
-import View.SpaceView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,18 +11,13 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import Model.Player;
 import Model.TheLostKitten;
 
 
-/**
- * Created by Allex on 2017-04-27.
- */
 public class TheLostController {
 
     private Player[] playerList;
@@ -80,8 +73,6 @@ public class TheLostController {
     public TheLostController(TheLostKitten newGame, Dice lostdice) {
         lostKitten = newGame;
         dice=lostdice;
-        System.out.println(dice);
-        //dice=newGame.getDice();
         newCreatedPlayers = newGame.getPlayers();
     }
 

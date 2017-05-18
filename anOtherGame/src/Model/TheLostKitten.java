@@ -74,7 +74,6 @@ public class TheLostKitten implements ITheLostKitten{
             System.out.println(getActivePlayer().getName() + " " + getActivePlayer().getPosition() + " " + getActivePlayer().getBalance());
             System.out.println(((MoneyMarker) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
             System.out.println(getActivePlayer().updateBudget());
-
         }
     }
 

@@ -55,7 +55,7 @@ public class TheLostController {
 
     @FXML public Label playersTurnLabel = new Label();
 
-    private String turnMakerButton = "Välj att antingen betala 1000 kr eller slå tärningen och \n " +
+    private String turnMakerText = "Välj att antingen betala 1000 kr eller slå tärningen och \n " +
             "få 4,5 eller 6 för att vända markern.\n Tryck på 'Betala' eller 'Slå tärning'";
 
     private DropShadow shadow = new DropShadow();
@@ -187,27 +187,6 @@ public class TheLostController {
     @FXML protected void handleDiceButton(ActionEvent event) throws IOException {
 
         int diceRoll = dice.roll();
-        System.out.println(diceRoll);
-
-        if (diceRoll == 1) {
-            diceRoll = 1;
-        }
-        if (diceRoll == 2) {
-            diceRoll = 2;
-        }
-        if (diceRoll == 3) {
-            diceRoll = 3;
-        }
-        if (diceRoll == 4) {
-            diceRoll = 4;
-        }
-        if (diceRoll == 5) {
-            diceRoll = 5;
-        }
-        if (diceRoll == 6) {
-            diceRoll = 6;
-        }
-
 
         if (diceRoll == 4 || diceRoll == 5 || diceRoll == 6) {
             alternativeText.setText("Du slog en" + " " + diceRoll + " " + "du får vända markern");
@@ -230,7 +209,7 @@ public class TheLostController {
     @FXML protected void handleTurnMarkerButton(ActionEvent event) throws IOException{
 
         if (event.getSource()==turnMarkerButton){
-            alternativeText.setText(turnMakerButton);
+            alternativeText.setText(turnMakerText);
             bicycleButton.setDisable(true);
             boatButton.setDisable(true);
             tramButton.setDisable(true);
@@ -241,8 +220,20 @@ public class TheLostController {
     }
 
     @FXML protected void handlePayButton(ActionEvent event) throws IOException{
-        System.out.println("pay");
+        diceButton.setDisable(true);
+        payButton.setDisable(true);
+        if(alternativeText.getText() == turnMakerText){
+            lostKitten.setNewDecreasedBudget(1000);
+            lostKitten.setBudgetLabel();
+            alternativeText.setText("Du har köpt markern");
+        }
 
+
+        if(alternativeText.getText() =="Du har köpt markern" ) {
+            lostKitten.setNewBudget();
+            lostKitten.setBudgetLabel();
+
+        }
     }
 
     @FXML protected void handleBicycleButton(ActionEvent event) throws IOException{

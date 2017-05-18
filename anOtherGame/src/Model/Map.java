@@ -250,6 +250,7 @@ public class Map implements IMap {
         
         for(int i = 0 ; i < stations.size(); i++) {
             stations.get(i).setMarker(listOfMarkers.get(i));
+
         }
     }
 

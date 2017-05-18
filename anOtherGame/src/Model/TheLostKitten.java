@@ -78,20 +78,19 @@ public class TheLostKitten implements ITheLostKitten{
         if (mark instanceof MoneyMarker) {
             System.out.println(getActivePlayer().getName() + " " + getActivePlayer().getPosition() + " " + getActivePlayer().getBalance());
             System.out.println(((MoneyMarker) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
-            System.out.println(getActivePlayer().updateBudget());
+            getActivePlayer().updateBudget();
+
         }
     }
 
-    public void setBudgetLabel(){
-        System.out.println(listOfPlayerPanes.get(0).budgetLabel.getText());
+    public void setNewDecreasedBudget(int value){
+        getActivePlayer().decreaseBalance(value);
+    }
 
+    public void setBudgetLabel(){
         for(int i =0; i<listOfPlayerPanes.size(); i++){
-            System.out.println(listOfPlayerPanes.get(i).nameLabel.getText());
             if(listOfPlayerPanes.get(i).nameLabel.getText() == getActivePlayer().getName()){
                 listOfPlayerPanes.get(i).budgetLabel.setText("Pengar:" + getActivePlayer().getBalance() + " kr");
-                System.out.println(listOfPlayerPanes.get(0).budgetLabel.getText());
-
-
             }
         }
 

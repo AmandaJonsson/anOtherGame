@@ -108,9 +108,9 @@ public class TheLostKitten implements ITheLostKitten{
     public void moveByBike(int resultFromDice){
         findpath = new FindPath();
         findpath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition());
-        /*System.out.println(getActivePlayer().getPosition());
+        System.out.println(getActivePlayer().getPosition());
         System.out.println(resultFromDice);
-        System.out.println(findpath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition()));*/
+        System.out.println(findpath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition()));
     }
 
     public void move(){

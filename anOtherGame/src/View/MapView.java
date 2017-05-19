@@ -1,5 +1,6 @@
 package View;
 
+import Model.Intefaces.IMap;
 import Model.Intefaces.ISpace;
 import Model.Map;
 import Model.Station;
@@ -20,10 +21,10 @@ import static javafx.geometry.VPos.CENTER;
  * Created by Allex on 2017-04-06.
  */
 public class MapView extends GridPane {
-    private Map mapp;
+    private IMap mapp;
     private String map;
 
-    public MapView(Map mapp) {
+    public MapView(IMap mapp) {
         map = this.getClass().getResource("../Resources/mapNoPlupps.png").toExternalForm();
         this.setStyle("-fx-background-image: url('" + map + "'); " +
                 "-fx-background-position: center center;" +

@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.*;
+import Model.Intefaces.IMap;
 import Model.Intefaces.IPlayer;
 import View.MapView;
 import javafx.event.ActionEvent;
@@ -61,21 +62,20 @@ public class MainController {
 
         Stage stage = (Stage) startGameButton.getScene().getWindow();
 
-        Map map = new Map();
-        MapView mapView = new MapView(map);
-        MapController controller = new MapController(map, mapView);
+
+        //MapController controller = new MapController(map, mapView);
         Pane mapPlace = (AnchorPane)root.lookup("#mapPlace");
 
         VBox playerVBox = (VBox)root.lookup("#playerPlace");;
 
-        AnchorPane.setTopAnchor(playerVBox, 10.0); // obviously provide your own constraints
+        //AnchorPane.setTopAnchor(playerVBox, 10.0); // obviously provide your own constraints
 
-        AnchorPane.setTopAnchor(mapView, 0.0);
-        AnchorPane.setLeftAnchor(mapView, 0.0);
-        AnchorPane.setRightAnchor(mapView, 0.0);
-        AnchorPane.setBottomAnchor(mapView, 0.0);
+        //AnchorPane.setTopAnchor(mapView, 0.0);
+        //AnchorPane.setLeftAnchor(mapView, 0.0);
+        //AnchorPane.setRightAnchor(mapView, 0.0);
+        //AnchorPane.setBottomAnchor(mapView, 0.0);
 
-        mapPlace.getChildren().add(mapView);
+
 
 
         if (!playerTextField1.getText().isEmpty()) {
@@ -133,6 +133,10 @@ public class MainController {
          }
 
         newGame = new TheLostKitten(players, listOfPlayerPanes);
+
+        IMap map = newGame.getMap();
+        MapView mapView = new MapView(map);
+        mapPlace.getChildren().add(mapView);
 
         checkSameName();
         

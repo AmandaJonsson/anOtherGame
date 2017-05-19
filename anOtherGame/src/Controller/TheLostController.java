@@ -250,13 +250,16 @@ public class TheLostController {
     }
 
     @FXML protected void handleBoatButton(ActionEvent event) throws IOException{
+        int diceroll = dice.roll();
+        lostKitten.moveByBoat(diceroll);
         System.out.println("Åk båt");
 
     }
 
     @FXML protected void handleTramButton(ActionEvent event) throws IOException{
+        int diceroll = dice.roll();
+        lostKitten.moveByTram(diceroll);
         System.out.println("Åk spårvagn");
-
     }
 
     @FXML protected void handleNextPlayerButton(ActionEvent event) throws IOException{

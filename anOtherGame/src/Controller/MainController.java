@@ -62,21 +62,10 @@ public class MainController {
 
         Stage stage = (Stage) startGameButton.getScene().getWindow();
 
-
         //MapController controller = new MapController(map, mapView);
         Pane mapPlace = (AnchorPane)root.lookup("#mapPlace");
 
         VBox playerVBox = (VBox)root.lookup("#playerPlace");;
-
-        //AnchorPane.setTopAnchor(playerVBox, 10.0); // obviously provide your own constraints
-
-        //AnchorPane.setTopAnchor(mapView, 0.0);
-        //AnchorPane.setLeftAnchor(mapView, 0.0);
-        //AnchorPane.setRightAnchor(mapView, 0.0);
-        //AnchorPane.setBottomAnchor(mapView, 0.0);
-
-
-
 
         if (!playerTextField1.getText().isEmpty()) {
             Player player1  = new Player(playerTextField1.getText(), 5000);
@@ -138,8 +127,14 @@ public class MainController {
         MapView mapView = new MapView(map);
         mapPlace.getChildren().add(mapView);
 
+        AnchorPane.setTopAnchor(playerVBox, 10.0); // obviously provide your own constraints
+
+        AnchorPane.setTopAnchor(mapView, 0.0);
+        AnchorPane.setLeftAnchor(mapView, 0.0);
+        AnchorPane.setRightAnchor(mapView, 0.0);
+        AnchorPane.setBottomAnchor(mapView, 0.0);
+
         checkSameName();
-        
 
         if(hasSameName == true){
             System.out.println("Spelarna måste heta olika saker!");

@@ -24,6 +24,7 @@ public class TheLostKitten implements ITheLostKitten{
     public TheLostKitten(List<IPlayer> nameOfPlayers, ArrayList<PlayerPaneController> playerPaneControllers) {
         listOfPlayerPanes=playerPaneControllers;
 
+        findpath=new FindPath();
         map = new Map();
         dice = new Dice();
         playerList = nameOfPlayers;
@@ -106,11 +107,20 @@ public class TheLostKitten implements ITheLostKitten{
     }
 
     public void moveByBike(int resultFromDice){
-        findpath = new FindPath();
+
         findpath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition());
         System.out.println(getActivePlayer().getPosition());
         System.out.println(resultFromDice);
         System.out.println(findpath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition()));
+    }
+
+    public void moveByTram(int resultFromDice){
+        findpath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition());
+
+    }
+
+    public void moveByBoat(int resultFromDice){
+        findpath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition());
     }
 
     public void move(){

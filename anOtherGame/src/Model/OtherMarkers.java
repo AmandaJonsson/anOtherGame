@@ -6,15 +6,9 @@ package Model;
 public class OtherMarkers extends Marker {
 
     private NoMoneyMarkers marker;
-    Player player = new Player(null, null, 0);
-    private String foundTheCat = "Du hittade kattungen, bra jobbat!";
-    private String foundTheTramCard = "Du hittade ett västtrafikkort";
-    private String robedByAPickPocket= "Du har blivit rånad av en ficktjuv, han tog alla dina pengar";
-    private  int pickpocket=0;
-    private int countCat=1;
-    private int countTramcard;
-
-
+    public int pickpocket=0;
+    public int countCat=1;
+    public int countTramcard;
 
     //the different kinds of other markers
     public enum NoMoneyMarkers {
@@ -29,12 +23,6 @@ public class OtherMarkers extends Marker {
     //constructor
     public OtherMarkers(NoMoneyMarkers marker) {
         this.marker = marker;
-        if (marker == NoMoneyMarkers.CAT){
-            System.out.println("CAT");
-        }
-        if (marker == NoMoneyMarkers.PICKPOCKET){
-            System.out.println("PICKPOCKET");
-        }
     }
 
 
@@ -53,7 +41,7 @@ public class OtherMarkers extends Marker {
                 return 1;
             }
             else{
-                return 0;
+                return pickpocket;
             }
         }
         return 0;

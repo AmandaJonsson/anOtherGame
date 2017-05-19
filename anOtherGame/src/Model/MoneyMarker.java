@@ -7,20 +7,12 @@ import java.util.List;
 public class MoneyMarker extends Marker {
 
     private TypeOfMarkers marker;
-    private int valueOfMarker;
-    private Player player;
-    private Station station;
     private String[] descriptionText = {"Du har fått CSN", "Du vann på lotto", "Du fick skatteåterbäring", "Du har fått pengar av mormor"};
-    private String Guldheden = "Grattis! Du hittade en topas på Guldeheden, vilket ger dig 6000 kr";
-    private String FirstPlayerToEmilsborg = "Du hann först till Emilsborg, du får 5000 kr";
-
 
     //The different kinds of markers that contains money
     public enum TypeOfMarkers {
         TOPAZ, EMERALD, RUBY, BLANK
     }
-
-    TypeOfMarkers type = TypeOfMarkers.TOPAZ;
 
     List<TypeOfMarkers> listOfMarker = new ArrayList<TypeOfMarkers>();
 
@@ -73,14 +65,10 @@ public class MoneyMarker extends Marker {
         if (marker instanceof MoneyMarker) {
 
             if (((MoneyMarker) marker).getMarkerType() == TypeOfMarkers.TOPAZ && station.getName() == "Guldheden") {
-                String desc = Guldheden;
-                System.out.println(desc);
                 return 6000;
             }
 
             if (station.getName() == "Emilsborg" && marker.isMarkerTurned() == false) {
-                String desc = FirstPlayerToEmilsborg;
-                System.out.println(desc);
                 return 5000;
             }
 

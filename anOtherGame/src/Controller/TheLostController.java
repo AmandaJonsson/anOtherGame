@@ -24,9 +24,6 @@ public class TheLostController {
     private Space position;
     private MainController con;
 
-    FindPath findPath;
-    Player player;
-
     @FXML
     private Pane mapPlace;
 
@@ -77,10 +74,11 @@ public class TheLostController {
     }
 
 
-    @FXML
+   /* @FXML
     public void addMap(MapView map){
         mapPlace.getChildren().add(map);
     }
+    */
 
     @FXML
     public void setMouseEffect(){
@@ -237,8 +235,9 @@ public class TheLostController {
     }
 
     @FXML protected void handleBicycleButton(ActionEvent event) throws IOException{
-        int diceroll = lostKitten.getDice().roll();
-//        findPath.findPotentialSpaces(diceroll, player.getPosition());
+        int diceRoll = dice.roll();
+        lostKitten.moveByBike(diceRoll);
+
         alternativeText.setText("Välj vilken väg du vill åka genom att trycka på den positionen");
         bicycleButton.setDisable(true);
         boatButton.setDisable(true);

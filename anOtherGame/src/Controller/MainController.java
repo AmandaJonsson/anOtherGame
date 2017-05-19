@@ -44,13 +44,9 @@ public class MainController {
     List<IPlayer> players = new ArrayList<>();
     ArrayList<PlayerPaneController> listOfPlayerPanes = new ArrayList<>();
 
-
     TheLostKitten newGame;
 
-
     private DropShadow shadow = new DropShadow();
-
-    //TheLostController thelost;
 
     boolean hasSameName;
     boolean moreThanOnePlayer;
@@ -236,9 +232,4 @@ public class MainController {
             }
         });
     }
-
-
-
-
-
 }

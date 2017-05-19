@@ -180,7 +180,7 @@ public class Map implements IMap {
         ramberget.setTramStation(true);
         lundby.setTramStation(true);
         ullevi.setTramStation(true);
-        createSpaces(lundby,hjbrantings,  null, 0, 0);
+        createSpaces(lundby, hjbrantings, null, 0, 0);
         createSpaces(hjbrantings, ramberget, null, 0, 0);
         createSpaces(frihamnen, chLindholmen, null, 0, 0);
         createSpaces(lundby, eriksberg, null, 0, 0);
@@ -202,6 +202,9 @@ public class Map implements IMap {
         createSpaces(vasaplatsen, domkyrkan, null, 0, 0);
         createSpaces(chalmers,vasaplatsen, null, 0, 0);
 
+        for (int i =0; i<spaces.size(); i++){
+            System.out.println("Space=" + spaces.get(i));
+        }
         //Start space.
         redbergsplatsen.setStart(true);
         lundby.setStart(true);
@@ -240,11 +243,11 @@ public class Map implements IMap {
         for ( Marker mark : listOfMarkers){
             if(mark instanceof MoneyMarker){
                 MoneyMarker mMark= (MoneyMarker) mark;
-                System.out.println(mMark.getMarkerType());
+                System.out.println("MoneyMarker:"+ mMark.getMarkerType());
             }
             else{
                 OtherMarkers oMark = (OtherMarkers) mark;
-                System.out.println(oMark.getMarkerType());
+                System.out.println("OtherMarker:" + oMark.getMarkerType());
             }
         }
         
@@ -314,7 +317,7 @@ public class Map implements IMap {
             boolean exists = false;
             for(ISpace spacee : this.getSpaces()){
                 if (spacee.getX()-x < 5 && spacee.getX()-x >-5 && spacee.getY()-y < 5 && spacee.getY()-y >-5){
-                    System.out.println("jahaja");
+                   // System.out.println("jahaja");
                     space = spacee;
                     exists = true;
                 }

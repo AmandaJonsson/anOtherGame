@@ -16,8 +16,17 @@ public class FindPath {
         for (int i = 0; i < numberOnDice; i++) {
             for (int j = 0; j < potentialSpaces.size(); j++) {
                 for (int k = 0; k < potentialSpaces.get(j).getAdjacentSpaces().size(); k++) {
-                    tempList.add(potentialSpaces.get(j).getAdjacentSpaces().get(k));
-                    tempList = mergeLists(potentialSpaces, tempList);
+                    if(potentialSpaces.get(j) instanceof Station){
+                        if(!(potentialSpaces.get(j).getAdjacentSpaces().get(k) instanceof Station)){
+                            tempList.add(potentialSpaces.get(j).getAdjacentSpaces().get(k));
+                            tempList = mergeLists(potentialSpaces, tempList);
+                        }
+                    }
+                    else {
+                        tempList.add(potentialSpaces.get(j).getAdjacentSpaces().get(k));
+                        tempList = mergeLists(potentialSpaces, tempList);
+                    }
+
                 }
                 visitedSpaces.add(potentialSpaces.get(j));
             }

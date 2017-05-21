@@ -1,18 +1,11 @@
 package Controller;
 
-import Model.*;
 import javafx.application.Application;
-
 import javafx.fxml.FXMLLoader;
-
 import javafx.scene.Scene;
-
 import javafx.scene.layout.Pane;
-
 import javafx.stage.Stage;
-
 import java.io.IOException;
-
 
 public class Main extends Application {
 
@@ -23,13 +16,11 @@ public class Main extends Application {
         startStage.show();
     }
 
-
     private Pane loadMainPane() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         Pane mainPane = (Pane) loader.load(getClass().getResource("/View/start.fxml"));
         return mainPane;
     }
-
 
     private Scene createScene(Pane mainPane) {
         Scene scene = new Scene(mainPane);
@@ -43,13 +34,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args){
-
         launch(args);
-        Dice rollTheDice = new Dice();
-
-        
-
     }
-
-
 }

@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Intefaces.IPlayer;
 import Model.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,13 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
-import java.util.Random;
 
-/**
- * Created by majanyberg on 2017-05-14.
- */
 public class PlayerPaneController {
-
+    
     @FXML public Label nameLabel;
     @FXML public Label budgetLabel;
     @FXML ImageView theDiamond;
@@ -23,7 +18,6 @@ public class PlayerPaneController {
 
 
     public PlayerPaneController (Player player) throws IOException {
-
         playerPane = FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
         nameLabel = (Label)playerPane.lookup("#nameLabel");
         nameLabel.setText(player.getName());
@@ -40,6 +34,5 @@ public class PlayerPaneController {
     }
 
     public void updateBudgetLabel(){
-
     }
 }

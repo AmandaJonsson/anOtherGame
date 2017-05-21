@@ -121,13 +121,12 @@ public class MapView extends GridPane {
                     Image img = new Image("/Resources/lundby-01.png");
                     view.setFill(new ImagePattern(img));
                 }
-                System.out.println("LOLOLOLOLOLOL");
+
                 for (ISpace to : space.getAdjacentSpaces()){
                     if (!(list.contains(Integer.toString(space.getX()) + Integer.toString(space.getX()) + Integer.toString(to.getX()) + Integer.toString(to.getY())) || list.contains(Integer.toString(to.getX()) + Integer.toString(to.getX()) + Integer.toString(space.getX()) + Integer.toString(space.getY())))) {
                         if (to instanceof Station) {
                             calculatePath((Station) space, (Station) to, 0, 0);
                             list.add(Integer.toString(space.getX()) + Integer.toString(space.getX()) + Integer.toString(to.getX()) + Integer.toString(to.getY()));
-                            System.out.println("WOOOHOOOOOO");
                         }
                     }
                 }

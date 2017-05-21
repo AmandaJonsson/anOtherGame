@@ -8,4 +8,5 @@ public interface ISpace {
     int getX();
     int getY();
     boolean compareSpaces(ISpace space);
+    String toString();
 }

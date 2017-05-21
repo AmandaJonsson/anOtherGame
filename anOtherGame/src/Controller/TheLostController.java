@@ -189,7 +189,7 @@ public class TheLostController {
         if (diceRoll == 4 || diceRoll == 5 || diceRoll == 6) {
             alternativeText.setText("Du slog en" + " " + diceRoll + " " + "du får vända markern");
             lostKitten.setNewBudget();
-            lostKitten.setBudgetLabel();
+            //lostKitten.setBudgetLabel();
             payButton.setDisable(true);
             diceButton.setDisable(true);
 
@@ -222,21 +222,25 @@ public class TheLostController {
         payButton.setDisable(true);
         if(alternativeText.getText() == turnMakerText){
             lostKitten.setNewDecreasedBudget(1000);
-            lostKitten.setBudgetLabel();
+            //lostKitten.setBudgetLabel();
             alternativeText.setText("Du har köpt markern");
         }
 
 
         if(alternativeText.getText() =="Du har köpt markern" ) {
             lostKitten.setNewBudget();
-            lostKitten.setBudgetLabel();
+            //lostKitten.setBudgetLabel();
 
         }
     }
 
     @FXML protected void handleBicycleButton(ActionEvent event) throws IOException{
         int diceRoll = dice.roll();
-        lostKitten.moveByBike(diceRoll);
+        //lostKitten.moveByBike(diceRoll);
+        System.out.println("Tärningen visar: " + diceRoll);
+        System.out.println(lostKitten.getActivePlayer().getName());
+        System.out.println(lostKitten.getActivePlayer().getPosition());
+        System.out.println(FindPath.findPotentialSpaces(diceRoll,lostKitten.getActivePlayer().getPosition()));
 
         alternativeText.setText("Välj vilken väg du vill åka genom att trycka på den positionen");
         bicycleButton.setDisable(true);

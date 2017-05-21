@@ -1,5 +1,7 @@
 package Model;
 
+import Model.Intefaces.IMarker;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +43,7 @@ public class MoneyMarker extends Marker {
     Emerald, Ruby or Blank.
      */
     @Override
-    public int getMarkerValue(Marker marker) {
+    public int getMarkerValue(IMarker marker) {
         if (marker instanceof MoneyMarker) {
             if (((MoneyMarker) marker).getMarkerType() == TypeOfMarkers.TOPAZ) {
                 return 3000;

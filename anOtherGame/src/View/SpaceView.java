@@ -7,9 +7,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
-/**
- * Created by Allex on 2017-04-23.
- */
+
 public class SpaceView extends Circle {
     private String color;
     private ISpace space;

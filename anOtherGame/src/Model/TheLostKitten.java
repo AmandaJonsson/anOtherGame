@@ -1,11 +1,6 @@
 package Model;
 
-
-import Controller.PlayerPaneController;
-import Model.Intefaces.IMap;
-import Model.Intefaces.IPlayer;
-import Model.Intefaces.ISpace;
-import Model.Intefaces.ITheLostKitten;
+import Model.Intefaces.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,14 +12,10 @@ public class TheLostKitten implements ITheLostKitten{
     private List<IPlayer> playerList;
     private IPlayer activePlayer;
 
-    FindPath findpath;
 
-    static ArrayList<PlayerPaneController> listOfPlayerPanes;
 
-    public TheLostKitten(List<IPlayer> nameOfPlayers, ArrayList<PlayerPaneController> playerPaneControllers) {
-        listOfPlayerPanes=playerPaneControllers;
 
-        findpath=new FindPath();
+    public TheLostKitten(List<IPlayer> nameOfPlayers) {
         map = new Map();
         dice = new Dice();
         playerList = nameOfPlayers;
@@ -77,19 +68,18 @@ public class TheLostKitten implements ITheLostKitten{
     }
 
     public void setNewBudget() {
-        Marker mark = ((Station) getActivePlayer().getPosition()).getMarker();
+        IMarker mark = ((Station) getActivePlayer().getPosition()).getMarker();
         if (mark instanceof MoneyMarker) {
             System.out.println(getActivePlayer().getName() + " " + getActivePlayer().getPosition() + " " + getActivePlayer().getBalance());
             System.out.println(((MoneyMarker) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
             getActivePlayer().updateBudget();
-
         }
     }
 
     public void setNewDecreasedBudget(int value){
         getActivePlayer().decreaseBalance(value);
     }
-
+/*
     public void setBudgetLabel(){
         for(int i =0; i<listOfPlayerPanes.size(); i++){
             if(listOfPlayerPanes.get(i).nameLabel.getText() == getActivePlayer().getName()){
@@ -98,7 +88,7 @@ public class TheLostKitten implements ITheLostKitten{
         }
 
     }
-
+*/
 
 
 
@@ -107,20 +97,19 @@ public class TheLostKitten implements ITheLostKitten{
     }
 
     public void moveByBike(int resultFromDice){
-
-        findpath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition());
+        FindPath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition());
         System.out.println(getActivePlayer().getPosition());
         System.out.println(resultFromDice);
-        System.out.println(findpath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition()));
+        System.out.println(FindPath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition()));
     }
 
     public void moveByTram(int resultFromDice){
-        findpath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition());
+        FindPath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition());
 
     }
 
     public void moveByBoat(int resultFromDice){
-        findpath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition());
+        FindPath.findPotentialSpaces(resultFromDice, getActivePlayer().getPosition());
     }
 
     public void move(){

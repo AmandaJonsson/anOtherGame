@@ -1,16 +1,14 @@
 package Model.Intefaces;
 
 
-import Model.Marker;
-
 public interface IStation extends ISpace {
 
-    Marker getMarker();
+    IMarker getMarker();
     String getName();
 
     boolean hasMarker();
     void turnMarker();
-    void setMarker(Marker marker);
+    void setMarker(IMarker marker);
 
     boolean getIsBoatStation();
     boolean getIsTramStation();

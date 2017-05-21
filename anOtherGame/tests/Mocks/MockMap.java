@@ -3,13 +3,14 @@ package Mocks;
 import Model.*;
 import Model.Intefaces.IMap;
 import Model.Intefaces.ISpace;
+import Model.Intefaces.IStation;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class MockMap implements IMap {
-    ArrayList<ISpace> spaces;
+    List<ISpace> spaces;
 
 
     public MockMap() {
@@ -67,11 +68,11 @@ public class MockMap implements IMap {
         spaces.add(space);
     }
 
-    public ArrayList<ISpace> getSpaces() {
+    public List<ISpace> getSpaces() {
         return spaces;
     }
 
-    public void addMarkers(double noTopaz, double noEmerald, double nOfRubys, double nOfBlanks, List<Station> stations) {
+    public void addMarkers(double noTopaz, double noEmerald, double nOfRubys, double nOfBlanks, List<IStation> stations) {
 
         ArrayList<Marker> listOfMarkers = new ArrayList<>(stations.size());
     }
@@ -96,6 +97,5 @@ public class MockMap implements IMap {
         Marker supporter = list.get(i);
         list.set(i, list.get(shuffle));
         list.set(shuffle, supporter);
-
     }
 }

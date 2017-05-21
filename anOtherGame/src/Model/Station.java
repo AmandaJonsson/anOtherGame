@@ -1,10 +1,11 @@
 package Model;
 
 
+import Model.Intefaces.IMarker;
 import Model.Intefaces.IStation;
 
 public class Station extends Space implements IStation {
-    private Marker marker;
+    private IMarker marker;
     private final String name;
     private boolean isBoatStation;
     private boolean isTramStation;
@@ -18,7 +19,7 @@ public class Station extends Space implements IStation {
         isTramStation = false;
     }
 
-    public Station( int x, int y,String name, Marker marker) {
+    public Station( int x, int y,String name, IMarker marker) {
         super(x, y);
         this.name =  name;
         this.marker = marker;
@@ -26,7 +27,7 @@ public class Station extends Space implements IStation {
         isTramStation = false;
     }
 
-    public Marker getMarker(){
+    public IMarker getMarker(){
         return marker;
     }
 
@@ -53,7 +54,7 @@ public class Station extends Space implements IStation {
         marker.setMarkerToTurned();
     }
 
-    public void setMarker(Marker marker) {
+    public void setMarker(IMarker marker) {
         this.marker = marker;
     }
 

@@ -2,14 +2,15 @@ package Model;
 
 import Model.Intefaces.IMap;
 import Model.Intefaces.ISpace;
+import Model.Intefaces.IStation;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class Map implements IMap {
-    ArrayList<ISpace> spaces;
-    ArrayList<Station> stations;
+    List<ISpace> spaces;
+    List<IStation> stations;
 
     public Map() {
         spaces = new ArrayList<ISpace>();
@@ -17,7 +18,7 @@ public class Map implements IMap {
     }
 
     public boolean createStations() {
-        stations= new ArrayList<Station>();
+        stations= new ArrayList<IStation>();
         Station lundby = new Station("Lundby", 7, 14);
         stations.add(lundby); //TODO TA BORT DENNA
         Station ramberget = new Station("Ramberget", 30, 26);
@@ -164,12 +165,10 @@ public class Map implements IMap {
         central.setTramStation(true);
         domkyrkan.setTramStation(true);
         masthuggskykan.setTramStation(true);
-        eriksberg.setTramStation(true);
         jarntorget.setTramStation(true);
         botaniska.setTramStation(true);
         slottskogsvallen.setTramStation(true);
         liseberg.setTramStation(true);
-        botaniska.setTramStation(true);
         vasaplatsen.setTramStation(true);
         chalmers.setTramStation(true);
         ringon.setTramStation(true);
@@ -214,11 +213,11 @@ public class Map implements IMap {
         spaces.add(space);
     }
 
-    public ArrayList<ISpace> getSpaces() {
+    public List<ISpace> getSpaces() {
         return spaces;
     }
 
-    public void addMarkers(double noTopaz, double noEmerald, double nOfRubys, double nOfBlanks, List<Station> stations) {
+    public void addMarkers(double noTopaz, double noEmerald, double nOfRubys, double nOfBlanks, List<IStation> stations) {
 
         ArrayList<Marker> listOfMarkers = new ArrayList<>(stations.size());
 

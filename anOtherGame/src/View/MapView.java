@@ -17,9 +17,7 @@ import java.util.ArrayList;
 
 import static javafx.geometry.VPos.CENTER;
 
-/**
- * Created by Allex on 2017-04-06.
- */
+
 public class MapView extends GridPane {
     private IMap mapp;
     private String map;

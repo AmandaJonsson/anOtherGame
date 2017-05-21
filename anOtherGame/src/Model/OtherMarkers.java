@@ -1,8 +1,7 @@
 package Model;
 
-/**
- * Created by amandajonsson on 2017-04-18.
- */
+import Model.Intefaces.IMarker;
+
 public class OtherMarkers extends Marker {
 
     private NoMoneyMarkers marker;
@@ -30,7 +29,7 @@ public class OtherMarkers extends Marker {
     or a pickpocket. If the marker is the cat the variable countCat sets to 1, the same with countTramCard.
      */
     @Override
-    public int getMarkerValue(Marker marker) {
+    public int getMarkerValue(IMarker marker) {
         if (marker instanceof OtherMarkers){
             if(((OtherMarkers) marker).getMarkerType() == NoMoneyMarkers.TRAMCARD){
                 countTramcard=1;

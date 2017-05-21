@@ -123,15 +123,6 @@ public class MainController {
 
         newGame = new TheLostKitten(players);
 
-        for(int i = 0;i<newGame.getMap().getSpaces().size(); i++) {
-            if(newGame.getMap().getSpaces().get(i) instanceof Station){
-                System.out.println(newGame.getMap().getSpaces().get(i).toString());
-                System.out.println("Är spårvagn?: " + ((Station) newGame.getMap().getSpaces().get(i)).getIsTramStation());
-                System.out.println("Är båt?: " + ((Station) newGame.getMap().getSpaces().get(i)).getIsBoatStation());
-                System.out.println();
-            }
-        }
-
         IMap map = newGame.getMap();
         MapView mapView = new MapView(map);
         mapPlace.getChildren().add(mapView);

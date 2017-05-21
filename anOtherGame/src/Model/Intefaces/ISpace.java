@@ -1,12 +1,11 @@
 package Model.Intefaces;
 
-
-import java.util.ArrayList;
+import java.util.List;
 
 public interface ISpace {
-    public void addAdjacentSpace(ISpace space) ;
-    public ArrayList<ISpace> getAdjacentSpaces();
-    public int getX();
-    public int getY();
-    public boolean compareSpaces(ISpace space);
+    void addAdjacentSpace(ISpace space) ;
+    List<ISpace> getAdjacentSpaces();
+    int getX();
+    int getY();
+    boolean compareSpaces(ISpace space);
 }

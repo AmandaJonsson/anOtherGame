@@ -9,7 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 public class PlayerPaneController {
-    
+
     @FXML public Label nameLabel;
     @FXML public Label budgetLabel;
     @FXML ImageView theDiamond;

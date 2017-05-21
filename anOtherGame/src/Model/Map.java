@@ -180,7 +180,7 @@ public class Map implements IMap {
         ramberget.setTramStation(true);
         lundby.setTramStation(true);
         ullevi.setTramStation(true);
-        createSpaces(lundby, hjbrantings, null, 0, 0);
+        createSpaces(lundby,hjbrantings,  null, 0, 0);
         createSpaces(hjbrantings, ramberget, null, 0, 0);
         createSpaces(frihamnen, chLindholmen, null, 0, 0);
         createSpaces(lundby, eriksberg, null, 0, 0);
@@ -202,9 +202,6 @@ public class Map implements IMap {
         createSpaces(vasaplatsen, domkyrkan, null, 0, 0);
         createSpaces(chalmers,vasaplatsen, null, 0, 0);
 
-        for (int i =0; i<spaces.size(); i++){
-            System.out.println("Space=" + spaces.get(i));
-        }
         //Start space.
         redbergsplatsen.setStart(true);
         lundby.setStart(true);
@@ -243,17 +240,16 @@ public class Map implements IMap {
         for ( Marker mark : listOfMarkers){
             if(mark instanceof MoneyMarker){
                 MoneyMarker mMark= (MoneyMarker) mark;
-                System.out.println("MoneyMarker:"+ mMark.getMarkerType());
+                System.out.println(mMark.getMarkerType());
             }
             else{
                 OtherMarkers oMark = (OtherMarkers) mark;
-                System.out.println("OtherMarker:" + oMark.getMarkerType());
+                System.out.println(oMark.getMarkerType());
             }
         }
-        
+
         for(int i = 0 ; i < stations.size(); i++) {
             stations.get(i).setMarker(listOfMarkers.get(i));
-
         }
     }
 
@@ -291,8 +287,16 @@ public class Map implements IMap {
         //init
         if(prev == null){
             prev = from;
-            from.addAdjacentSpace(to);
-            to.addAdjacentSpace(from);
+            if(!checkForMultiples(to, from.getAdjacentSpaces())){
+                if(!from.compareSpaces(to)){
+                    from.addAdjacentSpace(to);
+                }
+            }
+            if(!checkForMultiples(from, to.getAdjacentSpaces())){
+                if(!to.compareSpaces(from)){
+                    to.addAdjacentSpace(from);
+                }
+            }
         }
         if(x == 0){
             x = from.getX();
@@ -303,10 +307,14 @@ public class Map implements IMap {
         //base case
         if (x == to.getX() && y== to.getY()){
             if(!to.getAdjacentSpaces().contains(prev)) {
-                to.addAdjacentSpace(prev);
+                if(!to.compareSpaces(prev)){
+                    to.addAdjacentSpace(prev);
+                }
             }
             if(!prev.getAdjacentSpaces().contains(to)) {
-                prev.addAdjacentSpace(to);
+                if(!prev.compareSpaces(to)){
+                    prev.addAdjacentSpace(to);
+                }
             }
             return true;
         }
@@ -317,13 +325,23 @@ public class Map implements IMap {
             boolean exists = false;
             for(ISpace spacee : this.getSpaces()){
                 if (spacee.getX()-x < 5 && spacee.getX()-x >-5 && spacee.getY()-y < 5 && spacee.getY()-y >-5){
-                   // System.out.println("jahaja");
+                    System.out.println("jahaja");
                     space = spacee;
                     exists = true;
                 }
             }
-            space.addAdjacentSpace(prev);
-            prev.addAdjacentSpace(space);
+            if(!checkForMultiples(prev, space.getAdjacentSpaces())){
+                if(!space.compareSpaces(prev)){
+                    space.addAdjacentSpace(prev);
+                }
+            }
+
+            if(!checkForMultiples(space, prev.getAdjacentSpaces())){
+                if(!prev.compareSpaces(space)){
+                    prev.addAdjacentSpace(space);
+                }
+            }
+
             if (!exists) {
                 this.addSpaces(space);
             }
@@ -360,6 +378,14 @@ public class Map implements IMap {
             }
         }
         return false;
+    }
+
+    public boolean checkForMultiples(ISpace space, List<ISpace> listOfSpacesToCheckForMultiples){
+        if(listOfSpacesToCheckForMultiples.contains(space)){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
 

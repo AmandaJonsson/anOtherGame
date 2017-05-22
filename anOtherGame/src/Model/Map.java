@@ -1,6 +1,7 @@
 package Model;
 
 import Model.Intefaces.IMap;
+import Model.Intefaces.IMarker;
 import Model.Intefaces.ISpace;
 import Model.Intefaces.IStation;
 
@@ -219,7 +220,7 @@ public class Map implements IMap {
 
     public void addMarkers(double noTopaz, double noEmerald, double nOfRubys, double nOfBlanks, List<IStation> stations) {
 
-        ArrayList<Marker> listOfMarkers = new ArrayList<>(stations.size());
+        ArrayList<IMarker> listOfMarkers = new ArrayList<>(stations.size());
 
         for (int i = 0; i < noTopaz; i++)
             listOfMarkers.add(new MoneyMarker(MoneyMarker.TypeOfMarkers.TOPAZ));
@@ -236,7 +237,7 @@ public class Map implements IMap {
 
         shuffle(listOfMarkers);
 
-        for ( Marker mark : listOfMarkers){
+        for ( IMarker mark : listOfMarkers){
             if(mark instanceof MoneyMarker){
                 MoneyMarker mMark= (MoneyMarker) mark;
                 System.out.println(mMark.getMarkerType());
@@ -265,7 +266,7 @@ public class Map implements IMap {
         return startPositions;
     }
 
-    public static void shuffle(ArrayList<Marker> list) {
+    public static void shuffle(ArrayList<IMarker> list) {
         int sizeOfList = list.size();
         Random random = new Random();
         random.nextInt();
@@ -275,14 +276,14 @@ public class Map implements IMap {
         }
     }
 
-    public static void swapList (ArrayList<Marker> list, int i, int shuffle){
-        Marker supporter = list.get(i);
+    public static void swapList (ArrayList<IMarker> list, int i, int shuffle){
+        Marker supporter = (Marker) list.get(i);
         list.set(i, list.get(shuffle));
         list.set(shuffle, supporter);
 
     }
 
-    private boolean createSpaces(Station from, Station to, ISpace prev, int x, int y) {
+    public boolean createSpaces(IStation from, IStation to, ISpace prev, int x, int y) {
         //init
         if(prev == null){
             prev = from;

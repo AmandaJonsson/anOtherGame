@@ -128,7 +128,7 @@ public class MainController {
         newGame = new TheLostKitten(players);
 
         IMap map = newGame.getMap();
-        MapView mapView = new MapView(map);
+        MapView mapView = new MapView(map,newGame);
         mapPlace.getChildren().add(mapView);
 
         AnchorPane.setTopAnchor(playerVBox, 10.0); // obviously provide your own constraints

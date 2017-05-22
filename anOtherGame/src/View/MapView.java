@@ -1,9 +1,16 @@
 package View;
 
 import Model.Intefaces.IMap;
+import Model.Intefaces.IPlayer;
 import Model.Intefaces.ISpace;
+import Model.Intefaces.ITheLostKitten;
 import Model.Map;
+import Model.Player;
 import Model.Station;
+import Model.TheLostKitten;
+import event.Event;
+import event.EventBus;
+import event.IEventHandler;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.HPos;
@@ -14,15 +21,20 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.ImagePattern;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static javafx.geometry.VPos.CENTER;
 
 
-public class MapView extends GridPane {
+public class MapView extends GridPane implements IEventHandler {
     private IMap mapp;
     private String map;
+    private ITheLostKitten lostKitten;
+    private List<IPlayer> listOfPlayers;
+    private List<PlayerPiece> listOfPlayerPices;
 
-    public MapView(IMap mapp) {
+
+    public MapView(IMap mapp, ITheLostKitten lostKitten) {
         map = this.getClass().getResource("../Resources/mapNoPlupps.png").toExternalForm();
         this.setStyle("-fx-background-image: url('" + map + "'); " +
                 "-fx-background-position: center center;" +
@@ -37,6 +49,9 @@ public class MapView extends GridPane {
         createGrid();
         this.mapp = mapp;
         addSpaces();
+        this.lostKitten = lostKitten;
+        listOfPlayers = lostKitten.getListOfPlayers();
+
 
         //group.layoutYProperty().bind(this.layoutYProperty());
         //group.getChildren().add();
@@ -56,6 +71,8 @@ public class MapView extends GridPane {
                 setNewSize(newSceneHeight.doubleValue(), oldSceneHeight.doubleValue());
             }
         });
+        listOfPlayerPices = createPlayersPieces(lostKitten.getPlayers());
+        initEvent();
     }
 
     private void createGrid() {
@@ -188,5 +205,29 @@ public class MapView extends GridPane {
         }
         return false;
     }
+
+    @Override
+    public void onEvent(Event evt) {
+        if (evt.getTag() == Event.Tag.PLAYER_POSITION) {
+            Player p = (Player)evt.getValue(); //<- Player which position has been updated!
+            //TODO UPDATE THE PLAYERPIECE WITH A NEW POSITION WÄWÄWÄWÄ
+            System.out.println("Spelare: " + p.getName() + " Har ny position: " + p.getPosition().toString());
+        }
+    }
+
+    private void initEvent() {
+        EventBus.BUS.register(this);
+    }
+
+    private List<PlayerPiece> createPlayersPieces(List<IPlayer> players){
+        List<PlayerPiece> PlayerPieces = new ArrayList<PlayerPiece>();
+        for(IPlayer p:players){
+            PlayerPiece newPlayer = new PlayerPiece(p,"GREEN");
+            this.add(newPlayer,p.getPosition().getX(), p.getPosition().getY());
+            PlayerPieces.add(newPlayer);
+        }
+        return PlayerPieces;
+    }
+
 }
 

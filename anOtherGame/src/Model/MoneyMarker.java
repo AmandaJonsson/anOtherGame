@@ -1,6 +1,7 @@
 package Model;
 
 import Model.Intefaces.IMarker;
+import Model.Intefaces.IStation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +64,7 @@ public class MoneyMarker extends Marker {
     gets 5000 kr.
      */
 
-    public int specialMarkers(Marker marker, Station station) {
+    public int specialMarkers(IMarker marker, IStation station) {
         if (marker instanceof MoneyMarker) {
 
             if (((MoneyMarker) marker).getMarkerType() == TypeOfMarkers.TOPAZ && station.getName() == "Guldheden") {

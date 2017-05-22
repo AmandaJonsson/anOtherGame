@@ -4,11 +4,11 @@ import Model.Intefaces.IMarker;
 
 public abstract class Marker implements IMarker {
     boolean isTurned = false;
-    private Marker marker;
+    private IMarker marker;
 
     public Marker(){}
 
-    public Marker(Marker marker) {
+    public Marker(IMarker marker) {
         this.marker = marker;
     }
 

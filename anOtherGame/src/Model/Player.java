@@ -3,6 +3,7 @@ package Model;
 
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ISpace;
+import Model.Intefaces.IStation;
 
 public class Player implements IPlayer {
     String name;
@@ -108,12 +109,12 @@ public class Player implements IPlayer {
         if(this.position instanceof Station){
 
             //if the station has a marker
-            if(((Station) this.position).hasMarker()){
+            if(((IStation) this.position).hasMarker()){
 
                 //if the marker is a MoneyMarker
-                if (((Station) this.position).getMarker().getClass().equals(MoneyMarker.class)) {
+                if (((IStation) this.position).getMarker().getClass().equals(MoneyMarker.class)) {
                     //konstig kod?
-                    increaseBalance(((Station) this.position).getMarker().getMarkerValue(((Station) this.position).getMarker()));
+                    increaseBalance(((IStation) this.position).getMarker().getMarkerValue(((Station) this.position).getMarker()));
                 
                /* //if the marker is a PickPocket
                 }else if(((Station) this.position).getMarker().equals(OtherMarkers.NoMoneyMarkers.PICKPOCKET)){

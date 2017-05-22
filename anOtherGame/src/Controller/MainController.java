@@ -1,3 +1,9 @@
+/*Authors: Maja
+Responsibility: Handles the start view.
+Used by: TheLostController
+Uses: FXML-files:TheLostPane and RulesPane, PlayerPaneController, ITheLostKitten, TheLostController, IMap, MapView
+ */
+
 package Controller;
 
 import Model.*;
@@ -29,9 +35,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by majanyberg on 2017-05-03.
- */
 public class MainController {
 
     @FXML
@@ -66,7 +69,6 @@ public class MainController {
 
         Stage stage = (Stage) startGameButton.getScene().getWindow();
 
-        //MapController controller = new MapController(map, mapView);
         Pane mapPlace = (AnchorPane)root.lookup("#mapPlace");
 
         VBox playerVBox = (VBox)root.lookup("#playerPlace");;

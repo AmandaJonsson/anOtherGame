@@ -1,3 +1,9 @@
+/*Authors: Maja, Mirandra, Amanda
+Responsibility: Handles the logic behind the game.
+Used by:
+Uses: IMap, IDice, IPlayer, ISpace, IMarker, FindPath
+ */
+
 package Model;
 
 import Model.Intefaces.*;
@@ -9,7 +15,7 @@ import java.util.Random;
 
 public class TheLostKitten implements ITheLostKitten{
     IMap map;
-    Dice dice;
+    IDice dice;
     private List<IPlayer> playerList;
     private IPlayer activePlayer;
     

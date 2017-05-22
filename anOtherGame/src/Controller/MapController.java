@@ -1,3 +1,9 @@
+/*Authors: Allex
+Responsibility: The controller to the Map
+Used by:
+Uses: IMap and MapView.
+ */
+
 package Controller;
 
 import Model.Intefaces.IMap;

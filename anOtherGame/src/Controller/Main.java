@@ -1,3 +1,9 @@
+/*Authors: Maja
+Responsibility: Starts the game by loading the start view.
+Used by:
+Uses: FXML-files: start and TheLostPane
+ */
+
 package Controller;
 
 import javafx.application.Application;

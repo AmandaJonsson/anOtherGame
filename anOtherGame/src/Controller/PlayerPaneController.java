@@ -1,3 +1,9 @@
+/*Authors: Maja
+Responsibility: Handles the player panes
+Used by: TheLostController
+Uses: FXML-files:PlayerPane
+ */
+
 package Controller;
 
 import Model.Intefaces.IPlayer;

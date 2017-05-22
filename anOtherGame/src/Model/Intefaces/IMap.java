@@ -1,3 +1,9 @@
+/*Authors: Maja
+Responsibility: Interface to Map
+Used by: ITheLostKitten,
+Uses:
+ */
+
 package Model.Intefaces;
 
 import Model.Marker;

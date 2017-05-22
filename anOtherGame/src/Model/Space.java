@@ -1,3 +1,9 @@
+/*Authors: Allex
+Responsibility: The logic behind the spaces.
+Used by:
+Uses: ISpace
+ */
+
 package Model;
 
 

@@ -1,3 +1,9 @@
+/*Authors: Miranda
+Responsibility: The logic behind the stations.
+Used by:
+Uses: IMarker
+ */
+
 package Model;
 
 

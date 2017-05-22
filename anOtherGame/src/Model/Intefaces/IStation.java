@@ -1,3 +1,9 @@
+/*Authors: Maja
+Responsibility: Interface to Station.
+Used by:
+Uses: IMarker
+ */
+
 package Model.Intefaces;
 
 

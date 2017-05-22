@@ -1,3 +1,10 @@
+/*Authors: Allex and Amanda
+Responsibility: Creates all stations and
+spaces on the map and places a random marker at each station.
+Used by:
+Uses: IMap, ISpace, IStation, IStation, MoneyMarker and OtherMarker
+ */
+
 package Model;
 
 import Model.Intefaces.IMap;
@@ -277,7 +284,7 @@ public class Map implements IMap {
     }
 
     public static void swapList (ArrayList<IMarker> list, int i, int shuffle){
-        Marker supporter = (Marker) list.get(i);
+        IMarker supporter = (IMarker) list.get(i);
         list.set(i, list.get(shuffle));
         list.set(shuffle, supporter);
 

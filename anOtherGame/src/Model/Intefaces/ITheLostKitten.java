@@ -1,3 +1,9 @@
+/*Authors: Maja
+Responsibility: Interface to TheLostKitten
+Used by:
+Uses: IPlayer, IDice, IMap
+ */
+
 package Model.Intefaces;
 
 import java.util.List;

@@ -1,3 +1,9 @@
+/*Authors: Amanda
+Responsibility: Handles the actions on the view and update labels etc.
+Used by:
+Uses: IDice, ITheLostKitten,
+ */
+
 package Controller;
 
 import Model.*;

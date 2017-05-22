@@ -1,3 +1,9 @@
+/*Authors: Amanda
+Responsibility: The logic behind the markers that gives money.
+Used by: Map
+Uses: IMarker, IStation
+ */
+
 package Model;
 
 import Model.Intefaces.IMarker;

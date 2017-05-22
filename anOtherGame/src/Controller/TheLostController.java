@@ -15,6 +15,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import Model.Player;
@@ -22,14 +23,7 @@ import Model.TheLostKitten;
 
 
 public class TheLostController {
-
-    private IPlayer[] playerList;
-    private ISpace position;
-    private MainController con;
-
-    @FXML
-    private Pane mapPlace;
-
+    
     @FXML
     private Button diceButton = new Button();
 
@@ -66,24 +60,19 @@ public class TheLostController {
 
     static List<IPlayer> newCreatedPlayers;
 
+    static ArrayList<PlayerPaneController> listOfPlayerPanes;
+
     public TheLostController(){
 
     }
 
-
-
-    public TheLostController(ITheLostKitten newGame, IDice lostdice) {
+    public TheLostController(ITheLostKitten newGame, IDice lostdice, ArrayList<PlayerPaneController> listOfPlayerpanes) {
         lostKitten = newGame;
         dice=lostdice;
         newCreatedPlayers = newGame.getPlayers();
-    }
+        listOfPlayerPanes=listOfPlayerpanes;
 
-
-   /* @FXML
-    public void addMap(MapView map){
-        mapPlace.getChildren().add(map);
     }
-    */
 
     @FXML
     public void setMouseEffect(){
@@ -227,15 +216,14 @@ public class TheLostController {
         payButton.setDisable(true);
         if(alternativeText.getText() == turnMakerText){
             lostKitten.setNewDecreasedBudget(1000);
-            //lostKitten.setBudgetLabel();
+            setBudgetLabel();
             alternativeText.setText("Du har köpt markern");
         }
 
 
         if(alternativeText.getText() =="Du har köpt markern" ) {
             lostKitten.setNewBudget();
-            //lostKitten.setBudgetLabel();
-
+            setBudgetLabel();
         }
     }
 
@@ -306,6 +294,15 @@ public class TheLostController {
     }
 
 
+
+    public void setBudgetLabel(){
+        for(int i =0; i<listOfPlayerPanes.size(); i++){
+            if(listOfPlayerPanes.get(i).nameLabel.getText() == lostKitten.getActivePlayer().getName()){
+                listOfPlayerPanes.get(i).budgetLabel.setText("Pengar:" + lostKitten.getActivePlayer().getBalance() + " kr");
+            }
+        }
+
+    }
 }
 
 

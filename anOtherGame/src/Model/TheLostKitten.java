@@ -79,17 +79,6 @@ public class TheLostKitten implements ITheLostKitten{
     public void setNewDecreasedBudget(int value){
         getActivePlayer().decreaseBalance(value);
     }
-/*
-    public void setBudgetLabel(){
-        for(int i =0; i<listOfPlayerPanes.size(); i++){
-            if(listOfPlayerPanes.get(i).nameLabel.getText() == getActivePlayer().getName()){
-                listOfPlayerPanes.get(i).budgetLabel.setText("Pengar:" + getActivePlayer().getBalance() + " kr");
-            }
-        }
-
-    }
-*/
-
 
 
     public List<IPlayer> getPlayers(){

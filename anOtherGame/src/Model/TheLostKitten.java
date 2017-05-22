@@ -1,7 +1,8 @@
 package Model;
 
 import Model.Intefaces.*;
-
+import event.Event;
+import event.EventBus;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -11,10 +12,7 @@ public class TheLostKitten implements ITheLostKitten{
     Dice dice;
     private List<IPlayer> playerList;
     private IPlayer activePlayer;
-
-
-
-
+    
     public TheLostKitten(List<IPlayer> nameOfPlayers) {
         map = new Map();
         dice = new Dice();
@@ -57,16 +55,6 @@ public class TheLostKitten implements ITheLostKitten{
         return startpositions.get(startPos);
     }
 
-
-    public void getNextPlayer(){
-        int indexInListOfPlayers = getListOfPlayers().indexOf(activePlayer);
-        if(indexInListOfPlayers==playerList.size()-1) {
-            activePlayer = playerList.get(0);
-        }else {
-            activePlayer = playerList.get(indexInListOfPlayers + 1);
-        }
-    }
-
     public void setNewBudget() {
         IMarker mark = ((Station) getActivePlayer().getPosition()).getMarker();
         if (mark instanceof MoneyMarker) {
@@ -104,5 +92,19 @@ public class TheLostKitten implements ITheLostKitten{
     public void move(){
         System.out.println("NU är det spelare " + getActivePlayer().getName());
     }
+
+    //----Event setters-------------
+    public void getNextPlayer(){
+        int indexInListOfPlayers = getListOfPlayers().indexOf(activePlayer);
+        if(indexInListOfPlayers==playerList.size()-1) {
+            activePlayer = playerList.get(0);
+        }else {
+            activePlayer = playerList.get(indexInListOfPlayers + 1);
+        }
+        EventBus.BUS.publish(new Event(Event.Tag.LOSTKITTEN_NEXT, activePlayer));
+    }
+
+}
+
 
 }

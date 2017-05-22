@@ -82,6 +82,16 @@ public class MockMap implements IMap {
         return null;
     }
 
+    @Override
+    public boolean createSpaces(IStation from, IStation to, ISpace prev, int x, int y) {
+        return false;
+    }
+
+    @Override
+    public boolean checkForMultiples(ISpace space, List<ISpace> listOfSpacesToCheckForMultiples) {
+        return false;
+    }
+
 
     public static void shuffle(ArrayList<Marker> list) {
         int sizeOfList = list.size();

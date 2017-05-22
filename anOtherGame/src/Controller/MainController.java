@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -42,6 +43,8 @@ public class MainController {
     @FXML
     private TextField playerTextField1, playerTextField2,
             playerTextField3, playerTextField4, playerTextField5, playerTextField6;
+
+    @FXML private Label warningLabel;
 
     List<IPlayer> players = new ArrayList<>();
     ArrayList<PlayerPaneController> listOfPlayerPanes = new ArrayList<>();
@@ -138,6 +141,7 @@ public class MainController {
         checkSameName();
 
         if(hasSameName == true){
+            warningLabel.setText("Alla spelare måste ha olika namn.");
             System.out.println("Spelarna måste heta olika saker!");
         }
 

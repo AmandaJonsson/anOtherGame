@@ -140,9 +140,14 @@ public class MainController {
 
         checkSameName();
 
-        if(hasSameName == true){
+        if(players.size()<2){
+            warningLabel.setText("Det måste vara minst två spelare!");
+        }
+
+
+        if(hasSameName && players.size()<2){
             warningLabel.setText("Alla spelare måste ha olika namn.");
-            System.out.println("Spelarna måste heta olika saker!");
+
         }
 
 

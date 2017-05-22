@@ -51,7 +51,7 @@
                </font>
             </Button>
             <ImageView id="catimage" fitHeight="150.0" fitWidth="200.0" layoutX="225.0" layoutY="-116.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="warningLabel" layoutX="152.0" layoutY="160.0" prefHeight="26.0" prefWidth="297.0" textAlignment="CENTER" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="152.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="160.0">
+            <Label fx:id="warningLabel" layoutX="150.0" layoutY="160.0" prefHeight="26.0" prefWidth="302.0" textAlignment="CENTER" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="148.0" AnchorPane.topAnchor="160.0">
                <font>
                   <Font name="Comic Sans MS Bold" size="18.0" />
                </font></Label>

@@ -4,6 +4,8 @@ package Model;
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ISpace;
 import Model.Intefaces.IStation;
+import event.Event;
+import event.EventBus;
 
 public class Player implements IPlayer {
     String name;
@@ -46,10 +48,6 @@ public class Player implements IPlayer {
         this.isTurn=false;
     }
 
-    public void setPosition(ISpace position){
-        this.position = position;
-    }
-
     public String getName(){
         return this.name;
     }
@@ -72,18 +70,6 @@ public class Player implements IPlayer {
 
     public boolean hasCat(){
         return this.hasCat;
-    }
-
-    public void robbedByPickpocket(){
-        this.balance = 0;
-    }
-
-    public void increaseBalance(int value){
-        this.balance = this.balance + value;
-    }
-
-    public void decreaseBalance(int value){
-        this.balance = this.balance - value;
     }
 
     public void payTicket(int ticket){
@@ -126,5 +112,33 @@ public class Player implements IPlayer {
         return balance;
 
     }
+
+    // Event setters -----------------------
+    public void setBalance(int balance) {
+        this.balance = balance;
+        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_BALANCE, this));
+    }
+
+    public void setPosition(ISpace position) {
+        this.position = position;
+        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_POSITION, this));
+    }
+
+    public void increaseBalance(int value){
+        this.balance = this.balance + value;
+        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_BALANCE, this));
+    }
+
+    public void decreaseBalance(int value){
+        this.balance = this.balance - value;
+        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_BALANCE, this));
+    }
+
+    public void robbedByPickpocket(){
+        this.balance = 0;
+        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_BALANCE, this));
+    }
+
+
 
 }

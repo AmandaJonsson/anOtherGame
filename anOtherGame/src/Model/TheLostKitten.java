@@ -34,7 +34,7 @@ public class TheLostKitten implements ITheLostKitten{
         return map;
     }
 
-    public Dice getDice(){
+    public IDice getDice(){
         return dice;
     }
 

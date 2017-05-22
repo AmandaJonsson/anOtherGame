@@ -1,7 +1,10 @@
 package Controller;
 
 import Model.*;
+import Model.Intefaces.IDice;
 import Model.Intefaces.IPlayer;
+import Model.Intefaces.ISpace;
+import Model.Intefaces.ITheLostKitten;
 import View.MapView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,8 +23,8 @@ import Model.TheLostKitten;
 
 public class TheLostController {
 
-    private Player[] playerList;
-    private Space position;
+    private IPlayer[] playerList;
+    private ISpace position;
     private MainController con;
 
     @FXML
@@ -57,17 +60,19 @@ public class TheLostController {
 
     private DropShadow shadow = new DropShadow();
 
-    static Dice dice;
+    static IDice dice;
 
-    static TheLostKitten lostKitten;
+    static ITheLostKitten lostKitten;
 
     static List<IPlayer> newCreatedPlayers;
 
-    public TheLostController() {
+    public TheLostController(){
 
     }
 
-    public TheLostController(TheLostKitten newGame, Dice lostdice) {
+
+
+    public TheLostController(ITheLostKitten newGame, IDice lostdice) {
         lostKitten = newGame;
         dice=lostdice;
         newCreatedPlayers = newGame.getPlayers();

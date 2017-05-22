@@ -3,6 +3,7 @@ package Controller;
 import Model.*;
 import Model.Intefaces.IMap;
 import Model.Intefaces.IPlayer;
+import Model.Intefaces.ITheLostKitten;
 import View.MapView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -45,7 +46,7 @@ public class MainController {
     List<IPlayer> players = new ArrayList<>();
     ArrayList<PlayerPaneController> listOfPlayerPanes = new ArrayList<>();
 
-    TheLostKitten newGame;
+    ITheLostKitten newGame;
 
     private DropShadow shadow = new DropShadow();
 
@@ -68,7 +69,7 @@ public class MainController {
         VBox playerVBox = (VBox)root.lookup("#playerPlace");;
 
         if (!playerTextField1.getText().isEmpty()) {
-            Player player1  = new Player(playerTextField1.getText(), 5000);
+            IPlayer player1  = new Player(playerTextField1.getText(), 5000);
             PlayerPaneController playerCon1 = new PlayerPaneController(player1);
             listOfPlayerPanes.add(playerCon1);
             players.add(player1);
@@ -77,7 +78,7 @@ public class MainController {
         }
 
         if (!playerTextField2.getText().isEmpty()) {
-            Player player2  = new Player(playerTextField2.getText(), 5000);
+            IPlayer player2  = new Player(playerTextField2.getText(), 5000);
             PlayerPaneController playerCon2 = new PlayerPaneController(player2);
             listOfPlayerPanes.add(playerCon2);
             players.add(player2);
@@ -86,7 +87,7 @@ public class MainController {
         }
 
         if (!playerTextField3.getText().isEmpty()) {
-            Player player3  = new Player(playerTextField3.getText(), 5000);
+            IPlayer player3  = new Player(playerTextField3.getText(), 5000);
             PlayerPaneController playerCon3 = new PlayerPaneController(player3);
             listOfPlayerPanes.add(playerCon3);
             players.add(player3);
@@ -95,7 +96,7 @@ public class MainController {
         }
 
         if (!playerTextField4.getText().isEmpty()) {
-            Player player4  = new Player(playerTextField4.getText(), 5000);
+            IPlayer player4  = new Player(playerTextField4.getText(), 5000);
             PlayerPaneController playerCon4 = new PlayerPaneController(player4);
             listOfPlayerPanes.add(playerCon4);
             players.add(player4);
@@ -104,7 +105,7 @@ public class MainController {
          }
 
         if (!playerTextField5.getText().isEmpty()) {
-            Player player5  = new Player(playerTextField5.getText(), 5000);
+            IPlayer player5  = new Player(playerTextField5.getText(), 5000);
             PlayerPaneController playerCon5 = new PlayerPaneController(player5);
             listOfPlayerPanes.add(playerCon5);
             players.add(player5);
@@ -113,7 +114,7 @@ public class MainController {
         }
 
         if (!playerTextField6.getText().isEmpty()) {
-            Player player6  = new Player(playerTextField6.getText(), 5000);
+            IPlayer player6  = new Player(playerTextField6.getText(), 5000);
             PlayerPaneController playerCon6 = new PlayerPaneController(player6);
             listOfPlayerPanes.add(playerCon6);
             players.add(player6);

@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.Player;
+import Model.Intefaces.IPlayer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -17,7 +17,7 @@ public class PlayerPaneController {
     @FXML AnchorPane playerPane;
 
 
-    public PlayerPaneController (Player player) throws IOException {
+    public PlayerPaneController (IPlayer player) throws IOException {
         playerPane = FXMLLoader.load(getClass().getResource("/View/PlayerPane.fxml"));
         nameLabel = (Label)playerPane.lookup("#nameLabel");
         nameLabel.setText(player.getName());

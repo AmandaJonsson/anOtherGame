@@ -12,6 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FindPath {
+
+    //TODO right now this class does not handle that special case whit BoatStations!
+    //TODO one shouldn't be able to pass those -> has to stop at next BoatStation even though dice is higher
+
     private static List<ISpace> visitedSpaces = new ArrayList<ISpace>();
     private static List<ISpace> potentialSpaces = new ArrayList<ISpace>();
 

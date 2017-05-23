@@ -32,41 +32,31 @@ public class TheLostController {
     
     @FXML
     private Button diceButton = new Button();
-
     @FXML
     private Button turnMarkerButton = new Button();
-
     @FXML
     private Button bicycleButton = new Button();
-
     @FXML
     private Button boatButton = new Button();
-
     @FXML
     private Button tramButton = new Button();
-
     @FXML
     private Button payButton = new Button();
-
     @FXML
     private Button nextPlayerButton = new Button();
-
-    @FXML private Label alternativeText;
-
-    @FXML public Label playersTurnLabel = new Label();
+    @FXML
+    private Label alternativeText;
+    @FXML
+    public Label playersTurnLabel = new Label();
 
     private String turnMakerText = "Välj att antingen betala 1000 kr eller slå tärningen och \n " +
             "få 4,5 eller 6 för att vända markern.\n Tryck på 'Betala' eller 'Slå tärning'";
 
     private DropShadow shadow = new DropShadow();
-
     static IDice dice;
-
     static ITheLostKitten lostKitten;
-
     static List<IPlayer> newCreatedPlayers;
-
-    static ArrayList<PlayerPaneController> listOfPlayerPanes;
+    ArrayList<PlayerPaneController> listOfPlayerPanes;
 
     public TheLostController(){
 
@@ -226,7 +216,6 @@ public class TheLostController {
             alternativeText.setText("Du har köpt markern");
         }
 
-
         if(alternativeText.getText() =="Du har köpt markern" ) {
             lostKitten.setNewBudget();
             setBudgetLabel();
@@ -267,8 +256,8 @@ public class TheLostController {
 
     @FXML protected void handleNextPlayerButton(ActionEvent event) throws IOException{
 
-        String turn=updatePlayerTurn();
-        setPlayersTurnLabel(turn);
+        updatePlayerTurn();
+        setPlayersTurnLabel(lostKitten.getActivePlayer().getName());
         alternativeText.setText(" ");
         turnMarkerButton.setDisable(false);
         payButton.setDisable(false);
@@ -284,19 +273,8 @@ public class TheLostController {
         playersTurnLabel.setText("Din tur" + " " + text);
     }
 
-    public String updatePlayerTurn(){
-
-        for(int i=0; i<newCreatedPlayers.size();i++){
-            if(newCreatedPlayers.get(i).playerHasTurn()){
-                newCreatedPlayers.get(i).setNotTurn();
-                newCreatedPlayers.get((i + 1) % newCreatedPlayers.size()).setTurn();
-                IPlayer nextplayer = newCreatedPlayers.get((i + 1) % newCreatedPlayers.size());
-                String turn = newCreatedPlayers.get((i+1)%newCreatedPlayers.size()).getName();
-                lostKitten.setActivePlayer(nextplayer);
-                return turn;
-            }
-        }
-        return null;
+    public void updatePlayerTurn(){
+        lostKitten.getNextPlayer();
     }
 
 

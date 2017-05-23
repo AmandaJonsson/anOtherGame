@@ -16,19 +16,22 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.scene.effect.DropShadow;
+import javafx.stage.StageStyle;
 
 
 import java.io.IOException;
@@ -55,6 +58,8 @@ public class MainController {
     ITheLostKitten newGame;
 
     private DropShadow shadow = new DropShadow();
+    private Stage stage;
+    private Stage rulesStage = new Stage();
 
     boolean hasSameName;
     boolean moreThanOnePlayer;
@@ -67,7 +72,7 @@ public class MainController {
         TheLostController theLost = loader.getController();
         theLost.setPlayersTurnLabel(playerTextField1.getText());
 
-        Stage stage = (Stage) startGameButton.getScene().getWindow();
+        stage = (Stage) startGameButton.getScene().getWindow();
 
         Pane mapPlace = (AnchorPane)root.lookup("#mapPlace");
 
@@ -191,24 +196,53 @@ public class MainController {
         }
     }
 
-    @FXML protected void handleRulesGameButton(ActionEvent event) throws IOException {
-        Stage stage = (Stage) rulesButton.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader();
-        Pane theLostPane = (Pane) loader.load(getClass().getResource("/View/rulesPane.fxml"));
+    @FXML
+    private Text rulesTextHeader = new Text();
 
-        Scene scene = new Scene(theLostPane);
-        stage.setScene(scene);
-        stage.show();
+    @FXML
+    private ScrollPane rulesScrollPane = new ScrollPane();
+
+    @FXML
+    private Text rulesText = new Text("Miranda får spela.\n\n" + "Maja får spela.\n\n" + "Amanda får spela.\n\n" + "Allex får spela.\n\n\n\n" + "Alla får spela.");
+
+    @FXML
+    private TextFlow textScrollPane;
+
+
+    @FXML protected void handleRulesGameButton(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        Pane rulesPane = (Pane) loader.load(getClass().getResource("/View/rulesPane.fxml"));
+
+        rulesTextHeader = (Text)rulesPane.lookup("#rulesTextHeader");
+        rulesTextHeader.setText("Spelets regler");
+
+        DropShadow textShadow = new DropShadow();
+        textShadow.setRadius(5.0);
+        textShadow.setOffsetX(3.0);
+        textShadow.setOffsetY(3.0);
+        textShadow.setColor(Color.color(0.4, 0.5, 0.5));
+        rulesTextHeader.setEffect(textShadow);
+        rulesText.setFont(Font.font("Comic Sans MS"));
+
+
+        textScrollPane  = (TextFlow)rulesPane.lookup("#textScrollPane");
+        textScrollPane.getChildren().add(rulesText);
+
+
+        Scene scene = new Scene(rulesPane);
+        rulesStage.setScene(scene);
+        rulesStage.getScene().getRoot().setEffect(shadow);
+        rulesStage.getScene().setFill(Color.TRANSPARENT);
+        rulesStage.show();
+
+
 
     }
 
     @FXML protected void handleBackToStartButton(ActionEvent event) throws IOException {
-        Stage stage = (Stage) backToStartButton.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader();
-        Pane theLostPane = (Pane) loader.load(getClass().getResource("/View/start.fxml"));
-        Scene scene = new Scene(theLostPane);
-        stage.setScene(scene);
-        stage.show();
+        ((Node)(event.getSource())).getScene().getWindow().hide();
+
 
     }
 
@@ -240,6 +274,20 @@ public class MainController {
             @Override
             public void handle(MouseEvent e) {
                 rulesButton.setEffect(null);
+            }
+        });
+
+        backToStartButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                backToStartButton.setEffect(shadow);
+            }
+        });
+
+        backToStartButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                backToStartButton.setEffect(null);
             }
         });
     }

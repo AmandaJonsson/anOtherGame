@@ -1,9 +1,9 @@
-/*Authors: Miranrda
-Responsibility: Handles the start view.
-Used by: TheLostKitten
-Uses: ISpace
+/**
+ * Authors: Miranda
+ * Responsibility: Handles the start view.
+ * Used by: TheLostKitten
+ * Uses: ISpace, Station
  */
-
 package Model;
 
 import Model.Intefaces.ISpace;

@@ -1,3 +1,10 @@
+/**
+ *  Authors: Amanda
+ *  Responsibility: The logic behind the dice.
+ *  Used by: TheLostKitten.
+ *  Uses: IDice.
+ */
+
 package Model;
 
 import Model.Intefaces.IDice;

@@ -7,13 +7,17 @@ Uses: IMarker,
 package Model;
 
 import Model.Intefaces.IMarker;
+import Model.Intefaces.IPlayer;
+
 
 public class OtherMarkers extends Marker {
 
+
     private NoMoneyMarkers marker;
     public int pickpocket=0;
-    public int countCat=1;
+    public int countCat=0;
     public int countTramcard;
+
 
     //the different kinds of other markers
     public enum NoMoneyMarkers {

@@ -20,6 +20,10 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +52,7 @@ public class TheLostController {
     private Label alternativeText;
     @FXML
     public Label playersTurnLabel = new Label();
+
 
     private String turnMakerText = "Välj att antingen betala 1000 kr eller slå tärningen och \n " +
             "få 4,5 eller 6 för att vända markern.\n Tryck på 'Betala' eller 'Slå tärning'";
@@ -179,7 +184,7 @@ public class TheLostController {
         if (diceRoll == 4 || diceRoll == 5 || diceRoll == 6) {
             alternativeText.setText("Du slog en" + " " + diceRoll + " " + "du får vända markern");
             lostKitten.setNewBudget();
-            //lostKitten.setBudgetLabel();
+            //setBudgetLabel();
             payButton.setDisable(true);
             diceButton.setDisable(true);
 
@@ -212,13 +217,13 @@ public class TheLostController {
         payButton.setDisable(true);
         if(alternativeText.getText() == turnMakerText){
             lostKitten.setNewDecreasedBudget(1000);
-            setBudgetLabel();
+            //setBudgetLabel();
             alternativeText.setText("Du har köpt markern");
         }
 
         if(alternativeText.getText() =="Du har köpt markern" ) {
             lostKitten.setNewBudget();
-            setBudgetLabel();
+            //setBudgetLabel();
         }
     }
 
@@ -276,8 +281,6 @@ public class TheLostController {
     public void updatePlayerTurn(){
         lostKitten.getNextPlayer();
     }
-
-
 
     public void setBudgetLabel(){
         for(int i =0; i<listOfPlayerPanes.size(); i++){

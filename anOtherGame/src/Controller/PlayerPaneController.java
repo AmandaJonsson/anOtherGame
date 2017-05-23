@@ -7,6 +7,8 @@ Uses: FXML-files:PlayerPane
 package Controller;
 
 import Model.Intefaces.IPlayer;
+import Model.Marker;
+import Model.OtherMarkers;
 import Model.Player;
 import event.Event;
 import event.EventBus;
@@ -15,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -55,9 +58,6 @@ public class PlayerPaneController implements IEventHandler {
         return player;
     }
 
-    public void updateBudgetLabel(){
-    }
-
     //Method if we would like to also indicate the panel of the active player!
     //Right now some kind of shadow, he he he he
     @Override
@@ -71,6 +71,8 @@ public class PlayerPaneController implements IEventHandler {
             }
         }
     }
+
+
 
     private void initEvent() {
         EventBus.BUS.register(this);

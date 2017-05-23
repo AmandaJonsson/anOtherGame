@@ -21,6 +21,7 @@ public class Player implements IPlayer {
     private boolean hasCat = false;
     private boolean skipATurn = false;
     private boolean isTurn = false;
+    private boolean robbedByPickpocket= false;
 
     public Player(String name, ISpace position, int balance){
         this.name = name;
@@ -62,8 +63,9 @@ public class Player implements IPlayer {
         setPosition(newPosition);
     }
 
-    public void gotTramCard(){
+    public boolean gotTramCard(){
         this.hasTramCard = true;
+        return hasTramCard;
     }
 
     public void usedTramCard(){
@@ -77,6 +79,12 @@ public class Player implements IPlayer {
     public boolean hasCat(){
         return this.hasCat;
     }
+
+    public boolean setHasCat(){
+        hasCat=true;
+        return hasCat;
+    }
+
 
     public void payTicket(int ticket){
         decreaseBalance(ticket);
@@ -140,9 +148,11 @@ public class Player implements IPlayer {
         EventBus.BUS.publish(new Event(Event.Tag.PLAYER_BALANCE, this));
     }
 
-    public void robbedByPickpocket(){
+    public boolean robbedByPickpocket(){
+        robbedByPickpocket=true;
         this.balance = 0;
         EventBus.BUS.publish(new Event(Event.Tag.PLAYER_BALANCE, this));
+        return robbedByPickpocket;
     }
 
 

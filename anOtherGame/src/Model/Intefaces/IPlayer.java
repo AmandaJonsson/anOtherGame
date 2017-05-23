@@ -8,11 +8,12 @@ public interface IPlayer {
     String getName();
     void setPosition(ISpace newPosition);
     void updatePosition(ISpace newPosition);
-    void gotTramCard();
+    boolean gotTramCard();
     void usedTramCard();
     boolean hasTramCard();
     boolean hasCat();
-    void robbedByPickpocket();
+    boolean setHasCat();
+    boolean robbedByPickpocket();
     void increaseBalance(int value);
     void decreaseBalance(int value);
     void payTicket(int ticket);

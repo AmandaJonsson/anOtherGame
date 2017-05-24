@@ -1,7 +1,9 @@
-/*Authors: Maja
-Responsibility: The logic behind the players.
-Used by:
-Uses: ISpace
+/**
+ * @author Maja
+ * Revised by: *name*
+ * Responsibility: The logic behind the players.
+ * Used by:
+ * Uses: ISpace
  */
 
 package Model;

@@ -1,5 +1,12 @@
-package Model.Intefaces;
+/**
+ * @author Maja
+ * Revised by: *name*
+ * Responsibility: Interface to the Player class.
+ * Used by: ITheLostKitten, TheLostKitten, MainController
+ * Uses: ISpace
+ */
 
+package Model.Intefaces;
 
 public interface IPlayer {
     boolean playerHasTurn();

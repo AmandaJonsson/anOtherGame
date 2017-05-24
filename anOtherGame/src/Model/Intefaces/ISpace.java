@@ -1,3 +1,11 @@
+/**
+ * @author Maja
+ * Revised by: *name*
+ * Responsibility: Interface to the Space class.
+ * Used by: Map, IMap, ITheLostKitten
+ * Uses:
+ */
+
 package Model.Intefaces;
 
 import java.util.List;

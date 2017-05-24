@@ -1,13 +1,14 @@
 /**
- * Authors: Miranda
- * Responsibility: Handles the start view.
+ * @author Miranda
+ * Revised by: *name*
+ * Responsibility: A help class to calculate possible paths.
  * Used by: TheLostKitten
- * Uses: ISpace, Station
+ * Uses: ISpace
  */
+
 package Model;
 
 import Model.Intefaces.ISpace;
-
 import java.util.ArrayList;
 import java.util.List;
 

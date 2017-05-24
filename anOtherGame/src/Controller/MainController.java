@@ -1,7 +1,10 @@
-/*Authors: Maja
-Responsibility: Handles the start view.
-Used by: TheLostController
-Uses: FXML-files:TheLostPane and RulesPane, PlayerPaneController, ITheLostKitten, TheLostController, IMap, MapView
+/**
+ * @author Maja
+ * Revised by: *name*
+ * Responsibility: Handles the start view.
+ * Used by: TheLostController
+ * Uses: FXML-files: TheLostPane, RulesPane,
+ *       PlayerPaneController, ITheLostKitten, TheLostcontroller, IMap, MapView
  */
 
 package Controller;
@@ -15,12 +18,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -31,12 +32,10 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.scene.effect.DropShadow;
-import javafx.stage.StageStyle;
-
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class MainController {
 

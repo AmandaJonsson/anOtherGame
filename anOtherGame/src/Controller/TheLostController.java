@@ -1,17 +1,19 @@
-/*Authors: Amanda
-Responsibility: Handles the actions on the view and update labels etc.
-Used by:
-Uses: IDice, ITheLostKitten,
+
+/**
+ * @author Amanda
+ * Revised by: *name*
+ * Responsibility: Handles the actions on the view and update labels etc.
+ * Used by:
+ * Uses: IDice, ITheLostKitten,
  */
+
 
 package Controller;
 
-import Model.*;
+
 import Model.Intefaces.IDice;
 import Model.Intefaces.IPlayer;
-import Model.Intefaces.ISpace;
 import Model.Intefaces.ITheLostKitten;
-import View.MapView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -19,18 +21,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import Model.Player;
-import Model.TheLostKitten;
-
 
 public class TheLostController {
     

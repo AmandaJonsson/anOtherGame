@@ -1,8 +1,12 @@
-/*Authors: Maja, Mirandra, Amanda
-Responsibility: Handles the logic behind the game.
-Used by:
-Uses: IMap, IDice, IPlayer, ISpace, IMarker, FindPath
+/**
+ * @author Maja, Mirandra, Amanda
+ * Revised by:
+ * Responsibility: Handles the logic behind the game.
+ * Used by:
+ * Uses: IMap, IDice, IPlayer, ISpace, IMarker, FindPath
  */
+
+
 
 package Model;
 

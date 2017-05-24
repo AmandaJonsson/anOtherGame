@@ -1,3 +1,12 @@
+/**
+ * @author Amanda, Miranda
+ * Revised by: *name*
+ * Responsibility:
+ * Used by:
+ * Uses: IPlayer, IDice, IMap
+ */
+
+
 package Model;
 
 import Model.Intefaces.IMarker;

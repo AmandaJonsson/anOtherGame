@@ -1,9 +1,3 @@
-/*Authors: Maja
-Responsibility: Starts the game by loading the start view.
-Used by:
-Uses: FXML-files: start and TheLostPane
- */
-
 package Controller;
 
 import javafx.application.Application;
@@ -13,7 +7,17 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+/**
+ * @author Maja
+ * Revised by: *name*
+ * Responsibility: Starts the game by loading the start view.
+ * Used by:
+ * Uses: FXML-files: start and TheLostPane
+ */
+
 public class Main extends Application {
+
+
 
     @Override
     public void start(Stage startStage) throws Exception{

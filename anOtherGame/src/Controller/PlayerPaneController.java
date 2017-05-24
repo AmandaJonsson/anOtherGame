@@ -1,14 +1,16 @@
-/*Authors: Maja
-Responsibility: Handles the player panes
-Used by: TheLostController
-Uses: FXML-files:PlayerPane
+
+/**
+ * @author Maja
+ * Revised by: *name*
+ * Responsibility: Handles one player pane.
+ * Used by: TheLostController
+ * Uses: FXML-files: PlayerPane
  */
+
 
 package Controller;
 
 import Model.Intefaces.IPlayer;
-import Model.Marker;
-import Model.OtherMarkers;
 import Model.Player;
 import event.Event;
 import event.EventBus;
@@ -17,7 +19,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;

@@ -1,14 +1,15 @@
-/*Authors: Amanda
-Responsibility: The logic behind the markers Cat, Tramcard and pickpocket.
-Used by: Map
-Uses: IMarker,
+/**
+ * @author Amanda
+ * Revised by: *name*
+ * Responsibility: The logic behind the markers Cat, Tramcard and pickpocket.
+ * Used by: Map
+ * Uses: IMarker,
  */
 
+
+
 package Model;
-
 import Model.Intefaces.IMarker;
-import Model.Intefaces.IPlayer;
-
 
 public class OtherMarkers extends Marker {
 

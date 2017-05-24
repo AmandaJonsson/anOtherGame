@@ -1,5 +1,6 @@
 /**
- * Authors: Allex and Amanda
+ * @author Allex and Amanda
+ * Revised by: *name*
  * Responsibility: Creates all stations and spaces on the map and places a random marker at each station.
  * Used by: TheLostKitten
  * Uses: IMap, ISpace, IStation, Space, Station, Marker, MoneyMarker and OtherMarker

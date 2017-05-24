@@ -1,7 +1,10 @@
-/*Authors: Maja
-Responsibility: Interface to TheLostKitten
-Used by:
-Uses: IPlayer, IDice, IMap
+
+/**
+ * @author: Maja
+ * Revised by: *name*
+ * Responsibility: Interface to TheLostKitten
+ * Used by: MainController
+ * Uses: IPlayer, IDice, IMap
  */
 
 package Model.Intefaces;

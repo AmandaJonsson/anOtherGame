@@ -1,12 +1,12 @@
-/*Authors: Allex
-Responsibility: The logic behind the spaces.
-Used by:
-Uses: ISpace
+/**
+ * @author Allex
+ * Revised by: *name*
+ * Responsibility: The logic behind the spaces.
+ * Used by:
+ * Uses: ISpace
  */
 
 package Model;
-
-
 
 import Model.Intefaces.ISpace;
 

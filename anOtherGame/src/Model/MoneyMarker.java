@@ -1,14 +1,17 @@
-/*Authors: Amanda
-Responsibility: The logic behind the markers that gives money.
-Used by: Map
-Uses: IMarker, IStation
+/**
+ * @author Amanda
+ * Revised by: *name*
+ *Responsibility: The logic behind the markers that gives money.
+ * Used by: Map
+ * Uses: IMarker, IStation
  */
+
+
 
 package Model;
 
 import Model.Intefaces.IMarker;
 import Model.Intefaces.IStation;
-
 import java.util.ArrayList;
 import java.util.List;
 

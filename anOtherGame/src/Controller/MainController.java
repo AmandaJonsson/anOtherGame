@@ -230,12 +230,19 @@ public class MainController {
         textScrollPane.getChildren().add(rulesText);
 
 
+        rulesStage.focusedProperty().addListener((obs, wasFocused, isNowFocused) -> {
+            if (! isNowFocused) {
+                rulesStage.hide();
+            }
+        });
+
+
+
         Scene scene = new Scene(rulesPane);
         rulesStage.setScene(scene);
         rulesStage.getScene().getRoot().setEffect(shadow);
         rulesStage.getScene().setFill(Color.TRANSPARENT);
         rulesStage.show();
-
 
 
     }

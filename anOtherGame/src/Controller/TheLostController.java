@@ -54,6 +54,7 @@ public class TheLostController {
     public Label playersTurnLabel = new Label();
 
 
+
     private String turnMakerText = "Välj att antingen betala 1000 kr eller slå tärningen och \n " +
             "få 4,5 eller 6 för att vända markern.\n Tryck på 'Betala' eller 'Slå tärning'";
 
@@ -72,7 +73,6 @@ public class TheLostController {
         dice=lostdice;
         newCreatedPlayers = newGame.getPlayers();
         listOfPlayerPanes=listOfPlayerpanes;
-
     }
 
     @FXML
@@ -227,14 +227,19 @@ public class TheLostController {
         }
     }
 
+
     @FXML protected void handleBicycleButton(ActionEvent event) throws IOException{
+        int numberOnDice = lostKitten.getDice().roll();
+        System.out.println(numberOnDice);
+        System.out.println(lostKitten.moveByBike());
+
+        /*
         int diceRoll = dice.roll();
         //lostKitten.moveByBike(diceRoll);
         System.out.println("Tärningen visar: " + diceRoll);
         System.out.println(lostKitten.getActivePlayer().getName());
         System.out.println(lostKitten.getActivePlayer().getPosition());
-        System.out.println(FindPath.findPotentialSpaces(diceRoll,lostKitten.getActivePlayer().getPosition()));
-
+*/
         alternativeText.setText("Välj vilken väg du vill åka genom att trycka på den positionen");
         bicycleButton.setDisable(true);
         boatButton.setDisable(true);
@@ -245,6 +250,10 @@ public class TheLostController {
         System.out.println("Cykla");
 
     }
+
+
+
+
 
     @FXML protected void handleBoatButton(ActionEvent event) throws IOException{
         int diceroll = dice.roll();

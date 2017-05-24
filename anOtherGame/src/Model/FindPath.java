@@ -16,11 +16,12 @@ public class FindPath {
     //TODO right now this class does not handle that special case whit BoatStations!
     //TODO one shouldn't be able to pass those -> has to stop at next BoatStation even though dice is higher
 
-    private static List<ISpace> visitedSpaces = new ArrayList<ISpace>();
-    private static List<ISpace> potentialSpaces = new ArrayList<ISpace>();
+    List<ISpace> visitedSpaces = new ArrayList<ISpace>();
+    List<ISpace> potentialSpaces = new ArrayList<ISpace>();
 
 
-    public static List<ISpace> findPotentialSpaces(int numberOnDice, ISpace positionOfPlayer) {
+    public List<ISpace> findPotentialSpaces(int numberOnDice, ISpace positionOfPlayer) {
+
         List<ISpace> tempList = new ArrayList<ISpace>();
         potentialSpaces.add(positionOfPlayer);
         for (int i = 0; i < numberOnDice; i++) {
@@ -60,7 +61,7 @@ public class FindPath {
     }
 
 
-    private static List<ISpace> checkForVisitedSpaces(List<ISpace> list){
+    private List<ISpace> checkForVisitedSpaces(List<ISpace> list){
         List<ISpace> newList = new ArrayList<ISpace>();
         for (int i = 0; i < list.size(); i++){
             ISpace temp = list.get(i);

@@ -22,6 +22,8 @@ public interface ITheLostKitten {
     ISpace getRandomStartPosition();
     void getNextPlayer();
     void setNewBudget();
+    void setMarkerTurned();
+    boolean checkIfMarkerIsTurned(IMarker mark);
     void setNewDecreasedBudget(int value);
     IMap getMap();
     List<ISpace> moveByBike();

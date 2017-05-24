@@ -67,26 +67,41 @@ public class TheLostKitten implements ITheLostKitten{
     }
 
 
-    public void setMarkerTurned(){
+    public void setMarkerTurned() {
         IMarker mark = ((Station) getActivePlayer().getPosition()).getMarker();
         mark.setMarkerToTurned();
     }
 
+    public boolean checkIfMarkerIsTurned(IMarker mark){
+        if(mark.isMarkerTurned()==true){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public void setNewBudget() {
         IMarker mark = ((Station) getActivePlayer().getPosition()).getMarker();
+        ((Station) getActivePlayer().getPosition()).getMarker().setMarkerToTurned();
         if (mark instanceof MoneyMarker) {
             System.out.println(((MoneyMarker) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
             getActivePlayer().updateBudget();
         }
-        else if(mark instanceof OtherMarkers){
-            if(mark.equals(OtherMarkers.NoMoneyMarkers.CAT)){
-               getActivePlayer().setHasCat();
-            }
-            else if(mark.equals(OtherMarkers.NoMoneyMarkers.TRAMCARD)){
+        else if(mark instanceof OtherMarkers) {
+            System.out.println(((OtherMarkers) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
+            if (mark.equals(OtherMarkers.NoMoneyMarkers.CAT)) {
+                System.out.println(getActivePlayer().setHasCat());
+
+            } else if (mark.equals(OtherMarkers.NoMoneyMarkers.TRAMCARD)) {
+                System.out.println(((OtherMarkers) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
                 getActivePlayer().gotTramCard();
-            }
-            else if(mark.equals(OtherMarkers.NoMoneyMarkers.PICKPOCKET)){
+
+            } else {
+                System.out.println(((OtherMarkers) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
                 getActivePlayer().robbedByPickpocket();
+
+
             }
         }
     }

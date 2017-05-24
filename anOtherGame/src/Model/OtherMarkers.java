@@ -48,7 +48,6 @@ public class OtherMarkers extends Marker {
             }
             else if(((OtherMarkers) marker).getMarkerType() == NoMoneyMarkers.CAT){
                 countCat=1;
-                return 1;
             }
             else{
                 return pickpocket;

@@ -12,9 +12,12 @@ package Controller;
 
 
 import Model.Intefaces.IDice;
+import Model.Intefaces.IMarker;
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ITheLostKitten;
+import Model.OtherMarkers;
 import Model.Player;
+import Model.Station;
 import event.Event;
 import event.EventBus;
 import event.IEventHandler;
@@ -23,10 +26,13 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +57,8 @@ public class TheLostController implements IEventHandler{
     private Label alternativeText;
     @FXML
     public Label playersTurnLabel = new Label();
+
+    Image cat = new Image("Resources/cat.png");
 
 
 
@@ -178,6 +186,7 @@ public class TheLostController implements IEventHandler{
     }
 
     @FXML protected void handleDiceButton(ActionEvent event) throws IOException {
+
         int diceRoll = dice.roll();
 
         if (diceRoll == 4 || diceRoll == 5 || diceRoll == 6) {
@@ -197,17 +206,21 @@ public class TheLostController implements IEventHandler{
         }
     }
 
-    @FXML protected void handleTurnMarkerButton(ActionEvent event) throws IOException{
+    @FXML protected void handleTurnMarkerButton(ActionEvent event) throws IOException {
 
+        IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
         if (event.getSource()==turnMarkerButton){
-            alternativeText.setText(turnMakerText);
-            bicycleButton.setDisable(true);
-            boatButton.setDisable(true);
-            tramButton.setDisable(true);
-            turnMarkerButton.setDisable(true);
-
+            if (lostKitten.checkIfMarkerIsTurned(mark) == true ){
+                alternativeText.setText("Det finns ingen marker på denna stationen");
+            }
+            else {
+                alternativeText.setText(turnMakerText);
+                bicycleButton.setDisable(true);
+                boatButton.setDisable(true);
+                tramButton.setDisable(true);
+                turnMarkerButton.setDisable(true);
+            }
         }
-
     }
 
     @FXML protected void handlePayButton(ActionEvent event) throws IOException{
@@ -215,13 +228,11 @@ public class TheLostController implements IEventHandler{
         payButton.setDisable(true);
         if(alternativeText.getText() == turnMakerText){
             lostKitten.setNewDecreasedBudget(1000);
-            //setBudgetLabel();
             alternativeText.setText("Du har köpt markern");
         }
 
         if(alternativeText.getText() =="Du har köpt markern" ) {
             lostKitten.setNewBudget();
-            //setBudgetLabel();
         }
     }
 
@@ -263,7 +274,6 @@ public class TheLostController implements IEventHandler{
     }
 
     @FXML protected void handleNextPlayerButton(ActionEvent event) throws IOException{
-
         updatePlayerTurn();
         setPlayersTurnLabel(lostKitten.getActivePlayer().getName());
         alternativeText.setText(" ");
@@ -273,6 +283,7 @@ public class TheLostController implements IEventHandler{
         bicycleButton.setDisable(false);
         boatButton.setDisable(false);
         tramButton.setDisable(false);
+
 
     }
 
@@ -285,15 +296,13 @@ public class TheLostController implements IEventHandler{
         lostKitten.getNextPlayer();
     }
 
-
     @Override
     public void onEvent(Event evt) {
-        if(evt.getTag()==Event.Tag.PLAYER_BALANCE){
-            for(int i =0; i<listOfPlayerPanes.size(); i++){
-                if(listOfPlayerPanes.get(i).nameLabel.getText() == lostKitten.getActivePlayer().getName()){
+        if (evt.getTag() == Event.Tag.PLAYER_BALANCE) {
+            for (int i = 0; i < listOfPlayerPanes.size(); i++) {
+                if (listOfPlayerPanes.get(i).nameLabel.getText() == lostKitten.getActivePlayer().getName()) {
                     listOfPlayerPanes.get(i).budgetLabel.setText("Pengar:" + lostKitten.getActivePlayer().getBalance() + " kr");
                 }
-
             }
         }
     }

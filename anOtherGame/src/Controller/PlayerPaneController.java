@@ -20,9 +20,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class PlayerPaneController implements IEventHandler {
@@ -33,7 +35,6 @@ public class PlayerPaneController implements IEventHandler {
     @FXML ImageView tramCard;
     @FXML AnchorPane playerPane;
     private IPlayer player;
-
 
 
     public PlayerPaneController (IPlayer player) throws IOException {

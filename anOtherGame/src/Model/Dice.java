@@ -1,5 +1,5 @@
 /**
- *  Authors: Amanda
+ *  @author: Amanda
  *  Responsibility: The logic behind the dice.
  *  Used by: TheLostKitten.
  *  Uses: IDice.

@@ -1,3 +1,11 @@
+/**
+ * @author Allex, Miranda
+ * Revised by: *name*
+ * Responsibility: Paint the map view
+ * Used by:
+ * Uses: IMap, ITheLostKitten, IPlayer, PlayerPiece, Station, Path
+ */
+
 package View;
 
 import Model.Intefaces.IMap;

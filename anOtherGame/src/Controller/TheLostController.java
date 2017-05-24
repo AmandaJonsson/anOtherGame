@@ -14,6 +14,9 @@ package Controller;
 import Model.Intefaces.IDice;
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ITheLostKitten;
+import Model.Player;
+import event.Event;
+import event.IEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -21,11 +24,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TheLostController {
+public class TheLostController implements IEventHandler{
     
     @FXML
     private Button diceButton = new Button();
@@ -285,14 +290,24 @@ public class TheLostController {
     }
 
     public void setBudgetLabel(){
-        for(int i =0; i<listOfPlayerPanes.size(); i++){
-            if(listOfPlayerPanes.get(i).nameLabel.getText() == lostKitten.getActivePlayer().getName()){
-                listOfPlayerPanes.get(i).budgetLabel.setText("Pengar:" + lostKitten.getActivePlayer().getBalance() + " kr");
-            }
+
         }
 
+
+
+    @Override
+    public void onEvent(Event evt) {
+        if(evt.getTag()==Event.Tag.PLAYER_BALANCE){
+            for(int i =0; i<listOfPlayerPanes.size(); i++){
+                if(listOfPlayerPanes.get(i).nameLabel.getText() == lostKitten.getActivePlayer().getName()){
+                    listOfPlayerPanes.get(i).budgetLabel.setText("Pengar:" + lostKitten.getActivePlayer().getBalance() + " kr");
+                }
+
+            }
+        }
     }
 }
+
 
 
 

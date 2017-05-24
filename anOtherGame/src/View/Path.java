@@ -1,3 +1,11 @@
+/**
+ * @author Allex
+ * Revised by: *name*
+ * Responsibility: The visulization of the path.
+ * Used by: MapView
+ * Uses:
+ */
+
 package View;
 
 import javafx.scene.paint.Paint;

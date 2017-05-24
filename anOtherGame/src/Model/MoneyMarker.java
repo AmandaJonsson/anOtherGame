@@ -1,7 +1,7 @@
 /**
  * @author Amanda
  * Revised by: *name*
- *Responsibility: The logic behind the markers that gives money.
+ * Responsibility: The logic behind the markers that gives money.
  * Used by: Map
  * Uses: IMarker, IStation
  */

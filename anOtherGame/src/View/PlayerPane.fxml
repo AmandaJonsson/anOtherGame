@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
+<!--
+@author: Maja
+Revised by: *name*
+Responsibility: The playerPane view
+Used by:PlayerPaneController
+Uses:
+-->
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+
 
 <AnchorPane maxHeight="1.7976931348623157E308" minHeight="100.0" minWidth="0.0" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #fd9dff;" stylesheets="@CSSs/PlayerPane.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>

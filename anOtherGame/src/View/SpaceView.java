@@ -19,14 +19,20 @@ import javafx.scene.shape.Circle;
 public class SpaceView extends Circle {
     private String color;
     private ISpace space;
+    private String defaultColor;
     public SpaceView(ISpace space, String color) {
         this.color = color;
+        defaultColor = color;
         this.setId("spaces");
         this.setFill(Paint.valueOf(color));
         this.setRadius(5);
         this.space=space;
         setMouseEvent();
 
+    }
+
+    public String getDefaultColor(){
+        return defaultColor;
     }
 
     public String getColor() {
@@ -37,6 +43,15 @@ public class SpaceView extends Circle {
         this.color = color;
         this.setFill(Paint.valueOf(color));
     }
+
+    public int getX(){
+        return space.getX();
+    }
+
+    public int getY(){
+        return space.getY();
+    }
+
 
     //TODO THIS NO WORK PLEASE FEEEX!!
 

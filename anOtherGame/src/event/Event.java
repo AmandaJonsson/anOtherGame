@@ -4,10 +4,11 @@ public class Event {
 
    //List of possible events
     public enum Tag {
-        PLAYER_FLIPMARKER,
-        PLAYER_BALANCE,
-        PLAYER_POSITION,
-        LOSTKITTEN_NEXT,
+       PLAYER_FLIPMARKER,
+       PLAYER_BALANCE,
+       PLAYER_POSITION,
+       LOSTKITTEN_NEXT,
+       FIND_PATH
     }
 
     private final Tag tag;

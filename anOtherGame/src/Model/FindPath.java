@@ -9,12 +9,15 @@
 package Model;
 
 import Model.Intefaces.ISpace;
+import event.Event;
+import event.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class FindPath {
 
-    //TODO right now this class does not handle that special case whit BoatStations!
+    //TODO right now this class does not handle that special case with BoatStations!
     //TODO one shouldn't be able to pass those -> has to stop at next BoatStation even though dice is higher
 
     List<ISpace> visitedSpaces = new ArrayList<ISpace>();
@@ -50,9 +53,9 @@ public class FindPath {
                     potentialSpaces.add(visitedSpaces.get(l));
             }
         }
+        EventBus.BUS.publish(new Event(Event.Tag.FIND_PATH, this));
         return potentialSpaces;
     }
-
 
     private static List<ISpace> mergeLists(List<ISpace> list1, List<ISpace> list2) {
         List<ISpace> newList = new ArrayList<ISpace>();
@@ -60,7 +63,6 @@ public class FindPath {
         newList.addAll(list2);
         return newList;
     }
-
 
     private List<ISpace> checkForVisitedSpaces(List<ISpace> list){
         List<ISpace> newList = new ArrayList<ISpace>();
@@ -73,11 +75,13 @@ public class FindPath {
         return newList;
     }
 
-
     public static void printListOfSpaces(List<ISpace> spaces) {
         for (int i = 0; i < spaces.size(); i++) {
             System.out.println(spaces.get(i).toString());
         }
     }
 
+    public List<ISpace> getPotentialSpaces() {
+        return potentialSpaces;
+    }
 }

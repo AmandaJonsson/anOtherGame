@@ -8,14 +8,13 @@
 
 package View;
 
+import Model.FindPath;
 import Model.Intefaces.IMap;
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ISpace;
 import Model.Intefaces.ITheLostKitten;
-import Model.Map;
 import Model.Player;
 import Model.Station;
-import Model.TheLostKitten;
 import event.Event;
 import event.EventBus;
 import event.IEventHandler;
@@ -26,6 +25,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 
 import java.util.ArrayList;
@@ -39,7 +39,8 @@ public class MapView extends GridPane implements IEventHandler {
     private String map;
     private ITheLostKitten lostKitten;
     private List<IPlayer> listOfPlayers;
-    private List<PlayerPiece> listOfPlayerPices;
+    private List<PlayerPiece> listOfPlayerPieces;
+    private List<SpaceView> listOfSpaceViews;
 
 
     public MapView(IMap mapp, ITheLostKitten lostKitten) {
@@ -79,8 +80,12 @@ public class MapView extends GridPane implements IEventHandler {
                 setNewSize(newSceneHeight.doubleValue(), oldSceneHeight.doubleValue());
             }
         });
-        listOfPlayerPices = createPlayersPieces(lostKitten.getPlayers());
+        listOfPlayerPieces = createPlayersPieces(lostKitten.getPlayers());
         initEvent();
+    }
+
+    public List<SpaceView> getListOfSpaceViews(){
+        return listOfSpaceViews;
     }
 
     private void createGrid() {
@@ -124,10 +129,13 @@ public class MapView extends GridPane implements IEventHandler {
 
     public void addSpaces() {
         ArrayList<String> list = new ArrayList<String>();
+        listOfSpaceViews = new ArrayList<SpaceView>();
+
         for (ISpace space : mapp.getSpaces()) {
             //System.out.println(space.getController().getView());
             //System.out.println(space.getX() + " " + space.getY());
             SpaceView view = new SpaceView(space,"Black");
+            listOfSpaceViews.add(view);
             if (space instanceof Station){
                 if (((Station) space).getIsBoatStation()) {
                     view.setColor("Blue");
@@ -220,6 +228,16 @@ public class MapView extends GridPane implements IEventHandler {
             Player p = (Player)evt.getValue(); //<- Player which position has been updated!
             //TODO UPDATE THE PLAYERPIECE WITH A NEW POSITION WÄWÄWÄWÄ
             System.out.println("Spelare: " + p.getName() + " Har ny position: " + p.getPosition().toString());
+        }else if(evt.getTag() == Event.Tag.FIND_PATH){
+            FindPath p = (FindPath) evt.getValue();
+            List<ISpace> listOfPotentialSpaces = p.getPotentialSpaces();
+            for(int i = 0; i<listOfPotentialSpaces.size(); i++){
+                for(int j = 0; j< getListOfSpaceViews().size(); j++){
+                    if(listOfPotentialSpaces.get(i).getX() == getListOfSpaceViews().get(j).getX() && listOfPotentialSpaces.get(i).getY() == getListOfSpaceViews().get(j).getY()){
+                        getListOfSpaceViews().get(j).setFill(Color.YELLOW);
+                    }
+                }
+            }
         }
     }
 

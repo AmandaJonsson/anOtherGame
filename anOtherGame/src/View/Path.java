@@ -33,4 +33,8 @@ public class Path extends Circle{
     public int getX() {
         return x;
     }
+
+    public String toString(){
+        return "(" + getX()+", "+getY() + ")";
+    }
 }

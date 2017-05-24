@@ -1,8 +1,16 @@
+/**
+ * @author Miranda
+ * Revised by: *name*
+ * Responsibility: Visualize the player's position.
+ * Used by: MapView
+ * Uses: ISpace, Iplayer
+ */
+
+
 package View;
 
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ISpace;
-import Model.Player;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 

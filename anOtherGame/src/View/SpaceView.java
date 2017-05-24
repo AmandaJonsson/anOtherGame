@@ -1,7 +1,15 @@
+/**
+ * @author Allex
+ * Revised by: *name*
+ * Responsibility: View for the spaces.
+ * Used by: MapView
+ * Uses: Ispace, IStation
+ */
+
 package View;
 
 import Model.Intefaces.ISpace;
-import Model.Station;
+import Model.Intefaces.IStation;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
@@ -38,8 +46,8 @@ public class SpaceView extends Circle {
 
                 @Override
                 public void handle(MouseEvent t) {
-                    if (space instanceof Station) {
-                        if (!((Station) space).isStart()) {
+                    if (space instanceof IStation) {
+                        if (!((IStation) space).isStart()) {
                             setStyle("-fx-fill:" + "Green" + ";");
                         } else {
                             setRadius(60);
@@ -55,12 +63,12 @@ public class SpaceView extends Circle {
                 @Override
                 public void handle(MouseEvent t) {
                     String color;
-                    if (space instanceof Station) {
-                        if (!((Station) space).isStart()) {
-                            if (((Station) space).getIsBoatStation()) {
+                    if (space instanceof IStation) {
+                        if (!((IStation) space).isStart()) {
+                            if (((IStation) space).getIsBoatStation()) {
                                 color = "Blue";
                             }
-                            if (((Station) space).getIsTramStation()) {
+                            if (((IStation) space).getIsTramStation()) {
                                 color = "Red";
                             }else color="Black";
                             setColor(color);

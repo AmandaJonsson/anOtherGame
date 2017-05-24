@@ -66,6 +66,12 @@ public class TheLostKitten implements ITheLostKitten{
         return startpositions.get(startPos);
     }
 
+
+    public void setMarkerTurned(){
+        IMarker mark = ((Station) getActivePlayer().getPosition()).getMarker();
+        mark.setMarkerToTurned();
+    }
+
     public void setNewBudget() {
         IMarker mark = ((Station) getActivePlayer().getPosition()).getMarker();
         if (mark instanceof MoneyMarker) {
@@ -88,7 +94,6 @@ public class TheLostKitten implements ITheLostKitten{
     public void setNewDecreasedBudget(int value){
         getActivePlayer().decreaseBalance(value);
     }
-
 
     public List<IPlayer> getPlayers(){
         return playerList;

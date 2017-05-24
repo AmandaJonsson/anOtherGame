@@ -16,6 +16,7 @@ import Model.Intefaces.IPlayer;
 import Model.Intefaces.ITheLostKitten;
 import Model.Player;
 import event.Event;
+import event.EventBus;
 import event.IEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -71,6 +72,7 @@ public class TheLostController implements IEventHandler{
         dice=lostdice;
         newCreatedPlayers = newGame.getPlayers();
         listOfPlayerPanes=listOfPlayerpanes;
+        initEvent();
     }
 
     @FXML
@@ -176,13 +178,11 @@ public class TheLostController implements IEventHandler{
     }
 
     @FXML protected void handleDiceButton(ActionEvent event) throws IOException {
-
         int diceRoll = dice.roll();
 
         if (diceRoll == 4 || diceRoll == 5 || diceRoll == 6) {
             alternativeText.setText("Du slog en" + " " + diceRoll + " " + "du får vända markern");
             lostKitten.setNewBudget();
-            //setBudgetLabel();
             payButton.setDisable(true);
             diceButton.setDisable(true);
 
@@ -249,10 +249,6 @@ public class TheLostController implements IEventHandler{
 
     }
 
-
-
-
-
     @FXML protected void handleBoatButton(ActionEvent event) throws IOException{
         int diceroll = dice.roll();
         lostKitten.moveByBoat(diceroll);
@@ -289,11 +285,6 @@ public class TheLostController implements IEventHandler{
         lostKitten.getNextPlayer();
     }
 
-    public void setBudgetLabel(){
-
-        }
-
-
 
     @Override
     public void onEvent(Event evt) {
@@ -305,6 +296,10 @@ public class TheLostController implements IEventHandler{
 
             }
         }
+    }
+
+    private void initEvent() {
+        EventBus.BUS.register(this);
     }
 }
 

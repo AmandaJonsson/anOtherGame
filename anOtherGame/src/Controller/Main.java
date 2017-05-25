@@ -37,11 +37,6 @@ public class Main extends Application {
         return scene;
     }
 
-    private Pane loadGamePane() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        Pane theLostPane = (Pane) loader.load(getClass().getResource("/View/TheLostPane.fxml"));
-        return theLostPane;
-    }
 
     public static void main(String[] args){
         launch(args);

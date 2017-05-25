@@ -42,7 +42,7 @@ public class MainController {
     // Button, textfields etc are connected with the FXML file
     @FXML private Parent root;
     @FXML private DropShadow shadow = new DropShadow();
-        //Start pane
+
     @FXML private Button rulesButton = new Button();
     @FXML private Button startGameButton = new Button();
     @FXML private TextField playerTextField1, playerTextField2, playerTextField3, playerTextField4, playerTextField5, playerTextField6;
@@ -52,26 +52,20 @@ public class MainController {
     @FXML private FXMLLoader loader;
     @FXML private Stage stage;
 
-        // Rule pane
     @FXML private Text rulesTextHeader = new Text();
     @FXML private Text rulesText = new Text("Miranda får spela.\n\n" + "Maja får spela.\n\n" + "Amanda får spela.\n\n" + "Allex får spela.\n\n\n\n" + "Alla får spela.");
     @FXML private TextFlow textScrollPane;
     @FXML private Button backToStartButton = new Button();
     @FXML private Stage rulesStage = new Stage();
 
-
-    // Controllers
     private TheLostController theLost;
     private TheLostController newController;
-
 
     private List<IPlayer> players = new ArrayList<>();
     private ArrayList<PlayerPaneController> listOfPlayerPanes = new ArrayList<>();
     private ITheLostKitten newGame;
     private boolean hasSameName;
     private IMap map;
-
-
 
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
 
@@ -87,10 +81,9 @@ public class MainController {
 
         //adds all players to a list
         addPlayers();
-        //creates a new game (lostkitten) with the players
+
         newGame = new TheLostKitten(players);
 
-        // sets up the map from the players, the game
         map = newGame.getMap();
         MapView mapView = new MapView(map,newGame);
         mapPlace.getChildren().add(mapView);
@@ -100,9 +93,6 @@ public class MainController {
         AnchorPane.setRightAnchor(mapView, 0.0);
         AnchorPane.setBottomAnchor(mapView, 0.0);
 
-        /* Checks if a game can be started, if so it starts the game
-            - all players have different names
-            - at least 2 players are playing */
         checkSameName();
         canWePlay();
         startGame();
@@ -112,8 +102,7 @@ public class MainController {
 
     }
 
-    /* Adds player to a list. The players have a name, and a controller for his/her view. */
-    public void addPlayers() throws IOException {
+    private void addPlayers() throws IOException {
         if (!playerTextField1.getText().isEmpty()) {
             IPlayer player1  = new Player(playerTextField1.getText(), 5000);
             PlayerPaneController playerCon1 = new PlayerPaneController(player1);
@@ -170,8 +159,7 @@ public class MainController {
 
     }
 
-    /* Changes pane to the game pane*/
-    public void startGame(){
+    private void startGame(){
         if(!hasSameName && players.size()>1){
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -180,11 +168,7 @@ public class MainController {
         }
     }
 
-    /* Checks if all players have different names, and that at least 2 players are playing*/
-    public void canWePlay(){
-        if(hasSameName){
-            players.clear();
-        }
+    private void canWePlay(){
         if(players.size()<2 || players.isEmpty()){
             warningLabel.setText("Det måste vara minst två spelare!");
             players.clear();
@@ -196,19 +180,20 @@ public class MainController {
     }
 
 
-    /* Checks that all players have different names*/
-    public void checkSameName(){
+    private void checkSameName(){
         for (int i = 0; i < players.size(); i++){
             for(int j = i+1; j < players.size(); j++) {
                 hasSameName = players.get(i).getName().equals(players.get(j).getName());
+                if(hasSameName){
+                    players.clear();
+                }
             }
         }
     }
 
 
 
-
-    @FXML protected void handleRulesGameButton(ActionEvent event) throws IOException {
+    @FXML private void handleRulesGameButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         Pane rulesPane = (Pane) loader.load(getClass().getResource("/View/rulesPane.fxml"));
 
@@ -242,13 +227,13 @@ public class MainController {
 
     }
 
-    @FXML protected void handleBackToStartButton(ActionEvent event) throws IOException {
+    @FXML private void handleBackToStartButton(ActionEvent event) throws IOException {
         ((Node)(event.getSource())).getScene().getWindow().hide();
     }
 
 
     @FXML
-    public void setMouseEffect() {
+    private void setMouseEffect() {
         startGameButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent e) {

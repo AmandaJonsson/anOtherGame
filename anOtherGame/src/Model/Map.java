@@ -248,11 +248,11 @@ public class Map implements IMap {
         for ( IMarker mark : listOfMarkers){
             if(mark instanceof MoneyMarker){
                 MoneyMarker mMark= (MoneyMarker) mark;
-                System.out.println(mMark.getMarkerType());
+                //System.out.println(mMark.getMarkerType());
             }
             else{
                 OtherMarkers oMark = (OtherMarkers) mark;
-                System.out.println(oMark.getMarkerType());
+                //System.out.println(oMark.getMarkerType());
             }
         }
 
@@ -333,7 +333,6 @@ public class Map implements IMap {
             boolean exists = false;
             for(ISpace spacee : this.getSpaces()){
                 if (spacee.getX()-x < 5 && spacee.getX()-x >-5 && spacee.getY()-y < 5 && spacee.getY()-y >-5){
-                    System.out.println("jahaja");
                     space = spacee;
                     exists = true;
                 }

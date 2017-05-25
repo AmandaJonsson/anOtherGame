@@ -122,6 +122,11 @@ public class Player implements IPlayer {
                 }else if(((Station) this.position).getMarker().equals(OtherMarkers.NoMoneyMarkers.PICKPOCKET)){
                     robbedByPickpocket();*/
                 }
+                else if(((IStation) this.position).getMarker().getClass().equals(OtherMarkers.class)){
+                    if(((IStation) this.position).getMarker().equals( OtherMarkers.NoMoneyMarkers.CAT)){
+                        increaseBalance(0);
+                    }
+                }
             }
         }
 

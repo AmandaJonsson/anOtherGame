@@ -209,20 +209,16 @@ public class TheLostController implements IEventHandler{
     @FXML protected void handleTurnMarkerButton(ActionEvent event) throws IOException {
 
         IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
-        if (event.getSource()==turnMarkerButton){
-            if (lostKitten.checkIfMarkerIsTurned(mark) == true ){
-                alternativeText.setText("Det finns ingen marker på denna stationen");
-            }
-            else {
-                alternativeText.setText(turnMakerText);
-                bicycleButton.setDisable(true);
-                boatButton.setDisable(true);
-                tramButton.setDisable(true);
-                turnMarkerButton.setDisable(true);
-            }
+        if (lostKitten.checkIfMarkerIsTurned(mark)==true ){
+            alternativeText.setText("Det finns ingen marker på denna stationen");
+        } else {
+            alternativeText.setText(turnMakerText);
+            bicycleButton.setDisable(true);
+            boatButton.setDisable(true);
+            tramButton.setDisable(true);
+            turnMarkerButton.setDisable(true);
         }
     }
-
     @FXML protected void handlePayButton(ActionEvent event) throws IOException{
         diceButton.setDisable(true);
         payButton.setDisable(true);

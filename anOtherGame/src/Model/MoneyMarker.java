@@ -68,6 +68,11 @@ public class MoneyMarker extends Marker {
         return 0;
     }
 
+    @Override
+    public void getOtherMarkerValue(IMarker marker) {
+
+    }
+
     /* A method that handle the special markers, for example you get twice as much
     money if you get a Topaz on Guldheden. And the first player who gets to Emilsborg
     gets 5000 kr.

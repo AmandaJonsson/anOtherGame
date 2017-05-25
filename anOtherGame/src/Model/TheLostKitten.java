@@ -88,22 +88,22 @@ public class TheLostKitten implements ITheLostKitten{
 
     public void setNewBudget() {
         IMarker mark = ((Station) getActivePlayer().getPosition()).getMarker();
-        ((Station) getActivePlayer().getPosition()).getMarker().setMarkerToTurned();
         if (mark instanceof MoneyMarker) {
             System.out.println(((MoneyMarker) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
             getActivePlayer().updateBudget();
+            mark.setMarkerToTurned();
         }
         else if(mark instanceof OtherMarkers) {
-            System.out.println(((OtherMarkers) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
             if (mark.equals(OtherMarkers.NoMoneyMarkers.CAT)) {
-                System.out.println(getActivePlayer().setHasCat());
+                System.out.println(((OtherMarkers) mark).getMarkerType());
+                getActivePlayer().setHasCat();
+                //getActivePlayer().increaseBalance(0);
 
             } else if (mark.equals(OtherMarkers.NoMoneyMarkers.TRAMCARD)) {
-                System.out.println(((OtherMarkers) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
+                System.out.println(((OtherMarkers) mark).getMarkerType());
                 getActivePlayer().gotTramCard();
 
-            } else {
-                System.out.println(((OtherMarkers) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
+            } else if(mark.equals(OtherMarkers.NoMoneyMarkers.PICKPOCKET)){
                 getActivePlayer().robbedByPickpocket();
 
 

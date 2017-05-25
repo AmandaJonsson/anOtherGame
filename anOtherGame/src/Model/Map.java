@@ -231,16 +231,16 @@ public class Map implements IMap {
         ArrayList<IMarker> listOfMarkers = new ArrayList<>(stations.size());
 
         for (int i = 0; i < noTopaz; i++)
-            listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.CAT));
+            listOfMarkers.add(new MoneyMarker(MoneyMarker.TypeOfMarkers.TOPAZ));
         for (int i = 0; i < noEmerald; i++)
-            listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.TRAMCARD));
+            listOfMarkers.add(new MoneyMarker(MoneyMarker.TypeOfMarkers.EMERALD));
         for (int i = 0; i < nOfRubys; i++)
-            listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.CAT));
+            listOfMarkers.add(new MoneyMarker(MoneyMarker.TypeOfMarkers.RUBY));
         for (int i = 0; i < nOfBlanks; i++)
-            listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.TRAMCARD));
+            listOfMarkers.add(new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK));
 
         listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.CAT));
-        listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.CAT));
+        listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.PICKPOCKET));
         listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.TRAMCARD));
 
         shuffle(listOfMarkers);
@@ -248,11 +248,11 @@ public class Map implements IMap {
         for ( IMarker mark : listOfMarkers){
             if(mark instanceof MoneyMarker){
                 MoneyMarker mMark= (MoneyMarker) mark;
-                //System.out.println(mMark.getMarkerType());
+                System.out.println(mMark.getMarkerType());
             }
             else{
                 OtherMarkers oMark = (OtherMarkers) mark;
-                //System.out.println(oMark.getMarkerType());
+                System.out.println(oMark.getMarkerType());
             }
         }
 

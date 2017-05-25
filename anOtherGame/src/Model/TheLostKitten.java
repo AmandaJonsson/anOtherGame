@@ -28,12 +28,17 @@ public class TheLostKitten implements ITheLostKitten{
         map = new Map();
         dice = new Dice();
         playerList = nameOfPlayers;
-        nameOfPlayers.get(0).setTurn();
+        if(!nameOfPlayers.isEmpty()) {
+            nameOfPlayers.get(0).setTurn();
 
-        for(IPlayer player : nameOfPlayers){
-            player.setPosition(getRandomStartPosition());
+            for (IPlayer player : nameOfPlayers) {
+                player.setPosition(getRandomStartPosition());
+            }
+            activePlayer = nameOfPlayers.get(0);
         }
-        activePlayer = nameOfPlayers.get(0);
+
+
+
     }
 
     public List<IPlayer> getListOfPlayers(){

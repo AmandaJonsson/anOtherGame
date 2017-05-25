@@ -3,7 +3,7 @@ package Model;
 /**
  * Created by amandajonsson on 2017-05-16.
  */
-
+/*
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -62,3 +62,4 @@ public class MoneyMarkerTest {
 
     }
 }
+*/

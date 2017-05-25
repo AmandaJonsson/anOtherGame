@@ -3,7 +3,7 @@ package Model;
 /**
  * Created by amandajonsson on 2017-05-25.
  */
-
+/*
 import Model.Intefaces.IMap;
 import Model.Intefaces.ISpace;
 import Model.Intefaces.IStation;
@@ -60,3 +60,4 @@ public class MapTest {
         //assertTrue(map.getStartPositions().contains(lundby));
     }
 }
+*/

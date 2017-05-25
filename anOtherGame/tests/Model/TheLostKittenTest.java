@@ -3,7 +3,7 @@ package Model;
 /**
  * Created by amandajonsson on 2017-05-25.
  */
-
+/*
 import Model.Intefaces.IMarker;
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ISpace;
@@ -79,3 +79,4 @@ public class TheLostKittenTest {
     }
 
 }
+*/

@@ -1,9 +1,9 @@
 package Model;
-
+/*
 import org.junit.Test;
 import static org.junit.Assert.*;
-
-/*Created by amandajonsson on 2017-05-02.*/
+*/
+/*Created by amandajonsson on 2017-05-02.*//*
 public class OtherMarkerTest {
 
     OtherMarkers markC = new OtherMarkers(OtherMarkers.NoMoneyMarkers.CAT);
@@ -64,5 +64,5 @@ public class OtherMarkerTest {
         }
 
     }
-}
+}*/
 

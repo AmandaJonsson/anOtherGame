@@ -1,5 +1,5 @@
 package Model;
-
+/*
 import Model.Intefaces.ISpace;
 import com.sun.xml.internal.xsom.XSWildcard;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 /**
  * Created by majanyberg on 2017-05-16.
- */
+ *//*
 public class PlayerTest {
     String name = "Maja";
     ISpace testGet = new Space(1,1);
@@ -176,4 +176,4 @@ public class PlayerTest {
     }
 
 
-}
+}*/

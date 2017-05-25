@@ -25,10 +25,14 @@ public class TheLostKittenTest {
     IMarker markO = new OtherMarkers(OtherMarkers.NoMoneyMarkers.CAT);
     IMarker markT = new OtherMarkers(OtherMarkers.NoMoneyMarkers.TRAMCARD);
     IMarker markP = new OtherMarkers(OtherMarkers.NoMoneyMarkers.PICKPOCKET);
+    TheLostKitten kitten;
+
 
     public TheLostKittenTest(){
         playerList=new ArrayList<>();
         playerList.add(player1);
+        kitten = new TheLostKitten(playerList);
+
     }
 
     @Test
@@ -38,7 +42,6 @@ public class TheLostKittenTest {
 
     @Test
     public void testSetNewBudget(){
-        TheLostKitten kitten = new TheLostKitten(playerList);
         Station station1 = new Station("Chalmers",1,1);
         player1.setPosition(station1);
         station1.setMarker(markM);
@@ -66,6 +69,13 @@ public class TheLostKittenTest {
         assertTrue(player1.getBalance() == 8000);
         assertTrue(player1.robbedByPickpocket() == true);
 
+    }
+
+    @Test
+    public void testCheckIfMarkerIsTurned(){
+        markM.setMarkerToTurned();
+        assertTrue(kitten.checkIfMarkerIsTurned(markM) == true);
+        assertFalse(kitten.checkIfMarkerIsTurned(markO) == true);
     }
 
 }

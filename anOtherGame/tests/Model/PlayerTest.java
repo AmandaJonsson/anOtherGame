@@ -1,11 +1,13 @@
-package Model;
-/*
+
+/*package Model;
+
+>>>>>>> map
 import Model.Intefaces.ISpace;
 import com.sun.xml.internal.xsom.XSWildcard;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-
+*/
 /**
  * Created by majanyberg on 2017-05-16.
  *//*

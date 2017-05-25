@@ -2,7 +2,9 @@ package Model;
 /*
 import org.junit.Test;
 import static org.junit.Assert.*;
+<<<<<<< HEAD
 */
+
 /*Created by amandajonsson on 2017-05-02.*//*
 public class OtherMarkerTest {
 
@@ -64,5 +66,6 @@ public class OtherMarkerTest {
         }
 
     }
+<<<<<<< HEAD
 }*/
 

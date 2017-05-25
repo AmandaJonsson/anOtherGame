@@ -8,11 +8,13 @@
 
 package View;
 
-import Model.FindPath;
+
 import Model.Intefaces.IMap;
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ISpace;
 import Model.Intefaces.ITheLostKitten;
+import Model.Map;
+
 import Model.Player;
 import Model.Station;
 import event.Event;
@@ -21,30 +23,47 @@ import event.IEventHandler;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.HPos;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
-import javafx.scene.paint.Color;
+
+import javafx.scene.layout.*;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static javafx.geometry.VPos.CENTER;
 
-
-public class MapView extends GridPane implements IEventHandler {
+/**
+ * Created by Allex on 2017-04-06.
+ */
+public class MapView extends StackPane {
     private IMap mapp;
     private String map;
-    private ITheLostKitten lostKitten;
-    private List<IPlayer> listOfPlayers;
-    private List<PlayerPiece> listOfPlayerPieces;
-    private List<SpaceView> listOfSpaceViews;
+    GridPane stations;
+    GridPane markers;
+    GridPane players;
 
 
     public MapView(IMap mapp, ITheLostKitten lostKitten) {
         map = this.getClass().getResource("../Resources/mapNoPlupps.png").toExternalForm();
+        stations = new GridPane();
+        stations.setMaxHeight(700);
+        stations.setMaxWidth(700);
+        stations.setPrefSize(700, 700);
+        markers = new GridPane();
+        markers.setMaxHeight(700);
+        markers.setMaxWidth(700);
+        markers.setPrefSize(700, 700);
+        markers.setPickOnBounds(false);
+        players = new GridPane();
+        players.setMaxHeight(700);
+        players.setMaxWidth(700);
+        players.setPrefSize(700, 700);
+        players.setPickOnBounds(false);
         this.setStyle("-fx-background-image: url('" + map + "'); " +
                 "-fx-background-position: center center;" +
                 "-fx-background-repeat: stretch; " +
@@ -52,91 +71,57 @@ public class MapView extends GridPane implements IEventHandler {
                 "-fx-background-repeat: no-repeat;");
 
         //this.setStyle("-fx-background-color: aqua");
-        this.setPrefSize(600, 600);
+        this.setPrefSize(400, 400);
         this.setMinSize(400, 400);
-        this.setMaxSize(900, 900);
-        createGrid();
+        this.setMaxSize(400, 400);
+        this.getChildren().add(stations);
+        this.getChildren().add(markers);
+        createGrid(stations);
+        createGrid(markers);
+        this.setAlignment(Pos.BASELINE_LEFT);
         this.mapp = mapp;
         addSpaces();
-        this.lostKitten = lostKitten;
-        listOfPlayers = lostKitten.getListOfPlayers();
 
-
-        //group.layoutYProperty().bind(this.layoutYProperty());
-        //group.getChildren().add();
-        //new Space("Nordstan", 100,100);
-
-        //group.setTranslateY();
-
-        this.widthProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
-                setNewSize(newSceneWidth.doubleValue(), oldSceneWidth.doubleValue());
-            }
-        });
-        this.heightProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneHeight, Number newSceneHeight) {
-                setNewSize(newSceneHeight.doubleValue(), oldSceneHeight.doubleValue());
-            }
-        });
-        listOfPlayerPieces = createPlayersPieces(lostKitten.getPlayers());
-        initEvent();
     }
 
-    public List<SpaceView> getListOfSpaceViews(){
-        return listOfSpaceViews;
-    }
-
-    private void createGrid() {
-        this.setGridLinesVisible(false);
+    private void createGrid(GridPane pane) {
+        pane.setGridLinesVisible(false);
         final int numCols = 100;
         final int numRows = 100;
         for (int i = 0; i < numCols; i++) {
-           /* Label label = new Label();
-            label.setText(Integer.toString(i));
-            label.setMinWidth(20);
-            //label.setPrefHeight(10);
-            this.add(label, i, i);
-            //this.add(i, i, 1);*/
             ColumnConstraints colConst = new ColumnConstraints();
-            colConst.setPercentWidth(100.0 / numCols);
+            colConst.setMaxWidth(pane.getPrefWidth()/numCols);
             colConst.setHalignment(HPos.CENTER);
-            this.getColumnConstraints().add(colConst);
+            colConst.setHgrow(Priority.ALWAYS);
+            pane.getColumnConstraints().add(colConst);
         }
         for (int i = 0; i < numRows; i++) {
-           /* Label label = new Label();
-            label.setText(Integer.toString(i));
-            label.setMinWidth(20);
-            //label.setPrefHeight(10);
-            this.add(label, 0, i);*/
             RowConstraints rowConst = new RowConstraints();
-            rowConst.setPercentHeight(100.0 / numRows);
+            rowConst.setMaxHeight(pane.getPrefHeight()/numRows);
             rowConst.setValignment(CENTER);
-            this.getRowConstraints().add(rowConst);
+            rowConst.setVgrow(Priority.ALWAYS);
+            pane.getRowConstraints().add(rowConst);
         }
 
     }
 
-    public void setNewSize(double newsize, double oldSize) {
-        this.setHeight(newsize);
-        this.setWidth(newsize);
-//System.out.println(group.computeAreaInScreen());
-        //group.setTranslateX(1/(getPrefWidth()- newsize));
-        // group.setTranslateY(1/(oldSize-newsize));
-        //group.resize(newsize/oldSize, newsize/oldSize);
-    }
 
     public void addSpaces() {
         ArrayList<String> list = new ArrayList<String>();
-        listOfSpaceViews = new ArrayList<SpaceView>();
+        //listOfSpaceViews = new ArrayList<SpaceView>();
 
         for (ISpace space : mapp.getSpaces()) {
             //System.out.println(space.getController().getView());
             //System.out.println(space.getX() + " " + space.getY());
             SpaceView view = new SpaceView(space,"Black");
-            listOfSpaceViews.add(view);
+            //listOfSpaceViews.add(view);
             if (space instanceof Station){
+                if (((Station) space).hasMarker()){
+                    Circle marker = new Circle();
+                    marker.setRadius(5);
+                    marker.setFill(Paint.valueOf("Purple"));
+                    markers.add(marker, space.getX(), space.getY());
+                }
                 if (((Station) space).getIsBoatStation()) {
                     view.setColor("Blue");
                 }else if (((Station) space).getIsTramStation()) {
@@ -162,7 +147,7 @@ public class MapView extends GridPane implements IEventHandler {
                     }
                 }
             }
-            this.add(view, space.getX(), space.getY());
+            stations.add(view, space.getX(), space.getY());
         }
     }
     private boolean calculatePath(Station from, Station to, int x, int y) {
@@ -187,7 +172,7 @@ public class MapView extends GridPane implements IEventHandler {
             //space.addAdjacentSpace(prev);
             //prev.addAdjacentSpace(space);
         }else if (!(from.getX()-x < 1 && from.getX()-x >-1 && from.getY()-y <1 && from.getY()-y >-1) && !(to.getX()-x < 1 && to.getX()-x >-1 && to.getY()-y <1 && to.getY()-y >-1)) {
-            this.add(new Path(color, x,y), x, y);
+            stations.add(new Path(color, x,y), x, y);
         }
         if (x < to.getX()){
             if (y==to.getY()){
@@ -222,6 +207,7 @@ public class MapView extends GridPane implements IEventHandler {
         return false;
     }
 
+/*
     @Override
     public void onEvent(Event evt) {
         if (evt.getTag() == Event.Tag.PLAYER_POSITION) {
@@ -255,5 +241,27 @@ public class MapView extends GridPane implements IEventHandler {
         return PlayerPieces;
     }
 
+*/
+    public void setPlayerPosition(ArrayList<IPlayer> playerlist){
+        players.getChildren().removeAll();
+        for (IPlayer player : playerlist){
+            Circle circle = new Circle();
+            circle.setRadius(20);
+            circle.setFill(Paint.valueOf("White"));
+            if (!hasNode(players, player.getPosition().getX(), player.getPosition().getY())) {
+                 players.add(circle, player.getPosition().getX(), player.getPosition().getY());
+            }
+
+        }
+
+    }
+    private boolean hasNode(GridPane gridpane, int col, int row) {
+        for (Node node : gridpane.getChildren()) {
+            if (GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 

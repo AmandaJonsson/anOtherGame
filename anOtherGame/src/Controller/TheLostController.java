@@ -18,6 +18,7 @@ import Model.Intefaces.ITheLostKitten;
 import Model.OtherMarkers;
 import Model.Player;
 import Model.Station;
+import View.MapView;
 import event.Event;
 import event.EventBus;
 import event.IEventHandler;
@@ -70,8 +71,10 @@ public class TheLostController implements IEventHandler{
     static ITheLostKitten lostKitten;
     static List<IPlayer> newCreatedPlayers;
     ArrayList<PlayerPaneController> listOfPlayerPanes;
+    private MapView mapView;
 
     public TheLostController(){
+
 
     }
 
@@ -83,6 +86,15 @@ public class TheLostController implements IEventHandler{
         initEvent();
     }
 
+
+    @FXML
+    public void addMap(MapView map){
+
+        this.mapView=map;
+        ArrayList<IPlayer> players = new ArrayList<>();
+        players.addAll(lostKitten.getListOfPlayers());
+        mapView.setPlayerPosition(players);
+    }
 
     @FXML
     public void setMouseEffect(){
@@ -332,6 +344,7 @@ public class TheLostController implements IEventHandler{
     private void initEvent() {
         EventBus.BUS.register(this);
     }
+
 }
 
 

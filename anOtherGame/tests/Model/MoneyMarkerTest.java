@@ -1,4 +1,4 @@
-package Model;
+/*package Model;
 
 /**
  * Created by amandajonsson on 2017-05-16.
@@ -63,3 +63,4 @@ public class MoneyMarkerTest {
     }
 }
 */
+

@@ -68,7 +68,6 @@ public class MainController {
     private IMap map;
 
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
-
         //prepares the game board to be loaded, and viewed
         loader = new FXMLLoader(getClass().getResource("/View/TheLostPane.fxml"));
         root = loader.load();
@@ -155,6 +154,13 @@ public class MainController {
             players.add(player6);
             playerCon6.getView().setStyle(" -fx-background-color: silver;");
             playerVBox.getChildren().add(playerCon6.getView());
+
+         }
+
+
+        if(hasSameName == true){
+            System.out.println("Spelarna måste heta olika saker!");
+
         }
 
     }
@@ -166,6 +172,7 @@ public class MainController {
             stage.show();
 
         }
+
     }
 
     private void canWePlay(){

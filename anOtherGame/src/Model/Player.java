@@ -140,17 +140,23 @@ public class Player implements IPlayer {
         EventBus.BUS.publish(new Event(Event.Tag.PLAYER_BALANCE, this));
         return robbedByPickpocket;
     }
-    public boolean gotTramCard(){
-        this.hasTramCard = true;
-        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_TRAMCARD, this));
-        return hasTramCard;
-    }
 
     public boolean setHasCat(){
         hasCat=true;
-        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_CAT, this));
+        System.out.println("set has cat");
+        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_CAT,this));
+
         return hasCat;
     }
+
+    public boolean gotTramCard(){
+        System.out.println("set has tram card");
+        hasTramCard = true;
+        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_TRAMCARD,this));
+        return hasTramCard;
+    }
+
+
 
 
 }

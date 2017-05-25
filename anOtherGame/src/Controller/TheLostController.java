@@ -212,27 +212,32 @@ public class TheLostController implements IEventHandler{
         IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
         if (lostKitten.checkIfMarkerIsTurned(mark)==true ){
             alternativeText.setText("Det finns ingen marker på denna stationen");
+            payButton.setDisable(true);
+            diceButton.setDisable(true);
         } else {
             alternativeText.setText(turnMakerText);
             bicycleButton.setDisable(true);
             boatButton.setDisable(true);
             tramButton.setDisable(true);
             turnMarkerButton.setDisable(true);
-        }
-        System.out.println("HEEEJEJEJEJE");
 
-    /*    if((((OtherMarkers)mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT)){
-            System.out.println("SET CAT");
-            System.out.println((((OtherMarkers)mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT));
-            lostKitten.getActivePlayer().setHasCat();
+            if (mark instanceof OtherMarkers) {
+                if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT)) {
+                    lostKitten.getActivePlayer().setHasCat();
+
+                }
+
+                if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.TRAMCARD)) {
+                    lostKitten.getActivePlayer().gotTramCard();
+
+                }
+            }
+            mark.setMarkerToTurned();
         }
 
-        if((((OtherMarkers)mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.TRAMCARD)){
-            System.out.println("SET TRAMCARD");
-            System.out.println((((OtherMarkers)mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.TRAMCARD));
-            lostKitten.getActivePlayer().gotTramCard();
-        }*/
+
     }
+
     @FXML protected void handlePayButton(ActionEvent event) throws IOException{
         diceButton.setDisable(true);
         payButton.setDisable(true);
@@ -284,6 +289,8 @@ public class TheLostController implements IEventHandler{
     }
 
     @FXML protected void handleNextPlayerButton(ActionEvent event) throws IOException{
+        IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
+
         updatePlayerTurn();
         setPlayersTurnLabel(lostKitten.getActivePlayer().getName());
         alternativeText.setText(" ");
@@ -293,6 +300,11 @@ public class TheLostController implements IEventHandler{
         bicycleButton.setDisable(false);
         boatButton.setDisable(false);
         tramButton.setDisable(false);
+
+
+        if(mark.isMarkerTurned()){
+            turnMarkerButton.setDisable(true);
+        }
 
 
     }

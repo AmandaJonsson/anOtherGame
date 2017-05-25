@@ -83,16 +83,19 @@ public class PlayerPaneController implements IEventHandler {
         }
 
         if(evt.getTag() == Event.Tag.PLAYER_CAT){
+            System.out.println("CAT EVENT");
             Player pl = (Player)evt.getValue();
             if(pl.getName().equals(player.getName())){
-                this.getCatImage().setVisible(true);
+                this.getTramCardImage().setVisible(true);
+
             }
         }
 
         if(evt.getTag() == Event.Tag.PLAYER_TRAMCARD){
+            System.out.println("TRAMCARD EVENT");
             Player pla = (Player)evt.getValue();
             if(pla.getName().equals(player.getName())){
-                this.getTramCardImage().setVisible(true);
+                this.getCatImage().setVisible(true);
             }
         }
     }

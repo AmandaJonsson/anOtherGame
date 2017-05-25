@@ -137,7 +137,6 @@ public class MainController {
          }
 
         newGame = new TheLostKitten(players, listOfPlayerPanes);
-
         checkSameName();
         
 
@@ -155,6 +154,7 @@ public class MainController {
         }
 
         TheLostController newController = new TheLostController(newGame, newGame.getDice());
+        newController.addMap(mapView);
 
 
     }

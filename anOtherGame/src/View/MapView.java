@@ -1,12 +1,15 @@
 package View;
 
+import Model.Intefaces.IPlayer;
 import Model.Intefaces.ISpace;
 import Model.Map;
+import Model.Player;
 import Model.Station;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.ImagePattern;
@@ -25,6 +28,7 @@ public class MapView extends StackPane {
     private String map;
     GridPane stations;
     GridPane markers;
+    GridPane players;
 
     public MapView(Map mapp) {
         map = this.getClass().getResource("../Resources/mapNoPlupps.png").toExternalForm();
@@ -37,6 +41,11 @@ public class MapView extends StackPane {
         markers.setMaxWidth(700);
         markers.setPrefSize(700, 700);
         markers.setPickOnBounds(false);
+        players = new GridPane();
+        players.setMaxHeight(700);
+        players.setMaxWidth(700);
+        players.setPrefSize(700, 700);
+        players.setPickOnBounds(false);
         this.setStyle("-fx-background-image: url('" + map + "'); " +
                 "-fx-background-position: center center;" +
                 "-fx-background-repeat: stretch; " +
@@ -173,6 +182,28 @@ public class MapView extends StackPane {
             }
             if (y>to.getY()){
                 return calculatePath(from,to, x,y-1);
+            }
+        }
+        return false;
+    }
+
+    public void setPlayerPosition(ArrayList<IPlayer> playerlist){
+        players.getChildren().removeAll();
+        for (IPlayer player : playerlist){
+            Circle circle = new Circle();
+            circle.setRadius(20);
+            circle.setFill(Paint.valueOf("White"));
+            if (!hasNode(players, player.getPosition().getX(), player.getPosition().getY())) {
+                 players.add(circle, player.getPosition().getX(), player.getPosition().getY());
+            }
+
+        }
+
+    }
+    private boolean hasNode(GridPane gridpane, int col, int row) {
+        for (Node node : gridpane.getChildren()) {
+            if (GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row) {
+                return true;
             }
         }
         return false;

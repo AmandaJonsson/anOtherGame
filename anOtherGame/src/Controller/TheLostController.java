@@ -12,6 +12,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import Model.Player;
@@ -65,8 +66,10 @@ public class TheLostController {
     static TheLostKitten lostKitten;
 
     static List<IPlayer> newCreatedPlayers;
+    private MapView mapView;
 
     public TheLostController() {
+
 
     }
 
@@ -74,12 +77,17 @@ public class TheLostController {
         lostKitten = newGame;
         dice=lostdice;
         newCreatedPlayers = newGame.getPlayers();
+
     }
 
 
     @FXML
     public void addMap(MapView map){
-        mapPlace.getChildren().add(map);
+
+        this.mapView=map;
+        ArrayList<IPlayer> players = new ArrayList<>();
+        players.addAll(lostKitten.getListOfPlayers());
+        mapView.setPlayerPosition(players);
     }
 
     @FXML
@@ -302,7 +310,6 @@ public class TheLostController {
         }
         return null;
     }
-
 
 }
 

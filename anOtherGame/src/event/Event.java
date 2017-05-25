@@ -8,7 +8,9 @@ public class Event {
        PLAYER_BALANCE,
        PLAYER_POSITION,
        LOSTKITTEN_NEXT,
-       FIND_PATH
+       FIND_PATH,
+       PLAYER_CAT,
+       PLAYER_TRAMCARD
     }
 
     private final Tag tag;

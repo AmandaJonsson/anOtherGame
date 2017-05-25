@@ -231,16 +231,16 @@ public class Map implements IMap {
         ArrayList<IMarker> listOfMarkers = new ArrayList<>(stations.size());
 
         for (int i = 0; i < noTopaz; i++)
-            listOfMarkers.add(new MoneyMarker(MoneyMarker.TypeOfMarkers.TOPAZ));
+            listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.CAT));
         for (int i = 0; i < noEmerald; i++)
-            listOfMarkers.add(new MoneyMarker(MoneyMarker.TypeOfMarkers.EMERALD));
+            listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.TRAMCARD));
         for (int i = 0; i < nOfRubys; i++)
-            listOfMarkers.add(new MoneyMarker(MoneyMarker.TypeOfMarkers.RUBY));
+            listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.CAT));
         for (int i = 0; i < nOfBlanks; i++)
-            listOfMarkers.add(new MoneyMarker(MoneyMarker.TypeOfMarkers.BLANK));
+            listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.TRAMCARD));
 
         listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.CAT));
-        listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.PICKPOCKET));
+        listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.CAT));
         listOfMarkers.add(new OtherMarkers(OtherMarkers.NoMoneyMarkers.TRAMCARD));
 
         shuffle(listOfMarkers);

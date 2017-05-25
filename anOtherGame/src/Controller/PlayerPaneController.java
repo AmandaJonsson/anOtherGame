@@ -52,6 +52,14 @@ public class PlayerPaneController implements IEventHandler {
 
     }
 
+    public ImageView getCatImage(){
+        return theDiamond;
+    }
+
+    public ImageView getTramCardImage(){
+        return tramCard;
+    }
+
     public AnchorPane getView(){
         return playerPane;
     }
@@ -64,12 +72,27 @@ public class PlayerPaneController implements IEventHandler {
     //Right now some kind of shadow, he he he he
     @Override
     public void onEvent(Event evt) {
+
         if(evt.getTag()==Event.Tag.LOSTKITTEN_NEXT){
             Player p = (Player)evt.getValue();
             if(p.getName().equals(player.getName())){
                 this.getView().setEffect(new DropShadow(20, Color.BLACK));
             }else{
                 this.getView().setEffect(null);
+            }
+        }
+
+        if(evt.getTag() == Event.Tag.PLAYER_CAT){
+            Player pl = (Player)evt.getValue();
+            if(pl.getName().equals(player.getName())){
+                this.getCatImage().setVisible(true);
+            }
+        }
+
+        if(evt.getTag() == Event.Tag.PLAYER_TRAMCARD){
+            Player pla = (Player)evt.getValue();
+            if(pla.getName().equals(player.getName())){
+                this.getTramCardImage().setVisible(true);
             }
         }
     }

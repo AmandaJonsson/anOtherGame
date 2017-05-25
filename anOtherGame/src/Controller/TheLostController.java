@@ -83,6 +83,7 @@ public class TheLostController implements IEventHandler{
         initEvent();
     }
 
+
     @FXML
     public void setMouseEffect(){
 
@@ -217,6 +218,19 @@ public class TheLostController implements IEventHandler{
             boatButton.setDisable(true);
             tramButton.setDisable(true);
             turnMarkerButton.setDisable(true);
+        }
+        System.out.println("HEEEJEJEJEJE");
+
+        if((((OtherMarkers)mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT)){
+            System.out.println("SET CAT");
+            System.out.println((((OtherMarkers)mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT));
+            lostKitten.getActivePlayer().setHasCat();
+        }
+
+        if((((OtherMarkers)mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.TRAMCARD)){
+            System.out.println("SET TRAMCARD");
+            System.out.println((((OtherMarkers)mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.TRAMCARD));
+            lostKitten.getActivePlayer().gotTramCard();
         }
     }
     @FXML protected void handlePayButton(ActionEvent event) throws IOException{

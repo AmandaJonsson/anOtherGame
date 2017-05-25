@@ -65,11 +65,6 @@ public class Player implements IPlayer {
         setPosition(newPosition);
     }
 
-    public boolean gotTramCard(){
-        this.hasTramCard = true;
-        return hasTramCard;
-    }
-
     public void usedTramCard(){
         this.hasTramCard = false;
     }
@@ -81,12 +76,6 @@ public class Player implements IPlayer {
     public boolean hasCat(){
         return this.hasCat;
     }
-
-    public boolean setHasCat(){
-        hasCat=true;
-        return hasCat;
-    }
-
 
     public void payTicket(int ticket){
         decreaseBalance(ticket);
@@ -106,21 +95,11 @@ public class Player implements IPlayer {
 
 
     public int updateBudget() {
-
-        //if the position is a station
         if(this.position instanceof Station){
-
-            //if the station has a marker
             if(((IStation) this.position).hasMarker()){
-
-                //if the marker is a MoneyMarker
                 if (((IStation) this.position).getMarker().getClass().equals(MoneyMarker.class)) {
-                    //konstig kod?
                     increaseBalance(((IStation) this.position).getMarker().getMarkerValue(((Station) this.position).getMarker()));
-                
-               /* //if the marker is a PickPocket
-                }else if(((Station) this.position).getMarker().equals(OtherMarkers.NoMoneyMarkers.PICKPOCKET)){
-                    robbedByPickpocket();*/
+
                 }
                 else if(((IStation) this.position).getMarker().getClass().equals(OtherMarkers.class)){
                     if(((IStation) this.position).getMarker().equals( OtherMarkers.NoMoneyMarkers.CAT)){
@@ -130,7 +109,7 @@ public class Player implements IPlayer {
             }
         }
 
-        return balance;
+        return this.balance;
 
     }
 
@@ -161,7 +140,17 @@ public class Player implements IPlayer {
         EventBus.BUS.publish(new Event(Event.Tag.PLAYER_BALANCE, this));
         return robbedByPickpocket;
     }
+    public boolean gotTramCard(){
+        this.hasTramCard = true;
+        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_TRAMCARD, this));
+        return hasTramCard;
+    }
 
+    public boolean setHasCat(){
+        hasCat=true;
+        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_CAT, this));
+        return hasCat;
+    }
 
 
 }

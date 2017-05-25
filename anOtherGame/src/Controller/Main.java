@@ -21,6 +21,7 @@ public class Main extends Application {
         startStage.setTitle("The Lost Kitten");
         startStage.setScene(createScene(loadMainPane()));
         startStage.show();
+        startStage.setResizable(false);
     }
 
 

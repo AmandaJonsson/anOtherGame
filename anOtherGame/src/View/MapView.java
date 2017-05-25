@@ -6,11 +6,12 @@ import Model.Station;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.HPos;
+import javafx.geometry.Pos;
 import javafx.scene.image.Image;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.*;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
 
@@ -19,12 +20,23 @@ import static javafx.geometry.VPos.CENTER;
 /**
  * Created by Allex on 2017-04-06.
  */
-public class MapView extends GridPane {
+public class MapView extends StackPane {
     private Map mapp;
     private String map;
+    GridPane stations;
+    GridPane markers;
 
     public MapView(Map mapp) {
         map = this.getClass().getResource("../Resources/mapNoPlupps.png").toExternalForm();
+        stations = new GridPane();
+        stations.setMaxHeight(700);
+        stations.setMaxWidth(700);
+        stations.setPrefSize(700, 700);
+        markers = new GridPane();
+        markers.setMaxHeight(700);
+        markers.setMaxWidth(700);
+        markers.setPrefSize(700, 700);
+        markers.setPickOnBounds(false);
         this.setStyle("-fx-background-image: url('" + map + "'); " +
                 "-fx-background-position: center center;" +
                 "-fx-background-repeat: stretch; " +
@@ -32,71 +44,40 @@ public class MapView extends GridPane {
                 "-fx-background-repeat: no-repeat;");
 
         //this.setStyle("-fx-background-color: aqua");
-        this.setPrefSize(600, 600);
+        this.setPrefSize(400, 400);
         this.setMinSize(400, 400);
-        this.setMaxSize(900, 900);
-        createGrid();
+        this.setMaxSize(400, 400);
+        this.getChildren().add(stations);
+        this.getChildren().add(markers);
+        createGrid(stations);
+        createGrid(markers);
+        this.setAlignment(Pos.BASELINE_LEFT);
         this.mapp = mapp;
         addSpaces();
-
-        //group.layoutYProperty().bind(this.layoutYProperty());
-        //group.getChildren().add();
-        //new Space("Nordstan", 100,100);
-
-        //group.setTranslateY();
-
-        this.widthProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
-                setNewSize(newSceneWidth.doubleValue(), oldSceneWidth.doubleValue());
-            }
-        });
-        this.heightProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneHeight, Number newSceneHeight) {
-                setNewSize(newSceneHeight.doubleValue(), oldSceneHeight.doubleValue());
-            }
-        });
+        System.out.println(this.heightProperty());
     }
 
-    private void createGrid() {
-        this.setGridLinesVisible(false);
+    private void createGrid(GridPane pane) {
+        pane.setGridLinesVisible(false);
         final int numCols = 100;
         final int numRows = 100;
         for (int i = 0; i < numCols; i++) {
-           /* Label label = new Label();
-            label.setText(Integer.toString(i));
-            label.setMinWidth(20);
-            //label.setPrefHeight(10);
-            this.add(label, i, i);
-            //this.add(i, i, 1);*/
             ColumnConstraints colConst = new ColumnConstraints();
-            colConst.setPercentWidth(100.0 / numCols);
+            colConst.setMaxWidth(pane.getPrefWidth()/numCols);
             colConst.setHalignment(HPos.CENTER);
-            this.getColumnConstraints().add(colConst);
+            colConst.setHgrow(Priority.ALWAYS);
+            pane.getColumnConstraints().add(colConst);
         }
         for (int i = 0; i < numRows; i++) {
-           /* Label label = new Label();
-            label.setText(Integer.toString(i));
-            label.setMinWidth(20);
-            //label.setPrefHeight(10);
-            this.add(label, 0, i);*/
             RowConstraints rowConst = new RowConstraints();
-            rowConst.setPercentHeight(100.0 / numRows);
+            rowConst.setMaxHeight(pane.getPrefHeight()/numRows);
             rowConst.setValignment(CENTER);
-            this.getRowConstraints().add(rowConst);
+            rowConst.setVgrow(Priority.ALWAYS);
+            pane.getRowConstraints().add(rowConst);
         }
 
     }
 
-    public void setNewSize(double newsize, double oldSize) {
-        this.setHeight(newsize);
-        this.setWidth(newsize);
-//System.out.println(group.computeAreaInScreen());
-        //group.setTranslateX(1/(getPrefWidth()- newsize));
-        // group.setTranslateY(1/(oldSize-newsize));
-        //group.resize(newsize/oldSize, newsize/oldSize);
-    }
 
     public void addSpaces() {
         ArrayList<String> list = new ArrayList<String>();
@@ -105,6 +86,12 @@ public class MapView extends GridPane {
             //System.out.println(space.getX() + " " + space.getY());
             SpaceView view = new SpaceView(space,"Black");
             if (space instanceof Station){
+                if (((Station) space).hasMarker()){
+                    Circle marker = new Circle();
+                    marker.setRadius(5);
+                    marker.setFill(Paint.valueOf("Purple"));
+                    markers.add(marker, space.getX(), space.getY());
+                }
                 if (((Station) space).getIsBoatStation()) {
                     view.setColor("Blue");
                 }else if (((Station) space).getIsTramStation()) {
@@ -131,7 +118,7 @@ public class MapView extends GridPane {
                     }
                 }
             }
-            this.add(view, space.getX(), space.getY());
+            stations.add(view, space.getX(), space.getY());
         }
     }
     private boolean calculatePath(Station from, Station to, int x, int y) {
@@ -156,7 +143,7 @@ public class MapView extends GridPane {
             //space.addAdjacentSpace(prev);
             //prev.addAdjacentSpace(space);
         }else if (!(from.getX()-x < 1 && from.getX()-x >-1 && from.getY()-y <1 && from.getY()-y >-1) && !(to.getX()-x < 1 && to.getX()-x >-1 && to.getY()-y <1 && to.getY()-y >-1)) {
-            this.add(new Path(color, x,y), x, y);
+            stations.add(new Path(color, x,y), x, y);
         }
         if (x < to.getX()){
             if (y==to.getY()){

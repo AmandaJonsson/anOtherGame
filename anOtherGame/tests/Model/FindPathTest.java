@@ -1,4 +1,4 @@
-package Model;
+/*package Model;
 
 import Mocks.MockMap;
 import Model.Intefaces.IMap;
@@ -19,3 +19,4 @@ public class FindPathTest {
     }
 }
 
+*/

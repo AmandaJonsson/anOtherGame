@@ -1,4 +1,4 @@
-package Model;
+/*package Model;
 
 import Model.Intefaces.ISpace;
 import org.junit.Test;
@@ -47,4 +47,4 @@ public class SpaceTest {
         ISpace space4 = new Space(1,1);
         assertFalse(space3.compareSpaces(space4));
     }
-}
+}*/

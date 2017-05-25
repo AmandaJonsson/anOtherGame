@@ -3,7 +3,7 @@ package Model;
 /**
  * Created by amandajonsson on 2017-05-25.
  */
-/*
+
 import Model.Intefaces.IMarker;
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ISpace;
@@ -27,19 +27,21 @@ public class TheLostKittenTest {
     IMarker markP = new OtherMarkers(OtherMarkers.NoMoneyMarkers.PICKPOCKET);
     TheLostKitten kitten;
 
-
     public TheLostKittenTest(){
         playerList=new ArrayList<>();
         playerList.add(player1);
         kitten = new TheLostKitten(playerList);
-
     }
-
     @Test
     public void testGetListOfPLayers(){
-        assertTrue(playerList.contains(player1));
+        assertTrue(kitten.getListOfPlayers().contains(player1));
     }
-
+    @Test
+    public void testGetActivePlayer(){
+        kitten.setActivePlayer(player1);
+        assertTrue(kitten.getActivePlayer()==player1);
+    }
+   
     @Test
     public void testSetNewBudget(){
         Station station1 = new Station("Chalmers",1,1);
@@ -78,5 +80,6 @@ public class TheLostKittenTest {
         assertFalse(kitten.checkIfMarkerIsTurned(markO) == true);
     }
 
+
+
 }
-*/

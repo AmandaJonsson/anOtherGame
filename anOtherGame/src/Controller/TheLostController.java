@@ -221,7 +221,7 @@ public class TheLostController implements IEventHandler{
         }
         System.out.println("HEEEJEJEJEJE");
 
-        if((((OtherMarkers)mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT)){
+    /*    if((((OtherMarkers)mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT)){
             System.out.println("SET CAT");
             System.out.println((((OtherMarkers)mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT));
             lostKitten.getActivePlayer().setHasCat();
@@ -231,7 +231,7 @@ public class TheLostController implements IEventHandler{
             System.out.println("SET TRAMCARD");
             System.out.println((((OtherMarkers)mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.TRAMCARD));
             lostKitten.getActivePlayer().gotTramCard();
-        }
+        }*/
     }
     @FXML protected void handlePayButton(ActionEvent event) throws IOException{
         diceButton.setDisable(true);

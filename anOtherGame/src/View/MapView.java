@@ -90,8 +90,11 @@ public class MapView extends GridPane implements IEventHandler {
                 setNewSize(newSceneHeight.doubleValue(), oldSceneHeight.doubleValue());
             }
         });
-        listOfPlayerPieces = createPlayersPieces(lostKitten.getPlayers());
         initEvent();
+    }
+
+    public IMap getMap(){
+        return mapp;
     }
 
     public List<SpaceView> getListOfSpaceViews(){
@@ -236,13 +239,19 @@ public class MapView extends GridPane implements IEventHandler {
     public void onEvent(Event evt) {
         if (evt.getTag() == Event.Tag.PLAYER_POSITION) {
             Player p = (Player)evt.getValue(); //<- Player which position has been updated!
-            //TODO UPDATE THE PLAYERPIECE WITH A NEW POSITION WÄWÄWÄWÄ
+            if(lostKitten.getActivePlayer().getName().equals(p.getName())){
+                lostKitten.getActivePlayer().getName();
+            }
+
+
             System.out.println("Spelare: " + p.getName() + " Har ny position: " + p.getPosition().toString());
         }else if(evt.getTag() == Event.Tag.FIND_PATH){
             FindPath p = (FindPath) evt.getValue();
             List<ISpace> listOfPotentialSpaces = p.getPotentialSpaces();
+
             for(int i = 0; i<listOfPotentialSpaces.size(); i++){
                 for(int j = 0; j< getListOfSpaceViews().size(); j++){
+
                     if(listOfPotentialSpaces.get(i).getX() == getListOfSpaceViews().get(j).getX() && listOfPotentialSpaces.get(i).getY() == getListOfSpaceViews().get(j).getY()){
                         getListOfSpaceViews().get(j).setFill(Color.YELLOW);
                     }
@@ -253,16 +262,6 @@ public class MapView extends GridPane implements IEventHandler {
 
     private void initEvent() {
         EventBus.BUS.register(this);
-    }
-
-    private List<PlayerPiece> createPlayersPieces(List<IPlayer> players){
-        List<PlayerPiece> PlayerPieces = new ArrayList<PlayerPiece>();
-        for(IPlayer p:players){
-            PlayerPiece newPlayer = new PlayerPiece(p,"GREEN");
-            this.add(newPlayer,p.getPosition().getX(), p.getPosition().getY());
-            PlayerPieces.add(newPlayer);
-        }
-        return PlayerPieces;
     }
 
 }

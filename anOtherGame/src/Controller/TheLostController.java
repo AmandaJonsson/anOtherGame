@@ -6,14 +6,11 @@
  * Uses: IDice, ITheLostKitten,
  */
 package Controller;
-import Model.Intefaces.IDice;
-import Model.Intefaces.IMarker;
-import Model.Intefaces.IPlayer;
-import Model.Intefaces.ITheLostKitten;
+import Model.Intefaces.*;
 import Model.OtherMarkers;
-import Model.Player;
 import Model.Station;
 import View.MapView;
+import View.SpaceView;
 import event.Event;
 import event.EventBus;
 import event.IEventHandler;
@@ -26,12 +23,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
+
 
 import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class TheLostController implements IEventHandler{
     
@@ -68,31 +66,35 @@ public class TheLostController implements IEventHandler{
     static ITheLostKitten lostKitten;
     static List<IPlayer> newCreatedPlayers;
     ArrayList<PlayerPaneController> listOfPlayerPanes;
-    private MapView mapView;
-    private IPlayer winningPlayer;
+    static MapView mapView;
+    IPlayer winningPlayer;
 
+    MapController mapController = new MapController(mapView);;
     public TheLostController(){
-
 
     }
 
-    public TheLostController(ITheLostKitten newGame, IDice lostdice, ArrayList<PlayerPaneController> listOfPlayerpanes) {
+    public TheLostController(ITheLostKitten newGame, IDice lostdice, ArrayList<PlayerPaneController> listOfPlayerpanes, MapView mapView) {
         lostKitten = newGame;
         dice=lostdice;
         newCreatedPlayers = newGame.getPlayers();
         listOfPlayerPanes=listOfPlayerpanes;
+        this.mapView = mapView;
         initEvent();
+
     }
 
 
-    @FXML
-    public void addMap(MapView map){
 
-        this.mapView=map;
+    @FXML
+    public void addMap(MapView map) {
+
+        this.mapView = map;
         ArrayList<IPlayer> players = new ArrayList<>();
         players.addAll(lostKitten.getListOfPlayers());
         //mapView.setPlayerPosition(players);
     }
+
 
     @FXML
     public void setMouseEffect(){
@@ -268,17 +270,8 @@ public class TheLostController implements IEventHandler{
 
 
     @FXML protected void handleBicycleButton(ActionEvent event) throws IOException{
-        int numberOnDice = lostKitten.getDice().roll();
-        System.out.println(numberOnDice);
-        System.out.println(lostKitten.moveByBike());
+        lostKitten.moveByBike();
 
-        /*
-        int diceRoll = dice.roll();
-        //lostKitten.moveByBike(diceRoll);
-        System.out.println("Tärningen visar: " + diceRoll);
-        System.out.println(lostKitten.getActivePlayer().getName());
-        System.out.println(lostKitten.getActivePlayer().getPosition());
-*/
         alternativeText.setText("Välj vilken väg du vill åka genom att trycka på den positionen");
         bicycleButton.setDisable(true);
         boatButton.setDisable(true);
@@ -289,6 +282,7 @@ public class TheLostController implements IEventHandler{
         System.out.println("Cykla");
 
     }
+
 
     @FXML protected void handleBoatButton(ActionEvent event) throws IOException{
         int diceroll = dice.roll();
@@ -313,13 +307,29 @@ public class TheLostController implements IEventHandler{
         diceButton.setDisable(false);
         bicycleButton.setDisable(false);
         boatButton.setDisable(false);
-        tramButton.setDisable(false);
+        if(checkIfAbleToGoByTram()){
+            tramButton.setDisable(false);
+        }
+
 
         IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
         if(lostKitten.checkIfMarkerIsTurned(mark)){
             turnMarkerButton.setDisable(true);
         }
     }
+
+    public boolean checkIfAbleToGoByTram(){
+        if(lostKitten.getActivePlayer().getPosition() instanceof Station){
+            for(ISpace space :lostKitten.getActivePlayer().getPosition().getAdjacentSpaces()){
+                if(space instanceof Station){
+                    return true;
+                }
+                return false;
+            }
+        }
+        return false;
+    }
+
 
     public void setPlayersTurnLabel(String text){
         playersTurnLabel.setText("Din tur" + " " + text);
@@ -329,11 +339,13 @@ public class TheLostController implements IEventHandler{
         lostKitten.getNextPlayer();
     }
 
+
     public boolean getGameOver(){
         return this.gameOver;
     }
 
 
+    public void setBudgetLabel(){}
 
     public IPlayer getWinningPlayer(){
         return winningPlayer;
@@ -360,17 +372,20 @@ public class TheLostController implements IEventHandler{
                 winningPlayer = lostKitten.getActivePlayer();
                 gameOver = true;
                 EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
-
-
-
             }
-
-
-
         }
 
         if(evt.getTag() == Event.Tag.PLAYER_CAT){
             lostKitten.setSomeoneFoundCat();
+        }else if(evt.getTag()==Event.Tag.SPACE_CHOSEN){
+            SpaceView sw = (SpaceView) evt.getValue();
+
+            for(int i = 0; i < lostKitten.getMap().getSpaces().size(); i++){
+                if(lostKitten.getMap().getSpaces().get(i).compareSpaces(sw.getLocationOfSpace())){
+                    lostKitten.getActivePlayer().setPosition(lostKitten.getMap().getSpaces().get(i));
+                }
+            }
+
         }
     }
 

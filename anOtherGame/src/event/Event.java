@@ -2,16 +2,17 @@ package event;
 
 public class Event {
 
-   //List of possible events
+    //List of possible events
     public enum Tag {
-       PLAYER_FLIPMARKER,
-       PLAYER_BALANCE,
-       PLAYER_POSITION,
-       LOSTKITTEN_NEXT,
-       FIND_PATH,
-       PLAYER_CAT,
-       PLAYER_TRAMCARD,
-       PLAYER_WON
+        PLAYER_CAT,
+        PLAYER_TRAMCARD,
+        PLAYER_WON,
+        PLAYER_FLIPMARKER,
+        PLAYER_BALANCE,
+        PLAYER_POSITION,
+        LOSTKITTEN_NEXT,
+        FIND_PATH,
+        SPACE_CHOSEN,
     }
 
     private final Tag tag;

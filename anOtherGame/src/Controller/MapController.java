@@ -11,17 +11,28 @@
 package Controller;
 
 import Model.Intefaces.IMap;
+import Model.Intefaces.ISpace;
+import Model.Space;
 import View.MapView;
 
 
 
 public class MapController {
-    private IMap model;
     private MapView view;
+    private ISpace chosenSpace;
 
-    public MapController(IMap model, MapView view) {
-        this.model = model;
+    public MapController(MapView view) {
         this.view = view;
     }
+
+    public MapView getView(){
+        return view;
+    }
+
+    public ISpace getChosenSpace(){
+        chosenSpace = new Space(1,1);
+        return chosenSpace;
+    }
+
 
 }

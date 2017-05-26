@@ -44,6 +44,7 @@ public class TheLostKitten implements ITheLostKitten{
     public List<IPlayer> getListOfPlayers(){
         return playerList;
     }
+
     public IMap getMap(){
         return map;
     }

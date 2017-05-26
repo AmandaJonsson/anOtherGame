@@ -39,6 +39,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static Controller.TheLostController.mapView;
+
 
 public class MainController implements IEventHandler{
 
@@ -106,7 +108,7 @@ public class MainController implements IEventHandler{
         canWePlay();
         startGame();
 
-        newController = new TheLostController(newGame, newGame.getDice(), listOfPlayerPanes);
+        newController = new TheLostController(newGame, newGame.getDice(), listOfPlayerPanes,mapView);
 
 
 
@@ -169,20 +171,26 @@ public class MainController implements IEventHandler{
          }
 
 
+
         if(hasSameName == true){
             System.out.println("Spelarna måste heta olika saker!");
 
         }
-
     }
 
     private void startGame(){
+
+        if(hasSameName && players.size()<2){
+            warningLabel.setText("Alla spelare måste ha olika namn.");
+        }
+
         if(!hasSameName && players.size()>1){
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-
         }
+
+        TheLostController newController = new TheLostController(newGame, newGame.getDice(), listOfPlayerPanes, mapView);
 
     }
 
@@ -326,12 +334,7 @@ public class MainController implements IEventHandler{
                 System.out.println("NÅGON HAR VUNNIT");
                 System.out.println(newController.getGameOver() == true);
             }
-
-
         }
-
-
-
     }
 
     private void initEvent() {

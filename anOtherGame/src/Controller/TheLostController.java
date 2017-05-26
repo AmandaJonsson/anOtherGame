@@ -93,7 +93,7 @@ public class TheLostController implements IEventHandler{
         this.mapView=map;
         ArrayList<IPlayer> players = new ArrayList<>();
         players.addAll(lostKitten.getListOfPlayers());
-        mapView.setPlayerPosition(players);
+        //mapView.setPlayerPosition(players);
     }
 
     @FXML
@@ -301,7 +301,6 @@ public class TheLostController implements IEventHandler{
     }
 
     @FXML protected void handleNextPlayerButton(ActionEvent event) throws IOException{
-        IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
 
         updatePlayerTurn();
         setPlayersTurnLabel(lostKitten.getActivePlayer().getName());
@@ -313,12 +312,10 @@ public class TheLostController implements IEventHandler{
         boatButton.setDisable(false);
         tramButton.setDisable(false);
 
-
-        if(mark.isMarkerTurned()){
+        IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
+        if(lostKitten.checkIfMarkerIsTurned(mark)){
             turnMarkerButton.setDisable(true);
         }
-
-
     }
 
     public void setPlayersTurnLabel(String text){
@@ -336,6 +333,8 @@ public class TheLostController implements IEventHandler{
             for (int i = 0; i < listOfPlayerPanes.size(); i++) {
                 if (listOfPlayerPanes.get(i).nameLabel.getText() == lostKitten.getActivePlayer().getName()) {
                     listOfPlayerPanes.get(i).budgetLabel.setText("Pengar:" + lostKitten.getActivePlayer().getBalance() + " kr");
+                    System.out.println("EHJEEJHE");
+
                 }
             }
         }

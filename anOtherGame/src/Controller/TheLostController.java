@@ -54,7 +54,7 @@ public class TheLostController implements IEventHandler{
     @FXML
     public Label playersTurnLabel = new Label();
 
-    private static boolean gameOver;
+    private boolean gameOver = false;
 
     Image cat = new Image("Resources/cat.png");
 
@@ -69,7 +69,7 @@ public class TheLostController implements IEventHandler{
     static List<IPlayer> newCreatedPlayers;
     ArrayList<PlayerPaneController> listOfPlayerPanes;
     private MapView mapView;
-
+    private IPlayer winningPlayer;
 
     public TheLostController(){
 
@@ -249,6 +249,7 @@ public class TheLostController implements IEventHandler{
         if(alternativeText.getText() =="Du har köpt markern" ) {
             lostKitten.setNewBudget();
         }
+
         IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
 
 
@@ -328,6 +329,16 @@ public class TheLostController implements IEventHandler{
         lostKitten.getNextPlayer();
     }
 
+    public boolean getGameOver(){
+        return this.gameOver;
+    }
+
+
+
+    public IPlayer getWinningPlayer(){
+        return winningPlayer;
+    }
+
     @Override
     public void onEvent(Event evt) {
         if (evt.getTag() == Event.Tag.PLAYER_BALANCE) {
@@ -339,16 +350,22 @@ public class TheLostController implements IEventHandler{
         }
 
         if(evt.getTag() == Event.Tag.PLAYER_POSITION){
-            for(int i = 0; i < lostKitten.getMap().getStartPositions().size(); i++){
-                if(((lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(0))
-                        ||(lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(1)))
-                       && (lostKitten.getSomeoneFoundCat()==true)
-                        && ((lostKitten.getActivePlayer().gotTramCard()==true)
-                        || (lostKitten.getActivePlayer().hasCat()==true))){
-                    System.out.println("Någon vann wohooo!");
-                    gameOver = true;
-                }
+            if((lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(0))
+                    ||(lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(1))
+                && (lostKitten.getSomeoneFoundCat()==true)
+                    && ((lostKitten.getActivePlayer().gotTramCard()==true)
+                    || (lostKitten.getActivePlayer().hasCat()==true))){
+                System.out.println("Någon vann wohooo!");
+
+                winningPlayer = lostKitten.getActivePlayer();
+                gameOver = true;
+                EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
+
+
+
             }
+
+
 
         }
 

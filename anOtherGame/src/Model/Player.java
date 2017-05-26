@@ -124,6 +124,7 @@ public class Player implements IPlayer {
     public void decreaseBalance(int value){
         this.balance = this.balance - value;
         EventBus.BUS.publish(new Event(Event.Tag.PLAYER_BALANCE, this));
+
     }
 
     public boolean robbedByPickpocket(){

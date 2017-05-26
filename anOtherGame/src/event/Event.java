@@ -10,7 +10,8 @@ public class Event {
        LOSTKITTEN_NEXT,
        FIND_PATH,
        PLAYER_CAT,
-       PLAYER_TRAMCARD
+       PLAYER_TRAMCARD,
+       PLAYER_WON
     }
 
     private final Tag tag;

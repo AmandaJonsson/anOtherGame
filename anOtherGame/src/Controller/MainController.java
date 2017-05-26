@@ -14,6 +14,9 @@ import Model.Intefaces.IMap;
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ITheLostKitten;
 import View.MapView;
+import event.Event;
+import event.EventBus;
+import event.IEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -37,7 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainController {
+public class MainController implements IEventHandler{
 
     // Button, textfields etc are connected with the FXML file
     @FXML private Parent root;
@@ -58,6 +61,9 @@ public class MainController {
     @FXML private Button backToStartButton = new Button();
     @FXML private Stage rulesStage = new Stage();
 
+    @FXML private Label playerWonLabel;
+    @FXML private Stage gameOverStage = new Stage();
+
     private TheLostController theLost;
     private TheLostController newController;
 
@@ -66,6 +72,10 @@ public class MainController {
     private ITheLostKitten newGame;
     private boolean hasSameName;
     private IMap map;
+
+    public MainController(){
+        initEvent();
+    }
 
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
         //prepares the game board to be loaded, and viewed
@@ -97,6 +107,7 @@ public class MainController {
         startGame();
 
         newController = new TheLostController(newGame, newGame.getDice(), listOfPlayerPanes);
+
 
 
     }
@@ -283,5 +294,47 @@ public class MainController {
                 backToStartButton.setEffect(null);
             }
         });
+    }
+
+    private void showGameOverPane() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        Pane gameOverPane = (Pane) loader.load(getClass().getResource("/View/gameOverPane.fxml"));
+
+        playerWonLabel = (Label)gameOverPane.lookup("#playerWonLabel");
+        playerWonLabel.setText("Spelare: " + theLost.getWinningPlayer().getName() + " vann! ");
+
+
+        gameOverStage.focusedProperty().addListener((obs, wasFocused, isNowFocused) -> {
+            if (! isNowFocused) {
+                gameOverStage.hide();
+            }
+        });
+
+        Scene scene = new Scene(gameOverPane);
+        gameOverStage.setScene(scene);
+        gameOverStage.getScene().getRoot().setEffect(shadow);
+        gameOverStage.getScene().setFill(Color.TRANSPARENT);
+        gameOverStage.show();
+
+
+    }
+
+    @Override
+    public void onEvent(Event evt) {
+        if (evt.getTag() == Event.Tag.PLAYER_WON) {
+            if(newController.getGameOver() == true) {
+                System.out.println("NÅGON HAR VUNNIT");
+                System.out.println(newController.getGameOver() == true);
+            }
+
+
+        }
+
+
+
+    }
+
+    private void initEvent() {
+        EventBus.BUS.register(this);
     }
 }

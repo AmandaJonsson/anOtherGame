@@ -225,6 +225,7 @@ public class MainController {
                 rulesStage.hide();
             }
         });
+
         Scene scene = new Scene(rulesPane);
         rulesStage.setScene(scene);
         rulesStage.getScene().getRoot().setEffect(shadow);

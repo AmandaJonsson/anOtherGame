@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="277.0" prefWidth="574.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="playerWonLabel" layoutX="94.0" layoutY="37.0" prefHeight="70.0" prefWidth="387.0" text="Spelare *namn* vann!" textAlignment="RIGHT" AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="40.0">
+         <font>
+            <Font name="Comic Sans MS" size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="playAgainButton" layoutX="434.0" layoutY="222.0" mnemonicParsing="false" onAction="#handlePlayerAgainButton" prefHeight="42.0" prefWidth="126.0" style="-fx-background-color: rgba(171,0,46,0.5);" text="Spela igen">
+         <font>
+            <Font name="Comic Sans MS" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="finishGameButton" layoutX="14.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleFinishGameButton" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: rgba(171,0,46,0.5);" text="Avsluta">
+         <font>
+            <Font name="Comic Sans MS" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,14 +1,17 @@
+/**
+ * @author Amanda
+ * Revised by: Amanda
+ * Responsibility: A test that test methods in the Map-class
+ * Used by: -
+ * Uses: ISPace, IStation, IMap
+ */
+
 package Model;
 
-/**
- * Created by amandajonsson on 2017-05-25.
- */
-/*
 import Model.Intefaces.IMap;
 import Model.Intefaces.ISpace;
 import Model.Intefaces.IStation;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +26,6 @@ public class MapTest {
     ISpace space = new Space(10,49);
     IMap map;
 
-
-
     public MapTest(){
         spaces=new ArrayList<>();
         stations = new ArrayList<>();
@@ -37,6 +38,10 @@ public class MapTest {
         map=new Map();
     }
 
+    @Test
+    public void testCreateStations(){
+        assertTrue(map.createStations()==true);
+    }
     @Test
     public void testStation(){
 
@@ -60,4 +65,3 @@ public class MapTest {
         //assertTrue(map.getStartPositions().contains(lundby));
     }
 }
-*/

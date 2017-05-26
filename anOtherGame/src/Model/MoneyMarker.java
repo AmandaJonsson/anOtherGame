@@ -19,7 +19,6 @@ import java.util.List;
 public class MoneyMarker extends Marker {
 
     private TypeOfMarkers marker;
-    private String[] descriptionText = {"Du har fått CSN", "Du vann på lotto", "Du fick skatteåterbäring", "Du har fått pengar av mormor"};
 
     //The different kinds of markers that contains money
     public enum TypeOfMarkers {

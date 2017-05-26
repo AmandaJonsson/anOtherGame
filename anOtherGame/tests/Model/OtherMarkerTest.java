@@ -1,11 +1,17 @@
+/**
+ * @author Amanda
+ * Revised by: Amanda
+ * Responsibility: A test that test methods in the OtherMarker-class
+ * Used by: -
+ * Uses: OtherMarker, Space
+ */
+
+
 package Model;
-/*
+
 import org.junit.Test;
 import static org.junit.Assert.*;
-<<<<<<< HEAD
-*/
 
-/*Created by amandajonsson on 2017-05-02.*//*
 public class OtherMarkerTest {
 
     OtherMarkers markC = new OtherMarkers(OtherMarkers.NoMoneyMarkers.CAT);
@@ -26,6 +32,8 @@ public class OtherMarkerTest {
       assertTrue(markTC.getMarkerType() == OtherMarkers.NoMoneyMarkers.TRAMCARD);
       assertFalse(markTC.getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT);
   }
+
+
 
     @Test
     public void testValueOfOtherMarkers(){
@@ -66,6 +74,5 @@ public class OtherMarkerTest {
         }
 
     }
-<<<<<<< HEAD
-}*/
+}
 

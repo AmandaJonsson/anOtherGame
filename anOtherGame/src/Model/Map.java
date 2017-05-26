@@ -245,17 +245,6 @@ public class Map implements IMap {
 
         shuffle(listOfMarkers);
 
-        for ( IMarker mark : listOfMarkers){
-            if(mark instanceof MoneyMarker){
-                MoneyMarker mMark= (MoneyMarker) mark;
-                System.out.println(mMark.getMarkerType());
-            }
-            else{
-                OtherMarkers oMark = (OtherMarkers) mark;
-                System.out.println(oMark.getMarkerType());
-            }
-        }
-
         for(int i = 0 ; i < stations.size(); i++) {
             stations.get(i).setMarker(listOfMarkers.get(i));
         }

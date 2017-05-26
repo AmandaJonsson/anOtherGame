@@ -1,9 +1,11 @@
-/*package Model;
-
 /**
- * Created by amandajonsson on 2017-05-16.
+ * @author Amanda
+ * Revised by: Amanda
+ * Responsibility: A test that test methods in the MoneyMarker-class
+ * Used by: -
+ * Uses: Moneymarker, Station
  */
-/*
+package Model;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,6 +18,7 @@ public class MoneyMarkerTest {
 
     Station guld = new Station("Guldheden", 65,84);
     Station emil = new Station("Emilsborg", 76, 82);
+
     @Test
     public void testMoneyMarkers() {
 
@@ -32,6 +35,8 @@ public class MoneyMarkerTest {
         assertFalse(markB.getMarkerType() == MoneyMarker.TypeOfMarkers.RUBY);
 
     }
+
+
 
     @Test
     public void testSpecialMarkers(){
@@ -62,5 +67,5 @@ public class MoneyMarkerTest {
 
     }
 }
-*/
+
 

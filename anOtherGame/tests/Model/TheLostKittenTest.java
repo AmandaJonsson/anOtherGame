@@ -1,19 +1,18 @@
-package Model;
-
 /**
- * Created by amandajonsson on 2017-05-25.
+ * @author Amanda
+ * Revised by: Amanda
+ * Responsibility: A test that test methods in the TheLostKitten-class
+ * Used by: -
+ * Uses: ISpace, Player, IMarker, TheLostKitten
  */
+package Model;
 
 import Model.Intefaces.IMarker;
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ISpace;
-import Model.TheLostKitten;
-
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.junit.Assert.*;
 
 public class TheLostKittenTest {

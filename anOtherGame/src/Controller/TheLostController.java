@@ -1,4 +1,3 @@
-
 /**
  * @author Amanda
  * Revised by: *name*
@@ -6,11 +5,7 @@
  * Used by:
  * Uses: IDice, ITheLostKitten,
  */
-
-
 package Controller;
-
-
 import Model.Intefaces.IDice;
 import Model.Intefaces.IMarker;
 import Model.Intefaces.IPlayer;
@@ -248,7 +243,6 @@ public class TheLostController implements IEventHandler{
         payButton.setDisable(true);
         if(alternativeText.getText() == turnMakerText){
             lostKitten.setNewDecreasedBudget(1000);
-            System.out.println("amdkasm");
             alternativeText.setText("Du har köpt markern");
         }
 
@@ -340,8 +334,6 @@ public class TheLostController implements IEventHandler{
             for (int i = 0; i < listOfPlayerPanes.size(); i++) {
                 if (listOfPlayerPanes.get(i).nameLabel.getText() == lostKitten.getActivePlayer().getName()) {
                     listOfPlayerPanes.get(i).budgetLabel.setText("Pengar:" + lostKitten.getActivePlayer().getBalance() + " kr");
-                    System.out.println("EHJEEJHE");
-
                 }
             }
         }

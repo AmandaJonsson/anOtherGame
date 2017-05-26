@@ -39,9 +39,6 @@ public class TheLostKitten implements ITheLostKitten{
             }
             activePlayer = nameOfPlayers.get(0);
         }
-
-
-
     }
 
     public List<IPlayer> getListOfPlayers(){

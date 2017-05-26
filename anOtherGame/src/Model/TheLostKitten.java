@@ -97,14 +97,16 @@ public class TheLostKitten implements ITheLostKitten{
             if (mark.equals(OtherMarkers.NoMoneyMarkers.CAT)) {
                 System.out.println(((OtherMarkers) mark).getMarkerType());
                 getActivePlayer().setHasCat();
-                //getActivePlayer().increaseBalance(0);
+                mark.setMarkerToTurned();
 
             } else if (mark.equals(OtherMarkers.NoMoneyMarkers.TRAMCARD)) {
                 System.out.println(((OtherMarkers) mark).getMarkerType());
                 getActivePlayer().gotTramCard();
+                mark.setMarkerToTurned();
 
             } else if(mark.equals(OtherMarkers.NoMoneyMarkers.PICKPOCKET)){
                 getActivePlayer().robbedByPickpocket();
+                mark.setMarkerToTurned();
 
 
             }

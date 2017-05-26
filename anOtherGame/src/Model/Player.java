@@ -96,8 +96,8 @@ public class Player implements IPlayer {
 
     public int updateBudget() {
         if(this.position instanceof Station){
-            if(((IStation) this.position).hasMarker()){
                 if (((IStation) this.position).getMarker().getClass().equals(MoneyMarker.class)) {
+                    System.out.println("BAJDSK");
                     increaseBalance(((IStation) this.position).getMarker().getMarkerValue(((Station) this.position).getMarker()));
 
                 }
@@ -106,11 +106,8 @@ public class Player implements IPlayer {
                         increaseBalance(0);
                     }
                 }
-            }
         }
-
         return this.balance;
-
     }
 
     // Event setters -----------------------

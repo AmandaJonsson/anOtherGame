@@ -244,6 +244,7 @@ public class TheLostController implements IEventHandler{
         payButton.setDisable(true);
         if(alternativeText.getText() == turnMakerText){
             lostKitten.setNewDecreasedBudget(1000);
+            System.out.println("amdkasm");
             alternativeText.setText("Du har köpt markern");
         }
 
@@ -321,7 +322,6 @@ public class TheLostController implements IEventHandler{
     }
 
     public void setPlayersTurnLabel(String text){
-        System.out.println(text);
         playersTurnLabel.setText("Din tur" + " " + text);
     }
 

@@ -232,19 +232,8 @@ public class TheLostController implements IEventHandler{
             boatButton.setDisable(true);
             tramButton.setDisable(true);
             turnMarkerButton.setDisable(true);
-
-            if (mark instanceof OtherMarkers) {
-                if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT)) {
-                    lostKitten.getActivePlayer().setHasCat();
-
-                }
-
-                if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.TRAMCARD)) {
-                    lostKitten.getActivePlayer().gotTramCard();
-
-                }
-            }
             mark.setMarkerToTurned();
+
         }
 
 
@@ -260,6 +249,19 @@ public class TheLostController implements IEventHandler{
 
         if(alternativeText.getText() =="Du har köpt markern" ) {
             lostKitten.setNewBudget();
+        }
+        IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
+
+        if (mark instanceof OtherMarkers) {
+            if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT)) {
+                lostKitten.getActivePlayer().setHasCat();
+
+            }
+
+            if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.TRAMCARD)) {
+                lostKitten.getActivePlayer().gotTramCard();
+
+            }
         }
     }
 

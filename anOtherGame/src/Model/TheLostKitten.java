@@ -13,6 +13,8 @@ package Model;
 import Model.Intefaces.*;
 import event.Event;
 import event.EventBus;
+import event.IEventHandler;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -23,6 +25,7 @@ public class TheLostKitten implements ITheLostKitten{
     private List<IPlayer> playerList;
     private IPlayer activePlayer;
     private FindPath pathFinder;
+    private static boolean someoneFoundCat;
     
     public TheLostKitten(List<IPlayer> nameOfPlayers) {
         map = new Map();
@@ -113,6 +116,14 @@ public class TheLostKitten implements ITheLostKitten{
         }
     }
 
+    public void setSomeoneFoundCat(){
+        this.someoneFoundCat = true;
+    }
+
+    public boolean getSomeoneFoundCat(){
+        return this.someoneFoundCat;
+    }
+
     public void setNewDecreasedBudget(int value){
         getActivePlayer().decreaseBalance(value);
     }
@@ -157,6 +168,8 @@ public class TheLostKitten implements ITheLostKitten{
         }
         EventBus.BUS.publish(new Event(Event.Tag.LOSTKITTEN_NEXT, activePlayer));
     }
+
+
 
 }
 

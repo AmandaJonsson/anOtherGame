@@ -14,7 +14,6 @@ public interface IPlayer {
     ISpace getPosition();
     String getName();
     void setPosition(ISpace newPosition);
-    void updatePosition(ISpace newPosition);
     boolean gotTramCard();
     void usedTramCard();
     boolean hasTramCard();

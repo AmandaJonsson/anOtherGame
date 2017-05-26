@@ -59,6 +59,8 @@ public class TheLostController implements IEventHandler{
     @FXML
     public Label playersTurnLabel = new Label();
 
+    private static boolean gameOver;
+
     Image cat = new Image("Resources/cat.png");
 
 
@@ -72,6 +74,7 @@ public class TheLostController implements IEventHandler{
     static List<IPlayer> newCreatedPlayers;
     ArrayList<PlayerPaneController> listOfPlayerPanes;
     private MapView mapView;
+
 
     public TheLostController(){
 
@@ -236,6 +239,7 @@ public class TheLostController implements IEventHandler{
 
         }
 
+        System.out.println(lostKitten.getActivePlayer().getPosition());
 
     }
 
@@ -253,10 +257,10 @@ public class TheLostController implements IEventHandler{
         }
         IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
 
+
         if (mark instanceof OtherMarkers) {
             if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT)) {
                 lostKitten.getActivePlayer().setHasCat();
-
             }
 
             if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.TRAMCARD)) {
@@ -264,6 +268,7 @@ public class TheLostController implements IEventHandler{
 
             }
         }
+
     }
 
 
@@ -339,6 +344,24 @@ public class TheLostController implements IEventHandler{
 
                 }
             }
+        }
+
+        if(evt.getTag() == Event.Tag.PLAYER_POSITION){
+            for(int i = 0; i < lostKitten.getMap().getStartPositions().size(); i++){
+                if(((lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(0))
+                        ||(lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(1)))
+                       && (lostKitten.getSomeoneFoundCat()==true)
+                        && ((lostKitten.getActivePlayer().gotTramCard()==true)
+                        || (lostKitten.getActivePlayer().hasCat()==true))){
+                    System.out.println("Någon vann wohooo!");
+                    gameOver = true;
+                }
+            }
+
+        }
+
+        if(evt.getTag() == Event.Tag.PLAYER_CAT){
+            lostKitten.setSomeoneFoundCat();
         }
     }
 

@@ -61,10 +61,6 @@ public class Player implements IPlayer {
         return this.name;
     }
 
-    public void updatePosition(ISpace newPosition){
-        setPosition(newPosition);
-    }
-
     public void usedTramCard(){
         this.hasTramCard = false;
     }

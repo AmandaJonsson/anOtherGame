@@ -17,9 +17,6 @@ import Model.Intefaces.IMap;
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ISpace;
 import Model.Intefaces.ITheLostKitten;
-import Model.Map;
-
-import Model.Player;
 import Model.Station;
 import event.Event;
 import event.EventBus;
@@ -27,17 +24,10 @@ import event.IEventHandler;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.HPos;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
-
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
-
-//import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -154,14 +144,15 @@ public class MapView extends GridPane implements IEventHandler {
                     view.setColor("Blue");
                 }else if (((Station) space).getIsTramStation()) {
                     view.setColor("Red");
+                    view.setDefaultColor("Red");
                 }
                 view.setRadius(10);
                 if (((Station)space).getName().equals("Redbergsplatsen")){
-                    view.setRadius(50);
+                    view.setRadius(40);
                     Image img = new Image("/Resources/redbergsplatsen-01.png");
                     view.setFill(new ImagePattern(img));
                 }else if (((Station)space).getName().equals("Lundby")){
-                    view.setRadius(50);
+                    view.setRadius(40);
                     Image img = new Image("/Resources/lundby-01.png");
                     view.setFill(new ImagePattern(img));
                 }
@@ -237,17 +228,8 @@ public class MapView extends GridPane implements IEventHandler {
 
     @Override
     public void onEvent(Event evt) {
-        if (evt.getTag() == Event.Tag.PLAYER_POSITION) {
-            Player p = (Player)evt.getValue(); //<- Player which position has been updated!
-            if(lostKitten.getActivePlayer().getName().equals(p.getName())){
-                lostKitten.getActivePlayer().getName();
-            }
 
-
-            System.out.println("Spelare: " + p.getName() + " Har ny position: " + p.getPosition().toString());
-        }
-
-        else if(evt.getTag() == Event.Tag.FIND_PATH){
+        if(evt.getTag() == Event.Tag.FIND_PATH){
             FindPath p = (FindPath) evt.getValue();
             List<ISpace> listOfPotentialSpaces = p.getPotentialSpaces();
 

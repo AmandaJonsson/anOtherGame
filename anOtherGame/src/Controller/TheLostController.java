@@ -23,7 +23,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.ImagePattern;
+import javafx.scene.paint.*;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 
 import java.awt.*;
@@ -82,7 +84,6 @@ public class TheLostController implements IEventHandler{
         listOfPlayerPanes=listOfPlayerpanes;
         this.mapView = mapView;
         initEvent();
-
     }
 
 
@@ -367,7 +368,6 @@ public class TheLostController implements IEventHandler{
 
     @Override
     public void onEvent(Event evt) {
-
         if (evt.getTag() == Event.Tag.PLAYER_BALANCE) {
             for (int i = 0; i < listOfPlayerPanes.size(); i++) {
                 if (listOfPlayerPanes.get(i).nameLabel.getText() == lostKitten.getActivePlayer().getName()) {
@@ -376,7 +376,7 @@ public class TheLostController implements IEventHandler{
             }
         }
 
-        if(evt.getTag() == Event.Tag.PLAYER_POSITION){
+        else if(evt.getTag() == Event.Tag.PLAYER_POSITION){
             if((lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(0))
                     ||(lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(1))){
                 if(lostKitten.getSomeoneFoundCat() == true){
@@ -394,23 +394,50 @@ public class TheLostController implements IEventHandler{
             }
         }
 
-        if(evt.getTag() == Event.Tag.PLAYER_CAT){
+        else if(evt.getTag() == Event.Tag.PLAYER_CAT){
             lostKitten.setSomeoneFoundCat();
         }
 
         else if(evt.getTag()==Event.Tag.SPACE_CHOSEN) {
             SpaceView sw = (SpaceView) evt.getValue();
 
+            //the active player's position is updated with the spaces of the onclicked spaceview.
             for (int i = 0; i < lostKitten.getMap().getSpaces().size(); i++) {
                 if (lostKitten.getMap().getSpaces().get(i).compareSpaces(sw.getLocationOfSpace())) {
                     lostKitten.getActivePlayer().setPosition(lostKitten.getMap().getSpaces().get(i));
                 }
             }
 
+            //the player's positions are marked with bluuuuuue
+            //the rest should be deafultcolor/picture
             for(int i = 0; i < mapView.getListOfSpaceViews().size(); i++){
-                mapView.getListOfSpaceViews().get(i).setStrokeWidth(0);
+                mapView.getListOfSpaceViews().get(i).setColor(mapView.getListOfSpaceViews().get(i).getDefaultColor());
+                for(int j = 0; j < lostKitten.getListOfPlayers().size(); j++){
+
+                    if(lostKitten.getListOfPlayers().get(j).getPosition().compareSpaces(mapView.getListOfSpaceViews().get(i).getLocationOfSpace())){
+                        mapView.getListOfSpaceViews().get(i).setColor("Blue");
+                    }else{
+                        if(!mapView.getListOfSpaceViews().get(i).getColor().equals("Blue")){
+
+                            if(mapView.getListOfSpaceViews().get(i).getX() == 95 && mapView.getListOfSpaceViews().get(i).getY() == 22){
+                                Image img = new Image("/Resources/redbergsplatsen-01.png");
+                                mapView.getListOfSpaceViews().get(i).setFill(new ImagePattern(img));
+                            }else if(mapView.getListOfSpaceViews().get(i).getX() == 7 && mapView.getListOfSpaceViews().get(i).getY() == 14){
+                                Image img = new Image("/Resources/lundby-01.png");
+                                mapView.getListOfSpaceViews().get(i).setFill(new ImagePattern(img));
+                            }else{
+                                mapView.getListOfSpaceViews().get(i).setColor(mapView.getListOfSpaceViews().get(i).getDefaultColor());
+                            }
+                        }
+                    }
+                }
             }
 
+            //when player chosen its new position the potential spaces should no longer be marked.
+            for(int i = 0; i < mapView.getListOfSpaceViews().size(); i++) {
+                mapView.getListOfSpaceViews().get(i).setStrokeWidth(0);
+                mapView.getListOfSpaceViews().get(i).setDefaultColor(mapView.getListOfSpaceViews().get(i).getDefaultColor());
+            }
         }
     }
 

@@ -91,7 +91,6 @@ public class SpaceView extends Circle {
 
     public void setSpaceClicked(int x, int y){
         spaceClicked = new Space(x,y);
-        System.out.println("hej:    " + spaceClicked.getX());
         EventBus.BUS.publish(new Event(Event.Tag.SPACE_CHOSEN, this));
     }
 
@@ -162,7 +161,6 @@ public class SpaceView extends Circle {
                 }
             });*/
             this.setOnMouseClicked(e->{
-                this.setColor("Orange");
                 this.setSpaceClicked(this.getX(),this.getY());
                 System.out.println("klickad: " + this.getSpaceClicked().toString());
             });

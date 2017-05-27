@@ -221,20 +221,25 @@ public class TheLostController implements IEventHandler{
 
     @FXML protected void handleTurnMarkerButton(ActionEvent event) throws IOException {
 
-        IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
-        if (lostKitten.checkIfMarkerIsTurned(mark)==true ){
-            alternativeText.setText("Det finns ingen marker på denna stationen");
-            payButton.setDisable(true);
-            diceButton.setDisable(true);
-        } else {
-            alternativeText.setText(turnMakerText);
-            bicycleButton.setDisable(true);
-            boatButton.setDisable(true);
-            tramButton.setDisable(true);
-            turnMarkerButton.setDisable(true);
-            mark.setMarkerToTurned();
 
+        if(lostKitten.getActivePlayer().getPosition() instanceof Station){
+
+            IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
+            if (lostKitten.checkIfMarkerIsTurned(mark)==true ){
+                alternativeText.setText("Det finns ingen marker på denna stationen");
+                payButton.setDisable(true);
+                diceButton.setDisable(true);
+            } else {
+                alternativeText.setText(turnMakerText);
+                bicycleButton.setDisable(true);
+                boatButton.setDisable(true);
+                tramButton.setDisable(true);
+                turnMarkerButton.setDisable(true);
+                mark.setMarkerToTurned();
+
+            }
         }
+
 
         System.out.println(lostKitten.getActivePlayer().getPosition());
 
@@ -252,19 +257,23 @@ public class TheLostController implements IEventHandler{
             lostKitten.setNewBudget();
         }
 
-        IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
+        if(lostKitten.getActivePlayer().getPosition() instanceof Station){
+            IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
 
 
-        if (mark instanceof OtherMarkers) {
-            if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT)) {
-                lostKitten.getActivePlayer().setHasCat();
+            if (mark instanceof OtherMarkers) {
+                if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT)) {
+                    lostKitten.getActivePlayer().setHasCat();
+                }
+
+                if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.TRAMCARD)) {
+                    lostKitten.getActivePlayer().gotTramCard();
+
+                }
             }
 
-            if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.TRAMCARD)) {
-                lostKitten.getActivePlayer().gotTramCard();
-
-            }
         }
+
 
     }
 

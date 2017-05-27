@@ -255,7 +255,8 @@ public class MapView extends GridPane implements IEventHandler {
                 for(int j = 0; j< getListOfSpaceViews().size(); j++){
 
                     if(listOfPotentialSpaces.get(i).getX() == getListOfSpaceViews().get(j).getX() && listOfPotentialSpaces.get(i).getY() == getListOfSpaceViews().get(j).getY()){
-                        getListOfSpaceViews().get(j).setFill(Color.YELLOW);
+                        getListOfSpaceViews().get(j).setStroke(Color.YELLOW);
+                        getListOfSpaceViews().get(j).setStrokeWidth(3);
                     }
                 }
             }

@@ -23,6 +23,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.ImagePattern;
 
 
 import java.awt.*;
@@ -397,13 +398,17 @@ public class TheLostController implements IEventHandler{
             lostKitten.setSomeoneFoundCat();
         }
 
-        else if(evt.getTag()==Event.Tag.SPACE_CHOSEN){
+        else if(evt.getTag()==Event.Tag.SPACE_CHOSEN) {
             SpaceView sw = (SpaceView) evt.getValue();
 
-            for(int i = 0; i < lostKitten.getMap().getSpaces().size(); i++){
-                if(lostKitten.getMap().getSpaces().get(i).compareSpaces(sw.getLocationOfSpace())){
+            for (int i = 0; i < lostKitten.getMap().getSpaces().size(); i++) {
+                if (lostKitten.getMap().getSpaces().get(i).compareSpaces(sw.getLocationOfSpace())) {
                     lostKitten.getActivePlayer().setPosition(lostKitten.getMap().getSpaces().get(i));
                 }
+            }
+
+            for(int i = 0; i < mapView.getListOfSpaceViews().size(); i++){
+                mapView.getListOfSpaceViews().get(i).setStrokeWidth(0);
             }
 
         }

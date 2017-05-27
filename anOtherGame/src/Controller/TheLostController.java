@@ -366,6 +366,7 @@ public class TheLostController implements IEventHandler{
 
     @Override
     public void onEvent(Event evt) {
+
         if (evt.getTag() == Event.Tag.PLAYER_BALANCE) {
             for (int i = 0; i < listOfPlayerPanes.size(); i++) {
                 if (listOfPlayerPanes.get(i).nameLabel.getText() == lostKitten.getActivePlayer().getName()) {
@@ -375,7 +376,6 @@ public class TheLostController implements IEventHandler{
         }
 
         if(evt.getTag() == Event.Tag.PLAYER_POSITION){
-
             if((lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(0))
                     ||(lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(1))){
                 if(lostKitten.getSomeoneFoundCat() == true){
@@ -388,19 +388,16 @@ public class TheLostController implements IEventHandler{
                         System.out.println("spelare som hade katt vann");
                         gameOver = true;
                         EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
-
                     }
                 }
-
-
-
             }
-
         }
 
         if(evt.getTag() == Event.Tag.PLAYER_CAT){
             lostKitten.setSomeoneFoundCat();
-        }else if(evt.getTag()==Event.Tag.SPACE_CHOSEN){
+        }
+
+        else if(evt.getTag()==Event.Tag.SPACE_CHOSEN){
             SpaceView sw = (SpaceView) evt.getValue();
 
             for(int i = 0; i < lostKitten.getMap().getSpaces().size(); i++){

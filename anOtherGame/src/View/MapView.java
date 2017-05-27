@@ -245,7 +245,9 @@ public class MapView extends GridPane implements IEventHandler {
 
 
             System.out.println("Spelare: " + p.getName() + " Har ny position: " + p.getPosition().toString());
-        }else if(evt.getTag() == Event.Tag.FIND_PATH){
+        }
+
+        else if(evt.getTag() == Event.Tag.FIND_PATH){
             FindPath p = (FindPath) evt.getValue();
             List<ISpace> listOfPotentialSpaces = p.getPotentialSpaces();
 

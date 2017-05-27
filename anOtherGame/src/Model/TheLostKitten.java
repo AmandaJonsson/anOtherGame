@@ -25,7 +25,7 @@ public class TheLostKitten implements ITheLostKitten{
     private List<IPlayer> playerList;
     private IPlayer activePlayer;
     private FindPath pathFinder;
-    private static boolean someoneFoundCat;
+    private static boolean someoneFoundCat = false;
     
     public TheLostKitten(List<IPlayer> nameOfPlayers) {
         map = new Map();

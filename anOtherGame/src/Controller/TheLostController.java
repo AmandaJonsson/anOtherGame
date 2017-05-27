@@ -369,23 +369,33 @@ public class TheLostController implements IEventHandler{
         if (evt.getTag() == Event.Tag.PLAYER_BALANCE) {
             for (int i = 0; i < listOfPlayerPanes.size(); i++) {
                 if (listOfPlayerPanes.get(i).nameLabel.getText() == lostKitten.getActivePlayer().getName()) {
-                    listOfPlayerPanes.get(i).budgetLabel.setText("Pengar:" + lostKitten.getActivePlayer().getBalance() + " kr");
+                    listOfPlayerPanes.get(i).budgetLabel.setText("Pengar: " + lostKitten.getActivePlayer().getBalance() + " kr");
                 }
             }
         }
 
         if(evt.getTag() == Event.Tag.PLAYER_POSITION){
-            if((lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(0))
-                    ||(lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(1))
-                && (lostKitten.getSomeoneFoundCat()==true)
-                    && ((lostKitten.getActivePlayer().gotTramCard()==true)
-                    || (lostKitten.getActivePlayer().hasCat()==true))){
-                System.out.println("Någon vann wohooo!");
 
-                winningPlayer = lostKitten.getActivePlayer();
-                gameOver = true;
-                EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
+            if((lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(0))
+                    ||(lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(1))){
+                if(lostKitten.getSomeoneFoundCat() == true){
+                    if(lostKitten.getActivePlayer().gotTramCard() == true){
+                        System.out.println("spelare som hade västtrafikskort vann");
+                        gameOver = true;
+                        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
+                    }
+                    if(lostKitten.getActivePlayer().hasCat() == true){
+                        System.out.println("spelare som hade katt vann");
+                        gameOver = true;
+                        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
+
+                    }
+                }
+
+
+
             }
+
         }
 
         if(evt.getTag() == Event.Tag.PLAYER_CAT){

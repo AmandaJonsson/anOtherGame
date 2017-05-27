@@ -310,11 +310,16 @@ public class TheLostController implements IEventHandler{
         if(checkIfAbleToGoByTram()){
             tramButton.setDisable(false);
         }
+        disableTurnMarkerButton();
 
+    }
 
-        IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
-        if(lostKitten.checkIfMarkerIsTurned(mark)){
-            turnMarkerButton.setDisable(true);
+    public void disableTurnMarkerButton(){
+        if(lostKitten.getActivePlayer().getPosition() instanceof Station){
+            IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
+            if(lostKitten.checkIfMarkerIsTurned(mark)){
+                turnMarkerButton.setDisable(true);
+            }
         }
     }
 
@@ -338,7 +343,6 @@ public class TheLostController implements IEventHandler{
     public void updatePlayerTurn(){
         lostKitten.getNextPlayer();
     }
-
 
     public boolean getGameOver(){
         return this.gameOver;

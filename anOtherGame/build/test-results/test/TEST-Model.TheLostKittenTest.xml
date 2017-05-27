@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Model.TheLostKittenTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-05-27T16:15:20" hostname="MajaNybergs-MacBook-Pro.local" time="0.008">
+  <properties/>
+  <testcase name="testGetActivePlayer" classname="Model.TheLostKittenTest" time="0.0"/>
+  <testcase name="testGetListOfPLayers" classname="Model.TheLostKittenTest" time="0.0"/>
+  <testcase name="testSetNewBudget" classname="Model.TheLostKittenTest" time="0.001"/>
+  <testcase name="testCheckIfMarkerIsTurned" classname="Model.TheLostKittenTest" time="0.0"/>
+  <system-out><![CDATA[Event [tag=PLAYER_POSITION, value=Model.Player@1294c60c]
+Event [tag=PLAYER_POSITION, value=Model.Player@6a690506]
+Event [tag=PLAYER_POSITION, value=Model.Player@6259766a]
+Event [tag=PLAYER_POSITION, value=Model.Player@6259766a]
+TOPAZ 3000
+Event [tag=PLAYER_BALANCE, value=Model.Player@6259766a]
+set has cat
+Event [tag=PLAYER_CAT, value=Model.Player@6259766a]
+set has tram card
+Event [tag=PLAYER_TRAMCARD, value=Model.Player@6259766a]
+Event [tag=PLAYER_BALANCE, value=Model.Player@6259766a]
+Event [tag=PLAYER_POSITION, value=Model.Player@2338ecec]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

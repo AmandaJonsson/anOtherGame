@@ -1,6 +1,6 @@
 /**
  * @author Allex and Amanda
- * Revised by: *name*
+ * Revised by: Everybody.
  * Responsibility: Creates all stations and spaces on the map and places a random marker at each station.
  * Used by: TheLostKitten
  * Uses: IMap, ISpace, IStation, Space, Station, Marker, MoneyMarker and OtherMarker
@@ -94,7 +94,7 @@ public class Map implements IMap {
         spaces.add(redbergsplatsen);
         spaces.add(lundby);
 
-        createSpaces( linne,slottskogen, null, 0, 0);
+        createSpaces(linne, slottskogen, null, 0, 0);
         createSpaces(slottskogen, botaniska, null, 0, 0);
         createSpaces(masthuggskykan,slottskogen,  null, 0, 0);
         createSpaces(slottskogen, slottskogsvallen, null, 0, 0);
@@ -127,7 +127,7 @@ public class Map implements IMap {
         lundby.setTramStation(true);
         ullevi.setTramStation(true);
         chLindholmen.setTramStation(true);
-        createSpaces(hjbrantings,lundby,  null, 0, 0);
+        createSpaces(hjbrantings, lundby, null, 0, 0);
         createSpaces(ramberget,hjbrantings,  null, 0, 0);
         createSpaces( chLindholmen,frihamnen, null, 0, 0);
         createSpaces(eriksberg,lundby, null, 0, 0);

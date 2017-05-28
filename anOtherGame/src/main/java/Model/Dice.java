@@ -1,6 +1,6 @@
 /**
  *  @author: Amanda
- *  Revised by: Amanda
+ *  Revised by: Everybody.
  *  Responsibility: The logic behind the dice.
  *  Used by: TheLostKitten.
  *  Uses: IDice.

@@ -1,9 +1,9 @@
 /**
  * @author Maja
- * Revised by: *name*
+ * Revised by: Everybody.
  * Responsibility: The logic behind the players.
  * Used by:
- * Uses: ISpace
+ * Uses: ISpace, Marker, OtherMarker, MoneyMarker, Station
  */
 
 package Model;

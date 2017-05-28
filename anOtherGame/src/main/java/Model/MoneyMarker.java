@@ -1,8 +1,8 @@
 /**
  * @author Amanda
- * Revised by: *name*
+ * Revised by: Everybody.
  * Responsibility: The logic behind the markers that gives money.
- * Used by: Map
+ * Used by: Map, TheLostKitten, Station
  * Uses: IMarker, IStation
  */
 

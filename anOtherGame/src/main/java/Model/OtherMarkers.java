@@ -1,9 +1,9 @@
 /**
  * @author Amanda
- * Revised by: *name*
+ * Revised by: Everybody.
  * Responsibility: The logic behind the markers Cat, Tramcard and pickpocket.
- * Used by: Map
- * Uses: IMarker,
+ * Used by: Map, Player, TheLostKitten
+ * Uses: Marker,IMarker
  */
 
 

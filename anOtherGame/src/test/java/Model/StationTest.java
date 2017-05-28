@@ -1,3 +1,11 @@
+/**
+ * @author Maja.
+ * Revised by: Everybody.
+ * Responsibility: A test that test methods in the Station-class
+ * Used by: -
+ * Uses: Station, Marker, MoneyMarker
+ */
+
 package Model;
 
 

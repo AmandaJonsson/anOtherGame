@@ -1,9 +1,9 @@
 /**
  * @author Amanda, Miranda
- * Revised by: *name*
+ * Revised by: Everybody.
  * Responsibility:
- * Used by:
- * Uses: IPlayer, IDice, IMap
+ * Used by: OtherMarker, MoneyMarker.
+ * Uses: -
  */
 
 

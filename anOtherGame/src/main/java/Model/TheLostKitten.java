@@ -1,6 +1,6 @@
 /**
  * @author Maja, Mirandra, Amanda
- * Revised by:
+ * Revised by: Everybody.
  * Responsibility: Handles the logic behind the game.
  * Used by:
  * Uses: IMap, IDice, IPlayer, ISpace, IMarker, FindPath

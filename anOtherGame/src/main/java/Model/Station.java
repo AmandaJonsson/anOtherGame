@@ -1,8 +1,9 @@
 /**
  * @author Miranda
+ * Revised by: Everybody.
  * Responsibility: The logic behind the stations.
- * Used by:
- * Uses: IMarker
+ * Used by: Player, Map, TheLostKitten, FindPath
+ * Uses: IMarker, ISpace
  */
 
 

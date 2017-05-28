@@ -1,6 +1,6 @@
 /**
  * @author Amanda
- * Revised by: Amanda
+ * Revised by: Everybody.
  * Responsibility: A test that test methods in the MoneyMarker-class
  * Used by: -
  * Uses: Moneymarker, Station

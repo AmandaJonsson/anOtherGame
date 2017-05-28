@@ -1,7 +1,7 @@
 /**
- * @author Amanda
- * Revised by: Amanda
- * Responsibility: A test that test methods in the Dice-class
+ * @author Miranda.
+ * Revised by: Everybody
+ * Responsibility: A test that test methods in the Dice-class.
  * Used by: -
  * Uses: Dice
  */

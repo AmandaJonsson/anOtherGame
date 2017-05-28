@@ -28,6 +28,7 @@ public enum EventBus {
     public void publish(Event evt) {
         // Tracking all events
         if (trace) {
+
             System.out.println(evt);
         }
         synchronized (handlers) {

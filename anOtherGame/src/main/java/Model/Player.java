@@ -143,8 +143,8 @@ public class Player implements IPlayer {
 
     public boolean gotTramCard(){
         System.out.println("set has tram card");
-        hasTramCard = true;
+        this.hasTramCard = true;
         EventBus.BUS.publish(new Event(Event.Tag.PLAYER_TRAMCARD,this));
-        return hasTramCard;
+        return this.hasTramCard;
     }
 }

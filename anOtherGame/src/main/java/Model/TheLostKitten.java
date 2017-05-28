@@ -25,7 +25,7 @@ public class TheLostKitten implements ITheLostKitten{
     private List<IPlayer> playerList;
     private IPlayer activePlayer;
     private FindPath pathFinder;
-    private static boolean someoneFoundCat = false;
+    private boolean someoneFoundCat = false;
     
     public TheLostKitten(List<IPlayer> nameOfPlayers) {
         map = new Map();
@@ -90,18 +90,16 @@ public class TheLostKitten implements ITheLostKitten{
     public void setNewBudget() {
         IMarker mark = ((Station) getActivePlayer().getPosition()).getMarker();
         if (mark instanceof MoneyMarker) {
-            System.out.println(((MoneyMarker) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
+            //System.out.println(((MoneyMarker) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
             getActivePlayer().updateBudget();
             mark.setMarkerToTurned();
         }
         else if(mark instanceof OtherMarkers) {
             if (mark.equals(OtherMarkers.NoMoneyMarkers.CAT)) {
-                System.out.println(((OtherMarkers) mark).getMarkerType());
                 getActivePlayer().setHasCat();
                 mark.setMarkerToTurned();
 
             } else if (mark.equals(OtherMarkers.NoMoneyMarkers.TRAMCARD)) {
-                System.out.println(((OtherMarkers) mark).getMarkerType());
                 getActivePlayer().gotTramCard();
                 mark.setMarkerToTurned();
 

@@ -30,6 +30,12 @@ factoryConfiguration.json
 # Gradle:
 .idea/**/gradle.xml
 .idea/**/libraries
+.gradle
+/build/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
 
 # Mongo Explorer plugin:
 .idea/**/mongoSettings.xml

@@ -93,35 +93,8 @@ public class Map implements IMap {
         spaces.addAll(stations);
         spaces.add(redbergsplatsen);
         spaces.add(lundby);
-/*
-        //Bicycle paths.
-        slottskogen.getController().addPath(this, linne);
-        slottskogen.getController().addPath(this, botaniska);
-        slottskogen.getController().addPath(this, masthuggskykan);
-        slottskogen.getController().addPath(this, slottskogsvallen);
-        chLindholmen.getController().addPath(this, lindholmen);
-        chLindholmen.getController().addPath(this, slottsberget);
-        operan.getController().addPath(this, stenpiren);
-        operan.getController().addPath(this, nordstan);
-        emilsborg.getController().addPath(this, guldheden);
-        emilsborg.getController().addPath(this, olofshojd);
-        vasaplatsen.getController().addPath(this, linne);
-        vasaplatsen.getController().addPath(this, ullevi);
-        hjbrantings.getController().addPath(this, frihamnen);
-        ramberget.getController().addPath(this, chLindholmen);
-        ramberget.getController().addPath(this, lundby);
-        nordstan.getController().addPath(this, central);
-        nordstan.getController().addPath(this, domkyrkan);
-        nordstan.getController().addPath(this, stenpiren);
-        klippan.getController().addPath(this, ostindiegatan);
-        chalmers.getController().addPath(this, guldheden);
-        chalmers.getController().addPath(this, emilsborg);
-        chalmers.getController().addPath(this, sahlgrenska);
-        guldheden.getController().addPath(this, sahlgrenska);
-        botaniska.getController().addPath(this, sahlgrenska);
-        botaniska.getController().addPath(this, slottskogsvallen);
-        */
-        createSpaces(slottskogen, linne, null, 0, 0);
+
+        createSpaces( linne,slottskogen, null, 0, 0);
         createSpaces(slottskogen, botaniska, null, 0, 0);
         createSpaces(masthuggskykan,slottskogen,  null, 0, 0);
         createSpaces(slottskogen, slottskogsvallen, null, 0, 0);
@@ -131,32 +104,7 @@ public class Map implements IMap {
         createSpaces(operan, nordstan, null, 0, 0);
         createSpaces(emilsborg, guldheden, null, 0, 0);
         createSpaces(emilsborg, olofshojd, null, 0, 0);
-
-/*
-
-
-        //Tram paths.
-        //hjbrantings.getController().addTramPath(this, lundby);
-        //hjbrantings.getController().addTramPath(this, ramberget);
-        /*frihamnen.getController().addTramPath(this, chLindholmen);
-        eriksberg.getController().addTramPath(this, lundby);
-        frihamnen.getController().addTramPath(this, nordstan);
-        central.getController().addTramPath(this, ullevi);
-        domkyrkan.getController().addTramPath(this, jarntorget);
-        jarntorget.getController().addTramPath(this, masthuggskykan);
-        eriksberg.getController().addTramPath(this, lundby);
-        masthuggskykan.getController().addTramPath(this, ostindiegatan);
-        jarntorget.getController().addTramPath(this, linne);
-        linne.getController().addTramPath(this, botaniska);
-        slottskogsvallen.getController().addTramPath(this, ostindiegatan);
-        chalmers.getController().addTramPath(this, liseberg);
-        liseberg.getController().addTramPath(this, ullevi);
-        liseberg.getController().addTramPath(this, olofshojd);
-        frihamnen.getController().addTramPath(this, ringon);
-        central.getController().addTramPath(this, redbergsplatsen);
-        liseberg.getController().addTramPath(this, redbergsplatsen);
-        vasaplatsen.getController().addTramPath(this, domkyrkan);
-        vasaplatsen.getController().addTramPath(this, chalmers);*/
+        
 
         hjbrantings.setTramStation(true);
         frihamnen.setTramStation(true);
@@ -200,8 +148,15 @@ public class Map implements IMap {
         createSpaces(frihamnen, ringon, null, 0, 0);
         createSpaces(domkyrkan, vasaplatsen, null, 0, 0);
         createSpaces(chalmers,vasaplatsen, null, 0, 0);
+        createSpaces(klippan,ostindiegatan, null, 0, 0);
+        createSpaces(botaniska,sahlgrenska, null, 0, 0);
+        createSpaces(sahlgrenska,guldheden, null, 0, 0);
+        createSpaces(chalmers,sahlgrenska, null, 0, 0);
+        createSpaces(nordstan,central, null, 0, 0);
+        createSpaces(nordstan,domkyrkan, null, 0, 0);
+        createSpaces(nordstan,stenpiren, null, 0, 0);
 
-
+/*
         //adding some missing spaces that sould connect the map!
         ISpace space1 = new Space(65,35);
         space1.addAdjacentSpace(nordstan);
@@ -280,7 +235,7 @@ public class Map implements IMap {
         emilsborg.addAdjacentSpace(space11);
         guldheden.addAdjacentSpace(space11);
 
-
+*/
 
         //Start space.
         redbergsplatsen.setStart(true);

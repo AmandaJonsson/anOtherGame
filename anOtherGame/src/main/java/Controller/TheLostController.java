@@ -402,9 +402,16 @@ public class TheLostController implements IEventHandler{
                 for(int j = 0; j < lostKitten.getListOfPlayers().size(); j++){
 
                     if(lostKitten.getListOfPlayers().get(j).getPosition().compareSpaces(mapView.getListOfSpaceViews().get(i).getLocationOfSpace())){
-                        mapView.getListOfSpaceViews().get(i).setColor("Blue");
+                        System.out.println(getColorOfPlayer(lostKitten.getListOfPlayers().get(j)));
+                        mapView.getListOfSpaceViews().get(i).setColor(getColorOfPlayer(lostKitten.getListOfPlayers().get(j)));
                     }else{
-                        if(!mapView.getListOfSpaceViews().get(i).getColor().equals("Blue")){
+                        if(!(mapView.getListOfSpaceViews().get(i).getColor().equals("#d8bfd8")
+                                || mapView.getListOfSpaceViews().get(i).getColor().equals("#fff5ee")
+                                || mapView.getListOfSpaceViews().get(i).getColor().equals("#7fffd4")
+                                || mapView.getListOfSpaceViews().get(i).getColor().equals("#5f9ea0")
+                                || mapView.getListOfSpaceViews().get(i).getColor().equals("#9acd32")
+                                || mapView.getListOfSpaceViews().get(i).getColor().equals("#c0c0c0"))){
+                            //Här! Förut kollade den om den var blå, nu måste den kolla den om de 6 andra färgerna!
 
                             if(mapView.getListOfSpaceViews().get(i).getX() == 95 && mapView.getListOfSpaceViews().get(i).getY() == 22){
                                 Image img = new Image("/redbergsplatsen-01.png");
@@ -428,9 +435,33 @@ public class TheLostController implements IEventHandler{
         }
     }
 
+    public String getColorOfPlayer(IPlayer player){
+        for(int i = 0; i< listOfPlayerPanes.size(); i++){
+            if(listOfPlayerPanes.get(i).getPlayer().getName().equals(player.getName())){
+                if(listOfPlayerPanes.get(i).getView().getStyle().toString().equals(" -fx-background-color: thistle;")){
+                    return "#d8bfd8";
+                }else if(listOfPlayerPanes.get(i).getView().getStyle().toString().equals(" -fx-background-color: seashell;")){
+                    return "#fff5ee";
+                }else if(listOfPlayerPanes.get(i).getView().getStyle().toString().equals(" -fx-background-color: aquamarine;")){
+                    return "#7fffd4";
+                }else if(listOfPlayerPanes.get(i).getView().getStyle().toString().equals(" -fx-background-color: cadetblue;")){
+                    return "#5f9ea0";
+                }else if(listOfPlayerPanes.get(i).getView().getStyle().toString().equals(" -fx-background-color: yellowgreen;")){
+                    return "#9acd32";
+                }else if(listOfPlayerPanes.get(i).getView().getStyle().toString().equals(" -fx-background-color: silver;")){
+                    return "#c0c0c0";
+                }
+            }
+        }
+        return "Blue";
+    }
+
     private void initEvent() {
         EventBus.BUS.register(this);
     }
+
+
+
 
 }
 

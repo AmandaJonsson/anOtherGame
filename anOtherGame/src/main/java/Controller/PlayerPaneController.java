@@ -47,7 +47,6 @@ public class PlayerPaneController implements IEventHandler {
         tramCard.setVisible(false);
         initEvent();
         this.player = player;
-
     }
 
     public ImageView getCatImage(){

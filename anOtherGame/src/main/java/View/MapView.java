@@ -6,7 +6,7 @@
  * Revised by: *name*
  * Responsibility: Paint the map view
  * Used by:
- * Uses: IMap, ITheLostKitten, IPlayer, PlayerPiece, Station, Path
+ * Uses: IMap, ITheLostKitten, IPlayer, Station, Path
  */
 
 package View;
@@ -39,7 +39,6 @@ public class MapView extends GridPane implements IEventHandler {
     private String map;
     private ITheLostKitten lostKitten;
     private List<IPlayer> listOfPlayers;
-    private List<PlayerPiece> listOfPlayerPieces;
     private List<SpaceView> listOfSpaceViews;
 
 
@@ -81,13 +80,15 @@ public class MapView extends GridPane implements IEventHandler {
             }
         });
 
+        //Sätter ut färg redan från början där spelarna är, men bara blått, lite trångt på startrutorna... -_- 
+        /*
         for(int i = 0; i < getListOfSpaceViews().size(); i++){
             for(int j = 0; j < lostKitten.getListOfPlayers().size(); j++){
                 if(lostKitten.getListOfPlayers().get(j).getPosition().compareSpaces(getListOfSpaceViews().get(i).getLocationOfSpace())) {
                     getListOfSpaceViews().get(i).setColor("Blue");
                 }
             }
-        }
+        }*/
         initEvent();
     }
 
@@ -453,15 +454,6 @@ public class MapView extends StackPane {
         EventBus.BUS.register(this);
     }
 
-    private List<PlayerPiece> createPlayersPieces(List<IPlayer> players){
-        List<PlayerPiece> PlayerPieces = new ArrayList<PlayerPiece>();
-        for(IPlayer p:players){
-            PlayerPiece newPlayer = new PlayerPiece(p,"GREEN");
-            this.add(newPlayer,p.getPosition().getX(), p.getPosition().getY());
-            PlayerPieces.add(newPlayer);
-        }
-        return PlayerPieces;
-    }
 
 
     public void setPlayerPosition(ArrayList<IPlayer> playerlist){

@@ -178,10 +178,10 @@ public class Map implements IMap {
         ramberget.setTramStation(true);
         lundby.setTramStation(true);
         ullevi.setTramStation(true);
-        createSpaces(lundby,hjbrantings,  null, 0, 0);
+        createSpaces(hjbrantings,lundby,  null, 0, 0);
         createSpaces(hjbrantings, ramberget, null, 0, 0);
         createSpaces(frihamnen, chLindholmen, null, 0, 0);
-        createSpaces(lundby, eriksberg, null, 0, 0);
+        createSpaces(eriksberg,lundby, null, 0, 0);
         createSpaces(frihamnen, nordstan, null, 0, 0);
         createSpaces(central, ullevi, null, 0, 0);
         createSpaces(domkyrkan, jarntorget, null, 0, 0);
@@ -197,7 +197,7 @@ public class Map implements IMap {
         createSpaces(liseberg, redbergsplatsen, null, 0, 0);
         createSpaces(central, redbergsplatsen, null, 0, 0);
         createSpaces(frihamnen, ringon, null, 0, 0);
-        createSpaces(vasaplatsen, domkyrkan, null, 0, 0);
+        createSpaces(domkyrkan, vasaplatsen, null, 0, 0);
         createSpaces(chalmers,vasaplatsen, null, 0, 0);
 
 

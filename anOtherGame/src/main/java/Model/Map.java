@@ -138,7 +138,7 @@ public class Map implements IMap {
         createSpaces(eriksberg, lundby, null, 0, 0);
         createSpaces(masthuggskykan, ostindiegatan, null, 0, 0);
         createSpaces(jarntorget, linne, null, 0, 0);
-        createSpaces(botaniska, linne, null, 0, 0);
+        createSpaces(linne,botaniska,  null, 0, 0);
         createSpaces(slottskogsvallen, ostindiegatan, null, 0, 0);
         createSpaces(chalmers,liseberg, null, 0, 0);
         createSpaces( ullevi,liseberg, null, 0, 0);

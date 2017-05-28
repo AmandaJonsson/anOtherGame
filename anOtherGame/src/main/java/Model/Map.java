@@ -104,7 +104,7 @@ public class Map implements IMap {
         createSpaces(operan, nordstan, null, 0, 0);
         createSpaces(emilsborg, guldheden, null, 0, 0);
         createSpaces(emilsborg, olofshojd, null, 0, 0);
-        
+
 
         hjbrantings.setTramStation(true);
         frihamnen.setTramStation(true);
@@ -155,6 +155,7 @@ public class Map implements IMap {
         createSpaces(nordstan,central, null, 0, 0);
         createSpaces(nordstan,domkyrkan, null, 0, 0);
         createSpaces(nordstan,stenpiren, null, 0, 0);
+        createSpaces(hjbrantings,frihamnen, null, 0, 0);
 
 /*
         //adding some missing spaces that sould connect the map!

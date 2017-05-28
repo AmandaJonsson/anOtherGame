@@ -10,7 +10,7 @@
 
 package Model;
 
-import Model.Intefaces.*;
+import Model.Interfaces.*;
 import event.Event;
 import event.EventBus;
 

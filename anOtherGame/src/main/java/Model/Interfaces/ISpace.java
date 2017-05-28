@@ -6,7 +6,7 @@
  * Uses:
  */
 
-package Model.Intefaces;
+package Model.Interfaces;
 
 import java.util.List;
 

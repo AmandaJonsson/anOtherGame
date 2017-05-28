@@ -1,9 +1,9 @@
 package Mocks;
 
 import Model.*;
-import Model.Intefaces.IMap;
-import Model.Intefaces.ISpace;
-import Model.Intefaces.IStation;
+import Model.Interfaces.IMap;
+import Model.Interfaces.ISpace;
+import Model.Interfaces.IStation;
 
 import java.util.ArrayList;
 import java.util.List;

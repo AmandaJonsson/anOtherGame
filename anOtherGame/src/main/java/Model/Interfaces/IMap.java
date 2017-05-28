@@ -7,7 +7,7 @@
  * Uses: ISpace, IStation
  */
 
-package Model.Intefaces;
+package Model.Interfaces;
 
 import java.util.List;
 

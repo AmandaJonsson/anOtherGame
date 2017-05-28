@@ -6,7 +6,7 @@
  * Uses: IDice, ITheLostKitten,
  */
 package Controller;
-import Model.Intefaces.*;
+import Model.Interfaces.*;
 import Model.OtherMarkers;
 import Model.Station;
 import View.MapView;
@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class TheLostController implements IEventHandler {
+public class TheLostKittenController implements IEventHandler {
 
     @FXML private Button diceButton = new Button();
     @FXML private Button turnMarkerButton = new Button();
@@ -57,11 +57,11 @@ public class TheLostController implements IEventHandler {
     ArrayList<PlayerPaneController> listOfPlayerPanes;
     static MapView mapView;
 
-    public TheLostController() throws IOException {
+    public TheLostKittenController() throws IOException {
 
     }
 
-    public TheLostController(ITheLostKitten newGame, IDice lostdice, ArrayList<PlayerPaneController> listOfPlayerpanes, MapView mapView) throws IOException {
+    public TheLostKittenController(ITheLostKitten newGame, IDice lostdice, ArrayList<PlayerPaneController> listOfPlayerpanes, MapView mapView) throws IOException {
         lostKitten = newGame;
         dice = lostdice;
         newCreatedPlayers = newGame.getPlayers();

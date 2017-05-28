@@ -2,7 +2,7 @@
  * @author Maja
  * Revised by: Everybody
  * Responsibility: Handles the start view.
- * Used by: TheLostController
+ * Used by: TheLostKittenController
  * Uses: FXML-files: TheLostPane, RulesPane,
  *       PlayerPaneController, ITheLostKitten, TheLostcontroller, IMap, MapView
  */
@@ -10,9 +10,9 @@
 package Controller;
 
 import Model.*;
-import Model.Intefaces.IMap;
-import Model.Intefaces.IPlayer;
-import Model.Intefaces.ITheLostKitten;
+import Model.Interfaces.IMap;
+import Model.Interfaces.IPlayer;
+import Model.Interfaces.ITheLostKitten;
 import View.MapView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -58,8 +58,8 @@ public class MainController{
     @FXML private Button backToStartButton = new Button();
     @FXML private Stage rulesStage = new Stage();
 
-    private TheLostController theLost;
-    private TheLostController newController;
+    private TheLostKittenController theLost;
+    private TheLostKittenController newController;
 
 
 
@@ -102,7 +102,7 @@ public class MainController{
         canWePlay();
         startGame();
 
-        newController = new TheLostController(newGame, newGame.getDice(), listOfPlayerPanes,mapView);
+        newController = new TheLostKittenController(newGame, newGame.getDice(), listOfPlayerPanes,mapView);
 
 
     }

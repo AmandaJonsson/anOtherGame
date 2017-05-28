@@ -8,8 +8,8 @@
 
 package Model;
 
-import Model.Intefaces.ISpace;
-import Model.Intefaces.IStation;
+import Model.Interfaces.ISpace;
+import Model.Interfaces.IStation;
 import event.Event;
 import event.EventBus;
 

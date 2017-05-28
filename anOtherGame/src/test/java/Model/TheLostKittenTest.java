@@ -7,10 +7,9 @@
  */
 package Model;
 
-import Model.Intefaces.IMarker;
-import Model.Intefaces.IPlayer;
-import Model.Intefaces.ISpace;
-import Model.Intefaces.IStation;
+import Model.Interfaces.IMarker;
+import Model.Interfaces.IPlayer;
+import Model.Interfaces.ISpace;
 import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;

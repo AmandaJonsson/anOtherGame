@@ -3,14 +3,14 @@
  * @author Maja
  * Revised by: Everybody
  * Responsibility: Handles one player pane.
- * Used by: TheLostController
+ * Used by: TheLostKittenController
  * Uses: FXML-files: PlayerPane
  */
 
 
 package Controller;
 
-import Model.Intefaces.IPlayer;
+import Model.Interfaces.IPlayer;
 import Model.Player;
 import event.Event;
 import event.EventBus;

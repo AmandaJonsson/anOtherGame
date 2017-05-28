@@ -9,9 +9,9 @@
 package Model;
 
 import Mocks.MockMap;
-import Model.Intefaces.IMap;
-import Model.Intefaces.ISpace;
-import Model.Intefaces.IStation;
+import Model.Interfaces.IMap;
+import Model.Interfaces.ISpace;
+import Model.Interfaces.IStation;
 import org.junit.Test;
 
 import java.util.List;

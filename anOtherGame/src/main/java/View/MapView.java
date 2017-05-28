@@ -12,9 +12,9 @@
 package View;
 
 
-import Controller.TheLostController;
+import Controller.TheLostKittenController;
 import Model.FindPath;
-import Model.Intefaces.*;
+import Model.Interfaces.*;
 import Model.Marker;
 import Model.Station;
 import event.Event;
@@ -39,7 +39,7 @@ public class MapView extends GridPane implements IEventHandler {
     private ITheLostKitten lostKitten;
     private List<IPlayer> listOfPlayers;
     private List<SpaceView> listOfSpaceViews;
-    private TheLostController TheLost;
+    private TheLostKittenController TheLost;
 
 
     public MapView(IMap mapp, ITheLostKitten lostKitten) {

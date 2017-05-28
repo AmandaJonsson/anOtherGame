@@ -8,7 +8,7 @@
 
 package Model;
 
-import Model.Intefaces.IDice;
+import Model.Interfaces.IDice;
 
 import java.util.Random;
 

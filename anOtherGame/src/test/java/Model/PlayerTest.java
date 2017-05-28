@@ -8,7 +8,7 @@
 
 package Model;
 
-import Model.Intefaces.ISpace;
+import Model.Interfaces.ISpace;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

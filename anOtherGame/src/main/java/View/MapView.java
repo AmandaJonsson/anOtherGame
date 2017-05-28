@@ -80,6 +80,14 @@ public class MapView extends GridPane implements IEventHandler {
                 setNewSize(newSceneHeight.doubleValue(), oldSceneHeight.doubleValue());
             }
         });
+
+        for(int i = 0; i < getListOfSpaceViews().size(); i++){
+            for(int j = 0; j < lostKitten.getListOfPlayers().size(); j++){
+                if(lostKitten.getListOfPlayers().get(j).getPosition().compareSpaces(getListOfSpaceViews().get(i).getLocationOfSpace())) {
+                    getListOfSpaceViews().get(i).setColor("Blue");
+                }
+            }
+        }
         initEvent();
     }
 

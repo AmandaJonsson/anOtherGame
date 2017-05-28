@@ -53,8 +53,8 @@ public class TheLostController implements IEventHandler {
     Image cat = new Image("cat.png");
 
 
-    private String turnMakerText = "Välj att antingen betala 1000 kr eller slå tärningen och \n " +
-            "få 4,5 eller 6 för att vända markern.\n Tryck på 'Betala' eller 'Slå tärning'";
+    private String turnMakerText = "Välj att antingen betala 1000 kr eller slå\n tärningen och" +
+            " få 4,5 eller 6 för att vända\n markern.Tryck på 'Betala' eller 'Slå tärning'";
 
     private DropShadow shadow = new DropShadow();
     static IDice dice;
@@ -205,7 +205,10 @@ public class TheLostController implements IEventHandler {
     protected void handleTurnMarkerButton(ActionEvent event) throws IOException {
 
         if (!(lostKitten.getActivePlayer().getPosition() instanceof Station)) {
-            alternativeText.setText("Detta är ingen station och här finns ingen marker.");
+            alternativeText.setText("Detta är ingen station och här\nfinns ingen marker.");
+            turnMarkerButton.setDisable(true);
+            payButton.setDisable(true);
+            diceButton.setDisable(true);
         }
 
         else if (lostKitten.getActivePlayer().getPosition() instanceof Station) {
@@ -265,7 +268,7 @@ public class TheLostController implements IEventHandler {
 
     @FXML protected void handleBicycleButton(ActionEvent event) throws IOException{
 
-        alternativeText.setText("Välj vilken väg du vill åka genom att trycka \n på den positionen");
+        alternativeText.setText("Välj vilken väg du vill åka genom att\ntrycka på den positionen.");
         bicycleButton.setDisable(true);
         tramButton.setDisable(true);
         //turnMarkerButton.setDisable(true);

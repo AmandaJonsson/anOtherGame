@@ -18,7 +18,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
+<<<<<<< a90e92e4c8e06eb7d93d6912057707a40c43fa54
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TheLostController">
+=======
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TheLostController">
+>>>>>>> Changed the buttons and the taextlabel sp that everything fits
    <bottom>
       <AnchorPane prefHeight="123.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
@@ -28,7 +32,7 @@
             <Button fx:id="payButton" layoutX="661.0" layoutY="50.0" mnemonicParsing="false" onAction="#handlePayButton" onMouseEntered="#setMouseEffect" onMouseExited="#setMouseEffect" stylesheets="@CSSs/Button.css" text="Betala" AnchorPane.rightAnchor="280.0" />
             <Button fx:id="diceButton" layoutX="661.0" layoutY="87.0" mnemonicParsing="false" onAction="#handleDiceButton" onMouseEntered="#setMouseEffect" onMouseExited="#setMouseEffect" stylesheets="@CSSs/Button.css" text="Slå tärning" AnchorPane.rightAnchor="280.0" />
             <Label id="turnText" fx:id="playersTurnLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="337.0" layoutY="19.0" stylesheets="@CSSs/YoloBox.css" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="440.0" />
-            <Label id="hintText" fx:id="alternativeText" alignment="CENTER" contentDisplay="CENTER" layoutX="343.0" layoutY="55.0" prefHeight="57.0" prefWidth="520.0" stylesheets="@CSSs/YoloBox.css" text="Gör ditt drag. " AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="440.0" />
+            <Label id="hintText" fx:id="alternativeText" alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" layoutY="49.0" prefHeight="63.0" prefWidth="313.0" stylesheets="@CSSs/YoloBox.css" text="Gör ditt drag. " AnchorPane.leftAnchor="157.0" AnchorPane.rightAnchor="408.0" />
             <Button id="nextTurn" fx:id="nextPlayerButton" layoutX="839.0" layoutY="42.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleNextPlayerButton" prefHeight="123.0" prefWidth="250.0" stylesheets="@CSSs/YoloBox.css" text="Nästa spelare!" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>

@@ -12,6 +12,7 @@
 package View;
 
 
+import Controller.TheLostController;
 import Model.FindPath;
 import Model.Intefaces.*;
 import Model.Marker;
@@ -38,6 +39,7 @@ public class MapView extends GridPane implements IEventHandler {
     private ITheLostKitten lostKitten;
     private List<IPlayer> listOfPlayers;
     private List<SpaceView> listOfSpaceViews;
+    private TheLostController TheLost;
 
 
     public MapView(IMap mapp, ITheLostKitten lostKitten) {

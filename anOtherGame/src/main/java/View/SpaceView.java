@@ -8,10 +8,12 @@
 
 package View;
 
+import Controller.TheLostController;
 import Model.Intefaces.ISpace;
 import Model.Intefaces.IStation;
 import Model.Player;
 import Model.Space;
+import Model.TheLostKitten;
 import event.Event;
 import event.EventBus;
 import event.IEventHandler;
@@ -42,7 +44,10 @@ public class SpaceView extends Circle {
         this.space=space;
         setMouseEvent();
         isAvailableForAMove = false;
+
     }
+
+
 
     public void setIsAvailAbleForAMove(boolean available){
         isAvailableForAMove = available;
@@ -100,8 +105,19 @@ public class SpaceView extends Circle {
 
     //TODO THIS NO WORK PLEASE FEEEX!!
 
-        private void setMouseEvent() {
-        /*
+    private void setMouseEvent() {
+
+        this.setOnMouseClicked(e->{
+            this.setSpaceClicked(this.getX(),this.getY());
+            System.out.println("klickad: " + this.getSpaceClicked().toString());
+        });
+
+        }
+}
+
+
+
+ /*
             this.setOnMouseEntered(new EventHandler<MouseEvent>
                     () {
 
@@ -138,34 +154,4 @@ public class SpaceView extends Circle {
                     setColor(color);}
                 }
             });
-
-
-           /* this.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    if (space instanceof Station) {
-                        if (!((Station) space).hasMarker()) {
-                            space.getController().getView().setStyle("-fx-fill:BLACK;");
-                            System.out.println("Has no marker");
-                        } else {
-                            Station s = (Station) space;
-                            if (s.getMarker() instanceof MoneyMarker) {
-                                System.out.println(((MoneyMarker) s.getMarker()).getMarkerType());
-
-                            } else {
-                                System.out.println(((OtherMarkers) s.getMarker()).getMarkerType());
-                            }
-                        }
-
-                    }
-                }
-            });*/
-            this.setOnMouseClicked(e->{
-                this.setSpaceClicked(this.getX(),this.getY());
-                System.out.println("klickad: " + this.getSpaceClicked().toString());
-            });
-
-
-
-        }
-}
+            */

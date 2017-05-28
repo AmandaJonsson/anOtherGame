@@ -31,8 +31,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class TheLostController implements IEventHandler{
-    
+public class TheLostController implements IEventHandler {
+
     @FXML
     private Button diceButton = new Button();
     @FXML
@@ -53,7 +53,6 @@ public class TheLostController implements IEventHandler{
     Image cat = new Image("cat.png");
 
 
-
     private String turnMakerText = "Välj att antingen betala 1000 kr eller slå tärningen och \n " +
             "få 4,5 eller 6 för att vända markern.\n Tryck på 'Betala' eller 'Slå tärning'";
 
@@ -65,21 +64,21 @@ public class TheLostController implements IEventHandler{
     static MapView mapView;
     IPlayer winningPlayer;
 
-    MapController mapController = new MapController(mapView);;
+    MapController mapController = new MapController(mapView);
+    ;
+
     public TheLostController() throws IOException {
 
     }
 
     public TheLostController(ITheLostKitten newGame, IDice lostdice, ArrayList<PlayerPaneController> listOfPlayerpanes, MapView mapView) throws IOException {
         lostKitten = newGame;
-        dice=lostdice;
+        dice = lostdice;
         newCreatedPlayers = newGame.getPlayers();
-        listOfPlayerPanes=listOfPlayerpanes;
+        listOfPlayerPanes = listOfPlayerpanes;
         this.mapView = mapView;
         initEvent();
     }
-
-
 
 
     @FXML
@@ -93,7 +92,7 @@ public class TheLostController implements IEventHandler{
 
 
     @FXML
-    public void setMouseEffect(){
+    public void setMouseEffect() {
 
         diceButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
@@ -181,12 +180,13 @@ public class TheLostController implements IEventHandler{
 
     }
 
-    @FXML protected void handleDiceButton(ActionEvent event) throws IOException {
+    @FXML
+    protected void handleDiceButton(ActionEvent event) throws IOException {
 
         int diceRoll = dice.roll();
 
         if (diceRoll == 4 || diceRoll == 5 || diceRoll == 6) {
-            alternativeText.setText("Du slog en" + " " + diceRoll + " " + "du får vända markern");
+            alternativeText.setText("Du slog en" + " " + diceRoll + " " + "du fick markern");
             lostKitten.setNewBudget();
             payButton.setDisable(true);
             diceButton.setDisable(true);
@@ -201,30 +201,36 @@ public class TheLostController implements IEventHandler{
         }
     }
 
-    @FXML protected void handleTurnMarkerButton(ActionEvent event) throws IOException {
+    @FXML
+    protected void handleTurnMarkerButton(ActionEvent event) throws IOException {
 
+        if (!(lostKitten.getActivePlayer().getPosition() instanceof Station)) {
+            alternativeText.setText("Detta är ingen station och här finns ingen marker.");
+        }
 
-        if(lostKitten.getActivePlayer().getPosition() instanceof Station) {
-            Station station = (Station) lostKitten.getActivePlayer().getPosition();
-            if (station.hasMarker()) {
-                IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
-                if (lostKitten.checkIfMarkerIsTurned(mark) == true) {
-                    alternativeText.setText("Det finns ingen marker på denna stationen");
-                    payButton.setDisable(true);
-                    diceButton.setDisable(true);
-                } else {
-                    alternativeText.setText(turnMakerText);
-                    bicycleButton.setDisable(true);
-                    tramButton.setDisable(true);
-                    turnMarkerButton.setDisable(true);
-                    //mark.setMarkerToTurned();
+        else if (lostKitten.getActivePlayer().getPosition() instanceof Station) {
+                Station station = (Station) lostKitten.getActivePlayer().getPosition();
+                if (station.hasMarker()) {
+                    IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
+                    if (lostKitten.checkIfMarkerIsTurned(mark) == true) {
+                        if (lostKitten.checkIfMarkerIsTurned(mark)) {
+                            alternativeText.setText("Det finns ingen marker på denna stationen");
+                            payButton.setDisable(true);
+                            diceButton.setDisable(true);
+                        } else {
+                            alternativeText.setText(turnMakerText);
+                            bicycleButton.setDisable(true);
+                            tramButton.setDisable(true);
+                            turnMarkerButton.setDisable(true);
+                            //mark.setMarkerToTurned();
 
+                        }
+
+                    }
                 }
-
+                System.out.println(lostKitten.getActivePlayer().getPosition());
             }
         }
-        System.out.println(lostKitten.getActivePlayer().getPosition());
-    }
 
 
     @FXML protected void handlePayButton(ActionEvent event) throws IOException{
@@ -262,13 +268,15 @@ public class TheLostController implements IEventHandler{
 
     @FXML protected void handleBicycleButton(ActionEvent event) throws IOException{
 
-        alternativeText.setText("Välj vilken väg du vill åka genom att trycka på den positionen");
+        alternativeText.setText("Välj vilken väg du vill åka genom att trycka \n på den positionen");
         bicycleButton.setDisable(true);
         tramButton.setDisable(true);
         turnMarkerButton.setDisable(true);
         payButton.setDisable(true);
         diceButton.setDisable(true);
-
+            //turnMarkerButton.setDisable(true);
+        //payButton.setDisable(true);
+        //diceButton.setDisable(true);
         lostKitten.moveByBike();
     }
 
@@ -292,12 +300,7 @@ public class TheLostController implements IEventHandler{
         if(checkIfAbleToGoByTram() && !checkIfEnoughMoneyForTram()){
             tramButton.setDisable(false);
         }
-
-
-
-
         //disableTurnMarkerButton();
-
     }
 
     public void disableTurnMarkerButton(){
@@ -388,6 +391,9 @@ public class TheLostController implements IEventHandler{
             for (int i = 0; i < lostKitten.getMap().getSpaces().size(); i++) {
                 if (lostKitten.getMap().getSpaces().get(i).compareSpaces(sw.getLocationOfSpace())) {
                     lostKitten.getActivePlayer().setPosition(lostKitten.getMap().getSpaces().get(i));
+                    if(lostKitten.getActivePlayer().getPosition() instanceof Station){
+                        System.out.println("på station");
+                    }
                 }
             }
 

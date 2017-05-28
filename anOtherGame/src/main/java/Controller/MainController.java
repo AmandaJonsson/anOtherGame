@@ -14,6 +14,7 @@ import Model.Intefaces.IMap;
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ITheLostKitten;
 import View.MapView;
+import View.SpaceView;
 import event.Event;
 import event.EventBus;
 import event.IEventHandler;

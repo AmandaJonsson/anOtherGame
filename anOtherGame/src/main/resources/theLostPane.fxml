@@ -8,19 +8,22 @@
    Uses:
 -->
 
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="823.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TheLostController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="823.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TheLostController">
    <bottom>
       <AnchorPane prefHeight="123.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
              <Button fx:id="bicycleButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBicycleButton" onMouseEntered="#setMouseEffect" onMouseExited="#setMouseEffect" stylesheets="@CSSs/Button.css" text="Cykla" AnchorPane.leftAnchor="30.0" />
-            <Button fx:id="boatButton" layoutX="30.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleBoatButton" onMouseEntered="#setMouseEffect" onMouseExited="#setMouseEffect" stylesheets="@CSSs/Button.css" text="Åk båt" AnchorPane.leftAnchor="30.0" />
-            <Button fx:id="tramButton" layoutX="14.0" layoutY="87.0" mnemonicParsing="false" onAction="#handleTramButton" onMouseEntered="#setMouseEffect" onMouseExited="#setMouseEffect" stylesheets="@CSSs/Button.css" text="Åk spårvagn" AnchorPane.leftAnchor="30.0" />
+            <Button fx:id="tramButton" layoutX="30.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleTramButton" onMouseEntered="#setMouseEffect" onMouseExited="#setMouseEffect" stylesheets="@CSSs/Button.css" text="Åk spårvagn" AnchorPane.leftAnchor="30.0" />
             <Button fx:id="turnMarkerButton" layoutX="661.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleTurnMarkerButton" onMouseEntered="#setMouseEffect" onMouseExited="#setMouseEffect" stylesheets="@CSSs/Button.css" text="Vänd marker" AnchorPane.rightAnchor="280.0" />
             <Button fx:id="payButton" layoutX="661.0" layoutY="50.0" mnemonicParsing="false" onAction="#handlePayButton" onMouseEntered="#setMouseEffect" onMouseExited="#setMouseEffect" stylesheets="@CSSs/Button.css" text="Betala" AnchorPane.rightAnchor="280.0" />
             <Button fx:id="diceButton" layoutX="661.0" layoutY="87.0" mnemonicParsing="false" onAction="#handleDiceButton" onMouseEntered="#setMouseEffect" onMouseExited="#setMouseEffect" stylesheets="@CSSs/Button.css" text="Slå tärning" AnchorPane.rightAnchor="280.0" />

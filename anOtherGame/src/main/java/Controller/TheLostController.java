@@ -39,8 +39,6 @@ public class TheLostController implements IEventHandler{
     @FXML
     private Button bicycleButton = new Button();
     @FXML
-    private Button boatButton = new Button();
-    @FXML
     private Button tramButton = new Button();
     @FXML
     private Button payButton = new Button();
@@ -153,19 +151,6 @@ public class TheLostController implements IEventHandler{
             }
         });
 
-        boatButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent e) {
-                boatButton.setEffect(shadow);
-            }
-        });
-
-        boatButton.setOnMouseExited(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent e) {
-                boatButton.setEffect(null);
-            }
-        });
         tramButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent e) {
@@ -212,7 +197,6 @@ public class TheLostController implements IEventHandler{
             payButton.setDisable(true);
             diceButton.setDisable(true);
             bicycleButton.setDisable(true);
-            boatButton.setDisable(true);
             tramButton.setDisable(true);
         }
     }
@@ -231,7 +215,6 @@ public class TheLostController implements IEventHandler{
                 } else {
                     alternativeText.setText(turnMakerText);
                     bicycleButton.setDisable(true);
-                    boatButton.setDisable(true);
                     tramButton.setDisable(true);
                     turnMarkerButton.setDisable(true);
                     mark.setMarkerToTurned();
@@ -286,7 +269,6 @@ public class TheLostController implements IEventHandler{
 
         alternativeText.setText("Välj vilken väg du vill åka genom att trycka på den positionen");
         bicycleButton.setDisable(true);
-        boatButton.setDisable(true);
         tramButton.setDisable(true);
         turnMarkerButton.setDisable(true);
         payButton.setDisable(true);
@@ -318,7 +300,6 @@ public class TheLostController implements IEventHandler{
         payButton.setDisable(false);
         diceButton.setDisable(false);
         bicycleButton.setDisable(false);
-        boatButton.setDisable(false);
         if(checkIfAbleToGoByTram()){
             tramButton.setDisable(false);
         }

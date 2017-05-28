@@ -71,13 +71,6 @@ public class Station extends Space implements IStation {
         this.marker = marker;
     }
 
-    public void setBoatStation(boolean boatStation) {
-        isBoatStation = boatStation;
-    }
-
-    public boolean getIsBoatStation(){
-        return isBoatStation;
-    }
 
     public void setTramStation(boolean tramStation){
         isTramStation = tramStation;

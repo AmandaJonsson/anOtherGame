@@ -148,9 +148,7 @@ public class MapView extends GridPane implements IEventHandler {
             SpaceView view = new SpaceView(space,"Black");
             listOfSpaceViews.add(view);
             if (space instanceof Station){
-                if (((Station) space).getIsBoatStation()) {
-                    view.setColor("Blue");
-                }else if (((Station) space).getIsTramStation()) {
+                if (((Station) space).getIsTramStation()) {
                     view.setColor("Red");
                     view.setDefaultColor("Red");
                 }

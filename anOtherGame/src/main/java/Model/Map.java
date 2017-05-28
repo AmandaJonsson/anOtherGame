@@ -133,17 +133,7 @@ public class Map implements IMap {
         createSpaces(emilsborg, olofshojd, null, 0, 0);
 
 /*
-        //Boat paths.
-        lindholmen.setBoatStation(true);
-        klippan.setBoatStation(true);
-        operan.setBoatStation(true);
-        slottsberget.setBoatStation(true);
-        eriksberg.setBoatStation(true);
-        stenpiren.setBoatStation(true);
-        lindholmen.getController().addBoatPath(this, stenpiren);
-        klippan.getController().addBoatPath(this, eriksberg);
-        slottsberget.getController().addBoatPath(this, klippan);
-        operan.getController().addBoatPath(this, eriksberg);*/
+
 
         //Tram paths.
         //hjbrantings.getController().addTramPath(this, lundby);

@@ -18,15 +18,14 @@ public interface IStation extends ISpace {
     void turnMarker();
     void setMarker(IMarker marker);
 
-    boolean getIsBoatStation();
     boolean getIsTramStation();
 
     void setTramStation(boolean tramStation);
-    void setBoatStation(boolean boatStation);
 
-    void setStart(boolean start);
     boolean isStart();
     String toString();
+
+    void setStart(boolean start);
 
 }
 

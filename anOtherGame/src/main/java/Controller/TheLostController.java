@@ -8,14 +8,12 @@
 package Controller;
 import Model.Intefaces.*;
 import Model.OtherMarkers;
-import Model.Player;
 import Model.Station;
 import View.MapView;
 import View.SpaceView;
 import event.Event;
 import event.EventBus;
 import event.IEventHandler;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -30,42 +28,24 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.*;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
 import java.util.List;
 
 
 public class TheLostController implements IEventHandler {
 
-    @FXML
-    private Button diceButton = new Button();
-    @FXML
-    private Button turnMarkerButton = new Button();
-    @FXML
-    private Button bicycleButton = new Button();
-    @FXML
-    private Button tramButton = new Button();
-    @FXML
-    private Button payButton = new Button();
-    @FXML
-    private Button nextPlayerButton = new Button();
-    @FXML
-    private Label alternativeText;
-    @FXML
-    public Label playersTurnLabel = new Label();
-
+    @FXML private Button diceButton = new Button();
+    @FXML private Button turnMarkerButton = new Button();
+    @FXML private Button bicycleButton = new Button();
+    @FXML private Button tramButton = new Button();
+    @FXML private Button payButton = new Button();
+    @FXML private Button nextPlayerButton = new Button();
+    @FXML private Label alternativeText;
+    @FXML public Label playersTurnLabel = new Label();
     @FXML private Label playerWonLabel= new Label();
-    @FXML private Button finishGameButton = new Button();
     @FXML private Button playAgainButton = new Button();
     @FXML private Stage gameOverStage = new Stage();
-
-
-
-    Image cat = new Image("cat.png");
-
 
     private String turnMakerText = "Välj att antingen betala 1000 kr eller slå\ntärningen och" +
             " få 4,5 eller 6 för att vända\nmarkern.Tryck på 'Betala' eller 'Slå tärning'";
@@ -76,10 +56,6 @@ public class TheLostController implements IEventHandler {
     static List<IPlayer> newCreatedPlayers;
     ArrayList<PlayerPaneController> listOfPlayerPanes;
     static MapView mapView;
-    IPlayer winningPlayer;
-
-    MapController mapController = new MapController(mapView);
-    ;
 
     public TheLostController() throws IOException {
 
@@ -95,19 +71,9 @@ public class TheLostController implements IEventHandler {
     }
 
 
-    @FXML
-    public void addMap(MapView map) {
-
-        this.mapView = map;
-        ArrayList<IPlayer> players = new ArrayList<>();
-        players.addAll(lostKitten.getListOfPlayers());
-        //mapView.setPlayerPosition(players);
-    }
-
     public void setPayButtonDisable(){
         payButton.setDisable(true);
     }
-
     public void setDiceButtonDisable(){
         diceButton.setDisable(true);
     }
@@ -255,7 +221,7 @@ public class TheLostController implements IEventHandler {
 
                         }
                 }
-                System.out.println(lostKitten.getActivePlayer().getPosition());
+
             }
         }
 
@@ -353,8 +319,6 @@ public class TheLostController implements IEventHandler {
 
             Pane gameOverPane = (Pane) loader.load(getClass().getResource("/gameOverPane.fxml"));
             playerWonLabel = (Label)gameOverPane.lookup("#playerWonLabel");
-            finishGameButton = (Button)gameOverPane.lookup("#finishGameButton");
-            playAgainButton = (Button)gameOverPane.lookup("#playAgainButton");
             playerWonLabel.setText("Spelare " + lostKitten.getActivePlayer().getName() + " vann!");
             Scene gameOverScene = new Scene(gameOverPane);
             gameOverStage.setScene(gameOverScene);
@@ -372,21 +336,9 @@ public class TheLostController implements IEventHandler {
             if (checkIfAbleToGoByTram() && !checkIfEnoughMoneyForTram()) {
                 tramButton.setDisable(false);
             }
-            //disableTurnMarkerButton();
         }
     }
 
-    public void disableTurnMarkerButton(){
-        if(lostKitten.getActivePlayer().getPosition() instanceof IStation){
-            IStation station = (Station) lostKitten.getActivePlayer().getPosition();
-            if(station.hasMarker()) {
-                IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
-                if(lostKitten.checkIfMarkerIsTurned(mark)){
-                    turnMarkerButton.setDisable(true);
-                }
-            }
-        }
-    }
 
     public boolean checkIfAbleToGoByTram(){
         if(lostKitten.getActivePlayer().getPosition() instanceof IStation){
@@ -415,14 +367,6 @@ public class TheLostController implements IEventHandler {
 
     public void updatePlayerTurn(){
         lostKitten.getNextPlayer();
-    }
-
-
-
-    public void setBudgetLabel(){}
-
-    public IPlayer getWinningPlayer(){
-        return winningPlayer;
     }
 
     private boolean checkGameOver(){
@@ -461,9 +405,6 @@ public class TheLostController implements IEventHandler {
             for (int i = 0; i < lostKitten.getMap().getSpaces().size(); i++) {
                 if (lostKitten.getMap().getSpaces().get(i).compareSpaces(sw.getLocationOfSpace())) {
                     lostKitten.getActivePlayer().setPosition(lostKitten.getMap().getSpaces().get(i));
-                    if(lostKitten.getActivePlayer().getPosition() instanceof Station){
-                        System.out.println("på station");
-                    }
                 }
             }
 

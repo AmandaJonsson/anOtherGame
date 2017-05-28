@@ -14,15 +14,10 @@ import Model.Intefaces.IMap;
 import Model.Intefaces.IPlayer;
 import Model.Intefaces.ITheLostKitten;
 import View.MapView;
-import View.SpaceView;
-import event.Event;
-import event.EventBus;
-import event.IEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -39,8 +34,6 @@ import javafx.scene.effect.DropShadow;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static Controller.TheLostController.mapView;
 
 
 public class MainController{
@@ -63,12 +56,6 @@ public class MainController{
     @FXML private TextFlow textScrollPane;
     @FXML private Button backToStartButton = new Button();
     @FXML private Stage rulesStage = new Stage();
-
-    @FXML private Button playAgainButton = new Button();
-    @FXML private Button finishGameButton = new Button();
-    @FXML private AnchorPane gameOverPane = new AnchorPane();
-    @FXML private Label playerWonLabel = new Label();
-    @FXML private Stage endStage = new Stage();
 
     private TheLostController theLost;
     private TheLostController newController;
@@ -175,13 +162,6 @@ public class MainController{
 
          }
 
-
-
-        if(hasSameName == true){
-            System.out.println("Spelarna måste heta olika saker!");
-
-        }
-
     }
 
     private void startGame() throws IOException {
@@ -196,7 +176,7 @@ public class MainController{
             stage.show();
         }
 
-        TheLostController newController = new TheLostController(newGame, newGame.getDice(), listOfPlayerPanes, mapView);
+
 
     }
 

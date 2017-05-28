@@ -21,10 +21,6 @@ public enum EventBus {
         handlers.add(handler);
     }
 
-    public void unRegister(IEventHandler handler) {
-        handlers.remove(handler);
-    }
-
     public void publish(Event evt) {
         // Tracking all events
         if (trace) {

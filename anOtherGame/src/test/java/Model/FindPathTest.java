@@ -10,6 +10,7 @@ package Model;
 
 import Mocks.MockMap;
 import Model.Intefaces.IMap;
+import Model.Intefaces.IStation;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,7 +18,15 @@ import static org.junit.Assert.*;
 public class FindPathTest {
     @Test
     public void findPotentialStations() throws Exception {
+        IMap map1 = new MockMap();
+        FindPath findPath = new FindPath();
+        findPath.findPotentialStations((Station) map1.getSpaces().get(3));
+        System.out.println(findPath.findPotentialStations((Station) map1.getSpaces().get(3)));
 
+
+        if(map1.getSpaces().get(3) instanceof IStation){
+            System.out.println("hej");
+        }
 
     }
 
@@ -41,8 +50,7 @@ public class FindPathTest {
 
     @Test
     public void testFindPotentialSpaces() throws Exception {
-        IMap map = new MockMap();
-
+        //IMap map = new MockMap();
 
 
     }

@@ -16,6 +16,7 @@ public class MockMap implements IMap {
 
     public MockMap() {
         spaces = new ArrayList<ISpace>();
+        stations = new ArrayList<IStation>();
         ISpace space1 = new Space(3,1);
         ISpace space2 = new Space(3,2);
         ISpace space3 = new Space(3,3);
@@ -26,7 +27,7 @@ public class MockMap implements IMap {
         ISpace space8 = new Space(5,6);
         ISpace space9 = new Space(4,7);
         IStation space10 = new Station(1,7, "Nordstan", null);
-        IStation space11 = new Station(6,6, "Kapellplatsn", null);
+        IStation space11 = new Station(6,6, "Kapellplatsen", null);
 
 
         space1.addAdjacentSpace(space2);
@@ -92,7 +93,6 @@ public class MockMap implements IMap {
     }
 
     public void addMarkers(double noTopaz, double noEmerald, double nOfRubys, double nOfBlanks, List<IStation> stations) {
-
         ArrayList<Marker> listOfMarkers = new ArrayList<>(stations.size());
     }
 

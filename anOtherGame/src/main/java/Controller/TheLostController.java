@@ -220,16 +220,11 @@ public class TheLostController implements IEventHandler{
                     mark.setMarkerToTurned();
 
                 }
-
+            }
         }
-
-
-        }
-
-
         System.out.println(lostKitten.getActivePlayer().getPosition());
-
     }
+
 
     @FXML protected void handlePayButton(ActionEvent event) throws IOException{
         diceButton.setDisable(true);
@@ -265,7 +260,6 @@ public class TheLostController implements IEventHandler{
 
 
     @FXML protected void handleBicycleButton(ActionEvent event) throws IOException{
-        lostKitten.moveByBike();
 
         alternativeText.setText("Välj vilken väg du vill åka genom att trycka på den positionen");
         bicycleButton.setDisable(true);
@@ -273,15 +267,8 @@ public class TheLostController implements IEventHandler{
         turnMarkerButton.setDisable(true);
         payButton.setDisable(true);
         diceButton.setDisable(true);
-        System.out.println("Cykla");
+        lostKitten.moveByBike();
 
-    }
-
-
-    @FXML protected void handleBoatButton(ActionEvent event) throws IOException{
-        int diceroll = dice.roll();
-        lostKitten.moveByBoat(diceroll);
-        System.out.println("Åk båt");
 
     }
 
@@ -395,6 +382,7 @@ public class TheLostController implements IEventHandler{
                     lostKitten.getActivePlayer().setPosition(lostKitten.getMap().getSpaces().get(i));
                 }
             }
+
 
             //the player's positions are marked with bluuuuuue
             //the rest should be deafultcolor/picture

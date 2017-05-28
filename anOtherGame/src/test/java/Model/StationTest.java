@@ -49,18 +49,6 @@ public class StationTest {
     }
 
     @Test
-    public void testSetBoatStation() throws Exception {
-        station.setBoatStation(true);
-        assertTrue(station.getIsBoatStation());
-    }
-
-    @Test
-    public void testGetIsBoatStation() throws Exception {
-        station.setBoatStation(false);
-        assertFalse(station.getIsBoatStation());
-    }
-
-    @Test
     public void testSetTramStation() throws Exception {
         station.setTramStation(true);
         assertTrue(station.getIsTramStation());

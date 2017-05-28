@@ -17,7 +17,6 @@ import View.MapView;
 import event.Event;
 import event.EventBus;
 import event.IEventHandler;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -64,8 +63,16 @@ public class MainController implements IEventHandler{
     @FXML private Button backToStartButton = new Button();
     @FXML private Stage rulesStage = new Stage();
 
+    @FXML private Button playAgainButton = new Button();
+    @FXML private Button finishGameButton = new Button();
+    @FXML private AnchorPane gameOverPane = new AnchorPane();
+    @FXML private Label playerWonLabel = new Label();
+    @FXML private Stage endStage = new Stage();
+
     private TheLostController theLost;
     private TheLostController newController;
+
+
 
     private List<IPlayer> players = new ArrayList<>();
     private ArrayList<PlayerPaneController> listOfPlayerPanes = new ArrayList<>();
@@ -73,8 +80,10 @@ public class MainController implements IEventHandler{
     private boolean hasSameName;
     private IMap map;
 
-    public MainController(){
+
+    public MainController() throws IOException {
         initEvent();
+
     }
 
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
@@ -108,6 +117,8 @@ public class MainController implements IEventHandler{
 
         newController = new TheLostController(newGame, newGame.getDice(), listOfPlayerPanes,mapView);
 
+
+        gameOverPane = FXMLLoader.load(getClass().getResource("/gameOverPane.fxml"));
 
 
     }
@@ -174,9 +185,10 @@ public class MainController implements IEventHandler{
             System.out.println("Spelarna måste heta olika saker!");
 
         }
+
     }
 
-    private void startGame(){
+    private void startGame() throws IOException {
 
         if(hasSameName && players.size()<2){
             warningLabel.setText("Alla spelare måste ha olika namn.");
@@ -261,7 +273,7 @@ public class MainController implements IEventHandler{
     }
 
     @FXML public void handleFinishGameButton(ActionEvent event){
-        stage.close();
+
     }
 
     @FXML
@@ -316,12 +328,36 @@ public class MainController implements IEventHandler{
     @Override
     public void onEvent(Event evt) {
         if (evt.getTag() == Event.Tag.PLAYER_WON) {
-            System.out.println(newController.getGameOver());
-            if(newController.getGameOver()) {
                 System.out.println("NÅGON HAR VUNNIT");
-                System.out.println(newController.getGameOver() == true);
 
+            playAgainButton = (Button)gameOverPane.lookup("#playAgainButton");
+            finishGameButton = (Button)gameOverPane.lookup("#finishGameButton");
+            playerWonLabel = (Label)gameOverPane.lookup("#playerWonLabel");
+
+
+            /*
+            * if (window.getScene() == null) {
+    Scene scene = new Scene(window);
+    stage.setScene(scene);
+} else {
+    stage.setScene(window.getScene());
+}
+            * */
+            if(gameOverPane.getScene() == null){
+                Scene scene = new Scene (gameOverPane);
+                stage.setScene(scene);
+            }else{
+                stage.setScene(gameOverPane.getScene());
             }
+
+
+            Scene scene = new Scene(gameOverPane);
+            endStage.setScene(scene);
+            endStage.getScene().getRoot().setEffect(shadow);
+            endStage.getScene().setFill(Color.TRANSPARENT);
+            endStage.show();
+
+
         }
     }
 

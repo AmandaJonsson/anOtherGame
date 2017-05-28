@@ -9,8 +9,8 @@
 
 package Model;
 
-import Model.Intefaces.IMarker;
-import Model.Intefaces.IStation;
+import Model.Interfaces.IMarker;
+import Model.Interfaces.IStation;
 import event.Event;
 import event.EventBus;
 

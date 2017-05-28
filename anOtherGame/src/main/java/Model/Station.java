@@ -11,8 +11,8 @@
 package Model;
 
 
-import Model.Intefaces.IMarker;
-import Model.Intefaces.IStation;
+import Model.Interfaces.IMarker;
+import Model.Interfaces.IStation;
 
 public class Station extends Space implements IStation {
     private IMarker marker;

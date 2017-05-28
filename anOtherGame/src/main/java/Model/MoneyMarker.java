@@ -10,8 +10,8 @@
 
 package Model;
 
-import Model.Intefaces.IMarker;
-import Model.Intefaces.IStation;
+import Model.Interfaces.IMarker;
+import Model.Interfaces.IStation;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -6,7 +6,7 @@
  * Used by:
  * Uses: IMarker
  */
-package Model.Intefaces;
+package Model.Interfaces;
 
 
 public interface IStation extends ISpace {

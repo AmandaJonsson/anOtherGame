@@ -9,7 +9,7 @@
 
 
 package Model;
-import Model.Intefaces.IMarker;
+import Model.Interfaces.IMarker;
 
 public class OtherMarkers extends Marker {
 

@@ -7,7 +7,7 @@
  * Uses: IPlayer, IDice, IMap
  */
 
-package Model.Intefaces;
+package Model.Interfaces;
 
 import java.util.List;
 

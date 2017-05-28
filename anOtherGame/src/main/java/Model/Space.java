@@ -8,7 +8,7 @@
 
 package Model;
 
-import Model.Intefaces.ISpace;
+import Model.Interfaces.ISpace;
 
 import java.util.ArrayList;
 

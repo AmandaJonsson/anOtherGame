@@ -8,7 +8,7 @@
 
 package View;
 
-import Model.Intefaces.ISpace;
+import Model.Interfaces.ISpace;
 import Model.Space;
 import event.Event;
 import event.EventBus;

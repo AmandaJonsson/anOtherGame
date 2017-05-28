@@ -6,7 +6,7 @@
  * Uses: ISpace
  */
 
-package Model.Intefaces;
+package Model.Interfaces;
 
 public interface IPlayer {
     boolean playerHasTurn();

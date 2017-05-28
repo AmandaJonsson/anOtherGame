@@ -61,7 +61,5 @@ public class MapTest {
 
         assertTrue(lundby.isStart());
         assertTrue(redbergsplatsen.isStart());
-        System.out.println(map.getStartPositions());
-        //assertTrue(map.getStartPositions().contains(lundby));
     }
 }

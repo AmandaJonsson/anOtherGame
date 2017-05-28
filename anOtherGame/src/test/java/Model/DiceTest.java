@@ -17,6 +17,7 @@ public class DiceTest {
     public void testRoll() throws Exception {
         Dice dice = new Dice();
         assertTrue(dice.roll() > 0 || dice.roll() < 7);
+        assertFalse(dice.roll() > 8);
     }
 }
 

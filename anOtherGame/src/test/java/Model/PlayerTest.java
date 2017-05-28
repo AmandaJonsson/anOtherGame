@@ -1,16 +1,13 @@
 package Model;
-/*package Model;
 
->>>>>>> map
 import Model.Intefaces.ISpace;
-import com.sun.xml.internal.xsom.XSWildcard;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-*/
+
 /**
  * Created by majanyberg on 2017-05-16.
- *//*
+ */
 public class PlayerTest {
     String name = "Maja";
     ISpace testGet = new Space(1,1);
@@ -56,14 +53,6 @@ public class PlayerTest {
     }
 
     // Test for other methods -----------------------------
-
-    @Test
-    public void testUpdatePosition() throws Exception {
-        player1.updatePosition(new Space(3,4));
-        assertFalse(player1.getPosition().compareSpaces(testSet));
-        assertTrue(player1.getPosition().compareSpaces(testUpdate));
-
-    }
 
     @Test
     public void testGotTramCard() throws Exception {
@@ -178,4 +167,4 @@ public class PlayerTest {
     }
 
 
-}*/
+}

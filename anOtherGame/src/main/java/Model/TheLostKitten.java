@@ -121,8 +121,6 @@ public class TheLostKitten implements ITheLostKitten{
             } else if(mark.equals(OtherMarkers.NoMoneyMarkers.PICKPOCKET)){
                 getActivePlayer().robbedByPickpocket();
                 mark.setMarkerToTurned();
-
-
             }
         }
     }
@@ -165,14 +163,8 @@ public class TheLostKitten implements ITheLostKitten{
     @Override
     public List<ISpace> moveByBike(){
         int resultFromDice = dice.roll();
-
         FindPath pathfinder = new FindPath();
         List<ISpace> list = pathfinder.findPotentialSpaces(resultFromDice, this.getActivePlayer().getPosition());
-
-        System.out.println(getActivePlayer().getPosition());
-        System.out.println(resultFromDice);
-        System.out.println(list);
-
         return list;
     }
     @Override

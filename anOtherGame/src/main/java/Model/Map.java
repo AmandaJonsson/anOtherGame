@@ -178,9 +178,10 @@ public class Map implements IMap {
         ramberget.setTramStation(true);
         lundby.setTramStation(true);
         ullevi.setTramStation(true);
+        chLindholmen.setTramStation(true);
         createSpaces(hjbrantings,lundby,  null, 0, 0);
-        createSpaces(hjbrantings, ramberget, null, 0, 0);
-        createSpaces(frihamnen, chLindholmen, null, 0, 0);
+        createSpaces(ramberget,hjbrantings,  null, 0, 0);
+        createSpaces( chLindholmen,frihamnen, null, 0, 0);
         createSpaces(eriksberg,lundby, null, 0, 0);
         createSpaces(frihamnen, nordstan, null, 0, 0);
         createSpaces(central, ullevi, null, 0, 0);

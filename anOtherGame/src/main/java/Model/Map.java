@@ -223,6 +223,12 @@ public class Map implements IMap {
         space3.addAdjacentSpace(guldheden);
         guldheden.addAdjacentSpace(space3);
 
+        ISpace space4 = new Space(50,15);
+        spaces.add(space4);
+        space4.addAdjacentSpace(hjbrantings);
+        space4.addAdjacentSpace(frihamnen);
+        hjbrantings.addAdjacentSpace(space4);
+        frihamnen.addAdjacentSpace(space4);
 
 
 

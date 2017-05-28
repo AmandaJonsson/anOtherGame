@@ -135,14 +135,12 @@ public class Player implements IPlayer {
 
     public boolean setHasCat(){
         this.hasCat=true;
-        System.out.println("set has cat");
         EventBus.BUS.publish(new Event(Event.Tag.PLAYER_CAT,this));
 
         return this.hasCat;
     }
 
     public boolean gotTramCard(){
-        System.out.println("set has tram card");
         this.hasTramCard = true;
         EventBus.BUS.publish(new Event(Event.Tag.PLAYER_TRAMCARD,this));
         return this.hasTramCard;

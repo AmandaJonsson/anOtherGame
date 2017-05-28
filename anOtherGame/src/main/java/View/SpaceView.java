@@ -8,19 +8,10 @@
 
 package View;
 
-import Controller.TheLostController;
 import Model.Intefaces.ISpace;
-import Model.Intefaces.IStation;
-import Model.Player;
 import Model.Space;
-import Model.TheLostKitten;
 import event.Event;
 import event.EventBus;
-import event.IEventHandler;
-import javafx.event.EventHandler;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
@@ -109,49 +100,7 @@ public class SpaceView extends Circle {
 
         this.setOnMouseClicked(e->{
             this.setSpaceClicked(this.getX(),this.getY());
-            System.out.println("klickad: " + this.getSpaceClicked().toString());
         });
 
         }
 }
-
-
-
- /*
-            this.setOnMouseEntered(new EventHandler<MouseEvent>
-                    () {
-
-                @Override
-                public void handle(MouseEvent t) {
-                    if (space instanceof IStation) {
-                        if (!((IStation) space).isStart()) {
-                            setStyle("-fx-fill:" + "Green" + ";");
-                        } else {
-                            setRadius(60);
-                        }
-                    } else setColor("RED");
-                }
-
-            });
-
-            this.setOnMouseExited(new EventHandler<MouseEvent>
-                    () {
-
-                @Override
-                public void handle(MouseEvent t) {
-                    String color;
-                    if (space instanceof IStation) {
-                        if (!((IStation) space).isStart()) {
-                            if (((IStation) space).getIsBoatStation()) {
-                                color = "Blue";
-                            }
-                            if (((IStation) space).getIsTramStation()) {
-                                color = "Red";
-                            }else color="Black";
-                            setColor(color);
-                        } else setRadius(50);
-                    } else {color="Black";
-                    setColor(color);}
-                }
-            });
-            */

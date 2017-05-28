@@ -10,7 +10,6 @@
 
 package Controller;
 
-import Model.Intefaces.IMap;
 import Model.Intefaces.ISpace;
 import Model.Space;
 import View.MapView;

@@ -93,6 +93,9 @@ public class MainController implements IEventHandler{
         root = loader.load();
         theLost = loader.getController();
         theLost.setPlayersTurnLabel(playerTextField1.getText());
+        theLost.setPayButtonDisable();
+        theLost.setDiceButtonDisable();
+        theLost.setTurnMarkerButtonDisable();
         stage = (Stage) startGameButton.getScene().getWindow();
         mapPlace = (AnchorPane)root.lookup("#mapPlace");
         playerVBox = (VBox)root.lookup("#playerPlace");

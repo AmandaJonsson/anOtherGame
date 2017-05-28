@@ -161,10 +161,6 @@ public class TheLostKitten implements ITheLostKitten{
 
     }
 
-    public void moveByBoat(int resultFromDice){
-
-    }
-
     public void move(){
         System.out.println("NU är det spelare " + getActivePlayer().getName());
     }

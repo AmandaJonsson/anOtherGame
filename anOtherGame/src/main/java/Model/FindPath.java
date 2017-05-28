@@ -16,7 +16,7 @@ import event.EventBus;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FindPath {
+public class FindPath{
 
     List<ISpace> visitedSpaces = new ArrayList<ISpace>();
     List<ISpace> potentialSpaces = new ArrayList<ISpace>();
@@ -31,7 +31,6 @@ public class FindPath {
         EventBus.BUS.publish(new Event(Event.Tag.FIND_TRAMSTATION, this));
         return potentialStations;
     }
-
 
     public List<ISpace> findPotentialSpaces(int numberOnDice, ISpace positionOfPlayer) {
 
@@ -50,7 +49,6 @@ public class FindPath {
                         tempList.add(potentialSpaces.get(j).getAdjacentSpaces().get(k));
                         tempList = mergeLists(potentialSpaces, tempList);
                     }
-
                 }
                 visitedSpaces.add(potentialSpaces.get(j));
             }
@@ -84,15 +82,10 @@ public class FindPath {
         return newList;
     }
 
-    public static void printListOfSpaces(List<ISpace> spaces) {
-        for (int i = 0; i < spaces.size(); i++) {
-            System.out.println(spaces.get(i).toString());
-        }
-    }
-
     public List<ISpace> getPotentialSpaces() {
         return potentialSpaces;
     }
+
     public List<IStation> getPotentialStations() {
         return potentialStations;
     }

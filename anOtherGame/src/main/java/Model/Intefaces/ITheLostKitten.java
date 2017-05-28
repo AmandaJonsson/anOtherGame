@@ -27,7 +27,7 @@ public interface ITheLostKitten {
     void setNewDecreasedBudget(int value);
     IMap getMap();
     List<ISpace> moveByBike();
-    void moveByTram(int diceroll);
+    List<IStation> moveByTram();
     void setSomeoneFoundCat();
     boolean getSomeoneFoundCat();
 }

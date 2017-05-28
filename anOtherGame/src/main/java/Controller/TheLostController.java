@@ -267,14 +267,14 @@ public class TheLostController implements IEventHandler{
         turnMarkerButton.setDisable(true);
         payButton.setDisable(true);
         diceButton.setDisable(true);
+
         lostKitten.moveByBike();
-
-
     }
 
     @FXML protected void handleTramButton(ActionEvent event) throws IOException{
-        int diceroll = dice.roll();
-        lostKitten.moveByTram(diceroll);
+
+        System.out.println(lostKitten.moveByTram());
+
         System.out.println("Åk spårvagn");
     }
 
@@ -284,10 +284,11 @@ public class TheLostController implements IEventHandler{
         setPlayersTurnLabel(lostKitten.getActivePlayer().getName());
         alternativeText.setText(" ");
         turnMarkerButton.setDisable(false);
+        
         payButton.setDisable(false);
         diceButton.setDisable(false);
         bicycleButton.setDisable(false);
-        if(checkIfAbleToGoByTram()){
+        if(checkIfAbleToGoByTram() && !checkIfEnoughMoneyForTram()){
             tramButton.setDisable(false);
         }
 
@@ -319,6 +320,13 @@ public class TheLostController implements IEventHandler{
                 return false;
             }
             return false;
+        }
+        return false;
+    }
+
+    public boolean checkIfEnoughMoneyForTram(){
+        if(lostKitten.getActivePlayer().getBalance() < 3000){
+            return true;
         }
         return false;
     }

@@ -12,6 +12,7 @@ public class Event {
         PLAYER_POSITION,
         LOSTKITTEN_NEXT,
         FIND_PATH,
+        FIND_TRAMSTATION,
         SPACE_CHOSEN,
     }
 

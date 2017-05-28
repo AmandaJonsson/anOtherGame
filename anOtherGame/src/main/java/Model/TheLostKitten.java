@@ -24,9 +24,8 @@ public class TheLostKitten implements ITheLostKitten{
     IDice dice;
     private List<IPlayer> playerList;
     private IPlayer activePlayer;
-    private FindPath pathFinder;
     private boolean someoneFoundCat = false;
-    
+
     public TheLostKitten(List<IPlayer> nameOfPlayers) {
         map = new Map();
         dice = new Dice();
@@ -105,7 +104,7 @@ public class TheLostKitten implements ITheLostKitten{
     public void setNewBudget() {
         IMarker mark = ((Station) getActivePlayer().getPosition()).getMarker();
         if (mark instanceof MoneyMarker) {
-            //System.out.println(((MoneyMarker) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
+            System.out.println(((MoneyMarker) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
             getActivePlayer().updateBudget();
             mark.setMarkerToTurned();
         }
@@ -156,13 +155,20 @@ public class TheLostKitten implements ITheLostKitten{
         return list;
     }
 
-    public void moveByTram(int resultFromDice){
-
-
-    }
-
-    public void move(){
-        System.out.println("NU är det spelare " + getActivePlayer().getName());
+    public List<IStation> moveByTram(){
+        List<IStation> listOfPotentialStations = new ArrayList<IStation>();
+        if(!(getActivePlayer().getPosition() instanceof IStation)){
+            System.out.println("Du kan bara åka spårvagn ifrån en station din tratt!");
+        }else{
+            if(getActivePlayer().getBalance() < 3000){
+                System.out.println("Spelare: " + getActivePlayer().toString() + " har inte råd att åka spårvagn");
+            }else{
+                getActivePlayer().decreaseBalance(3000);
+                FindPath pathfinder = new FindPath();
+                listOfPotentialStations = pathfinder.findPotentialStations((IStation) getActivePlayer().getPosition());
+                }
+            }
+        return listOfPotentialStations;
     }
 
     //----Event setters-------------

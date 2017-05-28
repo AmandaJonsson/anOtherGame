@@ -249,6 +249,19 @@ public class MapView extends GridPane implements IEventHandler {
             }
         }
 
+        if(evt.getTag() == Event.Tag.FIND_TRAMSTATION){
+            FindPath p = (FindPath) evt.getValue();
+            List<IStation> listOfPotentialStations = p.getPotentialStations();
+            for(int i = 0; i<listOfPotentialStations.size(); i++){
+                for(int j = 0; j< getListOfSpaceViews().size(); j++){
+                    if(listOfPotentialStations.get(i).getX() == getListOfSpaceViews().get(j).getX() && listOfPotentialStations.get(i).getY() == getListOfSpaceViews().get(j).getY()){
+                        getListOfSpaceViews().get(j).setStroke(Color.YELLOW);
+                        getListOfSpaceViews().get(j).setStrokeWidth(3);
+                    }
+                }
+            }
+        }
+
         else if(evt.getTag() == Event.Tag.MARKER_FLIPPED){
             IMarker m = (Marker) evt.getValue();
             for(int i = 0; i < listOfSpaceViews.size(); i++){

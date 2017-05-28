@@ -9,6 +9,7 @@
 package Model;
 
 import Model.Intefaces.ISpace;
+import Model.Intefaces.IStation;
 import event.Event;
 import event.EventBus;
 
@@ -17,11 +18,19 @@ import java.util.List;
 
 public class FindPath {
 
-    //TODO right now this class does not handle that special case with BoatStations!
-    //TODO one shouldn't be able to pass those -> has to stop at next BoatStation even though dice is higher
-
     List<ISpace> visitedSpaces = new ArrayList<ISpace>();
     List<ISpace> potentialSpaces = new ArrayList<ISpace>();
+    List<IStation> potentialStations = new ArrayList<IStation>();
+
+    public List<IStation> findPotentialStations(IStation positionOfPlayer){
+        for(int i = 0; i< positionOfPlayer.getAdjacentSpaces().size(); i++){
+            if(positionOfPlayer.getAdjacentSpaces().get(i) instanceof IStation) {
+                potentialStations.add((IStation) positionOfPlayer.getAdjacentSpaces().get(i));
+            }
+        }
+        EventBus.BUS.publish(new Event(Event.Tag.FIND_TRAMSTATION, this));
+        return potentialStations;
+    }
 
 
     public List<ISpace> findPotentialSpaces(int numberOnDice, ISpace positionOfPlayer) {
@@ -83,5 +92,8 @@ public class FindPath {
 
     public List<ISpace> getPotentialSpaces() {
         return potentialSpaces;
+    }
+    public List<IStation> getPotentialStations() {
+        return potentialStations;
     }
 }

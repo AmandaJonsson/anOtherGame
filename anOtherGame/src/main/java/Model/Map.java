@@ -215,6 +215,10 @@ public class Map implements IMap {
         return spaces;
     }
 
+    public List<IStation> getStations(){
+        return stations;
+    }
+
     public void addMarkers(double noTopaz, double noEmerald, double nOfRubys, double nOfBlanks, List<IStation> stations) {
 
         List<IMarker> listOfMarkers = new ArrayList<IMarker>(stations.size());

@@ -25,6 +25,8 @@ public class TheLostKitten implements ITheLostKitten{
     private List<IPlayer> playerList;
     private IPlayer activePlayer;
     private boolean someoneFoundCat = false;
+    private boolean TramCard = false;
+    private boolean gotRobbed = false;
 
     public TheLostKitten(List<IPlayer> nameOfPlayers) {
         map = new Map();
@@ -39,27 +41,27 @@ public class TheLostKitten implements ITheLostKitten{
             activePlayer = nameOfPlayers.get(0);
         }
     }
-
+    @Override
     public List<IPlayer> getListOfPlayers(){
         return playerList;
     }
-
+    @Override
     public IMap getMap(){
         return map;
     }
-
+    @Override
     public IDice getDice(){
         return dice;
     }
-
+    @Override
     public IPlayer getActivePlayer(){
         return activePlayer;
     }
-
+    @Override
     public void setActivePlayer(IPlayer player){
         activePlayer = player;
     }
-
+    @Override
     public ISpace getRandomStartPosition(){
         map.getStartPositions();
         ArrayList<ISpace> startpositions = new ArrayList<ISpace>();
@@ -71,7 +73,7 @@ public class TheLostKitten implements ITheLostKitten{
         return startpositions.get(startPos);
     }
 
-
+    @Override
     public void setMarkerTurned() {
         if(getActivePlayer().getPosition() instanceof Station){
             Station station = (Station) getActivePlayer().getPosition();
@@ -83,7 +85,7 @@ public class TheLostKitten implements ITheLostKitten{
         }
 
     }
-
+    @Override
     public boolean checkIfMarkerIsTurned(IMarker mark){
         if(getActivePlayer().getPosition() instanceof Station){
             Station station = (Station) getActivePlayer().getPosition();
@@ -100,7 +102,7 @@ public class TheLostKitten implements ITheLostKitten{
         return false;
 
     }
-
+    @Override
     public void setNewBudget() {
         IMarker mark = ((Station) getActivePlayer().getPosition()).getMarker();
         if (mark instanceof MoneyMarker) {
@@ -125,23 +127,43 @@ public class TheLostKitten implements ITheLostKitten{
             }
         }
     }
-
+    @Override
     public void setSomeoneFoundCat(){
         this.someoneFoundCat = true;
     }
-
+    @Override
     public boolean getSomeoneFoundCat(){
         return this.someoneFoundCat;
     }
 
+    @Override
+    public void setSomeoneFoundTramCard(){
+        this.TramCard = true;
+    }
+
+    @Override
+    public boolean getSomeoneGotRobbed() {
+        return this.gotRobbed;
+    }
+
+    @Override
+    public void setSomeoneGotRobbed() {
+        this.gotRobbed = true;
+
+    }
+    @Override
+    public boolean getSomeoneFoundTramCard(){
+        return this.TramCard;
+    }
+    @Override
     public void setNewDecreasedBudget(int value){
         getActivePlayer().decreaseBalance(value);
     }
-
+    @Override
     public List<IPlayer> getPlayers(){
         return playerList;
     }
-
+    @Override
     public List<ISpace> moveByBike(){
         int resultFromDice = dice.roll();
 
@@ -154,7 +176,7 @@ public class TheLostKitten implements ITheLostKitten{
 
         return list;
     }
-
+    @Override
     public List<IStation> moveByTram(){
         List<IStation> listOfPotentialStations = new ArrayList<IStation>();
         if(!(getActivePlayer().getPosition() instanceof IStation)){
@@ -172,6 +194,7 @@ public class TheLostKitten implements ITheLostKitten{
     }
 
     //----Event setters-------------
+    @Override
     public void getNextPlayer(){
         int indexInListOfPlayers = getListOfPlayers().indexOf(activePlayer);
         if(indexInListOfPlayers==playerList.size()-1) {

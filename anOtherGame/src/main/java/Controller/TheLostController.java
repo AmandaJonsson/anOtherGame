@@ -266,11 +266,24 @@ public class TheLostController implements IEventHandler {
                 if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT)) {
                     if(!lostKitten.getSomeoneFoundCat()){
                         lostKitten.getActivePlayer().setHasCat();
+                        lostKitten.setSomeoneFoundCat();
                     }
                 }
 
                 if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.TRAMCARD)) {
-                    lostKitten.getActivePlayer().gotTramCard();
+
+                    if(!lostKitten.getSomeoneFoundTramCard()){
+                        lostKitten.getActivePlayer().gotTramCard();
+                        lostKitten.setSomeoneFoundTramCard();
+                    }
+
+                }
+
+                if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.PICKPOCKET)){
+                    if(!lostKitten.getSomeoneGotRobbed()){
+                        lostKitten.getActivePlayer().robbedByPickpocket();
+                        lostKitten.setSomeoneGotRobbed();
+                    }
 
                 }
             }
@@ -383,6 +396,9 @@ public class TheLostController implements IEventHandler {
 
         else if(evt.getTag() == Event.Tag.PLAYER_CAT){
             lostKitten.setSomeoneFoundCat();
+        }
+        else if(evt.getTag() == Event.Tag.PLAYER_TRAMCARD){
+            lostKitten.setSomeoneFoundTramCard();
         }
 
         else if(evt.getTag()==Event.Tag.SPACE_CHOSEN) {

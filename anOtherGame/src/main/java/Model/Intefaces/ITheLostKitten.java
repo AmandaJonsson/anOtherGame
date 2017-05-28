@@ -30,4 +30,9 @@ public interface ITheLostKitten {
     List<IStation> moveByTram();
     void setSomeoneFoundCat();
     boolean getSomeoneFoundCat();
+    boolean getSomeoneFoundTramCard();
+    void setSomeoneFoundTramCard();
+    boolean getSomeoneGotRobbed();
+    void setSomeoneGotRobbed();
+
 }

@@ -1,8 +1,13 @@
+/**
+ * @author Amanda
+ * Revised by: Everybody.
+ * Responsibility: A test that test methods in the Marker-class
+ * Used by: -
+ * Uses: IMarker, MoneyMarker
+ */
+
 package Model;
 
-/**
- * Created by amandajonsson on 2017-05-28.
- */
 import Model.Intefaces.IMarker;
 import org.junit.Test;
 import static org.junit.Assert.*;

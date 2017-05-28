@@ -1,3 +1,11 @@
+/**
+ * @author Miranda.
+ * Revised by: Everybody.
+ * Responsibility: A test that test methods in the Spave-class
+ * Used by: -
+ * Uses: ISPace
+ */
+
 package Model;
 
 import Model.Intefaces.ISpace;

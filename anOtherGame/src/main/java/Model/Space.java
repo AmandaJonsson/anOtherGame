@@ -1,8 +1,8 @@
 /**
  * @author Allex
- * Revised by: *name*
+ * Revised by: Everybody.
  * Responsibility: The logic behind the spaces.
- * Used by:
+ * Used by: Map, Station
  * Uses: ISpace
  */
 

@@ -4,9 +4,12 @@ Den försvunna diamanten, Utspelat i Göteborg.
 
 
 Amanda Jonsson      AmandaJonsson
+
 Miranda Bånnsgård   Dumlis
+
 Maja Nyberg         marnybe 
-Allex Nordgren      AllexNordgren
+
+Alexander Nordgren      AllexNordgren
 
 
 

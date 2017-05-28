@@ -1,6 +1,6 @@
 /**
- * @author Amanda
- * Revised by: Amanda
+ * @author Amanda.
+ * Revised by: Everybody.
  * Responsibility: A test that test methods in the Map-class
  * Used by: -
  * Uses: ISPace, IStation, IMap

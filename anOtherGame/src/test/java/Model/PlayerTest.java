@@ -1,3 +1,11 @@
+/**
+ * @author Maja
+ * Revised by: Everybody.
+ * Responsibility: A test that test methods in the Player-class
+ * Used by: -
+ * Uses: ISPace, Player
+ */
+
 package Model;
 
 import Model.Intefaces.ISpace;
@@ -5,9 +13,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by majanyberg on 2017-05-16.
- */
 public class PlayerTest {
     String name = "Maja";
     ISpace testGet = new Space(1,1);

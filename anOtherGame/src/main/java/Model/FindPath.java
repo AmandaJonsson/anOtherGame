@@ -1,9 +1,9 @@
 /**
  * @author Miranda
- * Revised by: *name*
+ * Revised by: Everybody.
  * Responsibility: A help class to calculate possible paths.
  * Used by: TheLostKitten
- * Uses: ISpace
+ * Uses: ISpace, Station
  */
 
 package Model;

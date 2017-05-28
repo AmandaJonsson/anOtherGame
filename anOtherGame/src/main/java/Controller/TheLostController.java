@@ -8,6 +8,7 @@
 package Controller;
 import Model.Intefaces.*;
 import Model.OtherMarkers;
+import Model.Player;
 import Model.Station;
 import View.MapView;
 import View.SpaceView;
@@ -49,8 +50,6 @@ public class TheLostController implements IEventHandler{
     @FXML
     public Label playersTurnLabel = new Label();
 
-    private boolean gameOver = false;
-
     Image cat = new Image("cat.png");
 
 
@@ -67,11 +66,11 @@ public class TheLostController implements IEventHandler{
     IPlayer winningPlayer;
 
     MapController mapController = new MapController(mapView);;
-    public TheLostController(){
+    public TheLostController() throws IOException {
 
     }
 
-    public TheLostController(ITheLostKitten newGame, IDice lostdice, ArrayList<PlayerPaneController> listOfPlayerpanes, MapView mapView) {
+    public TheLostController(ITheLostKitten newGame, IDice lostdice, ArrayList<PlayerPaneController> listOfPlayerpanes, MapView mapView) throws IOException {
         lostKitten = newGame;
         dice=lostdice;
         newCreatedPlayers = newGame.getPlayers();
@@ -79,6 +78,7 @@ public class TheLostController implements IEventHandler{
         this.mapView = mapView;
         initEvent();
     }
+
 
 
 
@@ -204,11 +204,11 @@ public class TheLostController implements IEventHandler{
     @FXML protected void handleTurnMarkerButton(ActionEvent event) throws IOException {
 
 
-        if(lostKitten.getActivePlayer().getPosition() instanceof Station){
+        if(lostKitten.getActivePlayer().getPosition() instanceof Station) {
             Station station = (Station) lostKitten.getActivePlayer().getPosition();
-            if(station.hasMarker()){
+            if (station.hasMarker()) {
                 IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
-                if (lostKitten.checkIfMarkerIsTurned(mark)==true ){
+                if (lostKitten.checkIfMarkerIsTurned(mark) == true) {
                     alternativeText.setText("Det finns ingen marker på denna stationen");
                     payButton.setDisable(true);
                     diceButton.setDisable(true);
@@ -220,10 +220,14 @@ public class TheLostController implements IEventHandler{
                     mark.setMarkerToTurned();
 
                 }
+                if (mark instanceof OtherMarkers) {
+                    System.out.println(((OtherMarkers) mark).getMarkerType());
 
-        }
+
+                }
 
 
+            }
         }
 
 
@@ -342,9 +346,6 @@ public class TheLostController implements IEventHandler{
         lostKitten.getNextPlayer();
     }
 
-    public boolean getGameOver(){
-        return this.gameOver;
-    }
 
 
     public void setBudgetLabel(){}
@@ -369,17 +370,16 @@ public class TheLostController implements IEventHandler{
                 if(lostKitten.getSomeoneFoundCat() == true){
                     if(lostKitten.getActivePlayer().hasTramCard() == true){
                         System.out.println("spelare som hade västtrafikskort vann");
-                        gameOver = true;
-                        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
+                   //     EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
                     }
                     if(lostKitten.getActivePlayer().hasCat() == true){
                         System.out.println("spelare som hade katt vann");
-                        gameOver = true;
-                        EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
+
+                  //      EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
                     }
                 }
             }
-            else gameOver = false;
+
         }
 
         else if(evt.getTag() == Event.Tag.PLAYER_CAT){

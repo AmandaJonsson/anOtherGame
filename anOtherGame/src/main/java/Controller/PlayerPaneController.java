@@ -91,8 +91,6 @@ public class PlayerPaneController implements IEventHandler {
             Player pla = (Player)evt.getValue();
             if(pla.getName().equals(player.getName())){
                 this.getCatImage().setVisible(true);
-            }else{
-                this.getCatImage().setVisible(false);
             }
         }
     }

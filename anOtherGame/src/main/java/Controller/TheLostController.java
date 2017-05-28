@@ -251,7 +251,9 @@ public class TheLostController implements IEventHandler {
 
             if (mark instanceof OtherMarkers) {
                 if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.CAT)) {
-                    lostKitten.getActivePlayer().setHasCat();
+                    if(!lostKitten.getSomeoneFoundCat()){
+                        lostKitten.getActivePlayer().setHasCat();
+                    }
                 }
 
                 if ((((OtherMarkers) mark).getMarkerType() == OtherMarkers.NoMoneyMarkers.TRAMCARD)) {
@@ -363,15 +365,11 @@ public class TheLostController implements IEventHandler {
             if((lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(0))
                     ||(lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(1))){
                 if(lostKitten.getSomeoneFoundCat() == true){
-                    if(lostKitten.getActivePlayer().hasTramCard() == true){
-                        System.out.println("spelare som hade västtrafikskort vann");
-                   //     EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
+                    if(lostKitten.getActivePlayer().hasTramCard()||lostKitten.getActivePlayer().hasCat()) {
+                        System.out.print("SPELET ÄR ÖVER HAHAHAHA");
+                        //     EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
                     }
-                    if(lostKitten.getActivePlayer().hasCat() == true){
-                        System.out.println("spelare som hade katt vann");
 
-                  //      EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
-                    }
                 }
             }
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Model.OtherMarkerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2017-05-28T17:37:46" hostname="MajaNybergs-MacBook-Pro.local" time="0.001">
+  <properties/>
+  <testcase name="testValueOfOtherMarkers" classname="Model.OtherMarkerTest" time="0.0"/>
+  <testcase name="testOtherMarkers" classname="Model.OtherMarkerTest" time="0.0"/>
+  <testcase name="testMarkerSpace" classname="Model.OtherMarkerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

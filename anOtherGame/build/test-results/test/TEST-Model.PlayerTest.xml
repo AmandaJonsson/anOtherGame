@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Model.PlayerTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2017-05-28T17:37:46" hostname="MajaNybergs-MacBook-Pro.local" time="0.012">
+  <properties/>
+  <testcase name="testGetPosition" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testSkipTurn" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testDoneSkippingTurn" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testRobbedByPickpocket" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testGetSkipATurn" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testIncreaseBalance" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testHasTramCard" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testGetName" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testPayTicket" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testGetBalance" classname="Model.PlayerTest" time="0.001"/>
+  <testcase name="testDecreaseBalance" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testUpdateBudget1" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testUpdateBudget2" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testGotTramCard" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testPlayerHasTurn" classname="Model.PlayerTest" time="0.002"/>
+  <testcase name="testUsedTramCard" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testHasCat" classname="Model.PlayerTest" time="0.0"/>
+  <testcase name="testSetPosition" classname="Model.PlayerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Model.StationTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2017-05-28T17:37:46" hostname="MajaNybergs-MacBook-Pro.local" time="0.002">
+  <properties/>
+  <testcase name="testSetTramStation" classname="Model.StationTest" time="0.0"/>
+  <testcase name="testGetIsTramStation" classname="Model.StationTest" time="0.0"/>
+  <testcase name="testTurnMarker" classname="Model.StationTest" time="0.0"/>
+  <testcase name="testGetName" classname="Model.StationTest" time="0.0"/>
+  <testcase name="testHasMarker" classname="Model.StationTest" time="0.0"/>
+  <testcase name="testSetMarker" classname="Model.StationTest" time="0.0"/>
+  <testcase name="testGetMarker" classname="Model.StationTest" time="0.0"/>
+  <testcase name="testIsStart" classname="Model.StationTest" time="0.0"/>
+  <testcase name="testSetStart" classname="Model.StationTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

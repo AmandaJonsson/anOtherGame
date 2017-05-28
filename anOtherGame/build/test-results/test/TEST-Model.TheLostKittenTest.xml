@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Model.TheLostKittenTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2017-05-28T17:37:46" hostname="MajaNybergs-MacBook-Pro.local" time="0.003">
+  <properties/>
+  <testcase name="testGetActivePlayer" classname="Model.TheLostKittenTest" time="0.0"/>
+  <testcase name="testGetRandomStartPosition" classname="Model.TheLostKittenTest" time="0.0"/>
+  <testcase name="testGetListOfPLayers" classname="Model.TheLostKittenTest" time="0.0"/>
+  <testcase name="testSetNewBudget" classname="Model.TheLostKittenTest" time="0.001"/>
+  <testcase name="testCheckIfMarkerIsTurned" classname="Model.TheLostKittenTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

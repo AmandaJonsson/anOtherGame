@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Model.MoneyMarkerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2017-05-28T17:37:46" hostname="MajaNybergs-MacBook-Pro.local" time="0.0">
+  <properties/>
+  <testcase name="testMoneymarkerValue" classname="Model.MoneyMarkerTest" time="0.0"/>
+  <testcase name="testSpecialMarkers" classname="Model.MoneyMarkerTest" time="0.0"/>
+  <testcase name="testMoneyMarkers" classname="Model.MoneyMarkerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

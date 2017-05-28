@@ -200,10 +200,37 @@ public class Map implements IMap {
         createSpaces(vasaplatsen, domkyrkan, null, 0, 0);
         createSpaces(chalmers,vasaplatsen, null, 0, 0);
 
+
+        //adding some missing spaces that sould connect the map!
+        ISpace space1 = new Space(65,35);
+        space1.addAdjacentSpace(nordstan);
+        space1.addAdjacentSpace(central);
+        nordstan.addAdjacentSpace(space1);
+        central.addAdjacentSpace(space1);
+        spaces.add(space1);
+
+        ISpace space2 = new Space(58,83);
+        spaces.add(space2);
+        ISpace space3 = new Space(62,83);
+        spaces.add(space3);
+
+        sahlgrenska.addAdjacentSpace(space2);
+        space2.addAdjacentSpace(sahlgrenska);
+
+        space3.addAdjacentSpace(space2);
+        space2.addAdjacentSpace(space3);
+
+        space3.addAdjacentSpace(guldheden);
+        guldheden.addAdjacentSpace(space3);
+
+
+
+
         //Start space.
         redbergsplatsen.setStart(true);
         lundby.setStart(true);
         addMarkers(8, 6, 4, 8, stations); //important sum of spaces = totNOfMarkers
+
         return true;
     }
 
@@ -276,6 +303,8 @@ public class Map implements IMap {
 
     public boolean createSpaces(IStation from, IStation to, ISpace prev, int x, int y) {
         //init
+
+
         if(prev == null){
             prev = from;
             if(!checkForMultiples(to, from.getAdjacentSpaces())){
@@ -367,6 +396,7 @@ public class Map implements IMap {
                 return createSpaces(from, to, prev, x,y-1);
             }
         }
+
         return false;
     }
 

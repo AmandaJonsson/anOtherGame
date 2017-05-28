@@ -86,12 +86,20 @@ public class TheLostKitten implements ITheLostKitten{
     }
 
     public boolean checkIfMarkerIsTurned(IMarker mark){
-        if(mark.isMarkerTurned()==true){
-            return true;
+        if(getActivePlayer().getPosition() instanceof Station){
+            Station station = (Station) getActivePlayer().getPosition();
+            if(station.hasMarker() == true) {
+                if(mark.isMarkerTurned()==true){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+
         }
-        else {
-            return false;
-        }
+        return false;
+
     }
 
     public void setNewBudget() {

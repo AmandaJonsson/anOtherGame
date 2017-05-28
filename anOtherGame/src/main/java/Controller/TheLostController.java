@@ -221,21 +221,26 @@ public class TheLostController implements IEventHandler{
 
 
         if(lostKitten.getActivePlayer().getPosition() instanceof Station){
+            Station station = (Station) lostKitten.getActivePlayer().getPosition();
+            if(station.hasMarker()){
+                IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
+                if (lostKitten.checkIfMarkerIsTurned(mark)==true ){
+                    alternativeText.setText("Det finns ingen marker på denna stationen");
+                    payButton.setDisable(true);
+                    diceButton.setDisable(true);
+                } else {
+                    alternativeText.setText(turnMakerText);
+                    bicycleButton.setDisable(true);
+                    boatButton.setDisable(true);
+                    tramButton.setDisable(true);
+                    turnMarkerButton.setDisable(true);
+                    mark.setMarkerToTurned();
 
-            IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
-            if (lostKitten.checkIfMarkerIsTurned(mark)==true ){
-                alternativeText.setText("Det finns ingen marker på denna stationen");
-                payButton.setDisable(true);
-                diceButton.setDisable(true);
-            } else {
-                alternativeText.setText(turnMakerText);
-                bicycleButton.setDisable(true);
-                boatButton.setDisable(true);
-                tramButton.setDisable(true);
-                turnMarkerButton.setDisable(true);
-                mark.setMarkerToTurned();
+                }
 
-            }
+        }
+
+
         }
 
 

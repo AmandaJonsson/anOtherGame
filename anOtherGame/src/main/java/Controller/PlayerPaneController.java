@@ -80,7 +80,7 @@ public class PlayerPaneController implements IEventHandler {
             }
         }
 
-        if(evt.getTag() == Event.Tag.PLAYER_CAT){
+        if(evt.getTag() == Event.Tag.PLAYER_TRAMCARD){
             Player pl = (Player)evt.getValue();
             if(pl.getName().equals(player.getName())){
                 this.getTramCardImage().setVisible(true);
@@ -88,7 +88,7 @@ public class PlayerPaneController implements IEventHandler {
             }
         }
 
-        if(evt.getTag() == Event.Tag.PLAYER_TRAMCARD){
+        if(evt.getTag() == Event.Tag.PLAYER_CAT){
             Player pla = (Player)evt.getValue();
             if(pla.getName().equals(player.getName())){
                 this.getCatImage().setVisible(true);

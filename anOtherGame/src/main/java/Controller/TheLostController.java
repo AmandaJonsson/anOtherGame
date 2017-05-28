@@ -53,8 +53,8 @@ public class TheLostController implements IEventHandler {
     Image cat = new Image("cat.png");
 
 
-    private String turnMakerText = "Välj att antingen betala 1000 kr eller slå\n tärningen och" +
-            " få 4,5 eller 6 för att vända\n markern.Tryck på 'Betala' eller 'Slå tärning'";
+    private String turnMakerText = "Välj att antingen betala 1000 kr eller slå\ntärningen och" +
+            " få 4,5 eller 6 för att vända\nmarkern.Tryck på 'Betala' eller 'Slå tärning'";
 
     private DropShadow shadow = new DropShadow();
     static IDice dice;
@@ -88,6 +88,17 @@ public class TheLostController implements IEventHandler {
         ArrayList<IPlayer> players = new ArrayList<>();
         players.addAll(lostKitten.getListOfPlayers());
         //mapView.setPlayerPosition(players);
+    }
+
+    public void setPayButtonDisable(){
+        payButton.setDisable(true);
+    }
+
+    public void setDiceButtonDisable(){
+        diceButton.setDisable(true);
+    }
+    public void setTurnMarkerButtonDisable(){
+        turnMarkerButton.setDisable(true);
     }
 
 
@@ -220,6 +231,8 @@ public class TheLostController implements IEventHandler {
                             payButton.setDisable(true);
                             diceButton.setDisable(true);
                         } else {
+                            payButton.setDisable(false);
+                            diceButton.setDisable(false);
                             alternativeText.setText(turnMakerText);
                             bicycleButton.setDisable(true);
                             tramButton.setDisable(true);
@@ -269,21 +282,15 @@ public class TheLostController implements IEventHandler {
 
 
     @FXML protected void handleBicycleButton(ActionEvent event) throws IOException{
-
         alternativeText.setText("Välj vilken väg du vill åka genom att\ntrycka på den positionen.");
         bicycleButton.setDisable(true);
         tramButton.setDisable(true);
-        //turnMarkerButton.setDisable(true);
-        //payButton.setDisable(true);
-        //diceButton.setDisable(true);
+        turnMarkerButton.setDisable(false);
         lostKitten.moveByBike();
     }
 
     @FXML protected void handleTramButton(ActionEvent event) throws IOException{
-
-        System.out.println(lostKitten.moveByTram());
-
-        System.out.println("Åk spårvagn");
+        lostKitten.moveByTram();
     }
 
     @FXML protected void handleNextPlayerButton(ActionEvent event) throws IOException{
@@ -292,9 +299,8 @@ public class TheLostController implements IEventHandler {
         setPlayersTurnLabel(lostKitten.getActivePlayer().getName());
         alternativeText.setText(" ");
         turnMarkerButton.setDisable(false);
-        
-        payButton.setDisable(false);
-        diceButton.setDisable(false);
+        payButton.setDisable(true);
+        diceButton.setDisable(true);
         bicycleButton.setDisable(false);
         if(checkIfAbleToGoByTram() && !checkIfEnoughMoneyForTram()){
             tramButton.setDisable(false);

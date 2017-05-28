@@ -18,11 +18,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<<<<<<< a90e92e4c8e06eb7d93d6912057707a40c43fa54
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TheLostController">
-=======
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TheLostController">
->>>>>>> Changed the buttons and the taextlabel sp that everything fits
    <bottom>
       <AnchorPane prefHeight="123.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>

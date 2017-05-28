@@ -367,7 +367,7 @@ public class TheLostController implements IEventHandler{
             if((lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(0))
                     ||(lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(1))){
                 if(lostKitten.getSomeoneFoundCat() == true){
-                    if(lostKitten.getActivePlayer().gotTramCard() == true){
+                    if(lostKitten.getActivePlayer().hasTramCard() == true){
                         System.out.println("spelare som hade västtrafikskort vann");
                         gameOver = true;
                         EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
@@ -379,6 +379,7 @@ public class TheLostController implements IEventHandler{
                     }
                 }
             }
+            else gameOver = false;
         }
 
         else if(evt.getTag() == Event.Tag.PLAYER_CAT){

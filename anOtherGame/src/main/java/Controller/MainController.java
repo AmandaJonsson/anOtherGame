@@ -17,6 +17,7 @@ import View.MapView;
 import event.Event;
 import event.EventBus;
 import event.IEventHandler;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -62,9 +63,6 @@ public class MainController implements IEventHandler{
     @FXML private TextFlow textScrollPane;
     @FXML private Button backToStartButton = new Button();
     @FXML private Stage rulesStage = new Stage();
-
-    @FXML private Label playerWonLabel;
-    @FXML private Stage gameOverStage = new Stage();
 
     private TheLostController theLost;
     private TheLostController newController;
@@ -258,6 +256,13 @@ public class MainController implements IEventHandler{
         ((Node)(event.getSource())).getScene().getWindow().hide();
     }
 
+    @FXML public void handlePlayerAgainButton(ActionEvent event){
+
+    }
+
+    @FXML public void handleFinishGameButton(ActionEvent event){
+        stage.close();
+    }
 
     @FXML
     private void setMouseEffect() {
@@ -304,35 +309,18 @@ public class MainController implements IEventHandler{
         });
     }
 
-    private void showGameOverPane() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        Pane gameOverPane = (Pane) loader.load(getClass().getResource("/gameOverPane.fxml"));
-
-        playerWonLabel = (Label)gameOverPane.lookup("#playerWonLabel");
-        playerWonLabel.setText("Spelare: " + theLost.getWinningPlayer().getName() + " vann! ");
 
 
-        gameOverStage.focusedProperty().addListener((obs, wasFocused, isNowFocused) -> {
-            if (! isNowFocused) {
-                gameOverStage.hide();
-            }
-        });
 
-        Scene scene = new Scene(gameOverPane);
-        gameOverStage.setScene(scene);
-        gameOverStage.getScene().getRoot().setEffect(shadow);
-        gameOverStage.getScene().setFill(Color.TRANSPARENT);
-        gameOverStage.show();
-
-
-    }
 
     @Override
     public void onEvent(Event evt) {
         if (evt.getTag() == Event.Tag.PLAYER_WON) {
-            if(newController.getGameOver() == true) {
+            System.out.println(newController.getGameOver());
+            if(newController.getGameOver()) {
                 System.out.println("NÅGON HAR VUNNIT");
                 System.out.println(newController.getGameOver() == true);
+
             }
         }
     }

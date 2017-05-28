@@ -217,7 +217,7 @@ public class Map implements IMap {
 
     public void addMarkers(double noTopaz, double noEmerald, double nOfRubys, double nOfBlanks, List<IStation> stations) {
 
-        ArrayList<IMarker> listOfMarkers = new ArrayList<>(stations.size());
+        List<IMarker> listOfMarkers = new ArrayList<IMarker>(stations.size());
 
         for (int i = 0; i < noTopaz; i++)
             listOfMarkers.add(new MoneyMarker(MoneyMarker.TypeOfMarkers.TOPAZ));
@@ -236,6 +236,7 @@ public class Map implements IMap {
 
         for(int i = 0 ; i < stations.size(); i++) {
             stations.get(i).setMarker(listOfMarkers.get(i));
+            listOfMarkers.get(i).setStation(stations.get(i));
         }
     }
 
@@ -252,7 +253,7 @@ public class Map implements IMap {
         return startPositions;
     }
 
-    public static void shuffle(ArrayList<IMarker> list) {
+    public static void shuffle(List<IMarker> list) {
         int sizeOfList = list.size();
         Random random = new Random();
         random.nextInt();
@@ -262,7 +263,7 @@ public class Map implements IMap {
         }
     }
 
-    public static void swapList (ArrayList<IMarker> list, int i, int shuffle){
+    public static void swapList (List<IMarker> list, int i, int shuffle){
         IMarker supporter = (IMarker) list.get(i);
         list.set(i, list.get(shuffle));
         list.set(shuffle, supporter);

@@ -7,7 +7,7 @@ public class Event {
         PLAYER_CAT,
         PLAYER_TRAMCARD,
         PLAYER_WON,
-        PLAYER_FLIPMARKER,
+        MARKER_FLIPPED,
         PLAYER_BALANCE,
         PLAYER_POSITION,
         LOSTKITTEN_NEXT,

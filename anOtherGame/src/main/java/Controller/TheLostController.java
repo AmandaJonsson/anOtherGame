@@ -217,7 +217,7 @@ public class TheLostController implements IEventHandler{
                     bicycleButton.setDisable(true);
                     tramButton.setDisable(true);
                     turnMarkerButton.setDisable(true);
-                    mark.setMarkerToTurned();
+                    //mark.setMarkerToTurned();
 
                 }
             }
@@ -290,32 +290,35 @@ public class TheLostController implements IEventHandler{
         if(checkIfAbleToGoByTram()){
             tramButton.setDisable(false);
         }
-        disableTurnMarkerButton();
+
+
+
+
+        //disableTurnMarkerButton();
 
     }
 
     public void disableTurnMarkerButton(){
-        if(lostKitten.getActivePlayer().getPosition() instanceof Station){
-            Station station = (Station) lostKitten.getActivePlayer().getPosition();
+        if(lostKitten.getActivePlayer().getPosition() instanceof IStation){
+            IStation station = (Station) lostKitten.getActivePlayer().getPosition();
             if(station.hasMarker()) {
                 IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
                 if(lostKitten.checkIfMarkerIsTurned(mark)){
                     turnMarkerButton.setDisable(true);
                 }
-
             }
-
         }
     }
 
     public boolean checkIfAbleToGoByTram(){
-        if(lostKitten.getActivePlayer().getPosition() instanceof Station){
+        if(lostKitten.getActivePlayer().getPosition() instanceof IStation){
             for(ISpace space :lostKitten.getActivePlayer().getPosition().getAdjacentSpaces()){
-                if(space instanceof Station){
+                if(space instanceof IStation){
                     return true;
                 }
                 return false;
             }
+            return false;
         }
         return false;
     }
@@ -391,7 +394,7 @@ public class TheLostController implements IEventHandler{
                 for(int j = 0; j < lostKitten.getListOfPlayers().size(); j++){
 
                     if(lostKitten.getListOfPlayers().get(j).getPosition().compareSpaces(mapView.getListOfSpaceViews().get(i).getLocationOfSpace())){
-                        System.out.println(getColorOfPlayer(lostKitten.getListOfPlayers().get(j)));
+
                         mapView.getListOfSpaceViews().get(i).setColor(getColorOfPlayer(lostKitten.getListOfPlayers().get(j)));
                     }else{
                         if(!(mapView.getListOfSpaceViews().get(i).getColor().equals("#d8bfd8")
@@ -427,17 +430,17 @@ public class TheLostController implements IEventHandler{
     public String getColorOfPlayer(IPlayer player){
         for(int i = 0; i< listOfPlayerPanes.size(); i++){
             if(listOfPlayerPanes.get(i).getPlayer().getName().equals(player.getName())){
-                if(listOfPlayerPanes.get(i).getView().getStyle().toString().equals(" -fx-background-color: thistle;")){
+                if(listOfPlayerPanes.get(i).getView().getStyle().equals(" -fx-background-color: thistle;")){
                     return "#d8bfd8";
-                }else if(listOfPlayerPanes.get(i).getView().getStyle().toString().equals(" -fx-background-color: seashell;")){
+                }else if(listOfPlayerPanes.get(i).getView().getStyle().equals(" -fx-background-color: seashell;")){
                     return "#fff5ee";
-                }else if(listOfPlayerPanes.get(i).getView().getStyle().toString().equals(" -fx-background-color: aquamarine;")){
+                }else if(listOfPlayerPanes.get(i).getView().getStyle().equals(" -fx-background-color: aquamarine;")){
                     return "#7fffd4";
-                }else if(listOfPlayerPanes.get(i).getView().getStyle().toString().equals(" -fx-background-color: cadetblue;")){
+                }else if(listOfPlayerPanes.get(i).getView().getStyle().equals(" -fx-background-color: cadetblue;")){
                     return "#5f9ea0";
-                }else if(listOfPlayerPanes.get(i).getView().getStyle().toString().equals(" -fx-background-color: yellowgreen;")){
+                }else if(listOfPlayerPanes.get(i).getView().getStyle().equals(" -fx-background-color: yellowgreen;")){
                     return "#9acd32";
-                }else if(listOfPlayerPanes.get(i).getView().getStyle().toString().equals(" -fx-background-color: silver;")){
+                }else if(listOfPlayerPanes.get(i).getView().getStyle().equals(" -fx-background-color: silver;")){
                     return "#c0c0c0";
                 }
             }

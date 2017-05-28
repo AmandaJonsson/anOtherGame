@@ -10,10 +10,14 @@
 package Model;
 
 import Model.Intefaces.IMarker;
+import Model.Intefaces.IStation;
+import event.Event;
+import event.EventBus;
 
 public abstract class Marker implements IMarker {
     boolean isTurned = false;
     private IMarker marker;
+    IStation stationThatHasMarker;
 
     public Marker(){}
 
@@ -37,12 +41,16 @@ public abstract class Marker implements IMarker {
      */
     public void setMarkerToTurned() {
         isTurned = true;
+        EventBus.BUS.publish(new Event(Event.Tag.MARKER_FLIPPED,this));
     }
 
-    /*
-    Method that returns the "action" the Marker.
-    Must be implemented by all classes extending Marker.
-     */
+    public IStation getStation(){
+        return stationThatHasMarker;
+    }
+
+    public void setStation(IStation station){
+        stationThatHasMarker = station;
+    }
 
 
 }

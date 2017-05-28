@@ -14,4 +14,6 @@ public interface IMarker {
     void setMarkerToTurned();
     int getMarkerValue(IMarker marker);
     void getOtherMarkerValue(IMarker marker);
+    IStation getStation();
+    void setStation(IStation station);
 }

@@ -13,10 +13,8 @@ package View;
 
 
 import Model.FindPath;
-import Model.Intefaces.IMap;
-import Model.Intefaces.IPlayer;
-import Model.Intefaces.ISpace;
-import Model.Intefaces.ITheLostKitten;
+import Model.Intefaces.*;
+import Model.Marker;
 import Model.Station;
 import event.Event;
 import event.EventBus;
@@ -149,9 +147,11 @@ public class MapView extends GridPane implements IEventHandler {
             SpaceView view = new SpaceView(space,"Black");
             listOfSpaceViews.add(view);
             if (space instanceof Station){
+                view.setColor("Red");
+                view.setDefaultColor("Red");
                 if (((Station) space).getIsTramStation()) {
-                    view.setColor("Red");
-                    view.setDefaultColor("Red");
+                    //view.setColor("Red");
+                    //view.setDefaultColor("Red");
                 }
                 view.setRadius(10);
                 if (((Station)space).getName().equals("Redbergsplatsen")){
@@ -239,14 +239,21 @@ public class MapView extends GridPane implements IEventHandler {
         if(evt.getTag() == Event.Tag.FIND_PATH){
             FindPath p = (FindPath) evt.getValue();
             List<ISpace> listOfPotentialSpaces = p.getPotentialSpaces();
-
             for(int i = 0; i<listOfPotentialSpaces.size(); i++){
                 for(int j = 0; j< getListOfSpaceViews().size(); j++){
-
                     if(listOfPotentialSpaces.get(i).getX() == getListOfSpaceViews().get(j).getX() && listOfPotentialSpaces.get(i).getY() == getListOfSpaceViews().get(j).getY()){
                         getListOfSpaceViews().get(j).setStroke(Color.YELLOW);
                         getListOfSpaceViews().get(j).setStrokeWidth(3);
                     }
+                }
+            }
+        }
+
+        else if(evt.getTag() == Event.Tag.MARKER_FLIPPED){
+            IMarker m = (Marker) evt.getValue();
+            for(int i = 0; i < listOfSpaceViews.size(); i++){
+                if(listOfSpaceViews.get(i).getLocationOfSpace().compareSpaces(m.getStation())){
+                    listOfSpaceViews.get(i).setDefaultColor("Black");
                 }
             }
         }
@@ -255,7 +262,6 @@ public class MapView extends GridPane implements IEventHandler {
     private void initEvent() {
         EventBus.BUS.register(this);
     }
-
 }
 
 

@@ -53,7 +53,10 @@ public class MainController{
     @FXML private Stage stage;
 
     @FXML private Text rulesTextHeader = new Text();
-    @FXML private Text rulesText = new Text("Miranda får spela.\n\n" + "Maja får spela.\n\n" + "Amanda får spela.\n\n" + "Allex får spela.\n\n\n\n" + "Alla får spela.");
+    @FXML private Text rulesText = new Text("Varje gång det är din tur kan du förflytta dig antingen gratis via cykel eller genom att betala 3000kr via spårvagn. \n"
+    + "Du kan på alla stationer vända en marker, om den inte redan är vänd\n" +
+    "Man vinner spelet genom att hitta katten, eller genom att hitta spårvagnskortet om någon annan har hittat katten\n" +
+            "och sen kommer först tillbaks till någon av startpunkterna.");
     @FXML private TextFlow textScrollPane;
     @FXML private Button backToStartButton = new Button();
     @FXML private Stage rulesStage = new Stage();

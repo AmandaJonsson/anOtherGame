@@ -76,6 +76,7 @@ public class FindPathTest {
         FindPath findPath10 = new FindPath();
         List<ISpace> listOfPotentialSpaces7 = findPath10.findPotentialSpaces(2, map2.getSpaces().get(9));
         assertTrue(listOfPotentialSpaces7.get(0).compareSpaces(map2.getSpaces().get(4)));
+        assertFalse(listOfPotentialSpaces7.get(0).compareSpaces(map2.getSpaces().get(1)));
 
         FindPath findPath11 = new FindPath();
         List<ISpace> listOfPotentialSpaces8 = findPath11.findPotentialSpaces(3, map2.getSpaces().get(5));
@@ -83,25 +84,30 @@ public class FindPathTest {
         assertTrue(listOfPotentialSpaces8.get(1).compareSpaces(map2.getSpaces().get(6)));
         assertTrue(listOfPotentialSpaces8.get(2).compareSpaces(map2.getSpaces().get(9)));
         assertTrue(listOfPotentialSpaces8.get(3).compareSpaces(map2.getSpaces().get(3)));
+        assertFalse(listOfPotentialSpaces8.get(2).compareSpaces(map2.getSpaces().get(5)));
     }
 
     @Test
     public void getPotentialSpaces() throws Exception {
-
-
+        IMap map3 = new MockMap();
+        FindPath findpath = new FindPath();
+        findpath.findPotentialSpaces(2,map3.getSpaces().get(0));
+        assertTrue(findpath.getPotentialSpaces().get(0).compareSpaces(map3.getSpaces().get(2)));
     }
 
     @Test
     public void getPotentialStations() throws Exception {
+        IMap map4 = new MockMap();
+        FindPath findPath1 = new FindPath();
+        findPath1.findPotentialStations((Station) map4.getSpaces().get(3));
+        assertTrue(findPath1.getPotentialStations().get(0).compareSpaces(map4.getSpaces().get(9)));
+        assertTrue(findPath1.getPotentialStations().get(1).compareSpaces(map4.getSpaces().get(10)));
+        assertFalse(findPath1.getPotentialStations().get(0).compareSpaces(map4.getSpaces().get(3)));
 
-
-    }
-
-    @Test
-    public void testFindPotentialSpaces() throws Exception {
-        //IMap map = new MockMap();
-
-
+        FindPath findPath2 = new FindPath();
+        findPath2.findPotentialStations((Station) map4.getSpaces().get(9));
+        assertTrue(findPath2.getPotentialStations().get(0).compareSpaces(map4.getSpaces().get(3)));
+        assertFalse(findPath2.getPotentialStations().get(0).compareSpaces(map4.getSpaces().get(10)));
     }
 }
 

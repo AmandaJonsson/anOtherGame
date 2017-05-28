@@ -28,67 +28,67 @@ public class Map implements IMap {
 
     public boolean createStations() {
         stations= new ArrayList<IStation>();
-        Station lundby = new Station("Lundby", 7, 14);
-        stations.add(lundby); //TODO TA BORT DENNA
-        Station ramberget = new Station("Ramberget", 30, 26);
+        IStation lundby = new Station("Lundby", 7, 14);
+
+        IStation ramberget = new Station("Ramberget", 30, 26);
         stations.add(ramberget);
-        Station chLindholmen = new Station( "Chalmers Lindholmen", 30, 40);
+        IStation chLindholmen = new Station( "Chalmers Lindholmen", 30, 40);
         stations.add(chLindholmen);
-        Station masthuggskykan = new Station( "Masthuggskykan", 31, 57);
+        IStation masthuggskykan = new Station( "Masthuggskykan", 31, 57);
         stations.add(masthuggskykan);
-        Station lindholmen = new Station( "Lindholmen", 34, 41);
+        IStation lindholmen = new Station( "Lindholmen", 34, 41);
         stations.add(lindholmen);
-        Station slottsberget = new Station( "Slottsberget", 23, 45);
+        IStation slottsberget = new Station( "Slottsberget", 23, 45);
         stations.add(slottsberget);
-        Station slottskogen = new Station( "Slottskogen", 37, 75);
+        IStation slottskogen = new Station( "Slottskogen", 37, 75);
         stations.add(slottskogen);
-        Station slottskogsvallen = new Station( "Slottskogsvallen", 33, 90);
+        IStation slottskogsvallen = new Station( "Slottskogsvallen", 33, 90);
         stations.add(slottskogsvallen);
-        Station eriksberg = new Station( "Eriksberg", 10, 49);
+        IStation eriksberg = new Station( "Eriksberg", 10, 49);
         stations.add(eriksberg);
-        Station hjbrantings = new Station( "Hjalmar Brantingsplatsen", 47, 15);
+        IStation hjbrantings = new Station( "Hjalmar Brantingsplatsen", 47, 15);
         stations.add(hjbrantings);
-        Station frihamnen = new Station( "Frihamnen", 53, 15);
+        IStation frihamnen = new Station( "Frihamnen", 53, 15);
         stations.add(frihamnen);
-        Station ringon = new Station( "Ringön", 66, 11);
+        IStation ringon = new Station( "Ringön", 66, 11);
         stations.add(ringon);
-        Station operan = new Station( "Operan", 55, 32);
+        IStation operan = new Station( "Operan", 55, 32);
         stations.add(operan);
-        Station nordstan = new Station( "Nordstan", 61, 36);
+        IStation nordstan = new Station( "Nordstan", 61, 36);
         stations.add(nordstan);
-        Station stenpiren = new Station( "Stenpiren", 50, 41);
+        IStation stenpiren = new Station( "Stenpiren", 50, 41);
         stations.add(stenpiren);
-        Station central = new Station( "Centralstationen", 68, 34);
+        IStation central = new Station( "Centralstationen", 68, 34);
         stations.add(central);
-        Station domkyrkan = new Station( "Domkyrkan", 58, 43);
+        IStation domkyrkan = new Station( "Domkyrkan", 58, 43);
         stations.add(domkyrkan);
-        Station jarntorget = new Station( "Järntorget", 45, 51);
+        IStation jarntorget = new Station( "Järntorget", 45, 51);
         stations.add(jarntorget);
-        Station ullevi = new Station( "Ullevi (någon av dem)", 78, 41);
+        IStation ullevi = new Station( "Ullevi (någon av dem)", 78, 41);
         stations.add(ullevi);
-        Station chalmers = new Station( "Chalmers", 69, 71);
+        IStation chalmers = new Station( "Chalmers", 69, 71);
         stations.add(chalmers);
-        Station liseberg = new Station( "Liseberg", 83, 59);
+        IStation liseberg = new Station( "Liseberg", 83, 59);
         stations.add(liseberg);
-        Station olofshojd = new Station( "Olofshöjd", 85, 74);
+        IStation olofshojd = new Station( "Olofshöjd", 85, 74);
         stations.add(olofshojd);
-        Station redbergsplatsen = new Station( "Redbergsplatsen", 95, 22);
-        stations.add(redbergsplatsen); //TODO TA BORT DENNA
-        Station emilsborg = new Station( "Emilsborg", 76, 82);
+        IStation redbergsplatsen = new Station( "Redbergsplatsen", 95, 22);
+
+        IStation emilsborg = new Station( "Emilsborg", 76, 82);
         stations.add(emilsborg);
-        Station guldheden = new Station( "Guldheden", 65, 84);
+        IStation guldheden = new Station( "Guldheden", 65, 84);
         stations.add(guldheden);
-        Station linne = new Station( "Linnéplatsen", 45, 68);
+        IStation linne = new Station( "Linnéplatsen", 45, 68);
         stations.add(linne);
-        Station botaniska = new Station( "Botaniska trädgården", 44, 81);
+        IStation botaniska = new Station( "Botaniska trädgården", 44, 81);
         stations.add(botaniska);
-        Station sahlgrenska = new Station( "Sahlgrenska sjukhuset", 54, 82);
+        IStation sahlgrenska = new Station( "Sahlgrenska sjukhuset", 54, 82);
         stations.add(sahlgrenska);
-        Station ostindiegatan = new Station( "Ostindiegatan", 11, 73);
+        IStation ostindiegatan = new Station( "Ostindiegatan", 11, 73);
         stations.add(ostindiegatan);
-        Station klippan = new Station( "Klippan", 7, 64);
+        IStation klippan = new Station( "Klippan", 7, 64);
         stations.add(klippan);
-        Station vasaplatsen = new Station( "Vasaplatsen", 63, 56);
+        IStation vasaplatsen = new Station( "Vasaplatsen", 63, 56);
         stations.add(vasaplatsen);
         spaces.addAll(stations);
         spaces.add(redbergsplatsen);
@@ -213,8 +213,7 @@ public class Map implements IMap {
         //Start space.
         redbergsplatsen.setStart(true);
         lundby.setStart(true);
-        addMarkers(8, 6, 6, 8, stations); //important sum of spaces = totNOfMarkers
-        //TODO ÄNDRA RUBYS TILL 4 st, (inte 6, används bara för tester)
+        addMarkers(8, 6, 4, 8, stations); //important sum of spaces = totNOfMarkers
         return true;
     }
 

@@ -323,10 +323,15 @@ public class TheLostController implements IEventHandler{
 
     public void disableTurnMarkerButton(){
         if(lostKitten.getActivePlayer().getPosition() instanceof Station){
-            IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
-            if(lostKitten.checkIfMarkerIsTurned(mark)){
-                turnMarkerButton.setDisable(true);
+            Station station = (Station) lostKitten.getActivePlayer().getPosition();
+            if(station.hasMarker()) {
+                IMarker mark = ((Station) lostKitten.getActivePlayer().getPosition()).getMarker();
+                if(lostKitten.checkIfMarkerIsTurned(mark)){
+                    turnMarkerButton.setDisable(true);
+                }
+
             }
+
         }
     }
 

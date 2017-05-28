@@ -74,8 +74,15 @@ public class TheLostKitten implements ITheLostKitten{
 
 
     public void setMarkerTurned() {
-        IMarker mark = ((Station) getActivePlayer().getPosition()).getMarker();
-        mark.setMarkerToTurned();
+        if(getActivePlayer().getPosition() instanceof Station){
+            Station station = (Station) getActivePlayer().getPosition();
+            if(station.hasMarker() == true) {
+                IMarker mark = station.getMarker();
+                mark.setMarkerToTurned();
+            }
+
+        }
+
     }
 
     public boolean checkIfMarkerIsTurned(IMarker mark){

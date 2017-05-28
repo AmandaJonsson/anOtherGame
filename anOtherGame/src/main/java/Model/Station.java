@@ -49,10 +49,14 @@ public class Station extends Space implements IStation {
     If method returns true than marker has not been turned and can still be turned!
      */
     public boolean hasMarker(){
-        if(!getMarker().isMarkerTurned()){
-            return true;
-        }else
-            return false;
+        if(!isStart) {
+            if (!getMarker().isMarkerTurned()) {
+                return true;
+            }
+
+        }
+        return false;
+
     }
 
     /*

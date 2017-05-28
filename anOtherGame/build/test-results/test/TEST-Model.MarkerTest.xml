@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Model.MarkerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-05-28T14:16:07" hostname="Amandas-MacBook-Air.local" time="0.074">
+<testsuite name="Model.MarkerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-05-28T16:17:16" hostname="MajaNybergs-MacBook-Pro.local" time="0.007">
   <properties/>
-  <testcase name="testIsMarkerTurned" classname="Model.MarkerTest" time="0.074"/>
-  <system-out><![CDATA[Event [tag=MARKER_FLIPPED, value=Model.MoneyMarker@6dcf3732]
+  <testcase name="testIsMarkerTurned" classname="Model.MarkerTest" time="0.007"/>
+  <system-out><![CDATA[Event [tag=MARKER_FLIPPED, value=Model.MoneyMarker@7b8cb8b5]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

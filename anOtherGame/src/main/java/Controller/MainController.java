@@ -43,7 +43,7 @@ import java.util.List;
 import static Controller.TheLostController.mapView;
 
 
-public class MainController implements IEventHandler{
+public class MainController{
 
     // Button, textfields etc are connected with the FXML file
     @FXML private Parent root;
@@ -81,11 +81,6 @@ public class MainController implements IEventHandler{
     private boolean hasSameName;
     private IMap map;
 
-
-    public MainController() throws IOException {
-        initEvent();
-
-    }
 
     @FXML protected void handleStartGameButton(ActionEvent event) throws IOException {
         //prepares the game board to be loaded, and viewed
@@ -265,17 +260,10 @@ public class MainController implements IEventHandler{
 
     }
 
-    @FXML private void handleBackToStartButton(ActionEvent event) throws IOException {
-        ((Node)(event.getSource())).getScene().getWindow().hide();
-    }
 
-    @FXML public void handlePlayerAgainButton(ActionEvent event){
 
-    }
 
-    @FXML public void handleFinishGameButton(ActionEvent event){
 
-    }
 
     @FXML
     private void setMouseEffect() {
@@ -320,23 +308,13 @@ public class MainController implements IEventHandler{
                 backToStartButton.setEffect(null);
             }
         });
+
+
+
     }
 
 
 
 
 
-    @Override
-    public void onEvent(Event evt) {
-        if (evt.getTag() == Event.Tag.PLAYER_WON) {
-            System.out.println("NÅGON HAR VUNNIT");
-            
-
-        }
-    }
-
-
-    private void initEvent() {
-        EventBus.BUS.register(this);
-    }
 }

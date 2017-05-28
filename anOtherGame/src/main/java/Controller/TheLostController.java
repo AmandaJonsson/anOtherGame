@@ -15,19 +15,26 @@ import View.SpaceView;
 import event.Event;
 import event.EventBus;
 import event.IEventHandler;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.*;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
 
@@ -49,6 +56,13 @@ public class TheLostController implements IEventHandler {
     private Label alternativeText;
     @FXML
     public Label playersTurnLabel = new Label();
+
+    @FXML private Label playerWonLabel= new Label();
+    @FXML private Button finishGameButton = new Button();
+    @FXML private Button playAgainButton = new Button();
+    @FXML private Stage gameOverStage = new Stage();
+
+
 
     Image cat = new Image("cat.png");
 
@@ -306,19 +320,60 @@ public class TheLostController implements IEventHandler {
         lostKitten.moveByTram();
     }
 
-    @FXML protected void handleNextPlayerButton(ActionEvent event) throws IOException{
+    @FXML public void handlePlayerAgainButton(ActionEvent event) throws IOException {
 
-        updatePlayerTurn();
-        setPlayersTurnLabel(lostKitten.getActivePlayer().getName());
-        alternativeText.setText(" ");
-        turnMarkerButton.setDisable(false);
-        payButton.setDisable(true);
-        diceButton.setDisable(true);
-        bicycleButton.setDisable(false);
-        if(checkIfAbleToGoByTram() && !checkIfEnoughMoneyForTram()){
-            tramButton.setDisable(false);
+        Window window = mapView.getScene().getWindow();
+        if (window instanceof Stage){
+            ((Stage) window).close();
         }
-        //disableTurnMarkerButton();
+
+        Window window2 = playAgainButton.getScene().getWindow();
+        if (window2 instanceof Stage){
+            ((Stage) window2).close();
+        }
+
+        Stage newStage = new Stage();
+        newStage.setTitle("The Lost Kitten");
+        FXMLLoader loader = new FXMLLoader();
+        newStage.setScene(new Scene(loader.load(getClass().getResource("/start.fxml"))));
+        newStage.show();
+        newStage.setResizable(false);
+
+
+
+    }
+
+    @FXML public void handleFinishGameButton(ActionEvent event){
+        System.exit(0);
+    }
+
+    @FXML protected void handleNextPlayerButton(ActionEvent event) throws IOException{
+        if(checkGameOver()) {
+            FXMLLoader loader = new FXMLLoader();
+
+            Pane gameOverPane = (Pane) loader.load(getClass().getResource("/gameOverPane.fxml"));
+            playerWonLabel = (Label)gameOverPane.lookup("#playerWonLabel");
+            finishGameButton = (Button)gameOverPane.lookup("#finishGameButton");
+            playAgainButton = (Button)gameOverPane.lookup("#playAgainButton");
+            playerWonLabel.setText("Spelare " + lostKitten.getActivePlayer().getName() + " vann!");
+            Scene gameOverScene = new Scene(gameOverPane);
+            gameOverStage.setScene(gameOverScene);
+            gameOverStage.show();
+
+
+        }else {
+            updatePlayerTurn();
+            setPlayersTurnLabel(lostKitten.getActivePlayer().getName());
+            alternativeText.setText(" ");
+            turnMarkerButton.setDisable(false);
+            payButton.setDisable(true);
+            diceButton.setDisable(true);
+            bicycleButton.setDisable(false);
+            if (checkIfAbleToGoByTram() && !checkIfEnoughMoneyForTram()) {
+                tramButton.setDisable(false);
+            }
+            //disableTurnMarkerButton();
+        }
     }
 
     public void disableTurnMarkerButton(){
@@ -370,6 +425,18 @@ public class TheLostController implements IEventHandler {
         return winningPlayer;
     }
 
+    private boolean checkGameOver(){
+        if((lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(0))
+                ||(lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(1))) {
+            if (lostKitten.getSomeoneFoundCat()) {
+                if (lostKitten.getActivePlayer().hasTramCard() || lostKitten.getActivePlayer().hasCat()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     @Override
     public void onEvent(Event evt) {
         if (evt.getTag() == Event.Tag.PLAYER_BALANCE) {
@@ -378,20 +445,6 @@ public class TheLostController implements IEventHandler {
                     listOfPlayerPanes.get(i).budgetLabel.setText("Pengar: " + lostKitten.getActivePlayer().getBalance() + " kr");
                 }
             }
-        }
-
-        else if(evt.getTag() == Event.Tag.PLAYER_POSITION){
-            if((lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(0))
-                    ||(lostKitten.getActivePlayer().getPosition() == lostKitten.getMap().getStartPositions().get(1))){
-                if(lostKitten.getSomeoneFoundCat() == true){
-                    if(lostKitten.getActivePlayer().hasTramCard()||lostKitten.getActivePlayer().hasCat()) {
-                        System.out.print("SPELET ÄR ÖVER HAHAHAHA");
-                        //     EventBus.BUS.publish(new Event(Event.Tag.PLAYER_WON, this));
-                    }
-
-                }
-            }
-
         }
 
         else if(evt.getTag() == Event.Tag.PLAYER_CAT){

@@ -1,6 +1,6 @@
 /**
  * @author Maja
- * Revised by: *name*
+ * Revised by: Everybody
  * Responsibility: Handles the start view.
  * Used by: TheLostController
  * Uses: FXML-files: TheLostPane, RulesPane,

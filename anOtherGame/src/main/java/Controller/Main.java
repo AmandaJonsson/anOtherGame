@@ -9,7 +9,7 @@ import java.io.IOException;
 
 /**
  * @author Maja
- * Revised by: *name*
+ * Revised by: Everybody
  * Responsibility: Starts the game by loading the start view.
  * Used by:
  * Uses: FXML-files: start and TheLostPane

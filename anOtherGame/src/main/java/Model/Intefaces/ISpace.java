@@ -1,6 +1,6 @@
 /**
  * @author Maja
- * Revised by: *name*
+ * Revised by: Everybody
  * Responsibility: Interface to the Space class.
  * Used by: Map, IMap, ITheLostKitten
  * Uses:

@@ -1,7 +1,7 @@
 
 /**
  * @author Maja
- * Revised by: *name*
+ * Revised by: Everybody
  * Responsibility: Handles one player pane.
  * Used by: TheLostController
  * Uses: FXML-files: PlayerPane

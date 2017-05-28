@@ -1,6 +1,6 @@
 /**
  * @author Maja
- * Revised by: *name*
+ * Revised by: Everybody
  * Responsibility: Interface to the Dice class.
  * Used by: Dice, TheLostKitten
  * Uses:

@@ -3,7 +3,7 @@
 
 /**
  * @author Allex, Miranda
- * Revised by: *name*
+ * Revised by: Everybody
  * Responsibility: Paint the map view
  * Used by:
  * Uses: IMap, ITheLostKitten, IPlayer, Station, Path

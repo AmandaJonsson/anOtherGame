@@ -1,6 +1,6 @@
 /**
  * @author Maja
- * Revised by: *name*
+ * Revised by: Everybody
  * Responsibility: Interface to the Player class.
  * Used by: ITheLostKitten, TheLostKitten, MainController
  * Uses: ISpace

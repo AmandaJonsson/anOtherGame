@@ -1,7 +1,7 @@
 
 /**
  * @author Allex
- * Revised by: *name*
+ * Revised by: Everybody
  * Responsibility: The controller to the Map.
  * Used by:
  * Uses: IMap, Mapview

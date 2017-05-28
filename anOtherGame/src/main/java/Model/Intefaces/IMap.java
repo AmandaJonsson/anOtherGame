@@ -1,7 +1,7 @@
 
 /**
  * @author Maja
- * Revised by: *name*
+ * Revised by: Everybody
  * Responsibility: Interface to Map
  * Used by: TheLostKitten, ITheLostKitten, IMap
  * Uses: ISpace, IStation

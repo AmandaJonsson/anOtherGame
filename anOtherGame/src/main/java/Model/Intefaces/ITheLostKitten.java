@@ -1,7 +1,7 @@
 
 /**
  * @author: Maja
- * Revised by: *name*
+ * Revised by: Everybody
  * Responsibility: Interface to TheLostKitten
  * Used by: MainController
  * Uses: IPlayer, IDice, IMap

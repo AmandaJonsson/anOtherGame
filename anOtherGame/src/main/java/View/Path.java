@@ -1,6 +1,6 @@
 /**
  * @author Allex
- * Revised by: *name*
+ * Revised by: Everybody
  * Responsibility: The visulization of the path.
  * Used by: MapView
  * Uses:

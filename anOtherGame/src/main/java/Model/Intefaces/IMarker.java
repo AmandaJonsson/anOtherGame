@@ -1,6 +1,6 @@
 /**
  * @author Maja
- * Revised by: *name*
+ * Revised by: Everybody
  * Responsibility: Interface to the Marker class.
  * Used by: Map, MoneyMarker, OtherMarker, Space, Station
  * Uses:

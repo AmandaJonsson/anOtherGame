@@ -1,6 +1,6 @@
 /**
- * @author Amanda
- * Revised by: *name*
+ * @author Amanda, Maja
+ * Revised by: Everybody
  * Responsibility: Handles the actions on the view and update labels etc.
  * Used by:
  * Uses: IDice, ITheLostKitten,

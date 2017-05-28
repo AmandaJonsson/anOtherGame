@@ -1,6 +1,6 @@
 /**
  * @author Allex
- * Revised by: *name*
+ * Revised by: Everybody
  * Responsibility: View for the spaces.
  * Used by: MapView
  * Uses: Ispace, IStation

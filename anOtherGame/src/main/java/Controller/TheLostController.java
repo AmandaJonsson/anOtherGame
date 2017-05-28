@@ -271,10 +271,7 @@ public class TheLostController implements IEventHandler {
         alternativeText.setText("Välj vilken väg du vill åka genom att trycka \n på den positionen");
         bicycleButton.setDisable(true);
         tramButton.setDisable(true);
-        turnMarkerButton.setDisable(true);
-        payButton.setDisable(true);
-        diceButton.setDisable(true);
-            //turnMarkerButton.setDisable(true);
+        //turnMarkerButton.setDisable(true);
         //payButton.setDisable(true);
         //diceButton.setDisable(true);
         lostKitten.moveByBike();

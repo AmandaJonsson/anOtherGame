@@ -72,6 +72,11 @@ public class MockMap implements IMap {
         return spaces;
     }
 
+    @Override
+    public List<IStation> getStations() {
+        return null;
+    }
+
     public void addMarkers(double noTopaz, double noEmerald, double nOfRubys, double nOfBlanks, List<IStation> stations) {
 
         ArrayList<Marker> listOfMarkers = new ArrayList<>(stations.size());

@@ -1,7 +1,12 @@
 # anOtherGame
 Ett java projekt, TDA367.
 Den försvunna diamanten, Utspelat i Göteborg.
-Amanda Jonsson, Miranda Bånnsgård, Maja Nyberg, Allex Nordgren
+
+
+Amanda Jonsson      AmandaJonsson
+Miranda Bånnsgård   Dumlis
+Maja Nyberg         marnybe 
+Allex Nordgren      AllexNordgren
 
 
 

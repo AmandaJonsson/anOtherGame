@@ -169,17 +169,9 @@ public class TheLostKitten implements ITheLostKitten{
     @Override
     public List<IStation> moveByTram(){
         List<IStation> listOfPotentialStations = new ArrayList<IStation>();
-        if(!(getActivePlayer().getPosition() instanceof IStation)){
-            System.out.println("Du kan bara åka spårvagn ifrån en station din tratt!");
-        }else{
-            if(getActivePlayer().getBalance() < 3000){
-                System.out.println("Spelare: " + getActivePlayer().toString() + " har inte råd att åka spårvagn");
-            }else{
-                getActivePlayer().decreaseBalance(3000);
-                FindPath pathfinder = new FindPath();
-                listOfPotentialStations = pathfinder.findPotentialStations((IStation) getActivePlayer().getPosition());
-                }
-            }
+        getActivePlayer().decreaseBalance(3000);
+        FindPath pathfinder = new FindPath();
+        listOfPotentialStations = pathfinder.findPotentialStations((IStation) getActivePlayer().getPosition());
         return listOfPotentialStations;
     }
 

@@ -10,6 +10,7 @@ package Model;
 
 import Mocks.MockMap;
 import Model.Intefaces.IMap;
+import Model.Intefaces.ISpace;
 import Model.Intefaces.IStation;
 import org.junit.Test;
 
@@ -19,7 +20,7 @@ import static org.junit.Assert.*;
 
 
 public class FindPathTest {
-    
+
     @Test
     public void findPotentialStations() throws Exception {
         IMap map1 = new MockMap();
@@ -40,8 +41,48 @@ public class FindPathTest {
 
     @Test
     public void findPotentialSpaces() throws Exception {
+        IMap map2 = new MockMap();
 
+        FindPath findPath4 = new FindPath();
+        List<ISpace> listOfPotentialSpaces1 = findPath4.findPotentialSpaces(1, map2.getSpaces().get(0));
+        assertTrue(listOfPotentialSpaces1.get(0).compareSpaces(map2.getSpaces().get(1)));
 
+        FindPath findPath5 = new FindPath();
+        List<ISpace> listOfPotentialSpaces2 = findPath5.findPotentialSpaces(2, map2.getSpaces().get(0));
+        assertTrue(listOfPotentialSpaces2.get(0).compareSpaces(map2.getSpaces().get(2)));
+
+        FindPath findPath6 = new FindPath();
+        List<ISpace> listOfPotentialSpaces3 = findPath6.findPotentialSpaces(3, map2.getSpaces().get(0));
+        assertTrue(listOfPotentialSpaces3.get(0).compareSpaces(map2.getSpaces().get(3)));
+
+        FindPath findPath7 = new FindPath();
+        List<ISpace> listOfPotentialSpaces4 = findPath7.findPotentialSpaces(4, map2.getSpaces().get(0));
+        assertTrue(listOfPotentialSpaces4.get(0).compareSpaces(map2.getSpaces().get(4)));
+        assertTrue(listOfPotentialSpaces4.get(1).compareSpaces(map2.getSpaces().get(6)));
+        assertTrue(listOfPotentialSpaces4.get(2).compareSpaces(map2.getSpaces().get(3)));
+
+        FindPath findPath8 = new FindPath();
+        List<ISpace> listOfPotentialSpaces5 = findPath8.findPotentialSpaces(5, map2.getSpaces().get(0));
+        assertTrue(listOfPotentialSpaces5.get(0).compareSpaces(map2.getSpaces().get(5)));
+        assertTrue(listOfPotentialSpaces5.get(1).compareSpaces(map2.getSpaces().get(7)));
+        assertTrue(listOfPotentialSpaces5.get(2).compareSpaces(map2.getSpaces().get(3)));
+
+        FindPath findPath9 = new FindPath();
+        List<ISpace> listOfPotentialSpaces6 = findPath9.findPotentialSpaces(6, map2.getSpaces().get(0));
+        assertTrue(listOfPotentialSpaces6.get(0).compareSpaces(map2.getSpaces().get(9)));
+        assertTrue(listOfPotentialSpaces6.get(1).compareSpaces(map2.getSpaces().get(8)));
+        assertTrue(listOfPotentialSpaces6.get(2).compareSpaces(map2.getSpaces().get(3)));
+
+        FindPath findPath10 = new FindPath();
+        List<ISpace> listOfPotentialSpaces7 = findPath10.findPotentialSpaces(2, map2.getSpaces().get(9));
+        assertTrue(listOfPotentialSpaces7.get(0).compareSpaces(map2.getSpaces().get(4)));
+
+        FindPath findPath11 = new FindPath();
+        List<ISpace> listOfPotentialSpaces8 = findPath11.findPotentialSpaces(3, map2.getSpaces().get(5));
+        assertTrue(listOfPotentialSpaces8.get(0).compareSpaces(map2.getSpaces().get(2)));
+        assertTrue(listOfPotentialSpaces8.get(1).compareSpaces(map2.getSpaces().get(6)));
+        assertTrue(listOfPotentialSpaces8.get(2).compareSpaces(map2.getSpaces().get(9)));
+        assertTrue(listOfPotentialSpaces8.get(3).compareSpaces(map2.getSpaces().get(3)));
     }
 
     @Test

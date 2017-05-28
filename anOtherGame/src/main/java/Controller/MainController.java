@@ -118,9 +118,6 @@ public class MainController implements IEventHandler{
         newController = new TheLostController(newGame, newGame.getDice(), listOfPlayerPanes,mapView);
 
 
-        gameOverPane = FXMLLoader.load(getClass().getResource("/gameOverPane.fxml"));
-
-
     }
 
     private void addPlayers() throws IOException {
@@ -329,6 +326,7 @@ public class MainController implements IEventHandler{
     public void onEvent(Event evt) {
         if (evt.getTag() == Event.Tag.PLAYER_WON) {
             System.out.println("NÅGON HAR VUNNIT");
+            
 
         }
     }

@@ -328,38 +328,11 @@ public class MainController implements IEventHandler{
     @Override
     public void onEvent(Event evt) {
         if (evt.getTag() == Event.Tag.PLAYER_WON) {
-                System.out.println("NÅGON HAR VUNNIT");
-
-            playAgainButton = (Button)gameOverPane.lookup("#playAgainButton");
-            finishGameButton = (Button)gameOverPane.lookup("#finishGameButton");
-            playerWonLabel = (Label)gameOverPane.lookup("#playerWonLabel");
-
-
-            /*
-            * if (window.getScene() == null) {
-    Scene scene = new Scene(window);
-    stage.setScene(scene);
-} else {
-    stage.setScene(window.getScene());
-}
-            * */
-            if(gameOverPane.getScene() == null){
-                Scene scene = new Scene (gameOverPane);
-                stage.setScene(scene);
-            }else{
-                stage.setScene(gameOverPane.getScene());
-            }
-
-
-            Scene scene = new Scene(gameOverPane);
-            endStage.setScene(scene);
-            endStage.getScene().getRoot().setEffect(shadow);
-            endStage.getScene().setFill(Color.TRANSPARENT);
-            endStage.show();
-
+            System.out.println("NÅGON HAR VUNNIT");
 
         }
     }
+
 
     private void initEvent() {
         EventBus.BUS.register(this);

@@ -220,6 +220,7 @@ public class TheLostController implements IEventHandler{
                     //mark.setMarkerToTurned();
 
                 }
+
             }
         }
         System.out.println(lostKitten.getActivePlayer().getPosition());

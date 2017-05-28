@@ -330,9 +330,9 @@ public class MainController implements IEventHandler{
         if (evt.getTag() == Event.Tag.PLAYER_WON) {
                 System.out.println("NÅGON HAR VUNNIT");
 
-            playAgainButton = (Button)gameOverPane.lookup("#playAgainButton");
+         /*   playAgainButton = (Button)gameOverPane.lookup("#playAgainButton");
             finishGameButton = (Button)gameOverPane.lookup("#finishGameButton");
-            playerWonLabel = (Label)gameOverPane.lookup("#playerWonLabel");
+            playerWonLabel = (Label)gameOverPane.lookup("#playerWonLabel");*/
 
 
             /*
@@ -343,7 +343,7 @@ public class MainController implements IEventHandler{
     stage.setScene(window.getScene());
 }
             * */
-            if(gameOverPane.getScene() == null){
+        /*    if(gameOverPane.getScene() == null){
                 Scene scene = new Scene (gameOverPane);
                 stage.setScene(scene);
             }else{
@@ -357,7 +357,7 @@ public class MainController implements IEventHandler{
             endStage.getScene().setFill(Color.TRANSPARENT);
             endStage.show();
 
-
+*/
         }
     }
 

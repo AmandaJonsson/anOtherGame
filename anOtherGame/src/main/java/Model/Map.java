@@ -211,7 +211,7 @@ public class Map implements IMap {
 
         ISpace space2 = new Space(58,83);
         spaces.add(space2);
-        ISpace space3 = new Space(62,83);
+        ISpace space3 = new Space(62,84);
         spaces.add(space3);
 
         sahlgrenska.addAdjacentSpace(space2);
@@ -223,7 +223,26 @@ public class Map implements IMap {
         space3.addAdjacentSpace(guldheden);
         guldheden.addAdjacentSpace(space3);
 
+        ISpace space4 = new Space(50,15);
+        spaces.add(space4);
+        space4.addAdjacentSpace(hjbrantings);
+        space4.addAdjacentSpace(frihamnen);
+        hjbrantings.addAdjacentSpace(space4);
+        frihamnen.addAdjacentSpace(space4);
 
+        ISpace space5 = new Space(49,81);
+        spaces.add(space5);
+        space5.addAdjacentSpace(botaniska);
+        space5.addAdjacentSpace(sahlgrenska);
+        botaniska.addAdjacentSpace(space5);
+        sahlgrenska.addAdjacentSpace(space5);
+
+        ISpace space6 = new Space(9,69);
+        spaces.add(space6);
+        space6.addAdjacentSpace(klippan);
+        space6.addAdjacentSpace(ostindiegatan);
+        klippan.addAdjacentSpace(space6);
+        ostindiegatan.addAdjacentSpace(space6);
 
 
         //Start space.

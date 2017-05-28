@@ -36,7 +36,7 @@ public class Map implements IMap {
         stations.add(chLindholmen);
         IStation masthuggskykan = new Station( "Masthuggskykan", 31, 57);
         stations.add(masthuggskykan);
-        IStation lindholmen = new Station( "Lindholmen", 34, 41);
+        IStation lindholmen = new Station( "Lindholmen", 34, 45);
         stations.add(lindholmen);
         IStation slottsberget = new Station( "Slottsberget", 23, 45);
         stations.add(slottsberget);
@@ -243,6 +243,42 @@ public class Map implements IMap {
         space6.addAdjacentSpace(ostindiegatan);
         klippan.addAdjacentSpace(space6);
         ostindiegatan.addAdjacentSpace(space6);
+
+        ISpace space7 = new Space(55,39);
+        spaces.add(space7);
+        space7.addAdjacentSpace(stenpiren);
+        space7.addAdjacentSpace(nordstan);
+        stenpiren.addAdjacentSpace(space7);
+        nordstan.addAdjacentSpace(space7);
+
+        ISpace space8 = new Space(58,34);
+        spaces.add(space8);
+        space8.addAdjacentSpace(operan);
+        space8.addAdjacentSpace(nordstan);
+        operan.addAdjacentSpace(space8);
+        nordstan.addAdjacentSpace(space8);
+
+        ISpace space9 = new Space(32,42);
+        spaces.add(space9);
+        space9.addAdjacentSpace(lindholmen);
+        space9.addAdjacentSpace(chLindholmen);
+        lindholmen.addAdjacentSpace(space9);
+        chLindholmen.addAdjacentSpace(space9);
+
+        ISpace space10 = new Space(27,43);
+        spaces.add(space10);
+        space10.addAdjacentSpace(slottsberget);
+        space10.addAdjacentSpace(chLindholmen);
+        slottsberget.addAdjacentSpace(space10);
+        chLindholmen.addAdjacentSpace(space10);
+
+        ISpace space11 = new Space(71,84);
+        spaces.add(space11);
+        space11.addAdjacentSpace(emilsborg);
+        space11.addAdjacentSpace(guldheden);
+        emilsborg.addAdjacentSpace(space11);
+        guldheden.addAdjacentSpace(space11);
+
 
 
         //Start space.

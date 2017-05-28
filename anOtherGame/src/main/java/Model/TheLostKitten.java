@@ -105,7 +105,6 @@ public class TheLostKitten implements ITheLostKitten{
     public void setNewBudget() {
         IMarker mark = ((Station) getActivePlayer().getPosition()).getMarker();
         if (mark instanceof MoneyMarker) {
-            System.out.println(((MoneyMarker) mark).getMarkerType() + " " + mark.getMarkerValue(mark));
             getActivePlayer().updateBudget();
             mark.setMarkerToTurned();
         }
